@@ -8,5 +8,9 @@
       # "editor.fontSize" = 12.0;
       # "workbench.colorTheme" = "Dark High Contrast";
     # };
+    mutableExtensionsDir = false;
+    extensions = with pkgs.vscode-extensions; [
+        jnoortheen.nix-ide
+    ];
   };
 }

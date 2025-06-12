@@ -7,6 +7,8 @@
 # launch floating
 # host/username imports
 # nh os switch
+# cava stylix
+# codium colors
 
 {
   description = "Nixos config flake";
