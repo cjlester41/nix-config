@@ -37,11 +37,11 @@
       dex = "dex -a -s /etc/xdg/autostart/:~/.config/autostart/";
       gammastep = "gammastep";
       gnome-keyring = "gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ssh";
-      idle = "swayidle before-sleep swaylock";
-      libinput-gesture = "libinput-gestures-setup start";
-      nm = "nm-applet --indicator";
-      notifications = "mako";
-      outputs = "kanshi";
+      # idle = "swayidle before-sleep swaylock";
+      # libinput-gesture = "libinput-gestures-setup start";
+      # nm = "nm-applet --indicator";
+      # notifications = "mako";
+      # outputs = "kanshi";
       polkit-gnome = "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1";
       portal = "/usr/libexec/xdg-desktop-portal";
       tracker = "tracker daemon -s";
@@ -60,7 +60,7 @@
       focus_buttons = "BTN_LEFT | BTN_MIDDLE | BTN_RIGHT";
       focus_buttons_passthrough = true;
       max_render_time = -1;
-      plugins = "pixdecor alpha autostart command expo move place resize switcher vswitch window-rules wrot zoom wobbly follow-focus extra-animations animate wf-info filters shortcuts-inhibit ipc-rules cube ipc pin-view simple-tile rounded-corners";
+      plugins = "wm-actions idle pixdecor alpha autostart command expo move place resize switcher vswitch window-rules wrot zoom wobbly follow-focus extra-animations animate wf-info filters shortcuts-inhibit ipc-rules cube ipc pin-view simple-tile rounded-corners";
       preferred_decoration_mode = "server";
       transaction_timeout = 100;
       vheight = 2;
@@ -215,7 +215,7 @@
       disable_initially = false;
       disable_on_fullscreen = true;
       dpms_timeout = -1;
-      screensaver_timeout = 3600;
+      screensaver_timeout = 360;
       toggle = "none";
     };
 
@@ -486,7 +486,7 @@
       minimize = "none";
       send_to_back = "none";
       toggle_always_on_top = "none";
-      toggle_fullscreen = "none";
+      toggle_fullscreen = "<super> KEY_F";
       toggle_maximize = "none";
       toggle_showdesktop = "none";
       toggle_sticky = "none";

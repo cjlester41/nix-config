@@ -1,4 +1,13 @@
 # sudo nixos-rebuild switch --flake .#gaming --show-trace  
+#TODO:
+# borders
+# swaync?
+# network icon
+# tty fonts
+# launch floating
+# host/username imports
+# nh os switch
+
 {
   description = "Nixos config flake";
 
