@@ -9,6 +9,10 @@
 # nh os switch
 # cava stylix
 # codium colors
+# mouse switching
+# import wf plugins
+# workspace launch
+# firefox stylix
 
 {
   description = "Nixos config flake";

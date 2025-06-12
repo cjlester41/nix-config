@@ -60,7 +60,7 @@
       focus_buttons = "BTN_LEFT | BTN_MIDDLE | BTN_RIGHT";
       focus_buttons_passthrough = true;
       max_render_time = -1;
-      plugins = "wm-actions idle pixdecor alpha autostart command expo move place resize switcher vswitch window-rules wrot zoom wobbly follow-focus extra-animations animate wf-info filters shortcuts-inhibit ipc-rules cube ipc pin-view simple-tile rounded-corners";
+      plugins = "wm-actions idle alpha autostart command expo move place resize switcher vswitch window-rules wrot zoom wobbly follow-focus extra-animations animate wf-info filters shortcuts-inhibit ipc-rules cube ipc pin-view simple-tile";
       preferred_decoration_mode = "server";
       transaction_timeout = 100;
       vheight = 2;

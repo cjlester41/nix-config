@@ -1,5 +1,5 @@
 { config, ... }:
-
+with config.lib.stylix.colors.withHashtag;
 {  
   wayland.windowManager.wayfire.settings = {
 
@@ -47,13 +47,13 @@
     };
 
     decoration = {
-      # active_color = "#222222AA";
-      border_size = 12;
+      active_color = "#1d1f21ff";
+      border_size = 2;
       button_order = "minimize maximize close";
       # font = "Fira Sans";
       forced_views = "none";
       ignore_views = "none";
-      # inactive_color = "#333333DD";
+      inactive_color = "#39ea49ff";
       title_height = 0;
     };
 
@@ -67,38 +67,67 @@
       vortex_duration = "1000ms linear";
     };
 
+    # firedecor = {
+    #   font = "sans-serif";
+    #   font_size = 21;
+    #   active_font = "#1d1f21ff";
+    #   inactive_font = "#1d1f21ff";
+    #   border_size = "35 10"; # Represented as a string since it's two values
+    #   active_border = "#1d1f21e6";
+    #   inactive_border = "#1d1f21e6";
+    #   corner_radius = 15;
+    #   outline_size = 0;
+    #   active_outline = "#000000ff";
+    #   inactive_outline = "#000000ff";
+    #   button_size = 18;
+    #   button_style = "simple";
+    #   normal_min = "#c89e2bff";
+    #   hovered_min = "#fac636ff";
+    #   normal_max = "#2ebb3aff";
+    #   hovered_max = "#39ea49ff";
+    #   normal_close = "#c24045ff";
+    #   hovered_close = "#f25056ff";
+    #   inactive_buttons = false;
+    #   icon_size = 20;
+    #   icon_theme = "hicolor";
+    #   active_accent = "#f5f5f5ff";
+    #   inactive_accent = "#e1dfe1ff";
+    #   layout = "a | icon P4 title | minimize p maximize p close p Atrtl"; # Keep as string
+    #   padding_size = 8; # Assuming this corresponds to "-padding_size"
+    #   ignore_views = "none";
+    #   debug_mode = false;
+    #   # round_on = "all";
+    # };
     firedecor = {
-      #outline_size = 14;
-      #corner_radius = 14;
-      #layout = "| a P15 icon p title P15 A\/ |";
       font = "sans-serif";
-      fontSize = 21;
-      activeFont = "#1d1f21ff";
-      inactiveFont = "#1d1f21ff";
-      borderSize = "35 10"; # Represented as a string since it's two values
-      activeBorder = "#1d1f21e6";
-      inactiveBorder = "#1d1f21e6";
-      cornerRadius = 15;
-      outlineSize = 0;
-      activeOutline = "#000000ff";
-      inactiveOutline = "#000000ff";
-      buttonSize = 18;
-      buttonStyle = "simple";
-      normalMin = "#c89e2bff";
-      hoveredMin = "#fac636ff";
-      normalMax = "#2ebb3aff";
-      hoveredMax = "#39ea49ff";
-      normalClose = "#c24045ff";
-      hoveredClose = "#f25056ff";
-      inactiveButtons = false;
-      iconSize = 20;
-      iconTheme = "hicolor";
-      activeAccent = "#f5f5f5ff";
-      inactiveAccent = "#e1dfe1ff";
-      layout = "a | icon P4 title | minimize p maximize p close p Atrtl"; # Keep as string
-      paddingSize = 8; # Assuming this corresponds to "-padding_size"
-      ignoreViews = "none";
-      debugMode = false;
+      # font_size = 21;
+      # active_font = "#1d1f21ff";
+      # inactive_font = "#1d1f21ff";
+      border_size = "35 0"; # Represented as a string since it's two values
+      active_border = "#1d1f21e6";
+      inactive_border = "#1d1f21e6";
+      # corner_radius = 15;
+      # outline_size = 0;
+      active_title = "#000000ff";
+      inactive_title = "#000000ff";
+      # button_size = 18;
+      # button_style = "simple";
+      # normal_min = "#c89e2bff";
+      # hovered_min = "#fac636ff";
+      # normal_max = "#2ebb3aff";
+      # hovered_max = "#39ea49ff";
+      # normal_close = "#c24045ff";
+      # hovered_close = "#f25056ff";
+      # inactive_buttons = false;
+      # icon_size = 20;
+      # icon_theme = "hicolor";
+      active_accent = "#f5f5f5ff";
+      inactive_accent = "#e1dfe1ff";
+      # layout = "a | icon P4 title | minimize p maximize p close p Atrtl"; # Keep as string
+      # padding_size = 8; # Assuming this corresponds to "-padding_size"
+      ignore_views = "none";
+      # debug_mode = false;
+      round_on = "tr tl";
     };
 
     pixdecor = {
@@ -141,23 +170,23 @@
     };
 
     windecor = {
-      active_color = "#222222AA";
+      active_color = "#3CB371AA";
       attn_color = "#3CB371AA";
-      border_color = "#87CEEBFF";
-      border_size = 3;
-      button_always_colored = false;
+      border_color = "#3CB371AA";
+      border_size = 8;
+      button_always_colored = true;
       button_order = "minimize maximize close";
-      close_color = "#CC000077";
+      close_color = "#3CB371AA";
       dynamic_border_color = true;
       font = "sans-serif";
-      font_color = "#FFFFFFFF";
+      font_color = "#3CB371AA";
       font_size = 18;
       icon_theme = "breeze";
       ignore_views = "none";
-      inactive_color = "#333333DD";
-      maximize_color = "#09FF0077";
-      minimize_color = "#EDD40077";
-      sticky_color = "#1C71D877";
+      inactive_color = "#3CB371AA";
+      maximize_color = "#3CB371AA";
+      minimize_color = "#3CB371AA";
+      sticky_color = "#3CB371AA";
       title_align = 0;
       title_height = 0;
       title_position = 0;
