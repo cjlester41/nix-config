@@ -30,7 +30,7 @@
       autostart1 = "kitty --hold zsh -c \"fastfetch\"";
       autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
       autostart3 = "waybar"; # "sleep 1 && python /home/cjlester/GLWall/pin-view.py 5 \"background\" true";
-      autostart4 = "codium";
+      autostart4 = "code";
       autostart_wf_shell = false;
       clipman-restore = "clipman restore";
       clipman-store = "wl-paste -t text --watch clipman store";

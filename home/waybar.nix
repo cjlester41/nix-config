@@ -189,15 +189,15 @@ in
           };
         }
       ];
-      style = concatStrings [
+      style = concatStrings [ # JetBrainsMono Nerd Font Mono;
         ''
           * {
-            font-family: JetBrainsMono Nerd Font Mono;
-            font-size: 14px; 
+            font-family: JetBrains Mono; 
+            font-size: 11px; 
             border-radius: 0px;
             border: none;
             min-height: 0px;
-            opacity: 0.97;
+            opacity: 1.0;
           }
           window#waybar {
             background: #${config.lib.stylix.colors.base00};
