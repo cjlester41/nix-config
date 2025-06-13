@@ -38,8 +38,8 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/gaming/configuration.nix
           chaotic.nixosModules.default
+          ./hosts/gaming/configuration.nix
         ];
       };
 
@@ -47,8 +47,9 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/work/configuration.nix
           chaotic.nixosModules.default
+          ./hosts/work
+          ./gpu/intel.nix
         ];
       };
 
@@ -56,8 +57,8 @@
         system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/laptop/configuration.nix
           chaotic.nixosModules.default
+          ./hosts/laptop/configuration.nix
         ];
       };
     };

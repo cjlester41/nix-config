@@ -3,7 +3,7 @@
   programs.vscode.profiles.default = {
     keybindings = [
       {
-        key = "ctrl+shift+z";
+        key = "ctrl+/";
         command = "editor.action.commentLine";
         when = "editorTextFocus && !editorReadonly";
       }

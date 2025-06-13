@@ -1,6 +1,12 @@
 { config, ... }:
+
 with config.lib.stylix.colors.withHashtag;
+
 {  
+  stylix.targets = {
+    wayfire.enable = false;
+  };
+
   wayland.windowManager.wayfire.settings = {
 
     animate = {

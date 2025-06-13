@@ -13,7 +13,7 @@ security.rtkit.enable = true;
     #   defaultSession = "plasma";
     # };
     printing.enable = false;
-    blueman.enable = false;
+    blueman.enable = true;
 
     # xserver.videoDrivers = [ "nvidia" ];
 

@@ -3,7 +3,11 @@
 with config.lib.stylix.colors.withHashtag;
 
 {
- programs.vscode.userSettings = {
+  stylix.targets = {
+    wayfire.enable = false;
+  };
+
+  programs.vscode.userSettings = {
     "workbench.colorCustomizations" = {
 
       "editorGroup.border" = base0C;

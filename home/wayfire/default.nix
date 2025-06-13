@@ -7,11 +7,7 @@
       wayfire-plugins-extra
       windecor
     ];
-  };
-
-  stylix.targets = {
-    wayfire.enable = false;
-  };
+  };  
 
   imports = [
     ./config.nix
