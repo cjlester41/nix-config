@@ -4,7 +4,7 @@ with config.lib.stylix.colors.withHashtag;
 
 {
   stylix.targets = {
-    wayfire.enable = false;
+    vscode.enable = false;
   };
 
   programs.vscode.userSettings = {

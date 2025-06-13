@@ -51,11 +51,11 @@ environment.systemPackages = with pkgs; [
 
     git = {
       enable = true;
-      # userName = "cjlester41";
-      # userEmail = "cjlester@outlook.com";
-      # extraConfig = {
-      #   init.defaultBranch = "main";
-      # };
+      config = {
+        user.name = "cjlester41";
+        user.email = "cjlester@outlook.com";
+        init.defaultBranch = "main";
+      };
     };
 
     nh = {
