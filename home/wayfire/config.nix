@@ -249,7 +249,7 @@
       touchpad_scroll_speed = 1.0;
       xkb_layout = "us";
       xkb_model = "";
-      xkb_options = "grp:caps_toggle,grp_led:caps,ctrl:rctrl_ralt";
+      #xkb_options = "grp:caps_toggle,grp_led:caps,ctrl:rctrl_ralt";
       xkb_rules = "evdev";
       xkb_variant = "";
     };

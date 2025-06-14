@@ -37,7 +37,8 @@ environment.systemPackages = with pkgs; [
 
     firefox.enable = true;
     zsh.enable = true;
-    dconf.enable = true;
+    # dconf.enable = true;
+    nix-ld.enable = true;
 
     yazi = {
       enable = true;

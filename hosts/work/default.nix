@@ -24,7 +24,13 @@
 
   system.stateVersion = "24.11";
   time.timeZone = "America/Vancouver";
-  i18n.defaultLocale = "en_CA.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    # keyMap = "us";
+    useXkbConfig = true; # use xkb.options in tty.
+  };
+  
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
