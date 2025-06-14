@@ -16,9 +16,9 @@ security.rtkit.enable = true;
     printing.enable = false;
     blueman.enable = false;
 
-    xserver.videoDrivers = [ "nvidia" ];
+    
 
-    ssh-agent.enable = true;
+    # ssh-agent.enable = true;
   
     ananicy.enable = true;
     ananicy.package = pkgs.ananicy-cpp;

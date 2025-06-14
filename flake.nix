@@ -39,7 +39,8 @@
         specialArgs = {inherit inputs;};
         modules = [
           chaotic.nixosModules.default
-          ./hosts/gaming/configuration.nix
+          ./hosts/gaming
+          ./gpu/nvidia.nix
         ];
       };
 
@@ -58,7 +59,8 @@
         specialArgs = {inherit inputs;};
         modules = [
           chaotic.nixosModules.default
-          ./hosts/laptop/configuration.nix
+          ./hosts/laptop
+          ./gpu/amd.nix    
         ];
       };
     };

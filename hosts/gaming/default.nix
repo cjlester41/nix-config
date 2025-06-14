@@ -50,8 +50,8 @@
   #   };
 
   systemd.targets = {
-    sleep.enable = false;
-    suspend.enable = false;
+    sleep.enable = true;
+    suspend.enable = true;
     hibernate.enable = false;
     hybrid-sleep.enable = false;
   };
@@ -74,20 +74,20 @@
   nixpkgs.config.allowUnfree = true;
 
   powerManagement.cpuFreqGovernor = "performance";
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true;
-  hardware.cpu.amd.updateMicrocode = true;
-  hardware.nvidia-container-toolkit.enable = true;
-  hardware.enableAllFirmware = true;
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  #hardware.graphics.enable = true;
+  #hardware.graphics.enable32Bit = true;
+  #hardware.cpu.amd.updateMicrocode = true;
+  #hardware.nvidia-container-toolkit.enable = true;
+  #hardware.enableAllFirmware = true;
+  #hardware.nvidia = {
+  #  modesetting.enable = true;
+  #  powerManagement.enable = true;
+  #  powerManagement.finegrained = false;
+  #  open = false;
+  #  nvidiaSettings = true;
+  #  package = config.boot.kernelPackages.nvidiaPackages.stable;
     #nvidiaPersistenced = true;
     #forceFullCompositionPipeline = true;
-  };
+  #};
 
 }
