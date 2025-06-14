@@ -24,5 +24,5 @@
         #forceFullCompositionPipeline = true;
     };
 
-    xserver.videoDrivers = [ "nvidia" ];
+    services.xserver.videoDrivers = [ "nvidia" ];
 }
