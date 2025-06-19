@@ -22,6 +22,7 @@ environment.systemPackages = with pkgs; [
     zoxide
     rofi
     unzip
+    blueman
     # swaync
 
     #Coding Stuff

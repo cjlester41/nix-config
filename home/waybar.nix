@@ -16,7 +16,7 @@ in
         {
           layer = "top";
           position = "bottom";
-          modules-center = ["hyprland/workspaces"];
+          # modules-center = ["hyprland/workspaces"];
           modules-left = [
             "custom/startmenu"
             "custom/arrow6"
@@ -27,7 +27,7 @@ in
             "memory"
             "idle_inhibitor"
             "custom/arrow7"
-            "hyprland/window"
+            # "hyprland/window"
           ];
           modules-right = [
             "custom/arrow4"
@@ -37,7 +37,8 @@ in
             # "custom/arrow3"
             # "custom/exit"
             # "battery"
-            "custom/arrow2"
+            "custom/arrow2"            
+            "network"
             "tray"
             "custom/arrow1"
             "clock"
@@ -61,13 +62,13 @@ in
             tooltip = true;
             tooltip-format = "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>";
           };
-          "wayfire/window" = {
-            max-length = 42;
-            separate-outputs = false;
-            rewrite = {
-              "" = " 🙈 No Windows? ";
-            };
-          };
+          # "wayfire/window" = {
+          #   max-length = 42;
+          #   separate-outputs = false;
+          #   rewrite = {
+          #     "" = " 🙈 No Windows? ";
+          #   };
+          # };
           "memory" = {
             interval = 5;
             format = " {}%";
@@ -91,10 +92,14 @@ in
               "󰤨"
             ];
             format-ethernet = " {bandwidthDownOctets}";
-            format-wifi = "{icon} {signalStrength}%";
+            format-wifi = "{icon}"; #{signalStrength}%";
             format-disconnected = "󰤮";
             tooltip = false;
           };
+          # "bluetooth" = {
+          #   on-click = "blueman &";#"~/.config/waybar/scripts/rofi-bluetooth &";
+          #   format = " {status}";
+          # }; 
           "tray" = {
             spacing = 12;
           };
@@ -132,7 +137,7 @@ in
           };
           "custom/hyprbindings" = {
             tooltip = false;
-            format = "󱕴";
+            format = " 󱕴 ";
             on-click = "sleep 0.1 && list-keybinds";
           };
           "idle_inhibitor" = {
@@ -238,10 +243,17 @@ in
           #custom-startmenu {
             color: #${config.lib.stylix.colors.base00};
             padding: 0px 0px;
-            font-size: 20px;
+            font-size: 14px;
             background: #${config.lib.stylix.colors.base04};
           }
-          #custom-hyprbindings, #network, #battery,
+          #custom-hyprbindings {
+            color: #${config.lib.stylix.colors.base00};
+            background: #${config.lib.stylix.colors.base0A};
+          }
+          #network, #battery {
+            color: #${config.lib.stylix.colors.base00};
+            background: #${config.lib.stylix.colors.base02};
+          }
           #custom-notification {
             background: #${config.lib.stylix.colors.base0A};
             color: #${config.lib.stylix.colors.base00};

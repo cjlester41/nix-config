@@ -29,8 +29,9 @@
       autostart0 = "mpvpaper -vs -o \"no-audio loop\" ALL ~/Downloads/mylivewallpapers.com-Polygon-Mesh.mp4"; #"waypaper --restore"; # "./GLWall/GLWall /home/cjlester/GLWall/rain.glsl /home/cjlester/Pictures/forest2.jpg";
       autostart1 = "kitty --hold zsh -c \"fastfetch\"";
       autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
-      autostart3 = "waybar"; # "sleep 1 && python /home/cjlester/GLWall/pin-view.py 5 \"background\" true";
-      autostart4 = "code";
+      autostart3 = "blueman-applet";
+      autostart4 = "waybar"; # "sleep 1 && python /home/cjlester/GLWall/pin-view.py 5 \"background\" true";
+      autostart5 = "code";      
       autostart_wf_shell = false;
       clipman-restore = "clipman restore";
       clipman-store = "wl-paste -t text --watch clipman store";
@@ -394,13 +395,13 @@
       key_focus_below = "<super> KEY_J";
       key_focus_left = "<super> KEY_H";
       key_focus_right = "<super> KEY_L";
-      key_toggle = "<super> KEY_T";
+      key_toggle = "<super> KEY_SPACE";
       outer_horiz_gap_size = 4;
       outer_vert_gap_size = 4;
       preview_base_border = "#404080CC";
       preview_base_color = "#8080FF80";
       preview_border_width = 2;
-      tile_by_default = "all";
+      tile_by_default = "kitty";
     };
 
     switcher = {
@@ -469,6 +470,7 @@
     window-rules = {
       rule_1 = "on created then set alpha 0.85";
       rule_2 = "on created if app_id = 'kitty' then snap left";
+      rule_3 = "match:app_id=\"firefox\" action:workspace=2";
     };
 
     winzoom = {
