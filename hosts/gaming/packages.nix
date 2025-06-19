@@ -9,7 +9,8 @@ environment.systemPackages = with pkgs; [
     protontricks
     winetricks
 
-    # appimage-run
+    appimage-run
+    vulkan-tools
     # ananicy-cpp
     # ananicy-rules-cachyos   
   ];

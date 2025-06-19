@@ -23,6 +23,9 @@ environment.systemPackages = with pkgs; [
     rofi
     unzip
     blueman
+    gparted
+    # ntfs-3g
+    ntfsprogs
     # swaync
 
     #Coding Stuff
