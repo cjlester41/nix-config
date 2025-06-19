@@ -215,7 +215,7 @@
       disable_initially = false;
       disable_on_fullscreen = true;
       dpms_timeout = -1;
-      screensaver_timeout = 360;
+      screensaver_timeout = 3600;
       toggle = "none";
     };
 
