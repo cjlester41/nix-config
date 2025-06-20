@@ -16,7 +16,7 @@ security.rtkit.enable = true;
     printing.enable = false;
     blueman.enable = false;
 
-    
+    seatd.group = "seat"; ####################
 
     # ssh-agent.enable = true;
   

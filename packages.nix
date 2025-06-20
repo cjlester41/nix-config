@@ -81,7 +81,7 @@ environment.systemPackages = with pkgs; [
           pkgs.libGL
           pkgs.mesa
           pkgs.libffi
-          pkgs.vulkan-loader
+          # pkgs.vulkan-loader
           pkgs.xdg-utils
           pkgs.wayland
         ];

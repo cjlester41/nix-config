@@ -33,6 +33,7 @@
       "video" 
       "kvm" 
       "libvirtd"
+      "seat"
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;

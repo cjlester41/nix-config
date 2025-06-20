@@ -8,14 +8,24 @@ environment.systemPackages = with pkgs; [
     lutris
     protontricks
     winetricks
+    # gamescope
+    seatd
 
     appimage-run
     vulkan-tools
-    # ananicy-cpp
-    # ananicy-rules-cachyos   
+    ananicy-cpp
+    ananicy-rules-cachyos   
   ];
   
+  hardware.graphics.extraPackages = with pkgs; [
+    vulkan-loader
+    vulkan-validation-layers
+    vulkan-extension-layer
+  ];
+
   programs = {
+    gamescope.enable = true;
+    gamescope.capSysNice = true;
     gamemode.enable = true;
     steam = {
       enable = true;

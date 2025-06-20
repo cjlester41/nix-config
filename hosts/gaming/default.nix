@@ -22,6 +22,12 @@
     size = 16 * 1024;
   }];
 
+  fileSystems."/mnt/games" = {
+    device = "/dev/disk/by-uuid/7A50CDFB34EF3C22";
+    fsType = "ntfs";
+    # options = [ "subvol=games" ];
+  };
+
   system.stateVersion = "24.11";
   time.timeZone = "America/Vancouver";
   i18n.defaultLocale = "en_CA.UTF-8";
