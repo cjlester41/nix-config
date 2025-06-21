@@ -10,6 +10,7 @@ environment.systemPackages = with pkgs; [
     winetricks
     # gamescope
     seatd
+    mangohud
 
     appimage-run
     vulkan-tools
@@ -31,6 +32,25 @@ environment.systemPackages = with pkgs; [
       enable = true;
       extraCompatPackages = [ pkgs.proton-ge-bin ];
       gamescopeSession.enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      localNetworkGameTransfers.openFirewall = true; 
     };
+
+    appimage = {
+      enable = true;
+      binfmt = true;
+      package = pkgs.appimage-run.override {
+        extraPkgs = pkgs: [
+          pkgs.glibc
+          pkgs.libGL
+          pkgs.mesa
+          pkgs.libffi
+          pkgs.vulkan-loader
+          pkgs.xdg-utils
+          pkgs.wayland
+        ];
+      };
+    };   
   };
 }

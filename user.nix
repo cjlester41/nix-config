@@ -31,12 +31,11 @@
       "audio" 
       "gamemode" 
       "video" 
-      "kvm" 
       "libvirtd"
-      "seat"
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = true;
   };
+
   nix.settings.allowed-users = ["cjlester"]; #["${username}"];
 }

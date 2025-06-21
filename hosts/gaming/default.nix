@@ -12,6 +12,12 @@
     ./packages.nix
   ];
 
+  # environment = {
+  #   loginShellInit = ''
+  #     [[ "$(tty)" = "/dev/tty1" ]] && ./gs.sh
+  #   '';
+  # };
+
   hardware = {
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
@@ -34,6 +40,11 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
+  };
+  console = {
+    font = "Lat2-Terminus16";
+    # keyMap = "us";
+    useXkbConfig = true; # use xkb.options in tty.
   };
 
   networking = {
@@ -75,5 +86,16 @@
   nixpkgs.config.allowUnfree = true;
 
   powerManagement.cpuFreqGovernor = "performance";
+
+  environment.sessionVariables = {
+      KWIN_LOW_LATENCY = "1";
+      KWIN_TRIPLE_BUFFER = "1";
+      KWIN_COMPOSE = "O2";
+      KDE_NO_PRELOADING = "0";
+      BALOO_DISABLE = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+      #XDG_CACHE_HOME = "/home/isolde/.cache";
+      #NIXOS_OZONE_WL = "1";
+  };
   
 }

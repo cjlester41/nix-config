@@ -1,39 +1,47 @@
 { config, pkgs, inputs, lib, chaotic, nix-gaming, ... }:
 
 {
-
-security.rtkit.enable = true;
+  security.rtkit.enable = true;
+  
   services = {
-    # displayManager = {
-    #   sddm.enable = true;
-    #   sddm.theme = "catppuccin-mocha";
-    #   #sddm.package = lib.mkForce pkgs.kdePackages.sddm;
-    #   #sddm.extraPackages = [pkgs.sddm-astronaut];
-    #   sddm.wayland.enable = true;
-    #   defaultSession = "plasma";
-    # };
-    # desktopManager.plasma6.enable = true;
+
+    displayManager.ly = {
+      enable = true;
+      settings = {
+        animation = "matrix";
+        # colormix_col1 = "0x08FF0000";
+        # colormix_col2 = "0x0800FF00";
+        # colormix_col3 = "0x080000FF";
+        fg = "0x00A9A9A9";
+        cmatrix_fg = "0x00666666";
+        bigclock = true;
+        waylandsessions = "/home/cjlester/.wayland-sessions";
+        xinitrc = "";
+      };
+    };
+
     printing.enable = false;
     blueman.enable = false;
 
-    seatd.group = "seat"; ####################
-
+    # seatd.group = "seat"; ####################
+    # getty.autologinUser = "cjlester";
+      
     # ssh-agent.enable = true;
   
     ananicy.enable = true;
     ananicy.package = pkgs.ananicy-cpp;
     ananicy.rulesProvider = pkgs.ananicy-rules-cachyos;
 
-    greetd = {
-      enable = true;
-      vt = 3;
-      settings = {
-        default_session = {
-          user = "cjlester";
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
-        };
-      };
-    };
+    # greetd = {
+    #   enable = true;
+    #   vt = 3;
+    #   settings = {
+    #     default_session = {
+    #       user = "cjlester";
+    #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
+    #     };
+    #   };
+    # };
 
 
     # gnome = {
