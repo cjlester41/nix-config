@@ -24,9 +24,9 @@ environment.systemPackages = with pkgs; [
     unzip
     blueman
     gparted
-    # ntfs-3g
-    ntfsprogs
     # swaync
+    glpaper
+    wlr-randr
 
     #Coding Stuff
     python312

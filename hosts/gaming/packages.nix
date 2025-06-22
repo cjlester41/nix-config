@@ -11,6 +11,7 @@ environment.systemPackages = with pkgs; [
     # gamescope
     seatd
     mangohud
+    ntfsprogs
 
     appimage-run
     vulkan-tools

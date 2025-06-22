@@ -27,7 +27,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    # keyMap = "us";
     useXkbConfig = true; # use xkb.options in tty.
   };
   
@@ -67,9 +66,10 @@
   
   systemd.network.wait-online.enable = false;
 
-  security.sudo = {
-    enable = true;
-    wheelNeedsPassword = false;
+  security = {
+    sudo.enable = true;
+    sudo.wheelNeedsPassword = false;
+    rtkit.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;

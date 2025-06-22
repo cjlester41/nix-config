@@ -26,7 +26,7 @@
     };
 
     autostart = {
-      autostart0 = "mpvpaper -vs -o \"no-audio loop\" ALL ~/Downloads/mylivewallpapers.com-Polygon-Mesh.mp4"; #"waypaper --restore"; # "./GLWall/GLWall /home/cjlester/GLWall/rain.glsl /home/cjlester/Pictures/forest2.jpg";
+      autostart0 = "glpaper -F HDMI-A-2 ~/test.glsl"; #"waypaper --restore"; # "./GLWall/GLWall /home/cjlester/GLWall/rain.glsl /home/cjlester/Pictures/forest2.jpg";
       autostart1 = "kitty --hold zsh -c \"fastfetch\"";
       autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
       autostart3 = "blueman-applet";
@@ -470,7 +470,9 @@
     window-rules = {
       rule_1 = "on created then set alpha 0.85";
       rule_2 = "on created if app_id = 'kitty' then snap left";
-      rule_3 = "match:app_id=\"firefox\" action:workspace=2";
+      # rule_3 = "match:app_id=\"firefox\" action:workspace=2";
+      rule_3 = "on created if app_id = \"firefox\" then assign_workspace 1 0";
+
     };
 
     winzoom = {

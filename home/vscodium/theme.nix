@@ -7,7 +7,7 @@ with config.lib.stylix.colors.withHashtag;
     vscode.enable = false;
   };
 
-  programs.vscode.userSettings = {
+  programs.vscode.profiles.default.userSettings = {
     "workbench.colorCustomizations" = {
 
       "editorGroup.border" = base0C;

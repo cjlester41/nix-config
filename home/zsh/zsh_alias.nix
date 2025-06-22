@@ -26,12 +26,12 @@
       tree = "eza --icons --tree --group-directories-first";
 
       # Nixos
-      cdnix = "cd ~/nixos-config && codium ~/nixos-config";
-      ns = "nom-shell --run zsh";
-      nd = "nom develop --command zsh";
-      nb = "nom build";
-      # nix-switch = "nh os switch /home/${username}/nix-config --hostname ${host}";
-      # nix-update = "nh os switch /home/${username}/nix-config --hostname ${host} --update";
+      cdnix = "cd ~/nixos-config && code ~/nixos-config";
+      # ns = "nom-shell --run zsh";
+      # nd = "nom develop --command zsh";
+      # nb = "nom build";
+      nix-switch = "nh os switch /home/cjlester/nix-config --hostname work";
+      nix-update = "nh os switch /home/cjlester/nix-config --hostname work --update";
       nix-clean = "nh clean all --keep 5";
       nix-search = "nh search";
       nix-test = "nh os test";
