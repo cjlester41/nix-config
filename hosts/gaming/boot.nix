@@ -1,6 +1,8 @@
 { config, pkgs, inputs, lib, chaotic, nix-gaming, ... }:
 
 { 
+  stylix.targets.grub.enable = false;
+
   boot = {
     
     kernelPackages = pkgs.linuxPackages_cachyos;
@@ -8,9 +10,15 @@
     initrd.systemd.enable = true;
     supportedFilesystems = ["ntfs"];
   
-    loader.grub.enable = true;
-    loader.grub.efiSupport = true;
-    loader.grub.device = "nodev";
-    loader.efi.canTouchEfiVariables = true;     
+    loader = {
+      efi.canTouchEfiVariables = true;
+      timeout = 1;
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        useOSProber = true;
+      };
+    };   
   };
 }

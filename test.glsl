@@ -2,6 +2,8 @@
  * Original shader from: https://www.shadertoy.com/view/DsVSRy
  */
 
+#version 330
+
 #ifdef GL_ES
 precision highp float;
 #endif

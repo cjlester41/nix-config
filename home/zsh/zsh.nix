@@ -2,7 +2,7 @@
 {
   programs.zsh = {
     enable = true;
-    # enableCompletion = true;
+    enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
@@ -124,6 +124,7 @@
       setopt hist_expire_dups_first
       setopt hist_verify
 
+      eval "$(direnv hook zsh)"
       # source ~/.p10k.zsh ########################## this was the fix #############################
 
       # Use fd (https://github.com/sharkdp/fd) for listing path candidates.

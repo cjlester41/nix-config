@@ -26,7 +26,7 @@
     };
 
     autostart = {
-      autostart0 = "glpaper -F HDMI-A-2 ~/test.glsl"; #"waypaper --restore"; # "./GLWall/GLWall /home/cjlester/GLWall/rain.glsl /home/cjlester/Pictures/forest2.jpg";
+      autostart0 = "glpaper -F -l background HDMI-A-1 ~/nix-config/test.glsl"; #"waypaper --restore"; # "./GLWall/GLWall /home/cjlester/GLWall/rain.glsl /home/cjlester/Pictures/forest2.jpg";
       autostart1 = "kitty --hold zsh -c \"fastfetch\"";
       autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
       autostart3 = "blueman-applet";

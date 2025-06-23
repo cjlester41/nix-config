@@ -38,4 +38,5 @@
   };
 
   nix.settings.allowed-users = ["cjlester"]; #["${username}"];
+  # nix.settings.trusted-users = ["cjlester" "root"]; #devenv?
 }
