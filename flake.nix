@@ -2,11 +2,9 @@
 #TODO:
 # borders
 # swaync?
-# network icon
 # tty fonts
 # launch floating
 # host/username imports
-# nh os switch
 # cava stylix
 # codium colors
 # mouse switching
