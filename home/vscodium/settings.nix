@@ -67,6 +67,7 @@
       #   };
       # };
       "git.enableSmartCommit" = true;
+      "git.confirmSync" = false;
     };
   };
 }
