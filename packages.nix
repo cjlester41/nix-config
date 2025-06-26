@@ -27,6 +27,8 @@ environment.systemPackages = with pkgs; [
     # swaync
     glpaper
     wlr-randr
+    minicom
+    usbutils
 
     #Coding Stuff
     python312
