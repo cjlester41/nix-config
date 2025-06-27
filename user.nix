@@ -34,7 +34,7 @@
       "libvirtd"
     ];
     shell = pkgs.zsh;
-    ignoreShellProgramCheck = true;
+    # ignoreShellProgramCheck = true;
   };
 
   nix.settings.allowed-users = ["cjlester"]; #["${username}"];
