@@ -28,28 +28,41 @@
     };
   };
 
-  outputs = { self, nixpkgs, chaotic, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, chaotic, home-manager, ... }@inputs: let
+  
+    host = "aoc"; #{config.networking.hostName};
+    user = "cjlester"; #{config.users.users.username};
+    system = "x86_64-linux";
 
+  in { 
     nixosConfigurations = {
 
       gaming = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
+        inherit system;
         modules = [
           chaotic.nixosModules.default
           ./hosts/gaming
           ./gpu/nvidia.nix
         ];
+      specialArgs = {
+          inherit inputs;
+          inherit host;
+          inherit user;
+        };
       };
 
       work = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
+        inherit system;
         modules = [
           chaotic.nixosModules.default
           ./hosts/work
           ./gpu/intel.nix
         ];
+        specialArgs = {
+          inherit inputs;
+          inherit host;
+          inherit user;
+        };
       };
 
       laptop = nixpkgs.lib.nixosSystem {
