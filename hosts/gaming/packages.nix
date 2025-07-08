@@ -20,6 +20,7 @@ environment.systemPackages = with pkgs; [
 
     android-studio
     caligula
+    
   ];
   
   hardware.graphics.extraPackages = with pkgs; [

@@ -29,6 +29,9 @@ environment.systemPackages = with pkgs; [
     wlr-randr
     minicom
     usbutils
+    nemo
+    udiskie
+    # ventoy-full-gtk
 
     #Coding Stuff
     python312

@@ -32,6 +32,7 @@
       "gamemode" 
       "video" 
       "libvirtd"
+      "storage"
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = false;

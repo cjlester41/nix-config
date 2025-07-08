@@ -22,6 +22,8 @@
 
     printing.enable = false;
     blueman.enable = false;
+    udisks2.enable = true;
+    gvfs.enable = true;
 
     # seatd.group = "seat"; ####################
     # getty.autologinUser = "cjlester";
