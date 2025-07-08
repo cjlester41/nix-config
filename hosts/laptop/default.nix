@@ -2,7 +2,7 @@
 
 {
   imports = [
-    # inputs.stylix.nixosModules.stylix
+    inputs.stylix.nixosModules.stylix
     ../../stylix.nix
     ../../packages.nix
     ../../user.nix
