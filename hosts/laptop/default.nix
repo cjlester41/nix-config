@@ -1,8 +1,8 @@
-{ config, pkgs, inputs, spicetify-nix, lib, chaotic, nix-gaming, neve, ... }:
+{ config, pkgs, inputs, lib, chaotic, nix-gaming, ... }:
 
 {
   imports = [
-    inputs.stylix.nixosModules.stylix
+    # inputs.stylix.nixosModules.stylix
     ../../stylix.nix
     ../../packages.nix
     ../../user.nix
@@ -17,10 +17,10 @@
     bluetooth.powerOnBoot = true;
   };
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 16 * 1024;
-  }];
+  # swapDevices = [{
+    # device = "/swapfile";
+    # size = 16 * 1024;
+  # }];
 
   system.stateVersion = "24.11";
   time.timeZone = "America/Vancouver";
@@ -74,7 +74,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  powerManagement.cpuFreqGovernor = "performance";
+  # powerManagement.cpuFreqGovernor = "performance";
 
   environment.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
 }

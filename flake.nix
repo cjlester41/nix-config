@@ -72,6 +72,11 @@
           ./hosts/laptop
           ./gpu/amd.nix    
         ];
+      specialArgs = {
+      	  inherit inputs;
+      	  inherit host;
+      	  inherit user;
+        };
       };
     };
   };
