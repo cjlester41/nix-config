@@ -5,7 +5,9 @@
   services = {
 
     printing.enable = false;
-    blueman.enable = true;
+    # blueman.enable = true;
+    udisks2.enable = true;
+    gvfs.enable = true;
   
     ananicy.enable = true;
     ananicy.package = pkgs.ananicy-cpp;

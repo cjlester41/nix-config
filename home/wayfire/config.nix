@@ -1,7 +1,20 @@
-{ config, ... }:
+{ config, hostnm, lib, ... }:
+
 
 {  
-  wayland.windowManager.wayfire.settings = {
+# wayland.windowManager.wayfire.settings = lib.mkIf (config.networking.hostName == "NixOS s7" {
+#     autostart = {
+#       autostart0 = "swaybg -i ~/Downloads/Anime-Girl-Night-Sky.jpg";
+#     };  
+# });
+# mkIf (config.networking.hostName =="nixos" {
+#   wayland.windowManager.wayfire.settings = { 
+#     autostart = {
+#       autostart0 = "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl";
+#     };
+#   };
+# })
+  wayland.windowManager.wayfire.settings = {    
 
     alpha = {
       min_value = 0.85;
@@ -26,7 +39,8 @@
     };
 
     autostart = {
-      autostart0 = "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl"; #"waypaper --restore"; # "./GLWall/GLWall /home/cjlester/GLWall/rain.glsl /home/cjlester/Pictures/forest2.jpg";
+      # autostart0 = lib.mkIf (config.networking.hostName == "NixOS_s7") "swaybg -i ~/Downloads/Anime-Girl-Night-Sky.jpg";
+      # autostart0 = "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl"; #"waypaper --restore"; # "./GLWall/GLWall /home/cjlester/GLWall/rain.glsl /home/cjlester/Pictures/forest2.jpg";
       autostart1 = "kitty --hold zsh -c \"fastfetch\"";
       autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
       autostart3 = "blueman-applet";

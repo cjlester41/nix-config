@@ -30,7 +30,7 @@
 
   outputs = { self, nixpkgs, chaotic, home-manager, ... }@inputs: let
   
-    host = "aoc"; #{config.networking.hostName};
+    hostnm = "NixOS s7"; #{config.networking.hostName};
     user = "cjlester"; #{config.users.users.username};
     system = "x86_64-linux";
 
@@ -46,7 +46,7 @@
         ];
       specialArgs = {
           inherit inputs;
-          inherit host;
+          inherit hostnm;
           inherit user;
         };
       };
@@ -60,7 +60,7 @@
         ];
         specialArgs = {
           inherit inputs;
-          inherit host;
+          inherit hostnm;
           inherit user;
         };
       };
@@ -74,7 +74,7 @@
         ];
       specialArgs = {
       	  inherit inputs;
-      	  inherit host;
+      	  inherit hostnm;
       	  inherit user;
         };
       };

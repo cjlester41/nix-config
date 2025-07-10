@@ -3,35 +3,33 @@
 
 environment.systemPackages = with pkgs; [
   
-    micro
-    mpvpaper
-    greetd.tuigreet
-    eza
-    nmap
+    micro 
     spotify-player
     gnome-calculator
-    btop
-    wget
-    mpv
-    pavucontrol
-    zenity
-    wlogout
-    nvd
-    lolcat
-    cmatrix
-    zoxide
+    btop    
+    mpv   
+    # swaync
+
+    # utils
+    eza
+    nmap
     rofi
     unzip
     blueman
-    gparted
-    # swaync
-    glpaper
+    greetd.tuigreet
     wlr-randr
     minicom
     usbutils
     nemo
     udiskie
-    # ventoy-full-gtk
+    ntfs3g
+    gparted
+    pavucontrol
+    zenity
+    wlogout
+    nvd
+    wget
+    zoxide
 
     #Coding Stuff
     python312

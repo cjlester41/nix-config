@@ -92,7 +92,7 @@ in
               "󰤨"
             ];
             format-ethernet = " {bandwidthDownOctets}";
-            format-wifi = "{icon}"; #{signalStrength}%";
+            format-wifi = "{icon} "; #{signalStrength}%";
             format-disconnected = "󰤮";
             tooltip = false;
           };
