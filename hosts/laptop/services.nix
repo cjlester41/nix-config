@@ -4,6 +4,11 @@
 
   services = {
 
+    logind = {
+      # enable = true;
+      lidSwitch = "sleep";
+    }; 
+
     printing.enable = false;
     # blueman.enable = true;
     udisks2.enable = true;

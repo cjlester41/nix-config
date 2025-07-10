@@ -1,9 +1,9 @@
 { pkgs, config, inputs, lib, ... }:
 {
 
-environment.systemPackages = lib.mkIf (config.networking.hostName == "NixOS_s7") [
+environment.systemPackages = with pkgs; [
 
-    pkgs.swaybg
+    swaybg
 
   ];
 }

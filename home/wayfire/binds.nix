@@ -1,3 +1,7 @@
+{ config, hostnm, lib, ... }:
+
+let term = "kitty";  
+in
 {
   wayland.windowManager.wayfire.settings = {
     command = {
@@ -28,7 +32,7 @@
       command_mute = "amixer sset Master toggle | sed -En '/\\[on\\]/ s/.*(\\[([0-9]+)%\\]).*/\\1/ p; /\\[off\\]/ s/.*/0/p' | head -1 > $SWAYSOCK.wob";
       command_screenshot = "grim $HOME/Pictures/screenshot-$(date \"+%Y-%m-%d-%H:%M:%S\").png && notify-send -i \"camera\" 'screenshot' 'saved in ~/Pictures'";
       command_screenshot_interactive = "slurp | grim -g - $HOME/Pictures/slurped-$(date \"+%Y-%m-%d-%H:%M:%S\").png && notify-send -i \"camera\" 'screenshot' 'saved in ~/Pictures'";
-      command_terminal = "kitty --hold zsh -c \"fastfetch\"";
+      command_terminal = term; #"kitty --hold zsh -c \"fastfetch\"";
       command_volume_down = "bash -c \"pamixer -ud 3 && pamixer --get-volume > $SWAYSOCK.wob\"";
       command_volume_up = "bash -c \"pamixer -ui 3 && pamixer --get-volume > $SWAYSOCK.wob\"";
       repeatable_binding_brightness_down = "KEY_BRIGHTNESSDOWN";

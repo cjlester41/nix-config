@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }:
 
@@ -10,7 +11,7 @@
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "bak";
-    # extraSpecialArgs = {inherit inputs username host profile;};
+    extraSpecialArgs = {hostnm = config.networking.hostName;};#inherit inputs username host profile;};
     users.cjlester = { #${username} = {
       imports = [./home];
       home = {

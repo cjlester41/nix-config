@@ -18,10 +18,10 @@
     # bluetooth.powerOnBoot = true;
   };
 
-  # swapDevices = [{
-    # device = "/swapfile";
-    # size = 16 * 1024;
-  # }];
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024;
+  }];
 
   system.stateVersion = "24.11";
   time.timeZone = "America/Vancouver";
@@ -63,8 +63,8 @@
   #   };
 
   systemd.targets = {
-    sleep.enable = false;
-    suspend.enable = false;
+    sleep.enable = true;
+    suspend.enable = true;
     hibernate.enable = false;
     hybrid-sleep.enable = false;
   };
