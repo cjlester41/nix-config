@@ -28,10 +28,16 @@
     size = 16 * 1024;
   }];
 
-  fileSystems."/mnt/games" = {
+  fileSystems."/home/cjlester/games" = {
     device = "/dev/disk/by-uuid/7A50CDFB34EF3C22";
     fsType = "ntfs";
     # options = [ "subvol=games" ];
+  };
+
+  fileSystems."/home/cjlester/steam" = {
+    device = "/dev/disk/by-uuid/7c63130c-adf0-48fe-94ab-cda7181379d1";
+    fsType = "ext4";
+    options = [ "exec" ];
   };
 
   system.stateVersion = "24.11";
