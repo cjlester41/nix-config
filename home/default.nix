@@ -12,6 +12,7 @@
     # ./cava.nix
     # ./git.nix
     ./vscode
+    ./swaync.nix
     ./wayfire
     ./zsh
   ];
