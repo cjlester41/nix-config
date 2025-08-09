@@ -7,6 +7,7 @@ environment.systemPackages = with pkgs; [
     maven
     cmatrix
     lolcat
+    signal-desktop
     # python312full
 
   ];

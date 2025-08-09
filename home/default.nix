@@ -11,7 +11,7 @@
     # ./nemo.nix
     # ./cava.nix
     # ./git.nix
-    ./vscodium 
+    ./vscode
     ./wayfire
     ./zsh
   ];

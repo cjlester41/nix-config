@@ -51,7 +51,7 @@
         };
       };
 
-      work = nixpkgs.lib.nixosSystem {
+      NixOS_AOC = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           chaotic.nixosModules.default

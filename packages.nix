@@ -4,11 +4,12 @@
 environment.systemPackages = with pkgs; [
   
     micro 
+    caligula
     spotify-player
     gnome-calculator
     btop    
     mpv   
-    # swaync
+    # swaynotificationcenter
 
     # utils
     eza

@@ -2,6 +2,10 @@
 {
   programs.vscode.profiles.default = {
     userSettings = {
+      "explorer.confirmDelete" = "false";
+      "terminal.integrated.env.linux" = {
+        "PYTHONDONTWRITEBYTECODE" = "1";
+      };
       "update.mode" = "none";
       "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
       "window.titleBarStyle" = "native"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
