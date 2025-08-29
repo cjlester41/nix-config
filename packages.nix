@@ -17,7 +17,7 @@ environment.systemPackages = with pkgs; [
     rofi
     unzip
     blueman
-    greetd.tuigreet
+    tuigreet # ??????
     wlr-randr
     minicom
     usbutils

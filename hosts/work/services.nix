@@ -25,11 +25,11 @@
 
     greetd = {
       enable = true;
-      vt = 3;
+      # vt = 3;
       settings = {
         default_session = {
           user = "cjlester";
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
         };
       };
     };    
