@@ -4,7 +4,8 @@ let background =
     if hostnm == "NixOS_s7" then
       "swaybg -i ~/Downloads/Balcony-ja.png"
     else
-      "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl";  
+      "shaderbg -l background HDMI-A-1 ~/nix-config/files/scope.frag";
+      # "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl";  
 in
 {
   wayland.windowManager.wayfire.settings = {    

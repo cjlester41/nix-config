@@ -8,7 +8,6 @@ environment.systemPackages = with pkgs; [
     cmatrix
     lolcat
     signal-desktop
-    shaderbg
     # python312full
 
   ];

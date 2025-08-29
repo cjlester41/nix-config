@@ -9,6 +9,7 @@ environment.systemPackages = with pkgs; [
     gnome-calculator
     btop    
     mpv   
+    shaderbg
     # swaynotificationcenter
 
     # utils
