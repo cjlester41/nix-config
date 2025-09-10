@@ -480,6 +480,7 @@ in
       rule_2 = "on created if app_id = 'kitty' then snap left";
       # rule_3 = "match:app_id=\"firefox\" action:workspace=2";
       rule_3 = "on created if app_id = \"firefox\" then assign_workspace 1 0";
+      alacritty-on-workspace-2 = "app_id = firefox & move_to_workspace=4";
 
     };
 

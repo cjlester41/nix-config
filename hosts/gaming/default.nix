@@ -23,12 +23,12 @@
     bluetooth.powerOnBoot = true;
   };
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 16 * 1024;
-  }];
+  # swapDevices = [{
+  #   device = "/swapfile";
+  #   size = 16 * 1024;
+  # }];
 
-  fileSystems."/home/cjlester/games" = {
+  fileSystems."/home/cjlester/share" = {
     device = "/dev/disk/by-uuid/7A50CDFB34EF3C22";
     fsType = "ntfs";
     # options = [ "subvol=games" ];
