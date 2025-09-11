@@ -19,16 +19,17 @@
   # };
 
   hardware = {
+    enableRedistributableFirmware = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
   };
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 16 * 1024;
-  }];
+  # swapDevices = [{
+  #   device = "/swapfile";
+  #   size = 16 * 1024;
+  # }];
 
-  fileSystems."/home/cjlester/games" = {
+  fileSystems."/home/cjlester/share" = {
     device = "/dev/disk/by-uuid/7A50CDFB34EF3C22";
     fsType = "ntfs";
     # options = [ "subvol=games" ];
@@ -41,12 +42,14 @@
   };
 
   system.stateVersion = "24.11";
+  time.hardwareClockInLocalTime = true;
   time.timeZone = "America/Vancouver";
   i18n.defaultLocale = "en_CA.UTF-8";
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
   };
+  
   console = {
     font = "Lat2-Terminus16";
     # keyMap = "us";

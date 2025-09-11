@@ -5,10 +5,10 @@
   
   services = {
 
-    logind.extraConfig = ''
-      IdleAction=suspend
-      IdleActionSec=30s
-    '';
+    # logind.extraConfig = ''
+    #   IdleAction=suspend
+    #   IdleActionSec=30s
+    # '';
 
     # displayManager.ly = {
     #   enable = true;
@@ -41,11 +41,11 @@
 
     greetd = {
       enable = true;
-      vt = 3;
+      # vt = 3;
       settings = {
         default_session = {
           user = "cjlester";
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
         };
       };
     };

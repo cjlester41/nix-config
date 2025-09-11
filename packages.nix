@@ -10,10 +10,12 @@ environment.systemPackages = with pkgs; [
     btop    
     mpv   
     shaderbg
+    dysk
     # swaynotificationcenter
 
     # utils
-    eza
+    # advcpmv need alternative
+    eza # is this implemented?
     nmap
     rofi
     unzip
@@ -27,11 +29,11 @@ environment.systemPackages = with pkgs; [
     ntfs3g
     gparted
     pavucontrol
-    zenity
+    zenity # gui dialog boxes
     wlogout
-    nvd
+    # nvd #nix pkg diff
     wget
-    zoxide
+    zoxide # cd tool. implemented?
 
     #Coding Stuff
     python312

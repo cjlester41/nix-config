@@ -42,7 +42,7 @@
         modules = [
           chaotic.nixosModules.default
           ./hosts/gaming
-          ./gpu/nvidia.nix
+          ./gpu/amd.nix
         ];
       specialArgs = {
           inherit inputs;
