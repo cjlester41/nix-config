@@ -19,6 +19,7 @@
   # };
 
   hardware = {
+    enableRedistributableFirmware = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
   };
@@ -48,6 +49,7 @@
     enable = true;
     allowReboot = false;
   };
+  
   console = {
     font = "Lat2-Terminus16";
     # keyMap = "us";
