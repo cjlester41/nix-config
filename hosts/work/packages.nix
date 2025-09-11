@@ -9,8 +9,7 @@ environment.systemPackages = with pkgs; [
     lolcat
     signal-desktop
     factorio
-    # python312full
-  
+    # python312full  
   ];
 
 nixpkgs.config.packageOverrides = pkgs: {

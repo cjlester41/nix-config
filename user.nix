@@ -34,6 +34,7 @@
       "video" 
       "libvirtd"
       "storage"
+      "dailout"
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = false;
