@@ -35,8 +35,8 @@ in
     autostart = {
       autostart0 = background; # lib.mkIf (config.networking.hostName == "NixOS_s7") ["swaybg -i ~/Downloads/Anime-Girl-Night-Sky.jpg"];
       # autostart0 = "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl"; #"waypaper --restore"; # "./GLWall/GLWall /home/cjlester/GLWall/rain.glsl /home/cjlester/Pictures/forest2.jpg";
-      autostart1 = "kitty --hold zsh -c \"fastfetch\"";
-      autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
+      autostart1 = "kitty"; # --hold zsh -c \"fastfetch\"";
+      # autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
       autostart3 = "blueman-applet";
       autostart4 = "waybar"; # "sleep 1 && python /home/cjlester/GLWall/pin-view.py 5 \"background\" true";
       autostart5 = "code";      
