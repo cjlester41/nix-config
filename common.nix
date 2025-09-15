@@ -60,5 +60,6 @@
 
   nixpkgs.config.allowUnfree = true;
   environment.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
+  environment.sessionVariables.WAYFIRE_SOCKET = "/run/user/$(id -u)/wayland-1";
 
 }

@@ -7,6 +7,7 @@ let background =
       "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/planet.glsl";
       # "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl";  
     wfplugins = import ./plugins.nix;
+    pyipc = "~./nix-config/files/startsocket.sh";
 in
 {
   wayland.windowManager.wayfire.settings = {    
@@ -34,6 +35,7 @@ in
     };
 
     autostart = {
+      autostart7 = pyipc;
       autostart6 = "hyprlock";
       autostart0 = background;       
       autostart1 = "kitty"; # --hold zsh -c \"fastfetch\"";
@@ -478,10 +480,10 @@ in
 
     window-rules = {
       rule_1 = "on created then set alpha 0.85";
-      rule_2 = "on created if app_id = 'kitty' then snap left";
+      rule_2 = "on created if app_id is \"kitty\" then snap left";
       # rule_3 = "match:app_id=\"firefox\" action:workspace=2";
-      rule_3 = "on created if app_id = \"firefox\" then assign_workspace 1 0";
-      alacritty-on-workspace-2 = "app_id = firefox & move_to_workspace=4";
+      rule_3 = "on created if title contians \"Firefox\" then set alpha 0.5"; #assign_workspace 1 0";
+      # alacritty-on-workspace-2 = "app-id = firefox & move_to_workspace=4";
 
     };
 

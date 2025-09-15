@@ -11,13 +11,11 @@
     "place " + 
     "resize " + 
     "switcher " + 
-    "vswitch " + 
-    "window-rules " + 
+    "vswitch " +     
     "wrot " + 
     "zoom " + 
     "wobbly " + 
-    "follow-focus " + 
-    "extra-animations " + 
+    "follow-focus " +     
     "animate " + 
     "wf-info " + 
     "filters " + 
@@ -28,6 +26,8 @@
     "pin-view " + 
     "simple-tile " + 
     "wayfire-plugins-extra " + 
+    "window-rules " + 
+    "extra-animations " + 
     "session-lock";
         
 }

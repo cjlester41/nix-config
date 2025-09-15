@@ -10,7 +10,7 @@ with config.lib.stylix.colors.withHashtag;
   wayland.windowManager.wayfire.settings = {
 
     animate = {
-      close_animation = "fire";
+      close_animation = "zap";
       duration = "300ms circle";
       enabled_for = "(type equals \"toplevel\" | (type equals \"x-or\" & focusable equals true) | type equals \"overlay\")";
       fade_duration = "300ms circle";

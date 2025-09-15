@@ -17,6 +17,10 @@
     greetd = {
       enable = true;
       settings = {
+        initial_session = {
+          user = "cjlester";
+          command = "/home/cjlester/wayfire10/result/bin/wayfire";
+        };
         default_session = {
           user = "cjlester";
           command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd wayfire"; 

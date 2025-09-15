@@ -5,7 +5,7 @@
     enable = true;
     plugins = with pkgs.wayfirePlugins; [
       wayfire-plugins-extra
-      windecor
+      # windecor
     ];
   };  
 
