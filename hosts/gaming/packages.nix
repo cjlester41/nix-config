@@ -18,7 +18,7 @@ environment.systemPackages = with pkgs; [
     ananicy-cpp
     ananicy-rules-cachyos   
 
-    android-studio
+    # android-studio
     
   ];
   

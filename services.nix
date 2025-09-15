@@ -1,7 +1,6 @@
 { config, pkgs, inputs, lib, chaotic, nix-gaming, ... }:
 
 {
-
   services = {
 
     printing.enable = false;
@@ -19,7 +18,7 @@
       settings = {
         initial_session = {
           user = "cjlester";
-          command = "/home/cjlester/wayfire10/result/bin/wayfire";
+          command = "wayfire";
         };
         default_session = {
           user = "cjlester";

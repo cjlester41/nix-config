@@ -11,7 +11,7 @@ environment.systemPackages = with pkgs; [
     mpv   
     shaderbg
     dysk
-    ffmpeg_8-headless
+    # ffmpeg_8-headless
     hyprlock
     # swaynotificationcenter
 

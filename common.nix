@@ -56,6 +56,7 @@
     sudo.enable = true;
     sudo.wheelNeedsPassword = false;
     rtkit.enable = true;
+    pam.services.hpyrlock.text = ''auth include login''; 
   };
 
   nixpkgs.config.allowUnfree = true;
