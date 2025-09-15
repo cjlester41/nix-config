@@ -7,7 +7,6 @@ let background =
       "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/planet.glsl";
       # "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl";  
     wfplugins = import ./plugins.nix;
-    pyipc = "~./nix-config/files/startsocket.sh";
 in
 {
   wayland.windowManager.wayfire.settings = {    
@@ -35,7 +34,7 @@ in
     };
 
     autostart = {
-      autostart7 = pyipc;
+      autostart7 = "python ~/nix-config/home/wayfire/pywayfire/ipc-rules-demo.py";
       autostart6 = "hyprlock";
       autostart0 = background;       
       autostart1 = "kitty"; # --hold zsh -c \"fastfetch\"";
