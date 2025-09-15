@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, ... }:
+{ config, pkgs, inputs, lib, chaotic, nix-gaming, user, ... }:
 
 {
   services = {
@@ -17,11 +17,11 @@
       enable = true;
       settings = {
         initial_session = {
-          user = "cjlester";
+          user = "${user}";
           command = "wayfire";
         };
         default_session = {
-          user = "cjlester";
+          user = "${user}";
           command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
         };
       };

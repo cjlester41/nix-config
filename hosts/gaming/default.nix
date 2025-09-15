@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, ... }:
+{ config, pkgs, inputs, lib, chaotic, nix-gaming, user, ... }:
 
 {
   imports = [
@@ -15,13 +15,13 @@
 
   networking.hostName = "NixOS-B460";
 
-  fileSystems."/home/cjlester/share" = {
+  fileSystems."/home/${user}/share" = {
     device = "/dev/disk/by-uuid/7A50CDFB34EF3C22";
     fsType = "ntfs";
     # options = [ "subvol=games" ];
   };
 
-  fileSystems."/home/cjlester/steam" = {
+  fileSystems."/home/${user}/steam" = {
     device = "/dev/disk/by-uuid/7c63130c-adf0-48fe-94ab-cda7181379d1";
     fsType = "ext4";
     options = [ "exec" ];

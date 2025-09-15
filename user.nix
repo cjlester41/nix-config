@@ -2,30 +2,33 @@
   pkgs,
   inputs,
   config,
+  user,
   ...
 }:
-
+let
+  hostnm = config.networking.hostName;
+in
 {
   imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "bak";
-    extraSpecialArgs = {hostnm = config.networking.hostName;};#inherit inputs username host profile;};
-    users.cjlester = { #${username} = {
+    extraSpecialArgs = {inherit inputs user hostnm;};
+    users.${user} = { 
       imports = [./home];
       home = {
-        username = "cjlester"; #"${username}";
-        homeDirectory = "/home/cjlester"; #${username}";
+        username = "${user}"; 
+        homeDirectory = "/home/${user}";
         stateVersion = "24.11";
         # programs.home-manager.enable = true;
       };
     };
   };
 
-  users.users.cjlester = {
+  users.users.${user} = {
     isNormalUser = true;
-    description = "cjlester";
+    description = "${user}";
     extraGroups = [ 
       "networkmanager" 
       "wheel" 
@@ -40,6 +43,6 @@
     ignoreShellProgramCheck = false;
   };
 
-  nix.settings.allowed-users = ["cjlester"]; #["${username}"];
-  # nix.settings.trusted-users = ["cjlester" "root"]; #devenv?
+  nix.settings.allowed-users = ["${user}"]; 
+  # nix.settings.trusted-users = ["${user}" "root"]; #devenv?
 }

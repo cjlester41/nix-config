@@ -36,14 +36,14 @@
   #   useUserPackages = true;
   #   useGlobalPkgs = true;
   #   # extraSpecialArgs = { inherit inputs username host; };
-  #   # users.${username} = {
+  #   # users.${usern} = {
   #     # imports = [./];
   #       # if (host == "desktop") then
   #         # [ ./../home/default.desktop.nix ]
   #       # else
   #         # [ ./../home ];
-  #     home.username = "cjlester"; #"${username}";
-  #     home.homeDirectory = "/home/cjlester"; #${username}";
+  #     home.username = "${user}"; 
+  #     home.homeDirectory = "/home/${user}"; 
   #     home.stateVersion = "24.11";
   #     programs.home-manager.enable = true;
     
@@ -55,8 +55,8 @@
 
 #   # Home Manager needs a bit of information about you and the paths it should
 #   # manage.
-#   home.username = "cjlester";
-#   home.homeDirectory = "/home/cjlester";
+#   home.username = "${user}";
+#   home.homeDirectory = "/home/${user}";
 
 #   # This value determines the Home Manager release that your configuration is
 #   # compatible with. This helps avoid breakage when a new Home Manager release

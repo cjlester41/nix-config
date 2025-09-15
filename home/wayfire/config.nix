@@ -1,4 +1,4 @@
-{ config, hostnm, lib, ... }:
+{ config, hostnm, lib, user, ... }:
 
 let background = 
     if hostnm == "NixOS-S7" then
@@ -41,7 +41,7 @@ in
       autostart1 = "kitty"; # --hold zsh -c \"fastfetch\"";
       # autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
       autostart3 = "blueman-applet";
-      autostart4 = "waybar"; # "sleep 1 && python /home/cjlester/GLWall/pin-view.py 5 \"background\" true";
+      autostart4 = "waybar"; # "sleep 1 && python /home/${user}/GLWall/pin-view.py 5 \"background\" true";
       autostart5 = "code";      
       autostart_wf_shell = false;
       clipman-restore = "clipman restore";
@@ -89,7 +89,7 @@ in
       activate = "<alt> <ctrl> BTN_LEFT";
       background = "#1A1A1AFF";
       background_mode = "cubemap";
-      cubemap_image = "/home/cjlester/nix-config/files/cubemap.png";
+      cubemap_image = "/home/${user}/nix-config/files/cubemap.png";
       deform = 0;
       initial_animation = "350ms circle";
       light = false;

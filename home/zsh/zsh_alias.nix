@@ -1,4 +1,4 @@
-{ username, host, ... }:
+{ username, host, user, ... }:
 {
   programs.zsh = {
     shellAliases = {
@@ -30,8 +30,8 @@
       # ns = "nom-shell --run zsh";
       # nd = "nom develop --command zsh";
       # nb = "nom build";
-      fr = "nh os switch /home/cjlester/nix-config";
-      fu = "nh os switch /home/cjlester/nix-config --update";
+      fr = "nh os switch /home/${user}/nix-config";
+      fu = "nh os switch /home/${user}/nix-config --update";
       nix-clean = "nh clean all --keep 5";
       nix-search = "nh search";
       nix-test = "nh os test";

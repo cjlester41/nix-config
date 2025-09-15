@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, hostnm, lib, ... }:
+{ pkgs, config, inputs, user, lib, ... }:
 {
 
 environment.systemPackages = with pkgs; [
@@ -78,7 +78,7 @@ environment.systemPackages = with pkgs; [
         enable = true;
         extraArgs = "--keep-since 7d --keep 5";
       };
-      flake = "/home/cjlester/nix-config"; #${username}/nix-minimal";
+      flake = "/home/${user}/nix-config"; 
     };     
   };  
 }

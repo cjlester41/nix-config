@@ -23,7 +23,7 @@
       vt = 3;
       settings = {
         default_session = {
-          user = "cjlester";
+          user = "${user}";
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
         };
       };
