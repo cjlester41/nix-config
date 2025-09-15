@@ -1,11 +1,12 @@
 { config, hostnm, lib, ... }:
 
 let background = 
-    if hostnm == "NixOS_s7" then
+    if hostnm == "NixOS-S7" then
       "swaybg -i ~/Downloads/Balcony-ja.png"
     else
       "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/planet.glsl";
       # "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl";  
+    wfplugins = import ./plugins.nix;
 in
 {
   wayland.windowManager.wayfire.settings = {    
@@ -33,8 +34,8 @@ in
     };
 
     autostart = {
-      autostart0 = background; # lib.mkIf (config.networking.hostName == "NixOS_s7") ["swaybg -i ~/Downloads/Anime-Girl-Night-Sky.jpg"];
-      # autostart0 = "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl"; #"waypaper --restore"; # "./GLWall/GLWall /home/cjlester/GLWall/rain.glsl /home/cjlester/Pictures/forest2.jpg";
+      autostart6 = "hyprlock";
+      autostart0 = background;       
       autostart1 = "kitty"; # --hold zsh -c \"fastfetch\"";
       # autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
       autostart3 = "blueman-applet";
@@ -69,7 +70,7 @@ in
       focus_buttons = "BTN_LEFT | BTN_MIDDLE | BTN_RIGHT";
       focus_buttons_passthrough = true;
       max_render_time = -1;
-      plugins = "wm-actions idle alpha autostart command expo move place resize switcher vswitch window-rules wrot zoom wobbly follow-focus extra-animations animate wf-info filters shortcuts-inhibit ipc-rules cube ipc pin-view simple-tile";
+      plugins = wfplugins.plugins; #"wm-actions idle alpha autostart command expo move place resize switcher vswitch window-rules wrot zoom wobbly follow-focus extra-animations animate wf-info filters shortcuts-inhibit ipc-rules cube ipc pin-view simple-tile";
       preferred_decoration_mode = "server";
       transaction_timeout = 100;
       vheight = 2;
@@ -372,7 +373,7 @@ in
       text_color = "#CCCCCCCC";
     };
 
-    # session-lock = { };
+    session-lock = { };
 
     shortcuts-inhibit = {
       break_grab = "none";

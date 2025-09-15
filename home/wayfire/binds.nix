@@ -23,7 +23,7 @@ in
       command_browser = "firefox";
       command_clipman = "clipman pick -t wofi";
       command_launcher = "rofi -show drun";
-      command_lock = "swaylock -e -K";
+      command_lock = "hyprlock";
       command_logout = "wlogout";
       command_media-next = "playerctl next";
       command_media-play-pause = "playerctl play-pause";

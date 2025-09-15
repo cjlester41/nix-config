@@ -13,13 +13,9 @@
     ./packages.nix
   ];
 
-  services.logind.lidSwitch = "sleep";
+  networking.hostName = "NixOS-S7";
 
-  # hardware = {
-  #   enableRedistributableFirmware = true;
-    # bluetooth.enable = true;
-    # bluetooth.powerOnBoot = true;
-  # };
+  services.logind.lidSwitch = "sleep";
 
   swapDevices = [{
     device = "/swapfile";
@@ -39,8 +35,7 @@
   #   allowReboot = false;
   # };
 
-  networking = {
-    hostName = "NixOS_s7";
+  
     # networkmanager.enable = true;
     # networkmanager.dns = "none";
     # useDHCP = false;
@@ -52,7 +47,7 @@
     #   # allowedTCPPorts = [ 22 80 443 59010 59011 ];
     #   # allowedUDPPorts = [ 59010 59011 ];
     # };
-  };
+  # };
 
   # nix.settings = {
   #   experimental-features = [ "nix-command" "flakes" ];

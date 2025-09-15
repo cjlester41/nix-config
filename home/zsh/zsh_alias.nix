@@ -8,7 +8,7 @@
       tt = "gtrash put";
       # cat = "bat";
       nano = "micro";
-      # code = "codium";
+      code = "vscode";
       diff = "delta --diff-so-fancy --side-by-side";
       less = "bat";
       f = "superfile";
@@ -30,8 +30,8 @@
       # ns = "nom-shell --run zsh";
       # nd = "nom develop --command zsh";
       # nb = "nom build";
-      nix-switch = "nh os switch /home/cjlester/nix-config --hostname work";
-      nix-update = "nh os switch /home/cjlester/nix-config --hostname work --update";
+      fr = "nh os switch /home/cjlester/nix-config";
+      fu = "nh os switch /home/cjlester/nix-config --update";
       nix-clean = "nh clean all --keep 5";
       nix-search = "nh search";
       nix-test = "nh os test";

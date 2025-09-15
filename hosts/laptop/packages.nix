@@ -1,7 +1,7 @@
 { pkgs, config, inputs, lib, ... }:
-{
 
-environment.systemPackages = with pkgs; [
+{
+  environment.systemPackages = with pkgs; [
 
     swaybg
 

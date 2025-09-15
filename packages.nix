@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, neve, lib, ... }:
+{ pkgs, config, inputs, hostnm, lib, ... }:
 {
 
 environment.systemPackages = with pkgs; [
@@ -11,6 +11,8 @@ environment.systemPackages = with pkgs; [
     mpv   
     shaderbg
     dysk
+    ffmpeg_8-headless
+    hyprlock
     # swaynotificationcenter
 
     # utils

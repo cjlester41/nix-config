@@ -30,14 +30,14 @@
 
   outputs = { self, nixpkgs, chaotic, home-manager, ... }@inputs: let
   
-    hostnm = "NixOS s7"; #{config.networking.hostName};
+    # hostnm = builtins.getEnv "HOSTNAME"; #"NixOS s7"; #{config.networking.hostName};
     user = "cjlester"; #{config.users.users.username};
     system = "x86_64-linux";
 
   in { 
     nixosConfigurations = {
 
-      gaming = nixpkgs.lib.nixosSystem {
+      NixOS-B460 = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           chaotic.nixosModules.default
@@ -46,12 +46,12 @@
         ];
       specialArgs = {
           inherit inputs;
-          inherit hostnm;
+          # inherit hostnm;
           inherit user;
         };
       };
 
-      NixOS_AOC = nixpkgs.lib.nixosSystem {
+      NixOS-AOC = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           chaotic.nixosModules.default
@@ -60,12 +60,12 @@
         ];
         specialArgs = {
           inherit inputs;
-          inherit hostnm;
+          # inherit hostnm;
           inherit user;
         };
       };
 
-      laptop = nixpkgs.lib.nixosSystem {
+      NixOS-S7 = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           chaotic.nixosModules.default
@@ -74,7 +74,7 @@
         ];
       specialArgs = {
       	  inherit inputs;
-      	  inherit hostnm;
+      	  # inherit hostnm;
       	  inherit user;
         };
       };
