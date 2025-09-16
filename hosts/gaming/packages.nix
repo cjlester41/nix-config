@@ -12,6 +12,11 @@ environment.systemPackages = with pkgs; [
     seatd
     mangohud
     ntfsprogs
+    # sway
+    # labwc
+    # cage
+    # tofi
+    # wmenu
 
     appimage-run
     vulkan-tools

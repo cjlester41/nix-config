@@ -34,9 +34,9 @@ in
     };
 
     autostart = {
-      autostart7 = "python ~/nix-config/home/wayfire/pywayfire/ipc-rules-demo.py";
-      autostart6 = "hyprlock";
-      autostart0 = background;       
+      autostart0 = background; 
+      # autostart6 = "hyprlock";
+      # autostart7 = "python ~/nix-config/home/wayfire/pywayfire/ipc-rules-demo.py";
       autostart1 = "kitty"; # --hold zsh -c \"fastfetch\"";
       # autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
       autostart3 = "blueman-applet";

@@ -17,8 +17,23 @@
     ./zsh
   ];
 
-  
+  # home.packages = with pkgs; [ qtgreet ];
   # ...other config, other config...
+  wayland.windowManager.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
+    config = rec {
+      # set = "$opacity 0.8";
+      modifier = "Mod4";
+      # Use kitty as default terminal
+      terminal = "kitty"; 
+      startup = [
+        # Launch Firefox on start
+        {command = "code";}
+        # {command = "shaderbg -l background HDMI-A-1 ~/nix-config/files/planet.glsl";}
+      ];
+    };
+  };
 
   programs = {
     direnv = {

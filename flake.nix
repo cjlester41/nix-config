@@ -2,6 +2,12 @@
 #TODO:
 # borders
 # swaync?
+# sway
+# wlogout
+# home manager
+# icons
+# secure boot
+
 # tty fonts
 # launch floating
 # host/username imports
@@ -30,8 +36,7 @@
 
   outputs = { self, nixpkgs, chaotic, home-manager, ... }@inputs: let
   
-    # hostnm = builtins.getEnv "HOSTNAME"; #"NixOS s7"; #{config.networking.hostName};
-    user = "cjlester"; #{config.users.users.username};
+    user = "cjlester";
     system = "x86_64-linux";
 
   in { 
@@ -46,7 +51,6 @@
         ];
       specialArgs = {
           inherit inputs;
-          # inherit hostnm;
           inherit user;
         };
       };
@@ -60,7 +64,6 @@
         ];
         specialArgs = {
           inherit inputs;
-          # inherit hostnm;
           inherit user;
         };
       };
@@ -74,7 +77,6 @@
         ];
       specialArgs = {
       	  inherit inputs;
-      	  # inherit hostnm;
       	  inherit user;
         };
       };

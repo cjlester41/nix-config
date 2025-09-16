@@ -36,6 +36,7 @@ environment.systemPackages = with pkgs; [
     # nvd #nix pkg diff
     wget
     zoxide # cd tool. implemented?
+    qtgreet
 
     #Coding Stuff
     python312
@@ -48,6 +49,7 @@ environment.systemPackages = with pkgs; [
 
   programs = {
 
+    # regreet.settings.appearance.greeting_msg = "Welcome back!";
     firefox.enable = true;
     zsh.enable = true;
     # dconf.enable = true;

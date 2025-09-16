@@ -52,9 +52,11 @@
   
   systemd.network.wait-online.enable = false;
 
+  #polkit, gnome kdyring
   security = {
     sudo.enable = true;
     sudo.wheelNeedsPassword = false;
+    polkit.enable = true;
     rtkit.enable = true;
     pam.services.hpyrlock.text = ''auth include login''; 
   };
