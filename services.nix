@@ -1,5 +1,17 @@
 { config, pkgs, inputs, lib, chaotic, nix-gaming, user, ... }:
-
+let
+  wayfireSessionFile =
+    (pkgs.writeTextDir "share/wayland-sessions/wayfires.desktop" ''
+      [Desktop Entry]
+      Name=Wayfire
+      Comment=A digital distribution platform
+      Exec=wayfire
+      Type=Application
+    '').overrideAttrs
+      (_: {
+        passthru.providedSessions = [ "wayfire" ];
+      });
+in
 {
   services = {
 
@@ -31,16 +43,25 @@
     #     export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card2 && exec ${pkgs.sway}/bin/sway
     #   '';
     # in {
-    greetd = {
+    
+    displayManager.sessionPackages = [
+      wayfireSessionFile
+    ];
+    
+    greetd = { 
       enable = true;
       settings = {
         # initial_session = {
         #   user = "${user}";
         #   command = "sway --config ~/.config/sway/config";
         # };
-        default_session = {
-          user = "${user}";
-          command = "wayfire --config ~/nix-config/files/wfregreet.ini"; #"${pkgs.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
+        default_session = let
+          link = "";#ln -sf ~/nix-config/files/wfregreet.ini wayfire &&";
+          in {
+            user = "${user}";
+            command = "${link}wayfire -c ~/nix-config/files/wfregreet.ini"; 
+            #"${pkgs.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
+          
         };
       };
     };    

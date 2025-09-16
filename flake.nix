@@ -7,6 +7,7 @@
 # home manager
 # icons
 # secure boot
+# fastfetch gpu
 
 # tty fonts
 # launch floating
