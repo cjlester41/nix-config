@@ -16,7 +16,6 @@ in {
     # maple-mono.truetype-autohint
     pkgs.montserrat
   ];
-  # Styling Options
   stylix = {
     enable = true;
     # image = stylixImage;

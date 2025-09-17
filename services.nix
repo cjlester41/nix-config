@@ -1,18 +1,5 @@
 { config, pkgs, inputs, lib, chaotic, nix-gaming, user, ... }:
 
-# let 
-#   wayfiredefault =
-#     (pkgs.writeTextDir "share/wayland-sessions/wayfire-default.desktop" ''
-#       [Desktop Entry]
-#       Name=Wayfire Desktop
-#       Comment=A digital distribution platform
-#       Exec=wayfire -c ~/.config/wayfire
-#       Type=Application
-#     '').overrideAttrs
-#       (_: {
-#         passthru.providedSessions = [ "wayfire-default" ];
-#       });
-# in
 {
   services = {
 

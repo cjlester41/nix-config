@@ -6,6 +6,6 @@
 # pkill python
 # pkill waybar
 
-ln -sf ~/nix-config/files/wfgaming.ini ~/wayfire 
+ln -sf ~/nix-config/files/wfgaming.ini ~/.config/wayfire 
 
 steam -bigpicture
