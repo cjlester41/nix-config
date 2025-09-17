@@ -4,7 +4,7 @@ let background =
     if hostnm == "NixOS-S7" then
       "swaybg -i ~/Downloads/Balcony-ja.png"
     else
-      "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/planet.glsl";
+      "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/planet.glsl";
       # "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl";  
     wfplugins = import ./plugins.nix;
 in

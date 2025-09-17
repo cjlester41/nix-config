@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-ln -sf ~/.config/wayfire.ini wayfire
+ln -sf ~/.config/wayfire.ini ~/.config/wayfire
 sleep 1
 
 # python ~/nix-config/home/wayfire/pywayfire/ipc-rules-demo.py
-shaderbg -l 0 HDMI-A-1 ~/nix-config/files/planet.glsl
-waybar
-blueman-applet
-kitty
+shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/planet.glsl &
+waybar &
+blueman-applet &
+kitty &
 firefox
-code    
+# code

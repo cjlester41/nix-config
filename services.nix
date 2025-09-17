@@ -14,28 +14,31 @@
     ananicy.rulesProvider = pkgs.ananicy-rules-cachyos;
      
     displayManager.sessionPackages = let
-      wayfiredefault =
-      (pkgs.writeTextDir "share/wayland-sessions/wayfire-default.desktop" ''
+      wayfiredefault = let
+        cfg = "~/.config/wayfire";
+      in
+      (pkgs.writeTextDir "share/wayland-sessions/wayfire.desktop" ''
         [Desktop Entry]
         Name=Wayfire Desktop
-        Exec=wayfire -c ~/.config/wayfire
+        Exec=ln -sf ${cfg}.ini ${cfg} & wayfire -c ${cfg}
         Type=Application
       '').overrideAttrs
         (_: {
-          passthru.providedSessions = [ "wayfire-default" ];
+          passthru.providedSessions = [ "wayfire" ];
         });
       in [ wayfiredefault ];
     
     greetd = { 
       enable = true;
-      settings = {
+      settings = let
+        cmd = "./nix-config/home/wayfire/shell/initsession.sh"; in {
         initial_session = {
           user = "${user}";
-          command = "./nix-config/home/wayfire/shell/initsession.sh";
+          command = "${cmd}";
         };
         default_session = {
           user = "${user}";
-          command = "./nix-config/home/wayfire/shell/regreet.sh";          
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${cmd}";          
         };
       };
     };    

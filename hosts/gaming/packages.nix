@@ -8,15 +8,9 @@ environment.systemPackages = with pkgs; [
     lutris
     protontricks
     winetricks
-    # gamescope
     seatd
     mangohud
     ntfsprogs
-    # sway
-    # labwc
-    # cage
-    # tofi
-    # wmenu
 
     appimage-run
     vulkan-tools
@@ -34,8 +28,8 @@ environment.systemPackages = with pkgs; [
   ];
 
   programs = {
-    gamescope.enable = true;
-    gamescope.capSysNice = true;
+    # gamescope.enable = true;
+    # gamescope.capSysNice = true;
     gamemode.enable = true;
     steam = {
       enable = true;

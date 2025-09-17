@@ -2,12 +2,12 @@
 #TODO:
 # borders
 # swaync?
-# sway
 # wlogout
 # home manager
 # icons
 # secure boot
 # fastfetch gpu
+# gui network manager
 
 # tty fonts
 # launch floating

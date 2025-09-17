@@ -1,4 +1,4 @@
-{ config, hostnm, lib, ... }:
+{ config, hostnm, lib, user, ... }:
 
 let term = "kitty";  
 in
@@ -18,7 +18,7 @@ in
       binding_screenshot = "KEY_SYSRQ | KEY_PRINT";
       binding_screenshot_interactive = "<shift> KEY_SYSRQ | <shift> KEY_PRINT | <super> <shift> KEY_P";
       binding_terminal = "<super> KEY_Z";
-      command_gaming = "./nix-confg/files/gamemode.sh";
+      command_gaming = "/bin/sh nix-confg/home/wayfire/shell/gamemode.sh";
       command_editor = "code";
       command_brightness_down = "brightnessctl s 5%-";
       command_brightness_up = "brightnessctl s +5%";

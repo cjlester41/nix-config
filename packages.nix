@@ -1,7 +1,7 @@
 { pkgs, config, inputs, user, lib, ... }:
-{
 
-environment.systemPackages = with pkgs; [
+{
+  environment.systemPackages = with pkgs; [
   
     micro 
     caligula
@@ -11,10 +11,8 @@ environment.systemPackages = with pkgs; [
     mpv   
     shaderbg
     dysk
-    # ffmpeg_8-headless
     hyprlock
-    swaylock
-    gtkgreet
+    tuigreet
     # swaynotificationcenter
 
     # utils
@@ -37,9 +35,7 @@ environment.systemPackages = with pkgs; [
     wlogout
     # nvd #nix pkg diff
     wget
-    zoxide # cd tool. implemented?
-    # qtgreet
-    regreet
+    zoxide # cd tool. implemented?  
 
     #Coding Stuff
     python312
@@ -51,16 +47,6 @@ environment.systemPackages = with pkgs; [
   ];
 
   programs = {
-
-    # hyprland.enable = true;
-    # wayfire = {
-    #   enable = true;
-    #   plugins = with pkgs.wayfirePlugins; [
-    #     # wcm
-    #     # wf-shell
-    #     wayfire-plugins-extra
-    #   ];
-    # };
 
     regreet = {
       enable = true;
