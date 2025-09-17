@@ -5,6 +5,7 @@ in
 {
   wayland.windowManager.wayfire.settings = {
     command = {
+      binding_gaming = "<super> KEY_G";
       binding_editor = "<super> KEY_C";
       binding_browser = "<super> KEY_W";
       binding_clipman = "<super> KEY_H";
@@ -17,6 +18,7 @@ in
       binding_screenshot = "KEY_SYSRQ | KEY_PRINT";
       binding_screenshot_interactive = "<shift> KEY_SYSRQ | <shift> KEY_PRINT | <super> <shift> KEY_P";
       binding_terminal = "<super> KEY_Z";
+      command_gaming = "./nix-confg/files/gamemode.sh";
       command_editor = "code";
       command_brightness_down = "brightnessctl s 5%-";
       command_brightness_up = "brightnessctl s +5%";

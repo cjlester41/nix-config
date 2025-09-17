@@ -13,6 +13,8 @@ environment.systemPackages = with pkgs; [
     dysk
     # ffmpeg_8-headless
     hyprlock
+    swaylock
+    gtkgreet
     # swaynotificationcenter
 
     # utils
@@ -50,15 +52,15 @@ environment.systemPackages = with pkgs; [
 
   programs = {
 
-    hyprland.enable = true;
-    wayfire = {
-      enable = true;
-      plugins = with pkgs.wayfirePlugins; [
-        # wcm
-        # wf-shell
-        wayfire-plugins-extra
-      ];
-    };
+    # hyprland.enable = true;
+    # wayfire = {
+    #   enable = true;
+    #   plugins = with pkgs.wayfirePlugins; [
+    #     # wcm
+    #     # wf-shell
+    #     wayfire-plugins-extra
+    #   ];
+    # };
 
     regreet = {
       enable = true;
@@ -100,22 +102,7 @@ environment.systemPackages = with pkgs; [
       };
       flake = "/home/${user}/nix-config"; 
     };     
-  };  
-  # programs.wayland.windowManager.sway = {
-  #   enable = true;
-    # wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
-    # config = rec {
-    #   # set = "$opacity 0.8";
-    #   modifier = "Mod4";
-    #   # Use kitty as default terminal
-    #   terminal = "kitty"; 
-    #   startup = [
-    #     # Launch Firefox on start
-    #     {command = "code";}
-    #     # {command = "shaderbg -l background HDMI-A-1 ~/nix-config/files/planet.glsl";}
-    #   ];
-    # };
-  # };
+  }; 
 }
 
 

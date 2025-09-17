@@ -1,17 +1,18 @@
 { config, pkgs, inputs, lib, chaotic, nix-gaming, user, ... }:
-let
-  wayfireSessionFile =
-    (pkgs.writeTextDir "share/wayland-sessions/wayfires.desktop" ''
-      [Desktop Entry]
-      Name=Wayfire
-      Comment=A digital distribution platform
-      Exec=wayfire
-      Type=Application
-    '').overrideAttrs
-      (_: {
-        passthru.providedSessions = [ "wayfire" ];
-      });
-in
+
+# let 
+#   wayfiredefault =
+#     (pkgs.writeTextDir "share/wayland-sessions/wayfire-default.desktop" ''
+#       [Desktop Entry]
+#       Name=Wayfire Desktop
+#       Comment=A digital distribution platform
+#       Exec=wayfire -c ~/.config/wayfire
+#       Type=Application
+#     '').overrideAttrs
+#       (_: {
+#         passthru.providedSessions = [ "wayfire-default" ];
+#       });
+# in
 {
   services = {
 
@@ -24,44 +25,30 @@ in
     ananicy.enable = true;
     ananicy.package = pkgs.ananicy-cpp;
     ananicy.rulesProvider = pkgs.ananicy-rules-cachyos;
-
-    # displayManager.sessionPackages = let
-    #   SteamFS = pkgs.writeShellScriptBin "SteamFS" ''
-    #     ${pkgs.wayfire}/bin/wayfire 
-    #   '';
-    #   in
-    #     [
-    #       {
-    #         manage = "window";
-    #         name = "Wayfire";
-    #         start = "${pkgs.wayfire}/bin/wayfire";
-    #       }
-    #     ];
-
-    # services.greetd = let
-    #   sway-igpu = pkgs.writeShellScriptBin "sway-igpu" ''
-    #     export WLR_DRM_DEVICES=/dev/dri/card1:/dev/dri/card2 && exec ${pkgs.sway}/bin/sway
-    #   '';
-    # in {
-    
-    displayManager.sessionPackages = [
-      wayfireSessionFile
-    ];
+     
+    displayManager.sessionPackages = let
+      wayfiredefault =
+      (pkgs.writeTextDir "share/wayland-sessions/wayfire-default.desktop" ''
+        [Desktop Entry]
+        Name=Wayfire Desktop
+        Exec=wayfire -c ~/.config/wayfire
+        Type=Application
+      '').overrideAttrs
+        (_: {
+          passthru.providedSessions = [ "wayfire-default" ];
+        });
+      in [ wayfiredefault ];
     
     greetd = { 
       enable = true;
       settings = {
-        # initial_session = {
-        #   user = "${user}";
-        #   command = "sway --config ~/.config/sway/config";
-        # };
-        default_session = let
-          link = "";#ln -sf ~/nix-config/files/wfregreet.ini wayfire &&";
-          in {
-            user = "${user}";
-            command = "${link}wayfire -c ~/nix-config/files/wfregreet.ini"; 
-            #"${pkgs.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
-          
+        initial_session = {
+          user = "${user}";
+          command = "./nix-config/home/wayfire/shell/initsession.sh";
+        };
+        default_session = {
+          user = "${user}";
+          command = "./nix-config/home/wayfire/shell/regreet.sh";          
         };
       };
     };    
