@@ -13,20 +13,20 @@
     ananicy.package = pkgs.ananicy-cpp;
     ananicy.rulesProvider = pkgs.ananicy-rules-cachyos;
     
-    greetd = { 
-      enable = true;
-      settings = let
-        cmd = "gamescope --hdr-enabled --rt --steam -- steam -pipewire-dmabuf -tenfoot"; in {
-        initial_session = {
-          user = "${user}";
-          command = "${cmd}";
-        };
-        default_session = {
-          user = "${user}";
-          command = "${pkgs.tuigreet}/bin/tuigreet --cmd ${cmd}";          
-        };
-      };
-    };    
+    # greetd = { 
+    #   enable = true;
+    #   settings = let
+    #     cmd = "gamescope --hdr-enabled --rt --steam -- steam -pipewire-dmabuf -tenfoot"; in {
+    #     initial_session = {
+    #       user = "${user}";
+    #       command = "${cmd}";
+    #     };
+    #     default_session = {
+    #       user = "${user}";
+    #       command = "${pkgs.tuigreet}/bin/tuigreet --cmd ${cmd}";          
+    #     };
+    #   };
+    # };    
 
     pipewire = {
       enable = true;

@@ -50,7 +50,6 @@
     polkit.enable = true;
     rtkit.enable = true;
     pam.services.hpyrlock.text = ''auth include login''; 
-    pam.services.swaylock.text = ''auth include login''; 
   };
 
   nixpkgs.config.allowUnfree = true;

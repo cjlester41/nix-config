@@ -10,6 +10,7 @@
 # gui network manager
 # get user
 # firefox plugins
+# fu script
 
 # tty fonts
 # launch floating
@@ -87,7 +88,7 @@
         modules = [
           chaotic.nixosModules.default
           ./hosts/steam
-          ./gpu/amd.nix    
+          ./gpu/intel.nix    
         ];
       specialArgs = {
       	  inherit inputs;

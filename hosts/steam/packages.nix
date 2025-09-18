@@ -11,9 +11,12 @@
     ntfsprogs
     ntfs3g
     nix-output-monitor
-    hyprland
+    wayfire
+    hyprlock
+    shaderbg
     kitty
-    vscodium
+    vscode
+    alacritty
 
     steam-run    
     # bottles
@@ -26,9 +29,23 @@
     appimage-run
     vulkan-tools
     ananicy-cpp
-    ananicy-rules-cachyos  
+    ananicy-rules-cachyos      
     
   ];
+  
+  fonts.enableDefaultPackages = true;
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    montserrat
+  ];
+
+  fonts.fontconfig = {
+    defaultFonts = {
+      monospace = ["JetBrains Mono"];      
+      sansSerif = ["Montserrat"];
+      serif = ["Montserrat"];
+    };
+  };
   
   hardware.graphics.extraPackages = with pkgs; [
     vulkan-loader
