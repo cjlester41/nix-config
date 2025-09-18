@@ -13,6 +13,7 @@
     nix-output-monitor
     hyprland
     kitty
+    vscodium
 
     steam-run    
     # bottles
@@ -64,7 +65,6 @@
       };
     }; 
 
-    vscode.enable = true;
     firefox.enable = true;
     zsh.enable = true;
     nix-ld.enable = true;
