@@ -82,11 +82,11 @@
         };
       };
 
-      PatOS = nixpkgs.lib.nixosSystem {
+      Steam = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           chaotic.nixosModules.default
-          ./hosts/laptop
+          ./hosts/steam
           ./gpu/amd.nix    
         ];
       specialArgs = {
