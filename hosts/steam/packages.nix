@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, neve, lib, ... }:
+{ pkgs, config, inputs, user, lib, ... }:
 
 {
   environment.systemPackages = with pkgs; [

@@ -16,7 +16,7 @@
     greetd = { 
       enable = true;
       settings = let
-        cmd = "steam"; in { ##################################3
+        cmd = "gamescope --hdr-enabled --rt --steam -- steam -pipewire-dmabuf -tenfoot"; in {
         initial_session = {
           user = "${user}";
           command = "${cmd}";
