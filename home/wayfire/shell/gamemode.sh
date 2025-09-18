@@ -8,6 +8,6 @@ pkill waybar &
 pkill shaderbg &
 
 ln -sf ~/nix-config/home/wayfire/shell/wfgaming.ini ~/.config/wayfire &
-sleep 1 &
-
+# sleep 1 &
 steam -bigpicture
+# kitty --hold zsh -c \"steam -bigpicture\"

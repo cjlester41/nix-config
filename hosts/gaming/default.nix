@@ -35,7 +35,7 @@
       KWIN_COMPOSE = "O2";
       KDE_NO_PRELOADING = "0";
       BALOO_DISABLE = "1";
-      # MOZ_ENABLE_WAYLAND = "1";
+      MOZ_ENABLE_WAYLAND = "1";
       #XDG_CACHE_HOME = "/home/isolde/.cache";
       #NIXOS_OZONE_WL = "1";
   };

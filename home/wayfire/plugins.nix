@@ -4,7 +4,6 @@
     "wm-actions " + 
     "idle " + 
     "alpha " + 
-    "autostart " + 
     "command " + 
     "expo " + 
     "move " + 
@@ -19,10 +18,10 @@
     "animate " + 
     "wf-info " + 
     "filters " + 
-    "shortcuts-inhibit " + 
-    "ipc-rules " + 
+    "shortcuts-inhibit " +     
     "cube " + 
     "ipc " + 
+    "ipc-rules " + 
     "pin-view " + 
     "simple-tile " + 
     "wayfire-plugins-extra " + 

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ln -sf ~/.config/wayfire.ini ~/.config/wayfire &
+sleep 1 &
 wayfire -c ~/.config/wayfire
 # sleep 1 &
 

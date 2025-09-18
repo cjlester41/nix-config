@@ -1,8 +1,5 @@
 { config, pkgs, inputs, lib, chaotic, nix-gaming, user, ... }:
 
-let
-  cfg = "~/.config/wayfire";
-in
 {
   services = {
 
@@ -15,24 +12,11 @@ in
     ananicy.enable = true;
     ananicy.package = pkgs.ananicy-cpp;
     ananicy.rulesProvider = pkgs.ananicy-rules-cachyos;
-     
-    displayManager.sessionPackages = let
-      wayfiredefault = 
-      (pkgs.writeTextDir "share/wayland-sessions/wayfire.desktop" ''
-        [Desktop Entry]
-        Name=Wayfire Desktop
-        Exec=ln -sf ${cfg}.ini ${cfg} & wayfire -c ${cfg}
-        Type=Application
-      '').overrideAttrs
-        (_: {
-          passthru.providedSessions = [ "wayfire" ];
-        });
-      in [ wayfiredefault ];
     
     greetd = { 
       enable = true;
       settings = let
-        cmd = "wayfire"; in {#ln -sf ${cfg}.ini ${cfg} & sleep 2 & wayfire"; in {# -c ${cfg}"; in {
+        cmd = "steam"; in { ##################################3
         initial_session = {
           user = "${user}";
           command = "${cmd}";

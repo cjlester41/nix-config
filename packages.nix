@@ -22,7 +22,6 @@
     rofi
     unzip
     blueman
-    tuigreet # ??????
     wlr-randr
     minicom
     usbutils

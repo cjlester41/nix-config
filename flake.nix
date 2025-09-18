@@ -8,6 +8,8 @@
 # secure boot
 # fastfetch gpu
 # gui network manager
+# get user
+# firefox plugins
 
 # tty fonts
 # launch floating
@@ -20,8 +22,6 @@
 # firefox stylix
 
 {
-  description = "Nixos config flake";
-
   inputs = {
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -70,6 +70,19 @@
       };
 
       NixOS-S7 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          chaotic.nixosModules.default
+          ./hosts/laptop
+          ./gpu/amd.nix    
+        ];
+      specialArgs = {
+      	  inherit inputs;
+      	  inherit user;
+        };
+      };
+
+      PatOS = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           chaotic.nixosModules.default
