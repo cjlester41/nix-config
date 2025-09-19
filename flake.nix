@@ -38,6 +38,7 @@
     };
 
     private.url = "path:./private";
+    private.flake = false;
   };
 
   outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let    
