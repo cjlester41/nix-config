@@ -38,7 +38,7 @@
     };
 
     private.url = "path:./private";#///home/cjlester/nix-config/private";
-    # private.flake = false;
+    private.flake = false;
   };
 
   outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let    
