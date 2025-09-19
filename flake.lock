@@ -402,13 +402,12 @@
       }
     },
     "private": {
-      "flake": false,
       "locked": {
-        "path": "~/nix-config/private.nix",
+        "path": "./private",
         "type": "path"
       },
       "original": {
-        "path": "~/nix-config/private.nix",
+        "path": "./private",
         "type": "path"
       },
       "parent": []

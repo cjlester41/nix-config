@@ -1,11 +1,9 @@
-{ config, ... }:
 {
-  config = {
-    private = {
-      username = "";
-      gpu-type = "";
-      git-name = "";
-      git-mail = "";
-    };
+  inputs = {};
+  outputs = {self}:{
+    username = "";
+    gpu-type = "";
+    git-name = "";
+    git-mail = "";    
   };
 }

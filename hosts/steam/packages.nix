@@ -89,8 +89,8 @@
     git = {
       enable = true;
       config = {
-        user.name = private.git-name;
-        user.email = private.git-mail;
+        user.name = "cjlester41";#private.git-name;
+        user.email = "cjlester@outlook.com";#private.git-mail;
         init.defaultBranch = "main";
       };
     };
