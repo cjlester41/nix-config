@@ -16,6 +16,7 @@
     shaderbg
     kitty
     vscode
+    zoxide
 
     steam-run    
     # bottles

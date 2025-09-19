@@ -1,3 +1,1 @@
-# flake.lock
-# user.txt
-# gpu.txt
+nix-config/private.nix

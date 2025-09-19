@@ -37,14 +37,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    private.url = ".private.nix";
+    private.url = "path:./private.nix";
     private.flake = false;
   };
 
   outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let
     
-    user = "cjlester"; #(builtins.readFile ./user.txt);
-    gpu = "amd.nix";#(builtins.readFile ./gpu.txt);
+    user = private.username; #"cjlester"; #(builtins.readFile ./user.txt);
+    gpu = private.gpu-type; #"amd.nix";#(builtins.readFile ./gpu.txt);
     system = "x86_64-linux";
 
   in { 
