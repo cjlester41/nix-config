@@ -37,12 +37,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    private.url = "path:./private";
-    private.flake = false;
+    private.url = "path:./private";#///home/cjlester/nix-config/private";
+    # private.flake = false;
   };
 
   outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let    
     
+    # privates = import "${inputs.private}/private.nix";
     user = private.username;
     gpu = private.gpu-type;
     system = "x86_64-linux";

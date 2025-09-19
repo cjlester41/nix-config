@@ -402,6 +402,7 @@
       }
     },
     "private": {
+      "flake": false,
       "locked": {
         "path": "./private",
         "type": "path"
