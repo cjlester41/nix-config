@@ -37,14 +37,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    private.url = "path:./private.nix";
-    private.flake = false;
+    private.url = "path:~/nix-config/private";
+    # private.flake = false;
   };
 
   outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let
     
-    user = private.username; #"cjlester"; #(builtins.readFile ./user.txt);
-    gpu = private.gpu-type; #"amd.nix";#(builtins.readFile ./gpu.txt);
+    user = private.username; 
+    gpu = private.gpu-type; 
     system = "x86_64-linux";
 
   in { 
@@ -68,7 +68,7 @@
         modules = [
           chaotic.nixosModules.default
           ./hosts/work
-          ./gpu/intel.nix
+          ./gpu/${gpu}
         ];
         specialArgs = {
           inherit inputs;
@@ -81,7 +81,7 @@
         modules = [
           chaotic.nixosModules.default
           ./hosts/laptop
-          ./gpu/amd.nix    
+          ./gpu/${gpu}  
         ];
       specialArgs = {
       	  inherit inputs;

@@ -1,7 +1,11 @@
 { config, ... }:
 {
   config = {
-    private.username = "";
-    private.gpu-type = ".nix";
+    private = {
+      username = "";
+      gpu-type = "";
+      git-name = "";
+      git-mail = "";
+    };
   };
 }

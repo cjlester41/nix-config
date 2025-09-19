@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, user, lib, ... }:
+{ pkgs, config, inputs, user, lib, private, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -51,7 +51,7 @@
       enable = true;
       settings = {
         appearance.greeting_msg = "Welcome to PatOS";
-        env.SESSION_DIRS = "${config.services.displayManager.sessionData.desktops}/share/wayland-sessions"; #"/home/cjlester/.wayland-sessions";
+        env.SESSION_DIRS = "${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
       };
     };
 
@@ -73,8 +73,8 @@
     git = {
       enable = true;
       config = {
-        user.name = "cjlester41";
-        user.email = "cjlester@outlook.com";
+        user.name = private.git-name;
+        user.email = private.git-email;
         init.defaultBranch = "main";
       };
     };

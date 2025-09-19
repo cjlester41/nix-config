@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, user, lib, ... }:
+{ pkgs, config, inputs, user, lib, private, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -89,8 +89,8 @@
     git = {
       enable = true;
       config = {
-        user.name = "cjlester41";
-        user.email = "cjlester@outlook.com";
+        user.name = private.git-name;
+        user.email = private.git-mail;
         init.defaultBranch = "main";
       };
     };
