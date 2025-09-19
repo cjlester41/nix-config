@@ -16,7 +16,6 @@
     shaderbg
     kitty
     vscode
-    alacritty
 
     steam-run    
     # bottles

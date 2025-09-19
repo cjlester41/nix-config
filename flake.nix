@@ -11,6 +11,8 @@
 # get user
 # firefox plugins
 # fu script
+# LUK lanzaboote
+# dns is off!!!
 
 # tty fonts
 # launch floating
@@ -34,11 +36,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    private.url = ".private.nix";
+    private.flake = false;
   };
 
-  outputs = { self, nixpkgs, chaotic, home-manager, ... }@inputs: let
-  
-    user = "cjlester";
+  outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let
+    
+    user = "cjlester"; #(builtins.readFile ./user.txt);
+    gpu = "amd.nix";#(builtins.readFile ./gpu.txt);
     system = "x86_64-linux";
 
   in { 
@@ -49,7 +55,7 @@
         modules = [
           chaotic.nixosModules.default
           ./hosts/gaming
-          ./gpu/amd.nix
+          ./gpu/${gpu}
         ];
       specialArgs = {
           inherit inputs;
@@ -88,7 +94,7 @@
         modules = [
           chaotic.nixosModules.default
           ./hosts/steam
-          ./gpu/intel.nix    
+          ./gpu/${gpu}   
         ];
       specialArgs = {
       	  inherit inputs;
