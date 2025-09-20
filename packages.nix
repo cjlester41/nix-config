@@ -74,7 +74,7 @@
       enable = true;
       config = {
         user.name = private.git-name;
-        user.email = private.git-email;
+        user.email = private.git-mail;
         init.defaultBranch = "main";
       };
     };

@@ -18,5 +18,22 @@
     ignoreShellProgramCheck = false;
   };
 
-  nix.settings.allowed-users = ["${usernm}"]; 
+  users.users.testing = {
+    isNormalUser = true;
+    description = "${usernm}";
+    extraGroups = [ 
+      "networkmanager" 
+      "wheel" 
+      "audio" 
+      "gamemode" 
+      "video" 
+      "libvirtd"
+      "storage"
+      "dailout"
+    ];
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = false;
+  };
+
+  nix.settings.allowed-users = ["${usernm}" ]; 
 }

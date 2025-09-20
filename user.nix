@@ -9,7 +9,7 @@ in
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "bak";
-    extraSpecialArgs = {inherit inputs user hostnm;};
+    extraSpecialArgs = {inherit inputs usernm hostnm;};
     users.${usernm} = { 
       imports = [./home];
       home = {

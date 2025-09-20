@@ -3,12 +3,9 @@
 # borders
 # swaync?
 # wlogout
-# home manager
 # icons
-# secure boot
 # fastfetch gpu
 # gui network manager
-# get user
 # firefox plugins
 # fu script
 # LUK lanzaboote
@@ -16,13 +13,11 @@
 
 # tty fonts
 # launch floating
-# host/username imports
 # cava stylix
 # codium colors
 # mouse switching
 # import wf plugins
 # workspace launch
-# firefox stylix
 
 {
   inputs = {
@@ -73,6 +68,7 @@
           ./gpu/${gputyp}
         ];
         specialArgs = {
+          inherit private;
           inherit inputs;
           inherit usernm;
           inherit hw-cfg;
