@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, user, ... }:
+{ config, pkgs, inputs, lib, chaotic, nix-gaming, usernm, ... }:
 
 {
   services = {
@@ -18,11 +18,11 @@
     #   settings = let
     #     cmd = "gamescope --hdr-enabled --rt --steam -- steam -pipewire-dmabuf -tenfoot"; in {
     #     initial_session = {
-    #       user = "${user}";
+    #       user = "${usernm}";
     #       command = "${cmd}";
     #     };
     #     default_session = {
-    #       user = "${user}";
+    #       user = "${usernm}";
     #       command = "${pkgs.tuigreet}/bin/tuigreet --cmd ${cmd}";          
     #     };
     #   };

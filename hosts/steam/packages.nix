@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, user, lib, private, ... }:
+{ pkgs, config, inputs, usernm, lib, private, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -89,8 +89,8 @@
     git = {
       enable = true;
       config = {
-        user.name = "cjlester41";#private.git-name;
-        user.email = "cjlester@outlook.com";#private.git-mail;
+        user.name = private.git-name;
+        user.email = private.git-mail;
         init.defaultBranch = "main";
       };
     };
@@ -101,7 +101,7 @@
         enable = true;
         extraArgs = "--keep-since 7d --keep 5";
       };
-      flake = "/home/${user}/nix-config"; 
+      flake = "/home/${usernm}/nix-config"; 
     };     
   };
 }

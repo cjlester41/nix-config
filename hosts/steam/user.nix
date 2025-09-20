@@ -1,9 +1,9 @@
-{pkgs, inputs, config, user, ...}:
+{pkgs, inputs, config, usernm, ...}:
 
 {
-  users.users.${user} = {
+  users.users.${usernm} = {
     isNormalUser = true;
-    description = "${user}";
+    description = "${usernm}";
     extraGroups = [ 
       "networkmanager" 
       "wheel" 
@@ -18,5 +18,5 @@
     ignoreShellProgramCheck = false;
   };
 
-  nix.settings.allowed-users = ["${user}"]; 
+  nix.settings.allowed-users = ["${usernm}"]; 
 }

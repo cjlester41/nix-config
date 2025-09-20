@@ -1,10 +1,5 @@
-{
-  pkgs,
-  inputs,
-  config,
-  user,
-  ...
-}:
+{ pkgs, inputs, config, usernm, ...}:
+
 let
   hostnm = config.networking.hostName;
 in
@@ -15,19 +10,19 @@ in
     useGlobalPkgs = true;
     backupFileExtension = "bak";
     extraSpecialArgs = {inherit inputs user hostnm;};
-    users.${user} = { 
+    users.${usernm} = { 
       imports = [./home];
       home = {
-        username = "${user}"; 
-        homeDirectory = "/home/${user}";
+        username = "${usernm}"; 
+        homeDirectory = "/home/${usernm}";
         stateVersion = "24.11";
       };
     };
   };
 
-  users.users.${user} = {
+  users.users.${usernm} = {
     isNormalUser = true;
-    description = "${user}";
+    description = "${usernm}";
     linger = true;
     extraGroups = [ 
       "networkmanager" 
@@ -43,6 +38,6 @@ in
     ignoreShellProgramCheck = false;
   };
 
-  nix.settings.allowed-users = ["${user}"]; 
-  # nix.settings.trusted-users = ["${user}" "root"]; #devenv?
+  nix.settings.allowed-users = ["${usernm}"]; 
+  # nix.settings.trusted-users = ["${usernm}" "root"]; #devenv?
 }

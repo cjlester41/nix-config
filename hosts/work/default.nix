@@ -1,14 +1,14 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, ... }:
+{ config, pkgs, inputs, lib, chaotic, nix-gaming, hw-cfg, ... }:
 
 {
   imports = [
     inputs.stylix.nixosModules.stylix
+    ../../hardware/${hw-cfg}/hardware-configuration.nix
     ../../common.nix
     ../../stylix.nix
     ../../packages.nix
     ../../user.nix
     ../../services.nix
-    ./hardware-configuration.nix
     ./boot.nix    
     ./packages.nix
   ];

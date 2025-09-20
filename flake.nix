@@ -37,15 +37,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    private.url = "path:./private";#///home/cjlester/nix-config/private";
-    private.flake = false;
+    private.url = "/home/private";
+
   };
 
   outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let    
     
-    # privates = import "${inputs.private}/private.nix";
-    user = private.username;
-    gpu = private.gpu-type;
+    usernm = private.username;
+    gputyp = private.gpu-type;
+    hw-cfg = private.hardware;
     system = "x86_64-linux";
 
   in { 
@@ -56,11 +56,12 @@
         modules = [
           chaotic.nixosModules.default
           ./hosts/gaming
-          ./gpu/${gpu}
+          ./gpu/${gputyp}
         ];
-      specialArgs = {
+        specialArgs = {
           inherit inputs;
-          inherit user;
+          inherit usernm;
+          inherit hw-cfg;
         };
       };
 
@@ -69,11 +70,12 @@
         modules = [
           chaotic.nixosModules.default
           ./hosts/work
-          ./gpu/${gpu}
+          ./gpu/${gputyp}
         ];
         specialArgs = {
           inherit inputs;
-          inherit user;
+          inherit usernm;
+          inherit hw-cfg;
         };
       };
 
@@ -82,24 +84,27 @@
         modules = [
           chaotic.nixosModules.default
           ./hosts/laptop
-          ./gpu/${gpu}  
+          ./gpu/${gputyp}  
         ];
-      specialArgs = {
+        specialArgs = {
       	  inherit inputs;
-      	  inherit user;
+      	  inherit usernm;
+          inherit hw-cfg;
         };
       };
 
-      Steam = nixpkgs.lib.nixosSystem {
+      NixOS-Steam = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           chaotic.nixosModules.default
           ./hosts/steam
-          ./gpu/${gpu}   
+          ./gpu/${gputyp}   
         ];
-      specialArgs = {
+        specialArgs = {
+          inherit private;
       	  inherit inputs;
-      	  inherit user;
+      	  inherit usernm;
+          inherit hw-cfg;
         };
       };
     };

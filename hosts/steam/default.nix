@@ -1,13 +1,13 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, user, ... }:
+{ config, pkgs, inputs, lib, chaotic, nix-gaming, usernm, hw-cfg, ... }:
 
 {
   imports = [
     inputs.stylix.nixosModules.stylix
+    ../../hardware/${hw-cfg}/hardware-configuration.nix
     ./common.nix
     ./packages.nix
     ./user.nix
     ./services.nix
-    ./hardware-configuration.nix
     ./boot.nix
   ];
 
@@ -18,12 +18,12 @@
     size = 16 * 1024;
   }];
 
-  # fileSystems."/home/${user}/share" = {
+  # fileSystems."/home/${usernm}/share" = {
   #   device = "/dev/disk/by-uuid/7A50CDFB34EF3C22";
   #   fsType = "ntfs";
   # };
 
-  # fileSystems."/home/${user}/steam" = {
+  # fileSystems."/home/${usernm}/steam" = {
   #   device = "/dev/disk/by-uuid/7c63130c-adf0-48fe-94ab-cda7181379d1";
   #   fsType = "ext4";
   #   options = [ "exec" ];

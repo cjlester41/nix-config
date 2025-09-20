@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, user, lib, private, ... }:
+{ pkgs, config, inputs, usernm, lib, private, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -85,7 +85,7 @@
         enable = true;
         extraArgs = "--keep-since 7d --keep 5";
       };
-      flake = "/home/${user}/nix-config"; 
+      flake = "/home/${usernm}/nix-config"; 
     };     
   }; 
 }

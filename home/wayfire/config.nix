@@ -1,4 +1,4 @@
-{ config, hostnm, lib, user, ... }:
+{ config, hostnm, lib, usernm, ... }:
 
 let background = 
     if hostnm == "NixOS-S7" then
@@ -40,7 +40,7 @@ in
       autostart1 = "kitty"; # --hold zsh -c \"fastfetch\"";
       # autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
       autostart3 = "blueman-applet";
-      autostart4 = "waybar"; # "sleep 1 && python /home/${user}/GLWall/pin-view.py 5 \"background\" true";
+      autostart4 = "waybar"; # "sleep 1 && python /home/${usernm}/GLWall/pin-view.py 5 \"background\" true";
       autostart5 = "code";      
       autostart_wf_shell = false;
       clipman-restore = "clipman restore";

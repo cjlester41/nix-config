@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, user, ... }:
+{ config, pkgs, inputs, lib, chaotic, nix-gaming, usernm, ... }:
 
 {
 
@@ -11,7 +11,7 @@
     #     colormix_col2 = "0x00050505";
     #     colormix_col3 = "0x00090909";
     #     bigclock = "en";
-    #     waylandsessions = "/home/${user}/.wayland-sessions";
+    #     waylandsessions = "/home/${usernm}/.wayland-sessions";
     #     xinitrc = "";
     #   };
     # };
@@ -28,7 +28,7 @@
       # vt = 3;
       settings = {
         default_session = {
-          user = "${user}";
+          user = "${usernm}";
           command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
         };
       };

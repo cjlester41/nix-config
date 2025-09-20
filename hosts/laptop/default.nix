@@ -3,12 +3,12 @@
 {
   imports = [
     inputs.stylix.nixosModules.stylix
+    ../../hardware/${private.hardware}/hardware-configuration.nix
     ../../common.nix
     ../../stylix.nix
     ../../packages.nix
     ../../user.nix
     ../../services.nix
-    ./hardware-configuration.nix
     ./boot.nix
     ./packages.nix
   ];
