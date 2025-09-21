@@ -35,6 +35,7 @@
     # nvd #nix pkg diff
     wget
     zoxide # cd tool. implemented?  
+    xfce.thunar
 
     #Coding Stuff
     python312
@@ -55,9 +56,10 @@
       };
     };
 
+    xfconf.enable = true;
     firefox.enable = true;
     zsh.enable = true;
-    # dconf.enable = true;
+    dconf.enable = true;
     nix-ld.enable = true;
 
     yazi = {

@@ -26,6 +26,7 @@
     "simple-tile " + 
     "wayfire-plugins-extra " + 
     "window-rules " + 
+    "pixdecor" +
     "extra-animations " + 
     "session-lock";
         

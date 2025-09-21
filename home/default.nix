@@ -15,6 +15,8 @@
     ./swaync.nix
     ./wayfire
     ./zsh
+    ./rofi
+    ./wlogout
   ];
 
   # programs.home-manager.enabe = true;
