@@ -54,6 +54,18 @@
     zsh.enable = true; # see note on other shells below
   };
 
+  gtk = {
+    enable = true;
+    iconTheme = lib.mkForce {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    # override the default GTK-Theme from Stylix
+    # theme = lib.mkForce {
+    #   name = "Nightfox-Dark";
+    #   package = pkgs.nightfox-gtk-theme;
+    # };
+  };
 
   # home-manager = {
   #   backupFileExtension = "bak";

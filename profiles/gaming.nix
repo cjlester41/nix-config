@@ -3,28 +3,63 @@
 {
   imports = [
     inputs.stylix.nixosModules.stylix
-    ../../common.nix
-    ../../stylix.nix
-    ../../packages.nix
-    ../../user.nix
-    ../../services.nix
-    ./hardware-configuration.nix
-    ./boot.nix
-    ./packages.nix
+    # ../hardware/${}/hw-cfghardware-configuration.nix
+    ../common.nix
+    ../stylix.nix
+    ../packages.nix
+    ../user.nix
+    ../services.nix
+    ../boot.nix
   ];
 
   networking.hostName = "NixOS-B460";
 
-  fileSystems."/home/${usernm}/share" = {
-    device = "/dev/disk/by-uuid/7A50CDFB34EF3C22";
-    fsType = "ntfs";
-    # options = [ "subvol=games" ];
-  };
+  environment.systemPackages = with pkgs; [
 
-  fileSystems."/home/${usernm}/steam" = {
-    device = "/dev/disk/by-uuid/7c63130c-adf0-48fe-94ab-cda7181379d1";
-    fsType = "ext4";
-    options = [ "exec" ];
+    steam-run    
+    bottles
+    lutris
+    protontricks
+    winetricks
+    seatd
+    mangohud
+    ntfsprogs
+
+    appimage-run
+    vulkan-tools
+    ananicy-cpp
+    ananicy-rules-cachyos 
+    
+  ];
+
+  programs = {
+    gamescope.enable = true;
+    gamescope.capSysNice = true;
+    gamemode.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      gamescopeSession.enable = true;
+      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+      localNetworkGameTransfers.openFirewall = true; 
+    };
+
+    appimage = {
+      enable = true;
+      binfmt = true;
+      package = pkgs.appimage-run.override {
+        extraPkgs = pkgs: [
+          pkgs.glibc
+          pkgs.libGL
+          pkgs.mesa
+          pkgs.libffi
+          pkgs.vulkan-loader
+          pkgs.xdg-utils
+          pkgs.wayland
+        ];
+      };
+    };   
   };
 
   powerManagement.cpuFreqGovernor = "performance";
