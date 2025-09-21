@@ -15,7 +15,7 @@
     ./swaync.nix
     ./wayfire
     ./zsh
-    ./rofi
+    ./rofi/rofi.nix
     ./wlogout
   ];
 

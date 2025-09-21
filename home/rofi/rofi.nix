@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  stylix.targets = {
+    rofi.enable = false;
+  };
+
   home.packages = with pkgs; [ rofi ];
 
   xdg.configFile."rofi/theme.rasi".source = ./theme.rasi;

@@ -36,6 +36,9 @@
     wget
     zoxide # cd tool. implemented?  
     xfce.thunar
+    xdg-utils
+    candy-icons
+    hyprland
 
     #Coding Stuff
     python312
@@ -47,6 +50,19 @@
   ];
 
   programs = {
+
+    # dconf.profiles.user.databases = [
+    #   {
+    #   settings."org/gnome/desktop/interface" = {
+    #     gtk = {
+    #       iconTheme = lib.mkForce {
+    #         name = "Papirus-Dark";
+    #         package = pkgs.catppuccin-papirus-folders;
+    #       };
+    #     };
+    #   };
+    #   }
+    # ];
 
     regreet = {
       enable = true;

@@ -1,6 +1,8 @@
 { config, pkgs, inputs, lib, chaotic, nix-gaming, ... }: 
 
 {
+  xdg.icons.enable = true;
+  
   boot = {    
     kernelPackages = pkgs.linuxPackages_cachyos;
     initrd.systemd.enable = true;
