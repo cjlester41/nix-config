@@ -12,6 +12,7 @@ while True:
     msg = sock.read_next_event()
     if "event" in msg:
         view = msg["view"]
+        # print(view)
         if view["app-id"] == "kitty":
             output_data = sock.get_output(view["output-id"])
             print(output_data)

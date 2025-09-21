@@ -59,14 +59,18 @@
   gtk = {
     enable = true;
     iconTheme = lib.mkForce {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      name = "Sweet-Rainbow";
+      package = pkgs.sweet-folders;
     };
-    # override the default GTK-Theme from Stylix
     # theme = lib.mkForce {
     #   name = "Nightfox-Dark";
     #   package = pkgs.nightfox-gtk-theme;
     # };
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
+    };
   };
 
   # home-manager = {

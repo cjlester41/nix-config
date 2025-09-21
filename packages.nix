@@ -17,7 +17,7 @@
 
     # utils
     # advcpmv need alternative
-    eza # is this implemented?
+    eza
     nmap
     rofi
     unzip
@@ -34,11 +34,8 @@
     wlogout
     # nvd #nix pkg diff
     wget
-    zoxide # cd tool. implemented?  
-    xfce.thunar
-    xdg-utils
+    zoxide # cd tool. implemented? 
     candy-icons
-    hyprland
 
     #Coding Stuff
     python312

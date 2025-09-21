@@ -21,13 +21,15 @@
     lolcat
     signal-desktop
     factorio
+    xfce.thunar
+    dconf-editor
     # python312full  
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {
     factorio = pkgs.factorio.override {
       username = private.git-name;
-      token = "b100c02ff51800924f6b47271cc64c";
+      token = private.factorio;
     };
   };
 

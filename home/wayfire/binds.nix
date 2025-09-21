@@ -4,7 +4,10 @@ let term = "kitty";
 in
 {
   wayland.windowManager.wayfire.settings = {
+
     command = {
+
+      binding_files = "<super> KEY_X";
       binding_gaming = "<super> KEY_G";
       binding_editor = "<super> KEY_C";
       binding_browser = "<super> KEY_W";
@@ -18,6 +21,8 @@ in
       binding_screenshot = "KEY_SYSRQ | KEY_PRINT";
       binding_screenshot_interactive = "<shift> KEY_SYSRQ | <shift> KEY_PRINT | <super> <shift> KEY_P";
       binding_terminal = "<super> KEY_Z";
+
+      command_files = "nemo";
       command_gaming = "bash -x ~/nix-config/home/wayfire/shell/gamemode.sh";
       command_editor = "code";
       command_brightness_down = "brightnessctl s 5%-";
@@ -37,6 +42,7 @@ in
       command_terminal = term; #"kitty --hold zsh -c \"fastfetch\"";
       command_volume_down = "bash -c \"pamixer -ud 3 && pamixer --get-volume > $SWAYSOCK.wob\"";
       command_volume_up = "bash -c \"pamixer -ui 3 && pamixer --get-volume > $SWAYSOCK.wob\"";
+
       repeatable_binding_brightness_down = "KEY_BRIGHTNESSDOWN";
       repeatable_binding_brightness_up = "KEY_BRIGHTNESSUP";
       repeatable_binding_media-next = "KEY_NEXTSONG";
