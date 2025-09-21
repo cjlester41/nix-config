@@ -1,4 +1,4 @@
-{ config, hostnm, lib, usernm, ... }:
+{ config, hostnm, lib,  ... }:
 
 let term = "kitty";  
 in

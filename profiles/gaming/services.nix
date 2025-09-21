@@ -20,7 +20,7 @@
 #     #     fg = "0x00A9A9A9";
 #     #     cmatrix_fg = "0x00666666";
 #     #     bigclock = true;
-#     #     waylandsessions = "/home/${usernm}/.wayland-sessions";
+#     #     waylandsessions = "/home/${private.username}/.wayland-sessions";
 #     #     xinitrc = "";
 #     #   };
 #     # };
@@ -31,7 +31,7 @@
 #     gvfs.enable = true;
 
 #     # seatd.group = "seat"; ####################
-#     # getty.autologinUser = "${usernm}";
+#     # getty.autologinUser = "${private.username}";
       
 #     # ssh-agent.enable = true;
   
@@ -44,7 +44,7 @@
 #       # vt = 3;
 #       settings = {
 #         default_session = {
-#           user = "${usernm}";
+#           user = "${private.username}";
 #           command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd wayfire"; 
 #         };
 #       };

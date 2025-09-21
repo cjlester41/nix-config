@@ -4,7 +4,6 @@
   boot = {
     
     kernelPackages = pkgs.linuxPackages_cachyos;
-    kernelParams = ["quiet"];
     initrd.systemd.enable = true;
     supportedFilesystems = ["ntfs"];
   

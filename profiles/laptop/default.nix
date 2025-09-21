@@ -15,6 +15,12 @@
 
   networking.hostName = "NixOS-S7";
 
+  environment.systemPackages = with pkgs; [
+
+    swaybg
+
+  ];
+
   services.logind.lidSwitch = "sleep";
 
   swapDevices = [{

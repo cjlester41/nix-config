@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, usernm, lib, private, ... }:
+{ pkgs, config, inputs, lib, private, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -11,12 +11,14 @@
     ntfsprogs
     ntfs3g
     nix-output-monitor
-    wayfire
+    wayfire-with-plugins
     hyprlock
     shaderbg
     kitty
     vscode
     zoxide
+    rofi
+    eza
 
     steam-run    
     # bottles
@@ -101,7 +103,7 @@
         enable = true;
         extraArgs = "--keep-since 7d --keep 5";
       };
-      flake = "/home/${usernm}/nix-config"; 
+      flake = "/home/${private.username}/nix-config"; 
     };     
   };
 }

@@ -1,9 +1,9 @@
-{pkgs, inputs, config, usernm, ...}:
+{pkgs, inputs, config, private, ...}:
 
 {
-  users.users.${usernm} = {
+  users.users.${private.username} = {
     isNormalUser = true;
-    description = "${usernm}";
+    description = "${private.username}";
     extraGroups = [ 
       "networkmanager" 
       "wheel" 
@@ -20,7 +20,7 @@
 
   users.users.testing = {
     isNormalUser = true;
-    description = "${usernm}";
+    description = "${private.username}";
     extraGroups = [ 
       "networkmanager" 
       "wheel" 
@@ -35,5 +35,5 @@
     ignoreShellProgramCheck = false;
   };
 
-  nix.settings.allowed-users = ["${usernm}" ]; 
+  nix.settings.allowed-users = ["${private.username}" ]; 
 }

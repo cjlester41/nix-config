@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, usernm, ...}:
+{ pkgs, inputs, config, private, ...}:
 
 let
   hostnm = config.networking.hostName;
@@ -9,20 +9,20 @@ in
     useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "bak";
-    extraSpecialArgs = {inherit inputs usernm hostnm;};
-    users.${usernm} = { 
+    extraSpecialArgs = {inherit inputs private hostnm;};
+    users.${private.username} = { 
       imports = [./home];
       home = {
-        username = "${usernm}"; 
-        homeDirectory = "/home/${usernm}";
+        username = "${private.username}"; 
+        homeDirectory = "/home/${private.username}";
         stateVersion = "24.11";
       };
     };
   };
 
-  users.users.${usernm} = {
+  users.users.${private.username} = {
     isNormalUser = true;
-    description = "${usernm}";
+    description = "${private.username}";
     linger = true;
     extraGroups = [ 
       "networkmanager" 
@@ -38,6 +38,24 @@ in
     ignoreShellProgramCheck = false;
   };
 
-  nix.settings.allowed-users = ["${usernm}"]; 
-  # nix.settings.trusted-users = ["${usernm}" "root"]; #devenv?
+  users.users.testing = {
+    isNormalUser = true;
+    description = "testing";
+    linger = true;
+    extraGroups = [ 
+      "networkmanager" 
+      "wheel" 
+      "audio" 
+      "gamemode" 
+      "video" 
+      "libvirtd"
+      "storage"
+      "dailout"
+    ];
+    shell = pkgs.zsh;
+    ignoreShellProgramCheck = false;
+  };
+
+  nix.settings.allowed-users = ["${private.username}"]; 
+  # nix.settings.trusted-users = ["${private.username}" "root"]; #devenv?
 }

@@ -14,10 +14,7 @@
     private.url = "/home/private";
   };
 
-  outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let    
-    
-    usernm = private.username;
-    hardware = private.hardware;
+  outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let       
     system = "x86_64-linux";
 
   in { 
@@ -28,13 +25,9 @@
         modules = [
           chaotic.nixosModules.default
           ./profiles/gaming.nix
-          ./hardware/${hardware}
         ];
         specialArgs = {
-          inherit inputs usernm hardware private;
-          # inherit usernm;
-          # inherit hardware;
-          # inherit private;
+          inherit inputs private;
         };
       };
 
@@ -42,13 +35,10 @@
         inherit system;
         modules = [
           chaotic.nixosModules.default
-          ./hosts/work
+          ./profiles/work.nix
         ];
         specialArgs = {
-          inherit private;
-          inherit inputs;
-          inherit usernm;
-          inherit hardware;
+          inherit inputs private;
         };
       };
 
@@ -56,12 +46,10 @@
         inherit system;
         modules = [
           chaotic.nixosModules.default
-          ./hosts/laptop
+          ./profiles/laptop.nix
         ];
         specialArgs = {
-      	  inherit inputs;
-      	  inherit usernm;
-          inherit hardware;
+      	  inherit inputs private;
         };
       };
 
@@ -69,18 +57,20 @@
         inherit system;
         modules = [
           chaotic.nixosModules.default
-          ./hosts/steam
+          ./profiles/steam
         ];
         specialArgs = {
-          inherit private;
-      	  inherit inputs;
-      	  inherit usernm;
-          inherit hardware;
+          inherit inputs private;
         };
       };
     };
   };
 }
+
+
+
+
+
 
 # sudo nixos-rebuild switch --flake .#gaming --show-trace  
 #TODO:

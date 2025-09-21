@@ -1,15 +1,14 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, usernm, ... }:
+{ config, pkgs, inputs, lib, chaotic, nix-gaming, private, ... }:
 
 {
   imports = [
     inputs.stylix.nixosModules.stylix
-    # ../hardware/${}/hw-cfghardware-configuration.nix
+    ../hardware/${private.hardware}
     ../common.nix
     ../stylix.nix
     ../packages.nix
     ../user.nix
     ../services.nix
-    ../boot.nix
   ];
 
   networking.hostName = "NixOS-B460";

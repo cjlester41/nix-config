@@ -78,8 +78,8 @@
   #         # [ ./../home/default.desktop.nix ]
   #       # else
   #         # [ ./../home ];
-  #     home.username = "${usernm}"; 
-  #     home.homeDirectory = "/home/${usernm}"; 
+  #     home.username = "${private.username}"; 
+  #     home.homeDirectory = "/home/${private.username}"; 
   #     home.stateVersion = "24.11";
   #     programs.home-manager.enable = true;
     
@@ -91,8 +91,8 @@
 
 #   # Home Manager needs a bit of information about you and the paths it should
 #   # manage.
-#   home.username = "${usernm}";
-#   home.homeDirectory = "/home/${usernm}";
+#   home.username = "${private.username}";
+#   home.homeDirectory = "/home/${private.username}";
 
 #   # This value determines the Home Manager release that your configuration is
 #   # compatible with. This helps avoid breakage when a new Home Manager release

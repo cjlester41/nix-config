@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, hw-cfg, ... }:
+{ config, pkgs, inputs, lib, chaotic, nix-gaming, hw-cfg, private, ... }:
 
 {
   imports = [
@@ -14,6 +14,24 @@
   ];
 
   networking.hostName = "NixOS-AOC";
+
+  environment.systemPackages = with pkgs; [
+
+    jdk11
+    maven
+    cmatrix
+    lolcat
+    signal-desktop
+    factorio
+    # python312full  
+  ];
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    factorio = pkgs.factorio.override {
+      username = private.git-name;
+      token = "b100c02ff51800924f6b47271cc64c";
+    };
+  };
 
   powerManagement.cpuFreqGovernor = "performance";
 
