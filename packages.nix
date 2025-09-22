@@ -39,6 +39,7 @@
     candy-icons
     gedit
     nwg-drawer
+    networkmanagerapplet
 
     #Coding Stuff
     python312

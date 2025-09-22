@@ -22,7 +22,7 @@ in {
     # targets.gtk.theme = "stylix-gtk";
     # image = stylixImage;
     base16Scheme = {
-      base00 = "260026"; # ----
+      base00 = "001111"; # ----
       base01 = "3c3836"; # ---
       base02 = "504945"; # --
       base03 = "665c54"; # -

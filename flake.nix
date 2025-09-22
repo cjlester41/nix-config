@@ -77,7 +77,7 @@
 # borders
 # swaync?
 # fastfetch gpu
-# gui network manager
+# nm-connection-editor waybar
 # firefox plugins
 # launcher
 # opaque on fullscreen
