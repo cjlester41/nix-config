@@ -2,7 +2,6 @@
   inputs = {
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    mypkgs.url = "github:cjlester41/nixpkgs/master";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-gaming.url = "github:fufexan/nix-gaming";
     stylix.url = "github:danth/stylix";
@@ -15,7 +14,7 @@
     private.url = "/home/private";
   };
 
-  outputs = { self, nixpkgs, chaotic, home-manager, private, mypkgs, ... }@inputs: let       
+  outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let       
     system = "x86_64-linux";
 
   in { 
@@ -39,7 +38,7 @@
           ./profiles/work.nix
         ];
         specialArgs = {
-          inherit inputs private mypkgs;
+          inherit inputs private;
         };
       };
 
@@ -80,10 +79,13 @@
 # fastfetch gpu
 # gui network manager
 # firefox plugins
-# fu script
-# LUK lanzaboote
-# dns is off!!!
+# launcher
+# opaque on fullscreen
+# dark cubemap
+# rotate blur
+# stylix dark reader
 
+# fu script
 # tty fonts
 # launch floating
 # cava stylix

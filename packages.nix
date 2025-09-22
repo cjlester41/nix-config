@@ -13,6 +13,7 @@
     dysk
     hyprlock
     tuigreet
+    vivaldi
     # swaynotificationcenter
 
     # utils
@@ -36,6 +37,8 @@
     wget
     zoxide # cd tool. implemented? 
     candy-icons
+    gedit
+    nwg-drawer
 
     #Coding Stuff
     python312
@@ -47,19 +50,6 @@
   ];
 
   programs = {
-
-    # dconf.profiles.user.databases = [
-    #   {
-    #   settings."org/gnome/desktop/interface" = {
-    #     gtk = {
-    #       iconTheme = lib.mkForce {
-    #         name = "Papirus-Dark";
-    #         package = pkgs.catppuccin-papirus-folders;
-    #       };
-    #     };
-    #   };
-    #   }
-    # ];
 
     regreet = {
       enable = true;

@@ -29,7 +29,7 @@ in
       command_brightness_up = "brightnessctl s +5%";
       command_browser = "firefox";
       command_clipman = "clipman pick -t wofi";
-      command_launcher = "rofi -show drun";
+      command_launcher = "nwg-drawer"; #"rofi -show drun";
       command_lock = "hyprlock";
       command_logout = "wlogout";
       command_media-next = "playerctl next";

@@ -10,12 +10,12 @@ with config.lib.stylix.colors.withHashtag;
   wayland.windowManager.wayfire.settings = {
 
     animate = {
-      close_animation = "zap";
+      close_animation = "fade";
       duration = "300ms circle";
       enabled_for = "(type equals \"toplevel\" | (type equals \"x-or\" & focusable equals true) | type equals \"overlay\")";
-      fade_duration = "300ms circle";
+      fade_duration = "900ms circle";
       fade_enabled_for = "type equals \"overlay\" | title is toplevel";
-      fire_color = "#B22303FF";
+      fire_color = "#7810a1ff";
       fire_duration = "200ms circle";
       fire_enabled_for = "none";
       fire_particle_size = 16.0;

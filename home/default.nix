@@ -61,9 +61,11 @@
     iconTheme = lib.mkForce {
       name = "Sweet-Rainbow";
       package = pkgs.sweet-folders;
+      # name = "candy-icons";
+      # package = pkgs.candy-icons;
     };
     # theme = lib.mkForce {
-    #   name = "Nightfox-Dark";
+    #   name = "stylix-gtk";
     #   package = pkgs.nightfox-gtk-theme;
     # };
     cursorTheme = {
@@ -72,6 +74,25 @@
       size = 24;
     };
   };
+
+  home.packages = [ pkgs.xdg-user-dirs ];
+  
+  xdg.enable = true;
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true; # Automatically creates the directories
+    # documents = "~/Documents";
+    # downloads = "~/Downloads";
+    # music = "${config.home.homeDirectory}/MyMusic";
+    # pictures = "${config.home.homeDirectory}/MyPictures";
+    # publicShare = "${config.home.homeDirectory}/MyPublic";
+    # templates = "${config.home.homeDirectory}/MyTemplates";
+    # videos = "${config.home.homeDirectory}/MyVideos";
+  };
+
+  # Ensure xdg-utils is installed for the update command to run
+ 
+
 
   # home-manager = {
   #   backupFileExtension = "bak";

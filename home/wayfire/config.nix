@@ -99,13 +99,13 @@ in
       speed_spin_horiz = 0.03;
       speed_spin_vert = 0.03;
       speed_zoom = 0.07;
-      zoom = 0.2;
+      zoom = 0.1;
     };    
 
     expo = {
       # background = "#1A1A1AFF";
       duration = "300ms circle";
-      inactive_brightness = 0.75;
+      inactive_brightness = 1.0;
       keyboard_interaction = true;
       offset = 5;
       select_workspace_1 = "KEY_1";
