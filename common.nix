@@ -4,7 +4,7 @@
   xdg.icons.enable = true;
   
   boot = {    
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_cachyos-lts;
     initrd.systemd.enable = true;
     supportedFilesystems = ["ntfs"];  
     loader = {
@@ -15,8 +15,9 @@
   };
 
   hardware = {
-    bluetooth.enable = true;
+    bluetooth.enable = true;    
     bluetooth.powerOnBoot = true;
+    # enableAllFirmware = true;
     enableRedistributableFirmware = true;
   };
 

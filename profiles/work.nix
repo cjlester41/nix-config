@@ -21,9 +21,6 @@
     lolcat
     signal-desktop
     factorio
-    xfce.thunar
-    dconf-editor
-    # python312full  
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {

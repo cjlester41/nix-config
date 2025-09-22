@@ -6,6 +6,10 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     stylix.url = "github:danth/stylix";
 
+    # wf-config.url = "github:cjlester41/wf-config";
+    # wayfire.url = "github:cjlester41/wayfire";
+    # wayfire-plugins-extra = "github:cjlester41/wayfire-plugins-extra";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +40,9 @@
         modules = [
           chaotic.nixosModules.default
           ./profiles/work.nix
+          { nixpkgs.overlays = [ (import ./overlays/wf-config.nix) ]; }
+          { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
+          # { nixpkgs.overlays = [ (import ./overlays/wayfire-plugins-extra.nix) ]; }
         ];
         specialArgs = {
           inherit inputs private;

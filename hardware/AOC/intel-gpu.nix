@@ -1,14 +1,14 @@
 { lib, pkgs, config, ...}:
 
-with lib; let
-  cfg = config.drivers.intel;
-in 
+# with lib; let
+#   cfg = config.drivers.intel;
+# in 
 {
-  options.drivers.intel = {
-    enable = mkEnableOption "Enable Intel Graphics Drivers";
-  };  
+  # options.drivers.intel = {
+  #   enable = mkEnableOption "Enable Intel Graphics Drivers";
+  # };  
 
-  config = mkIf cfg.enable {
+  # config = mkIf cfg.enable {
     boot.kernelParams = [
       "quiet" 
       "systemd.show_status=false" 
@@ -26,5 +26,5 @@ in
         libvdpau-va-gl
       ];
     };
-  };
+  # };
 }
