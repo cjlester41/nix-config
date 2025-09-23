@@ -498,7 +498,7 @@ in
     };
 
     wm-actions = {
-      minimize = "none";
+      minimize = "<super> KEY_M";
       send_to_back = "none";
       toggle_always_on_top = "none";
       toggle_fullscreen = "<super> KEY_F";

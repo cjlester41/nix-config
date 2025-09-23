@@ -13,7 +13,13 @@
     dysk
     hyprlock
     tuigreet
-    vivaldi
+    hyprland
+    alacritty
+    # wayfirePlugins.wf-shell
+    # vscode
+    # wayfire
+    # wayfirePlugins.wayfire-plugins-extra 
+    # wayfirePlugins.wcm
     # swaynotificationcenter
 
     # utils
@@ -52,29 +58,19 @@
 
   programs = {
 
-    regreet = {
+    wayfire = {
       enable = true;
-      settings = {
-        appearance.greeting_msg = "Welcome to PatOS";
-        env.SESSION_DIRS = "${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
-      };
+      plugins = with pkgs.wayfirePlugins; [
+        # wayfire-plugins-extra
+        # wf-shell
+        # windecor
+      ];
     };
 
-    xfconf.enable = true;
     firefox.enable = true;
     zsh.enable = true;
     dconf.enable = true;
     nix-ld.enable = true;
-
-    yazi = {
-      enable = true;
-      settings.yazi.opener.text = [
-        {
-          run = "'micro \"$@\"'";
-          block = true;
-        }
-      ];
-    };
 
     git = {
       enable = true;

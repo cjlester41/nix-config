@@ -4,7 +4,7 @@
   xdg.icons.enable = true;
   
   boot = {    
-    kernelPackages = pkgs.linuxPackages_cachyos-lts;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     initrd.systemd.enable = true;
     supportedFilesystems = ["ntfs"];  
     loader = {
