@@ -61,7 +61,7 @@
     wayfire = {
       enable = true;
       plugins = with pkgs.wayfirePlugins; [
-        # wayfire-plugins-extra
+        wayfire-plugins-extra
         # wf-shell
         # windecor
       ];

@@ -7,15 +7,15 @@
     ./waybar.nix
     ./kitty.nix
     # ./micro.nix
-    ./rofi.nix
+    # ./rofi.nix
     # ./nemo.nix
     # ./cava.nix
     # ./git.nix
     ./vscode
     ./swaync.nix
-    ./wayfire
+    # ./wayfire
     ./zsh
-    ./rofi/rofi.nix
+    # ./rofi/rofi.nix
     ./wlogout
   ];
 

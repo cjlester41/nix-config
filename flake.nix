@@ -78,7 +78,6 @@
 
 # sudo nixos-rebuild switch --flake .#gaming --show-trace  
 #TODO:
-# borders
 # swaync?
 # fastfetch gpu
 # nm-connection-editor waybar
@@ -86,8 +85,8 @@
 # launcher
 # opaque on fullscreen
 # dark cubemap
-# rotate blur
 # stylix dark reader
+# wcm wf-config
 
 # fu script
 # tty fonts
