@@ -47,18 +47,18 @@ in {
       size = 24;
     };
     fonts = {
-      monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrains Mono";
-      };
-      sansSerif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
-      };
-      serif = {
-        package = pkgs.montserrat;
-        name = "Montserrat";
-      };
+      # monospace = {
+      #   package = pkgs.nerd-fonts.jetbrains-mono;
+      #   name = "JetBrains Mono";
+      # };
+      # sansSerif = {
+      #   package = pkgs.montserrat;
+      #   name = "Montserrat";
+      # };
+      # serif = {
+      #   package = pkgs.montserrat;
+      #   name = "Montserrat";
+      # };
       sizes = {
         applications = 11;
         terminal = 11;

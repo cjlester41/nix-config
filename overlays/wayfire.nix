@@ -46,7 +46,7 @@ final: prev: {
                 owner = "WayfireWM";
                 repo = "wayfire-plugins-extra";
                 rev = "v0.10.0"; #${oldAttrs.version}";
-                fetchSubmodules = true;
+                fetchSubmodules = false;
                 hash = "sha256-0cAPaj5PmGgX/Q0mkdsyjZTQ5JBPrnvB2EnLj89v13g=";  
             };
 
