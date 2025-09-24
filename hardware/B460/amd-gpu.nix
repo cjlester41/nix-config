@@ -2,6 +2,7 @@
 
 {
   boot = {
+    kernelPackages = pkgs.linuxPackages_6_12;
     initrd.kernelModules = [ "amdgpu" ];
     kernelParams = [
       "quiet" 

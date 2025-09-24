@@ -83,6 +83,11 @@
 # firefox plugins
 # keybinds
 # stylix dark reader
+# modify boot in hardware
+# fix fonts
+# format steam dir
+# nvidia settings
+# seperate home
 
 # code not in path
 # dark cubemap
