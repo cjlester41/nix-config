@@ -14,7 +14,8 @@
     "wrot " + 
     "zoom " + 
     "wobbly " + 
-    "follow-focus " +     
+    "follow-focus " +  
+    "force-fullscreen " +   
     "animate " + 
     "wf-info " + 
     "filters " + 
@@ -24,9 +25,8 @@
     "ipc-rules " + 
     "pin-view " + 
     "simple-tile " + 
-    "wayfire-plugins-extra " + 
+    # "wayfire-plugins-extra " + 
     "window-rules " + 
-    "pixdecor" +
     "extra-animations " + 
     "session-lock";
         

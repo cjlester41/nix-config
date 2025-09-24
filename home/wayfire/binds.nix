@@ -1,17 +1,12 @@
-{ config, hostnm, lib,  ... }:
-
-let term = "kitty";  
-in
 {
   wayland.windowManager.wayfire.settings = {
 
     command = {
-
-      binding_files = "<super> KEY_X";
-      binding_gaming = "<super> KEY_G";
-      binding_editor = "<super> KEY_C";
+      binding_nemo = "<super> KEY_E";
       binding_browser = "<super> KEY_W";
       binding_clipman = "<super> KEY_H";
+      binding_editor = "<super> KEY_C";
+      binding_gaming = "<super> KEY_G";
       binding_launcher = "<super> KEY_D";
       binding_lock = "<super> <shift> KEY_ESC";
       binding_logout = "<super> KEY_ESC";
@@ -21,15 +16,14 @@ in
       binding_screenshot = "KEY_SYSRQ | KEY_PRINT";
       binding_screenshot_interactive = "<shift> KEY_SYSRQ | <shift> KEY_PRINT | <super> <shift> KEY_P";
       binding_terminal = "<super> KEY_Z";
-
-      command_files = "nemo";
-      command_gaming = "bash -x ~/nix-config/home/wayfire/shell/gamemode.sh";
-      command_editor = "code";
+      command_nemo = "nemo";
       command_brightness_down = "brightnessctl s 5%-";
       command_brightness_up = "brightnessctl s +5%";
       command_browser = "firefox";
       command_clipman = "clipman pick -t wofi";
-      command_launcher = "nwg-drawer"; #"rofi -show drun";
+      command_editor = "code";
+      command_gaming = "bash -x ~/nix-config/home/wayfire/shell/gamemode.sh";
+      command_launcher = "nwg-drawer";
       command_lock = "hyprlock";
       command_logout = "wlogout";
       command_media-next = "playerctl next";
@@ -39,10 +33,9 @@ in
       command_mute = "amixer sset Master toggle | sed -En '/\\[on\\]/ s/.*(\\[([0-9]+)%\\]).*/\\1/ p; /\\[off\\]/ s/.*/0/p' | head -1 > $SWAYSOCK.wob";
       command_screenshot = "grim $HOME/Pictures/screenshot-$(date \"+%Y-%m-%d-%H:%M:%S\").png && notify-send -i \"camera\" 'screenshot' 'saved in ~/Pictures'";
       command_screenshot_interactive = "slurp | grim -g - $HOME/Pictures/slurped-$(date \"+%Y-%m-%d-%H:%M:%S\").png && notify-send -i \"camera\" 'screenshot' 'saved in ~/Pictures'";
-      command_terminal = term; #"kitty --hold zsh -c \"fastfetch\"";
+      command_terminal = "kitty";
       command_volume_down = "bash -c \"pamixer -ud 3 && pamixer --get-volume > $SWAYSOCK.wob\"";
       command_volume_up = "bash -c \"pamixer -ui 3 && pamixer --get-volume > $SWAYSOCK.wob\"";
-
       repeatable_binding_brightness_down = "KEY_BRIGHTNESSDOWN";
       repeatable_binding_brightness_up = "KEY_BRIGHTNESSUP";
       repeatable_binding_media-next = "KEY_NEXTSONG";

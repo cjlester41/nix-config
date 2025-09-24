@@ -2,6 +2,18 @@
 
 {
   xdg.icons.enable = true;
+
+  systemd.tmpfiles.rules = [
+    "d /var/cache/tuigreet 0755 greetd greetd -"
+  ];
+
+  # fonts.fontconfig = {
+  #   defaultFonts = {
+  #     monospace = ["JetBrains Mono"];      
+  #     sansSerif = ["Montserrat"];
+  #     serif = ["Montserrat"];
+  #   };
+  # };
   
   boot = {    
     kernelPackages = pkgs.linuxPackages_cachyos;
@@ -72,7 +84,6 @@
     polkit.enable = true;
     rtkit.enable = true;
     pam.services.hpyrlock.text = ''auth include login''; 
-    pam.services.swaylock.text = ''auth include login''; 
   };
 
   nixpkgs.config.allowUnfree = true;

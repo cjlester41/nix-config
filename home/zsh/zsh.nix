@@ -167,7 +167,6 @@
       fi
 
       fastfetch
-      ip r
       dysk
     '';
   };

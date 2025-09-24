@@ -17,32 +17,32 @@ in
     ananicy.rulesProvider = pkgs.ananicy-rules-cachyos;
      
     displayManager.sessionPackages = let
-      wayfiredefault = 
+      wayfire = 
       (pkgs.writeTextDir "share/wayland-sessions/wayfire.desktop" ''
         [Desktop Entry]
-        Name=Wayfire Desktop
+        Name=Wayfire
         Exec=ln -sf ${cfg}.ini ${cfg} & wayfire -c ${cfg}
         Type=Application
       '').overrideAttrs
         (_: {
           passthru.providedSessions = [ "wayfire" ];
         });
-      in [ wayfiredefault ];
+      in [ wayfire ];
     
-    greetd = { 
-      enable = true;
-      settings = let
-        cmd = "wayfire"; in {#ln -sf ${cfg}.ini ${cfg} & sleep 2 & wayfire"; in {# -c ${cfg}"; in {
-        initial_session = {
-          user = "${private.username}";
-          command = "${cmd}";
-        };
-        default_session = {
-          user = "${private.username}";
-          command = "${pkgs.tuigreet}/bin/tuigreet --cmd ${cmd}";          
-        };
-      };
-    };    
+    # greetd = { 
+    #   enable = true;
+    #   settings = let
+    #     cmd = "wayfire"; in { # --config ~/nix-config/files/wayfire.ini"; in {#ln -sf ${cfg}.ini ${cfg} & sleep 2 & wayfire"; in {# -c ${cfg}"; in {
+    #     initial_session = {
+    #       user = "${private.username}";
+    #       command = "${cmd}";
+    #     };
+    #     default_session = {
+    #       user = "${private.username}";
+    #       command = "${pkgs.tuigreet}/bin/tuigreet -r -c ${cmd}";          
+    #     };
+    #   };
+    # };    
 
     pipewire = {
       enable = true;

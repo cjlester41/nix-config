@@ -78,23 +78,20 @@
 
 # sudo nixos-rebuild switch --flake .#gaming --show-trace  
 #TODO:
-# swaync?
-# fastfetch gpu
-# nm-connection-editor waybar
-# firefox plugins
-# launcher
-# opaque on fullscreen
-# dark cubemap
-# stylix dark reader
-# wcm wf-config
 
+# vscode open
+# firefox plugins
+# keybinds
+# stylix dark reader
+
+# code not in path
+# dark cubemap
+# swaync?
 # fu script
 # tty fonts
 # launch floating
 # cava stylix
 # codium colors
 # mouse switching
-# import wf plugins
-# workspace launch
 
 

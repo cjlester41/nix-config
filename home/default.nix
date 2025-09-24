@@ -13,9 +13,8 @@
     # ./git.nix
     ./vscode
     ./swaync.nix
-    # ./wayfire
+    ./wayfire
     ./zsh
-    # ./rofi/rofi.nix
     ./wlogout
   ];
 

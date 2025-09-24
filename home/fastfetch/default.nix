@@ -72,7 +72,7 @@
           "keyColor": "32"
         },
         "break",
-       /* {
+        {
           "type": "cpu",
           "key": "╭─ ",
           "keyColor": "34",
@@ -99,12 +99,12 @@
           "type": "memory",
           "key": "├─ ",
           "keyColor": "34"
-        },
-        {
+        }, 
+        /* {
           "type": "disk",
           "key": "├─󰋊 ",
           "keyColor": "34"
-        },
+        }, */
         {
           "type": "localip",
           "key": "╰─󱦂 ",
@@ -112,7 +112,7 @@
           "showIpv4": true,
           "compact": true
         },
-        "break", */
+        "break", 
         {
           "type": "display",
           "key": "╭─󰹑 ",
@@ -134,11 +134,11 @@
           "key": "├─󰉼 ",
           "keyColor": "33"
         },
-        {
+        /* {
           "type": "icons",
           "key": "├─ ",
           "keyColor": "33"
-        },
+        }, */
         {
           "type": "cursor",
           "key": "├─󰳽 ",

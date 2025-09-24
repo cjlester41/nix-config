@@ -6,44 +6,41 @@
     micro 
     caligula
     spotify-player
-    gnome-calculator
+    galculator
     btop    
-    mpv   
+    vlc  
     shaderbg
     dysk
     hyprlock
-    tuigreet
+    # tuigreet
     hyprland
-    alacritty
-    # wayfirePlugins.wf-shell
-    # vscode
-    # wayfire
-    # wayfirePlugins.wayfire-plugins-extra 
-    # wayfirePlugins.wcm
+    cmatrix
+    lolcat
     # swaynotificationcenter
 
     # utils
     # advcpmv need alternative
     eza
     nmap
-    rofi
     unzip
     blueman
     wlr-randr
     minicom
     usbutils
     nemo
+    file-roller
     udiskie
     ntfs3g
     gparted
     pavucontrol
+    feh
     zenity # gui dialog boxes
     wlogout
+    # ghostty
     # nvd #nix pkg diff
     wget
     zoxide # cd tool. implemented? 
     candy-icons
-    gedit
     nwg-drawer
     networkmanagerapplet
 
@@ -58,14 +55,14 @@
 
   programs = {
 
-    wayfire = {
-      enable = true;
-      plugins = with pkgs.wayfirePlugins; [
-        wayfire-plugins-extra
-        # wf-shell
-        # windecor
-      ];
-    };
+    # wayfire = {
+    #   enable = true;
+    #   plugins = with pkgs.wayfirePlugins; [
+    #     wayfire-plugins-extra
+    #     # wf-shell
+    #     # windecor
+    #   ];
+    # };
 
     firefox.enable = true;
     zsh.enable = true;
