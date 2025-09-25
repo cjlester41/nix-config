@@ -11,7 +11,7 @@
     ../services.nix
   ];
 
-  networking.hostName = "NixOS-B460";
+  networking.hostName = "NixOS-Steam";
 
   environment.systemPackages = with pkgs; [
 
