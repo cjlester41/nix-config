@@ -14,12 +14,13 @@ with config.lib.stylix.colors.withHashtag;
           # "browser.startup.homepage" = "https://github.com";
           "browser.search.defaultenginename" = "google";
           "browser.search.order.1" = "google";
-          "browser.display.document_color_use" = "2";
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          "browser.display.document_color_use" = 2;
           "browser.display.background_color" = base00;
           "browser.display.foreground_color" = "#e4ccb3ff";
-          "widget.gtk.global-menu.enabled" = "true";
-          "widget.gtk.global-menu.wayland.enabled" = "true";
-          "widget.gtk.libadwaita-colors.enabled" = "false";
+          "widget.gtk.global-menu.enabled" = true;
+          "widget.gtk.global-menu.wayland.enabled" = true;
+          "widget.gtk.libadwaita-colors.enabled" = false;
         };
         search = {
           force = true;
@@ -48,13 +49,7 @@ with config.lib.stylix.colors.withHashtag;
               }
               .tabbrowser-tab[selected="true"] .tab-background {
                   border: 1px solid teal !important;
-              }   
-              @media (prefers-contrast: more) {
-              body {
-                background-color: black;
-                color: white;
-              }
-            }                  
+              }                              
           '';                                      
 
         extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
