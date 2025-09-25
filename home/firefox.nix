@@ -1,6 +1,8 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
-{
+with config.lib.stylix.colors.withHashtag;
+
+{  
   programs.firefox = {
     enable = true;
     profiles = {
@@ -13,8 +15,11 @@
           "browser.search.defaultenginename" = "google";
           "browser.search.order.1" = "google";
           "browser.display.document_color_use" = "2";
-          "browser.display.background_color" = "#110011"; ############stylix
+          "browser.display.background_color" = base00;
           "browser.display.foreground_color" = "#e4ccb3ff";
+          "widget.gtk.global-menu.enabled" = "true";
+          "widget.gtk.global-menu.wayland.enabled" = "true";
+          "widget.gtk.libadwaita-colors.enabled" = "false";
         };
         search = {
           force = true;

@@ -511,8 +511,8 @@ in
     };
 
     wrot = {
-      activate = "<ctrl> <super> BTN_RIGHT";
-      activate-3d = "<shift> <super> BTN_RIGHT";
+      activate = "<shift> <super> BTN_RIGHT";
+      activate-3d = "<ctrl> <super> BTN_RIGHT";
       invert = false;
       reset = "<ctrl> <super> KEY_R";
       reset-one = "<super> KEY_R";

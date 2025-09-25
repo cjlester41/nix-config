@@ -7,7 +7,7 @@
     # caligula
     # spotify-player
     galculator
-    vlc  
+    # vlc  
     shaderbg
     dysk
     hyprlock

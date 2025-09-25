@@ -1,4 +1,6 @@
-{ pkgs, private, ... }:
+{ config, pkgs, private, ... }:
+
+with config.lib.stylix.colors.withHashtag;
 
 {
   gtk = {
@@ -13,7 +15,7 @@
   stylix.targets.gtk.extraCss = ''
     headerbar,headerbar:backdrop {
       background-image: none;
-      background-color: #110011;
+      background-color: ${base00};
     '';
 
 #   home.file."gtk-3.0/gtk.css" = {

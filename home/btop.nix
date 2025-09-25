@@ -1,9 +1,12 @@
 {
+    stylix.targets = {
+        btop.enable = false;
+    };
     programs.btop = {
         enable = true;
         settings = {    
-            color_theme = "Default";
-            theme_background = False;
+            color_theme = "tokyo-night";
+            theme_background = false;
         };
     };
 }

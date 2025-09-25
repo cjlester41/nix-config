@@ -65,7 +65,7 @@
         inherit system;
         modules = [
           chaotic.nixosModules.default
-          ./profiles/steam
+          ./profiles/steam.nix
           { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {
@@ -88,16 +88,12 @@
 # modify boot in hardware dir
 # format steam dir
 # nvidia settings
-# btop profile hm
-# nwg drawer hm
-# exit gs
-# shaderbg default
-# rotate shortcut
-# stylix demo
+
 
 # ssh install?
 
 # seperate home
+# nwg drawer hm
 # keybinds
 # code not in path
 # dark cubemap

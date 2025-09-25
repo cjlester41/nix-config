@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: let
+{ config, pkgs, ...}: let
 #   inherit (import ../../hosts/${host}/variables.nix) stylixImage;
 in {
   fonts.fontconfig.enable = true;
@@ -19,10 +16,11 @@ in {
   stylix = {
     enable = true;
     targets.gtk.enable = true;
+    # targets.firefox.profileNames = [ "7u6dfvp7.default" ];
     # targets.gtk.theme = "stylix-gtk";
     # image = stylixImage;
     base16Scheme = {
-      base00 = "110011"; # ----
+      base00 = "001111"; # ----
       base01 = "3c3836"; # ---
       base02 = "504945"; # --
       base03 = "665c54"; # -

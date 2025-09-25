@@ -46,7 +46,7 @@ while True:
             break
 
 subprocess.Popen(["nemo"])
-time.sleep(.8)
+time.sleep(.7)
 # while True:
 
 #     msg = sock.read_next_event()
@@ -70,7 +70,7 @@ while True:
         if view["app-id"] == "firefox":
             sock.set_workspace(1, 0, view["id"])
             subprocess.Popen(["firefox", "--new-window", "www.github.com"])
-            time.sleep(1)
+            time.sleep(.5)
             break
 
 sock.toggle_expo()
