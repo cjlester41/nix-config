@@ -6,17 +6,8 @@
   systemd.tmpfiles.rules = [
     "d '/var/cache/tuigreet' - greeter greeter - -" #0755 greetd greetd -"
   ];
-
-  # fonts.fontconfig = {
-  #   defaultFonts = {
-  #     monospace = ["JetBrains Mono"];      
-  #     sansSerif = ["Montserrat"];
-  #     serif = ["Montserrat"];
-  #   };
-  # };
   
   boot = {    
-    # kernelPackages = pkgs.linuxPackages_6_12;
     initrd.systemd.enable = true;
     supportedFilesystems = ["ntfs"];  
     loader = {
@@ -28,9 +19,9 @@
 
   hardware = {
     bluetooth.enable = true;    
-    bluetooth.powerOnBoot = true;
-    # enableAllFirmware = true;
+    bluetooth.powerOnBoot = true;    
     enableRedistributableFirmware = true;
+    # enableAllFirmware = true;
   };
 
   system.stateVersion = "24.11";
@@ -60,13 +51,7 @@
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     auto-optimise-store = true;
-  };
-
-  # nix.gc = {
-  #     automatic = true;
-  #     dates = "daily";
-  #     options = "-d";
-  #   };
+  };  
 
   systemd.targets = {
     sleep.enable = true;
@@ -77,7 +62,7 @@
   
   systemd.network.wait-online.enable = false;
 
-  #polkit, gnome kdyring
+  #polkit, gnome keyring?
   security = {
     sudo.enable = true;
     sudo.wheelNeedsPassword = false;
@@ -100,6 +85,19 @@
     # XDG_CACHE_HOME = "/home/isolde/.cache";
     # NIXOS_OZONE_WL = "1";
   };
+
+  # fonts.fontconfig = {
+  #   defaultFonts = {
+  #     monospace = ["JetBrains Mono"];      
+  #     sansSerif = ["Montserrat"];
+  #     serif = ["Montserrat"];
+  #   };
+  # };
   
+  # nix.gc = {
+  #     automatic = true;
+  #     dates = "daily";
+  #     options = "-d";
+  #   };
 
 }

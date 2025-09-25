@@ -1,8 +1,7 @@
 { lib, pkgs, config, ... }:
 
 {
-  boot = {
-    kernelPackages = pkgs.linuxPackages_6_16;
+  boot = {    
     initrd.kernelModules = [ "amdgpu" ];
     kernelParams = [
       "quiet" 
