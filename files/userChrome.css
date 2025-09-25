@@ -1,0 +1,6 @@
+:root {
+    --toolbar-bgcolor: #110011 !important;
+}
+.tabbrowser-tab[selected="true"] .tab-background {
+    border: 1px solid teal !important;
+}

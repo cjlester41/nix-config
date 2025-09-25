@@ -29,20 +29,20 @@ in
         });
       in [ wayfire ];
     
-    # greetd = { 
-    #   enable = true;
-    #   settings = let
-    #     cmd = "wayfire"; in { # --config ~/nix-config/files/wayfire.ini"; in {#ln -sf ${cfg}.ini ${cfg} & sleep 2 & wayfire"; in {# -c ${cfg}"; in {
-    #     initial_session = {
-    #       user = "${private.username}";
-    #       command = "${cmd}";
-    #     };
-    #     default_session = {
-    #       user = "${private.username}";
-    #       command = "${pkgs.tuigreet}/bin/tuigreet -r -c ${cmd}";          
-    #     };
-    #   };
-    # };    
+    greetd = { 
+      enable = true;
+      settings = let
+        cmd = "wayfire"; in { # --config ~/nix-config/files/wayfire.ini"; in {#ln -sf ${cfg}.ini ${cfg} & sleep 2 & wayfire"; in {# -c ${cfg}"; in {
+        initial_session = {
+          user = "${private.username}";
+          command = "${cmd}";
+        };
+        default_session = {
+          user = "${private.username}";
+          command = "${pkgs.tuigreet}/bin/tuigreet -r -c ${cmd}";          
+        };
+      };
+    };    
 
     pipewire = {
       enable = true;

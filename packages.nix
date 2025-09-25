@@ -4,39 +4,34 @@
   environment.systemPackages = with pkgs; [
   
     micro 
-    caligula
-    spotify-player
+    # caligula
+    # spotify-player
     galculator
-    btop    
     vlc  
     shaderbg
     dysk
     hyprlock
-    # tuigreet
-    hyprland
+    tuigreet
     cmatrix
     lolcat
-    # swaynotificationcenter
 
     # utils
     # advcpmv need alternative
     eza
     nmap
-    unzip
     blueman
     wlr-randr
-    minicom
+    # minicom
     usbutils
-    nemo
+    # nemo
     file-roller
     udiskie
     ntfs3g
     gparted
     pavucontrol
     feh
-    zenity # gui dialog boxes
+    # zenity # gui dialog boxes
     wlogout
-    # ghostty
     # nvd #nix pkg diff
     wget
     zoxide # cd tool. implemented? 
@@ -46,8 +41,8 @@
 
     #Coding Stuff
     python312
-    gcc
-    cmake
+    # gcc
+    # cmake
     nix-prefetch-git
     nix-output-monitor
 
@@ -64,7 +59,7 @@
     #   ];
     # };
 
-    firefox.enable = true;
+    # firefox.enable = true;
     zsh.enable = true;
     dconf.enable = true;
     nix-ld.enable = true;

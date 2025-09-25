@@ -8,15 +8,19 @@
     ./kitty.nix
     # ./micro.nix
     # ./rofi.nix
-    # ./nemo.nix
+    ./nemo.nix
     # ./cava.nix
-    # ./git.nix
+    ./firefox.nix
+    ./gtk.nix
+    ./btop.nix
     ./vscode
     ./swaync.nix
     ./wayfire
     ./zsh
     ./wlogout
   ];
+
+  # programs.xdg.enable = true;
 
   # programs.home-manager.enabe = true;
   # xdg.desktopEntries.myCustomSession = {

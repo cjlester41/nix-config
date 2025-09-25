@@ -19,9 +19,9 @@
       shaderbg = "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl";
       code = "code";
       # btop = "sleep 1.5 && btop";
-      kitty = "sleep 2 && kitty";
-      nemo = "sleep 1.5 && nemo";
-      firefox = "sleep 2.5 && firefox";
+      # kitty = "sleep 2 && kitty";
+      # nemo = "sleep 1.5 && nemo";
+      # firefox = "sleep 2.5 && firefox";
       autostart3 = "blueman-applet";
       autostart4 = "waybar";
       autostart_wf_shell = false;

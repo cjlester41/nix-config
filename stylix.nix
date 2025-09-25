@@ -5,16 +5,16 @@
 #   inherit (import ../../hosts/${host}/variables.nix) stylixImage;
 in {
   fonts.fontconfig.enable = true;
-  environment.systemPackages = with pkgs; [
+  fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    pkgs.montserrat
     # nerd-fonts.fira-code
     # nerd-fonts.caskaydia-cove
     # nerd-fonts.symbols-only
     # twemoji-color-font
     # noto-fonts-emoji
     # fantasque-sans-mono
-    # maple-mono.truetype-autohint
-    pkgs.montserrat
+    # maple-mono.truetype-autohint    
   ];
   stylix = {
     enable = true;
@@ -47,18 +47,18 @@ in {
       size = 24;
     };
     fonts = {
-      # monospace = {
-      #   package = pkgs.nerd-fonts.jetbrains-mono;
-      #   name = "JetBrains Mono";
-      # };
-      # sansSerif = {
-      #   package = pkgs.montserrat;
-      #   name = "Montserrat";
-      # };
-      # serif = {
-      #   package = pkgs.montserrat;
-      #   name = "Montserrat";
-      # };
+      monospace = {
+        # package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrains Mono";
+      };
+      sansSerif = {
+        # package = pkgs.montserrat;
+        name = "Montserrat";
+      };
+      serif = {
+        # package = pkgs.montserrat;
+        name = "Montserrat";
+      };
       sizes = {
         applications = 11;
         terminal = 11;

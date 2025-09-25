@@ -6,6 +6,11 @@
     # nix-gaming.url = "github:fufexan/nix-gaming";
     stylix.url = "github:danth/stylix";
 
+    firefox-addons = { 
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons"; 
+      inputs.nixpkgs.follows = "nixpkgs"; 
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,16 +84,21 @@
 # sudo nixos-rebuild switch --flake .#gaming --show-trace  
 #TODO:
 
-# vscode open
-# firefox plugins
-# keybinds
-# stylix dark reader
-# modify boot in hardware
-# fix fonts
+
+# modify boot in hardware dir
 # format steam dir
 # nvidia settings
-# seperate home
+# btop profile hm
+# nwg drawer hm
+# exit gs
+# shaderbg default
+# rotate shortcut
+# stylix demo
 
+# ssh install?
+
+# seperate home
+# keybinds
 # code not in path
 # dark cubemap
 # swaync?
@@ -98,5 +108,6 @@
 # cava stylix
 # codium colors
 # mouse switching
+# fix fonts
 
 
