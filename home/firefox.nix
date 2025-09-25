@@ -21,6 +21,8 @@ with config.lib.stylix.colors.withHashtag;
           "widget.gtk.global-menu.enabled" = true;
           "widget.gtk.global-menu.wayland.enabled" = true;
           "widget.gtk.libadwaita-colors.enabled" = false;
+          "browser.anchor_color" = "#62a0ea";
+          "browser.visited_color" = "#c061cb";
         };
         search = {
           force = true;
@@ -44,17 +46,17 @@ with config.lib.stylix.colors.withHashtag;
         };
 
         userChrome = ''                         
-              :root {
-                  --toolbar-bgcolor: #110011 !important;
-              }
-              .tabbrowser-tab[selected="true"] .tab-background {
-                  border: 1px solid teal !important;
-              }                              
-          '';                                      
+          :root {
+              --toolbar-bgcolor: ${base00} !important;
+          }
+          .tabbrowser-tab[selected="true"] .tab-background {
+              border: 1px solid teal !important;
+          }                              
+        '';                                      
 
         extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
-            bitwarden
-            ublock-origin
+          bitwarden
+          ublock-origin
         ];
       };
     };

@@ -2,6 +2,7 @@
 
 {
   boot = {
+    kernelPackages = pkgs.linuxPackages_6_16;
     kernel.sysctl."vm.swappiness" = 10;
     kernelModules= [
       "nvidia" 

@@ -3,8 +3,8 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    # nix-gaming.url = "github:fufexan/nix-gaming";
     stylix.url = "github:danth/stylix";
+    # nix-gaming.url = "github:fufexan/nix-gaming";    
 
     firefox-addons = { 
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons"; 
@@ -86,12 +86,11 @@
 
 
 # modify boot in hardware dir
-# format steam dir
 # nvidia settings
-
 
 # ssh install?
 
+# format steam dir
 # seperate home
 # nwg drawer hm
 # keybinds

@@ -4,7 +4,7 @@ let background =
     "swaybg -i ~/Downloads/Balcony-ja.png"
   else
   if hostnm == "NixOS-AOC" then
-    "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/planet.glsl"
+    "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/smoke.glsl"
   else
     "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl";    
 in
@@ -23,9 +23,10 @@ in
   wayland.windowManager.wayfire.settings = {
     
     autostart = {
-      python = "python ~/nix-config/home/wayfire/pywayfire/ipc-rules.py";
+      
       shaderbg = background; #"shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl";
-      code = "code";
+      python = "sleep .1 && hyprlock && ~/nix-config/home/wayfire/pywayfire/dist/ipc-rules"; #"python ~/nix-config/home/wayfire/pywayfire/ipc-rules.py";
+      code = "sleep .2 && code";
       # btop = "sleep 1.5 && btop";
       # kitty = "sleep 2 && kitty";
       # nemo = "sleep 1.5 && nemo";

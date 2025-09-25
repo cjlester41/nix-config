@@ -4,10 +4,11 @@
   environment.systemPackages = with pkgs; [
   
     micro 
+    # minicom
     # caligula
     # spotify-player
-    galculator
     # vlc  
+    galculator    
     shaderbg
     dysk
     hyprlock
@@ -20,46 +21,36 @@
     eza
     nmap
     blueman
-    wlr-randr
-    # minicom
+    wlr-randr    
     usbutils
-    # nemo
     file-roller
     udiskie
     ntfs3g
     gparted
     pavucontrol
-    feh
-    # zenity # gui dialog boxes
-    wlogout
-    # nvd #nix pkg diff
+    feh    
+    wlogout    
     wget
     zoxide # cd tool. implemented? 
     candy-icons
     nwg-drawer
     networkmanagerapplet
+    nix-output-monitor
+    # nvd #nix pkg diff
+    # zenity # gui dialog boxes
 
     #Coding Stuff
-    python312
+    # python314
+    # binutils
     # gcc
     # cmake
-    nix-prefetch-git
-    nix-output-monitor
+    # nix-prefetch-git
+    
 
   ];
 
   programs = {
 
-    # wayfire = {
-    #   enable = true;
-    #   plugins = with pkgs.wayfirePlugins; [
-    #     wayfire-plugins-extra
-    #     # wf-shell
-    #     # windecor
-    #   ];
-    # };
-
-    # firefox.enable = true;
     zsh.enable = true;
     dconf.enable = true;
     nix-ld.enable = true;

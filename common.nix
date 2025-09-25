@@ -4,7 +4,7 @@
   xdg.icons.enable = true;
 
   systemd.tmpfiles.rules = [
-    "d /var/cache/tuigreet 0755 greetd greetd -"
+    "d '/var/cache/tuigreet' - greeter greeter - -" #0755 greetd greetd -"
   ];
 
   # fonts.fontconfig = {
@@ -87,7 +87,19 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  environment.sessionVariables.MOZ_ENABLE_WAYLAND = "1";
-  environment.sessionVariables.WAYFIRE_SOCKET = "/run/user/1000/wayland-1";#$(id -u)/wayland-1";
+
+  environment.sessionVariables = {
+    WAYFIRE_SOCKET = "/run/user/1000/wayland-1";#$(id -u)/wayland-1";
+    KWIN_LOW_LATENCY = "1";
+    KWIN_TRIPLE_BUFFER = "1";
+    KWIN_COMPOSE = "O2";
+    KDE_NO_PRELOADING = "0";
+    BALOO_DISABLE = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+    # GTK_BACKDROP_STYLING = "0"; 
+    # XDG_CACHE_HOME = "/home/isolde/.cache";
+    # NIXOS_OZONE_WL = "1";
+  };
+  
 
 }
