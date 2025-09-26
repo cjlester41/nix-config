@@ -3,7 +3,7 @@
   outputs = { self }: {
     username = "";
     hardware = "";
-    gpu-type = "";
+    isession = ""; #"gamescope --rt --steam -- steam -pipewire-dmabuf -tenfoot";
     git-name = "";
     git-mail = "";    
   };
