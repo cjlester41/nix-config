@@ -28,6 +28,8 @@ nixos-install
 nixos-enter --root /mnt -c 'passwd alice'
 reboot
 
+sudo nmtui
+git clone https://github.com/cjlester41/nix-config.git
 sudo su -
 cd ..
 mkdir private
@@ -37,7 +39,6 @@ mv private.nix flake.nix
 micro flake.nix
 exit
 
-git clone https://github.com/cjlester41/nix-config.git
 cd nix-config
 nix flake update
 cp /etc/nixos/hardware-configuration.nix hardware/ASRock
