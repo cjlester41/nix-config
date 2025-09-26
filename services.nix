@@ -36,11 +36,11 @@ in
         cmd = "wayfire"; in { # --config ~/nix-config/files/wayfire.ini"; in {#ln -sf ${cfg}.ini ${cfg} & sleep 2 & wayfire"; in {# -c ${cfg}"; in {
         initial_session = {
           user = "greeter"; #"${private.username}";
-          command = "${cmd}";
+          command = "${private.isession}";
         };
         default_session = {
           user = "greeter"; #"${private.username}";
-          command = "${pkgs.tuigreet}/bin/tuigreet --remember"; # -c ${cmd}";          
+          command = "${pkgs.tuigreet}/bin/tuigreet --remember -c ${cmd}";          
         };
       };
     };    
