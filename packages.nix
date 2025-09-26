@@ -40,7 +40,7 @@
     # zenity # gui dialog boxes
 
     #Coding Stuff
-    # python314
+    python3
     # binutils
     # gcc
     # cmake
