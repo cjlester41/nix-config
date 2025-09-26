@@ -1,0 +1,62 @@
+# Create a GPT partition table
+# Create partitions
+
+sudo -i
+
+systemctl start wpa_supplicant
+wpa_cli
+
+add_network
+set_network 0 ssid "myhomenetwork"
+set_network 0 psk "mypassword"
+enable_network 0
+quit
+
+# mkfs.ext4 -L nixos /dev/nvme**
+
+mount /dev/nvme** /mnt
+mkdir -p /mnt/boot
+mount -o umask=077 /dev/nvme**/boot /mnt/boot
+
+nixos-generate-config --root /mnt
+nano /mnt/etc/nixos/configuration.nix
+
+add nix.settings.experimental-features [ "nix-command" "flakes" ];
+add nh, nix-output-monitor
+
+nixos-install
+nixos-enter --root /mnt -c 'passwd alice'
+reboot
+
+sudo su -
+cd ..
+mkdir private
+cd private
+cp ~/nix-config/files/private.nix .
+mv private.nix flake.nix
+micro flake.nix
+exit
+
+git clone https://github.com/cjlester41/nix-config.git
+cd nix-config
+nix flake update
+cp /etc/nixos/hardware-configuration.nix hardware/ASRock
+nh os switch . -H NixOS-Steam
+reboot
+
+sudo nix-shell -p refind efibootmgr
+refind-install
+sudo su -
+cd /boot/EFI/refind
+mkdir themes
+cd themes
+git clone https://github.com/peteyyz/refind-neon.git neon
+cd img
+cp os_steamos.png os_systemd.png
+cd ..
+cd ..
+micro refind.conf
+# include themes/neon/theme.conf
+
+modify .mozilla/**/userChrome.css
+modify .config/nwg-drawer/drawer.css
