@@ -60,3 +60,5 @@ micro refind.conf
 
 modify .mozilla/**/userChrome.css
 modify .config/nwg-drawer/drawer.css
+install kill-gamescope.sh
+modify private.isession
