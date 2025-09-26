@@ -30,7 +30,7 @@
         modules = [
           chaotic.nixosModules.default
           ./profiles/gaming.nix
-          { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
+          # { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {
           inherit inputs private;
