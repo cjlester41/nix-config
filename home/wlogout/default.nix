@@ -18,7 +18,7 @@
       }
       {
         "label" = "logout";
-        "action" = "sleep 1; hyprctl dispatch exit";
+        "action" = "pkill wayfire";
         "text" = "Exit";
         "keybind" = "e";
       }

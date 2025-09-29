@@ -1,5 +1,13 @@
-{ config, pkgs, ...}: let
+{ config, pkgs, ...}: 
 #   inherit (import ../../hosts/${host}/variables.nix) stylixImage;
+let basecolor = 
+  if config.networking.hostName == "NixOS-S7" then
+    "110011"
+  else
+  if config.networking.hostName == "NixOS-AOC" then
+    "000000"
+  else
+    "110011";    
 in {
   fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
@@ -20,7 +28,7 @@ in {
     # targets.gtk.theme = "stylix-gtk";
     # image = stylixImage;
     base16Scheme = {
-      base00 = "110011"; # ----
+      base00 = basecolor; # ----
       base01 = "3c3836"; # ---
       base02 = "504945"; # --
       base03 = "665c54"; # -

@@ -36,6 +36,7 @@
     nwg-drawer
     networkmanagerapplet
     nix-output-monitor
+    vlc
     # nvd #nix pkg diff
     # zenity # gui dialog boxes
 

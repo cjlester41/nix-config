@@ -86,7 +86,7 @@
 
 
 # modify boot in hardware dir
-# nvidia settings
+# variables for session, animations, homepage, stylix, etc
 
 # ssh install?
 
