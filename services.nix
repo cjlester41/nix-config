@@ -43,7 +43,12 @@ in
           command = "${pkgs.tuigreet}/bin/tuigreet --remember -c ${cmd}"; ########         
         };
       };
-    };    
+    };  
+
+    # logind.settings.Login = {
+    #   IdleAction = "sleep";
+    #   IdleActionSec = 10;
+    # };
 
     pipewire = {
       enable = true;

@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
   
     micro 
+    libnotify
     # minicom
     # caligula
     # spotify-player

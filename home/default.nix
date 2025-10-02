@@ -18,6 +18,7 @@
     ./wayfire
     ./zsh
     ./wlogout
+    ./swayidle.nix
   ];
 
   # programs.xdg.enable = true;
