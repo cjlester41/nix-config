@@ -11,8 +11,13 @@
     ../services.nix
   ];
 
-  networking.hostName = "NixOS-B460";
-
+  networking = {
+    hostName = "NixOS-B460";
+    networkmanager.dns = "none";
+    useDHCP = false;
+    # dhcpcd.enable = false;
+  };
+  
   environment.systemPackages = with pkgs; [
 
     steam-run    
