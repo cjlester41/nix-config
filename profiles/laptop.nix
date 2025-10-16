@@ -14,6 +14,8 @@
 
   networking.hostName = "NixOS-S7";
 
+  system.stateVersion = "24.11";
+
   environment.systemPackages = with pkgs; [
 
     swaybg

@@ -15,7 +15,7 @@ in
       home = {
         username = "${private.username}"; 
         homeDirectory = "/home/${private.username}";
-        stateVersion = "24.11";
+        stateVersion = "25.05";
       };
     };
   };

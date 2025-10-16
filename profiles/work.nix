@@ -13,6 +13,8 @@
 
   networking.hostName = "NixOS-AOC";
 
+  system.stateVersion = "24.11";
+
   environment.systemPackages = with pkgs; [
 
     # jdk11
@@ -20,6 +22,7 @@
     signal-desktop
     factorio
     minicom
+    gimp
     # python314
     nix-prefetch-git
   ];
