@@ -11,4 +11,14 @@
     fsType = "ext4";
     options = [ "exec" ];
   };
+
+  fileSystems."/home/${private.username}/win11" = {
+    device = "/dev/disk/by-uuid/724A76E34A76A40F";
+    fsType = "ntfs";
+  };
+
+  fileSystems."/home/${private.username}/hdd" = {
+    device = "/dev/disk/by-uuid/3814E20514E1C64A";
+    fsType = "ntfs";
+  };
 }

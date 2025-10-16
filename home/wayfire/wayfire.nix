@@ -1,3 +1,5 @@
+{ private, ... }:
+
 let
   wfplugins = import ./plugins.nix; ####################server or client?
 in
@@ -57,7 +59,7 @@ in
       activate = "<alt> <ctrl> BTN_LEFT";
       background = "#1A1A1AFF";
       background_mode = "cubemap";
-      cubemap_image = "/home/cjlester/nix-config/files/cubemap.png";
+      cubemap_image = "/home/${private.username}/nix-config/files/cubemap.png";
       deform = 0;
       initial_animation = "350ms circle";
       light = true;
