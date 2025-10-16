@@ -28,6 +28,7 @@
     seatd
     mangohud
     ntfsprogs
+    arduino-ide
 
     appimage-run
     vulkan-tools
@@ -67,5 +68,9 @@
   };
 
   powerManagement.cpuFreqGovernor = "performance";
+
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="3343", ATTRS{idProduct}=="0043", MODE="0664", GROUP="dialout"
+  '';
   
 }

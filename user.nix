@@ -23,16 +23,16 @@ in
   users.users.${private.username} = {
     isNormalUser = true;
     description = "${private.username}";
-    linger = true;
+    # linger = true;
     extraGroups = [ 
+      "uucp"
       "networkmanager" 
       "wheel" 
       "audio" 
       "gamemode" 
       "video" 
-      "libvirtd"
-      "storage"
-      "dailout"
+      "storage"      
+      "tty"
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = false;
@@ -57,5 +57,5 @@ in
   # };
 
   nix.settings.allowed-users = ["${private.username}"]; 
-  # nix.settings.trusted-users = ["${private.username}" "root"]; #devenv?
+  nix.settings.trusted-users = ["${private.username}" "root"]; #devenv?
 }
