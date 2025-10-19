@@ -73,12 +73,12 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.sessionVariables = {
-    WAYFIRE_SOCKET = "/run/user/1000/wayland-1";#$(id -u)/wayland-1";
-    KWIN_LOW_LATENCY = "1";
-    KWIN_TRIPLE_BUFFER = "1";
-    KWIN_COMPOSE = "O2";
-    KDE_NO_PRELOADING = "0";
-    BALOO_DISABLE = "1";
+    WAYFIRE_SOCKET = "/run/user/1000/wayland-1"; #$(id -u)/wayland-1";
+    # KWIN_LOW_LATENCY = "1";
+    # KWIN_TRIPLE_BUFFER = "1";
+    # KWIN_COMPOSE = "O2";
+    # KDE_NO_PRELOADING = "0";
+    # BALOO_DISABLE = "1";
     MOZ_ENABLE_WAYLAND = "1";
     # GTK_BACKDROP_STYLING = "0"; 
     # XDG_CACHE_HOME = "/home/isolde/.cache";

@@ -2,6 +2,7 @@
 
 let
   wfplugins = import ./plugins.nix; ####################server or client?
+  framesync = if private.hardware == "ASRock" then true else false;
 in
 {  
   wayland.windowManager.wayfire.settings = {
@@ -492,7 +493,7 @@ in
       enable_opaque_region_damage_optimizations = false;
       enable_so_unloading = false;
       focus_main_surface_instead_of_popup = false;
-      force_frame_sync = false;
+      force_frame_sync = framesync;
       force_preferred_decoration_mode = false;
       keep_last_toplevel_activated = true;
       max_buffer_size = 16384;
