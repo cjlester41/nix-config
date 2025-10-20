@@ -358,8 +358,8 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1758893447,
-        "narHash": "sha256-Rdr27q5EV0UK4+zLUj5/TJx1nwJvwVGXePaDW9JVfts=",
+        "lastModified": 1758899767,
+        "narHash": "sha256-iCbYBymEc4tJPOs4S5lpJIfKgxRKjHUns6Z8yHyK1rM=",
         "path": "/home/private",
         "type": "path"
       },

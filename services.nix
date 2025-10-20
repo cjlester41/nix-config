@@ -16,18 +16,29 @@ in
     ananicy.package = pkgs.ananicy-cpp;
     ananicy.rulesProvider = pkgs.ananicy-rules-cachyos;
      
-    displayManager.sessionPackages = let
-      wayfire = 
+    displayManager.sessionPackages = let 
+      wayfire = #ln -sf ${cfg}.ini ${cfg} & wayfire -c ${cfg}
       (pkgs.writeTextDir "share/wayland-sessions/wayfire.desktop" ''
         [Desktop Entry]
         Name=Wayfire
-        Exec=ln -sf ${cfg}.ini ${cfg} & wayfire -c ${cfg}
+        Exec=wayfire 
         Type=Application
       '').overrideAttrs
         (_: {
           passthru.providedSessions = [ "wayfire" ];
         });
-      in [ wayfire ];
+
+      steam = #-h 1080 -w 1920 -r 60
+      (pkgs.writeTextDir "share/wayland-sessions/steam.desktop" ''
+        [Desktop Entry]
+        Name=Steam
+        Exec=gamescope --adaptive-sync --hdr-enabled --mangoapp --rt --steam -- steam -pipewire-dmabuf -tenfoot
+        Type=Application
+      '').overrideAttrs
+        (_: {
+          passthru.providedSessions = [ "steam" ];
+        });
+      in [ wayfire steam ];
     
     greetd = { 
       enable = true;
