@@ -17,6 +17,7 @@
     };
 
     private.url = "/home/private";
+
   };
 
   outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let       

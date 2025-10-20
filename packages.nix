@@ -16,6 +16,7 @@
     tuigreet
     cmatrix
     lolcat
+    gpu-viewer
 
     # utils
     # advcpmv need alternative
@@ -38,6 +39,7 @@
     networkmanagerapplet
     nix-output-monitor
     vlc
+    gsettings-desktop-schemas
     # nvd #nix pkg diff
     # zenity # gui dialog boxes
 

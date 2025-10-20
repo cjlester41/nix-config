@@ -1,4 +1,5 @@
-{ config, pkgs, ...}: 
+{ lib, config, pkgs, ...}: 
+
 #   inherit (import ../../hosts/${host}/variables.nix) stylixImage;
 let basecolor = 
   if config.networking.hostName == "NixOS-S7" then
@@ -9,6 +10,7 @@ let basecolor =
   else
     "110011";    
 in {
+  # lib.config.stylix.targets.firefox.profileNames = [ "user" ];
   fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

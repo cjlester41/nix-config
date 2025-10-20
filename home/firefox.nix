@@ -3,6 +3,7 @@
 with config.lib.stylix.colors.withHashtag;
 
 {  
+  lib.config.stylix.targets.firefox.profileNames = [ "user" ];
   programs.firefox = {
     enable = true;
     profiles = {

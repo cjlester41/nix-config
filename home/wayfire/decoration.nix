@@ -47,16 +47,43 @@ with config.lib.stylix.colors.withHashtag;
       toggle = "none";
     };
 
-    decoration = {
-      active_color = "#160039FF";
-      border_size = 1;
-      button_order = "minimize maximize close";
-      font = "sans-serif";
-      font_color = "#FFFFFFFF";
-      forced_views = "none";
-      ignore_views = "none";
-      inactive_color = "#160039FF";
-      title_height = 0;
+    # decoration = {
+    #   active_color = "#160039FF";
+    #   border_size = 1;
+    #   button_order = "minimize maximize close";
+    #   font = "sans-serif";
+    #   font_color = "#FFFFFFFF";
+    #   forced_views = "none";
+    #   ignore_views = "none";
+    #   inactive_color = "#160039FF";
+    #   title_height = 0;
+    # };
+
+    pixdecor = {      
+      # alwaysDecorate = "imv";
+      animate = true;
+      bgColor = "#1a1b26FF";
+      bgTextColor = "#B3B3B3FF";
+      borderSize = 5;
+      # csdTitlebarHeight = 32;
+      effectColor = "#9D7CD8FF";
+      effectType = "none";
+      # enableShade = true;
+      fgColor = "#1a1b26FF";
+      fgTextColor = "#FFFFFFFF";
+      # ignoreViews = "(app_id is \"ulauncher\")";
+      maximizedBorders = true;
+      # maximizedShadows = true;
+      overlayEngine = "rounded_corners";
+      roundedCornerRadius = 12;
+      # shadeDuration = "1000ms sigmoid";
+      # shadeModifier = "<ctrl> <super>";
+      # shadeToggle = "";
+      # shadowColor = "#00000040";
+      # shadowRadius = 10;
+      titleTextAlign = 1;
+      titlebar = false;
+      # (The empty [pin-view] section is omitted.)
     };
 
     extra-animations = {

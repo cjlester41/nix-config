@@ -2,7 +2,7 @@
   
   plugins = 
     "wm-actions " + 
-    "idle " + 
+    # "idle " + 
     "alpha " + 
     "command " + 
     "expo " + 
@@ -15,10 +15,11 @@
     "zoom " + 
     "wobbly " + 
     "follow-focus " +  
+    "focus-request " +
     "force-fullscreen " +   
     "animate " + 
-    "wf-info " + 
-    "filters " + 
+    # "wf-info " + 
+    # "filters " + 
     "shortcuts-inhibit " +     
     "cube " + 
     "ipc " + 
@@ -28,6 +29,7 @@
     # "wayfire-plugins-extra " + 
     "window-rules " + 
     "extra-animations " + 
+    "pixdecor " +
     "session-lock";
-        
+            
 }
