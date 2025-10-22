@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    wayggle-bg = {
+      url = "github:cjlester41/wayggle-bg";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     private.url = "/home/private";
 
   };
@@ -89,8 +94,6 @@
 # modify boot in hardware dir
 # variables for session, animations, homepage, stylix, etc
 
-# ssh install?
-
 # format steam dir
 # seperate home
 # nwg drawer hm
@@ -105,5 +108,13 @@
 # codium colors
 # mouse switching
 # fix fonts
+
+# firefox restore
+# waybar outlines and links
+# swaync icon
+# load code first and border
+# animated borders
+# without mangohud
+# stylix firefox profile
 
 

@@ -1,4 +1,4 @@
-{ pkgs, private, ... }:
+{ pkgs, private, wayggle-bg, ... }:
 
 let background = 
   if private.hardware == "sS7" then
@@ -6,7 +6,8 @@ let background =
   else if private.hardware == "AOC" then
     "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/roswirl.glsl"
   else
-    "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl";    
+    "${wayggle-bg}/bin/wayggle-bg default --name box"; 
+    # "nix run github:cjlester41/wayggle-bg -- default --name box"; 
 in
 
 {  
@@ -27,7 +28,7 @@ in
     autostart = {
       
       shaderbg = background;
-      hyprlock = "sleep .2 && hyprlock && python ~/nix-config/home/wayfire/pywayfire/ipc-rules.py";
+      hyprlock = "sleep .4 && hyprlock && python ~/nix-config/home/wayfire/pywayfire/ipc-rules.py";
       blueman = "blueman-applet";
       waybar = "waybar";
       autostart_wf_shell = false;

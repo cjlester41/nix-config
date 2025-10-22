@@ -25,6 +25,7 @@
     gimp
     # python314
     nix-prefetch-git
+    shaderbg
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {

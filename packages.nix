@@ -10,15 +10,13 @@
     # spotify-player
     # vlc  
     galculator    
-    shaderbg
+    # shaderbg
     dysk
     hyprlock
     tuigreet
     cmatrix
     lolcat
-    gpu-viewer
-    wayland-scanner
-    zig
+    gpu-viewer    
 
     # utils
     # advcpmv need alternative
