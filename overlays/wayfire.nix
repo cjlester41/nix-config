@@ -58,22 +58,55 @@ final: prev: {
             ];
 
             mesonFlags = [
-                # plugins in submodule, packaged individually
                 # (final.lib.mesonBool "enable_pixdecor" true)
-                # (final.lib.mesonBool "enable_wayfire_shadows" true)
-                # (lib.mesonBool "enable_focus_request" false)
              ];
         });
 
-        focus-request = prev.wayfirePlugins.focus-request.overrideAttrs (oldAttrs: rec {
+        filters = prev.wayfirePlugins.focus-request.overrideAttrs (oldAttrs: rec {
+
+            version = "0.10.0";
+            src = prev.fetchFromGitHub {
+                owner = "cjlester41";
+                repo = "filters";
+                rev = "v0.10.0"; #${oldAttrs.version}";
+                fetchSubmodules = false;
+                hash = "sha256-Dfl3yQo+gbI9+bGQyAyA2+gkz+2DR7zd0AenwJUvxuI=";  
+            };
+
             buildInputs = oldAttrs.buildInputs ++ [
-                # final.boost
-                # final.libdrm
+                final.libdrm
                 final.vulkan-headers
             ];
         });
 
-        pixdecor = prev.wayfirePlugins.windecor.overrideAttrs (oldAttrs: rec {
+        wf-info = prev.wayfirePlugins.wwp-switcher.overrideAttrs (oldAttrs: rec {
+
+            version = "1";
+            src = ./wf-info/.; 
+
+            buildInputs = oldAttrs.buildInputs ++ [
+                final.libdrm
+                final.vulkan-headers
+                final.wayland-scanner
+            ];
+        });
+
+        pixdecor = prev.wayfirePlugins.windecor.overrideAttrs (oldAttrs: rec { #prev.callPackage ./pixdecor.nix {};
+        
+            version = "1";                
+            src = ./pixdecor/.; 
+
+            buildInputs = oldAttrs.buildInputs ++ [
+                final.libxkbcommon
+                final.libGL
+                final.libinput
+                final.libdrm
+                final.vulkan-headers
+            ];
+
+            mesonFlags = []; 
+        });
+        pixdecor_meson = prev.wayfirePlugins.windecor.overrideAttrs (oldAttrs: rec {
             version = "0.10.3";
                 
             src = prev.fetchFromGitHub {
@@ -96,6 +129,35 @@ final: prev: {
                 # final.xcbutilwm
                 final.libdrm
                 final.vulkan-headers
+            ];
+
+            mesonFlags = []; 
+        });
+
+        firedecor = prev.wayfirePlugins.windecor.overrideAttrs (oldAttrs: rec {
+            version = "0.10.3";
+                
+            src = prev.fetchFromGitHub {
+                owner = "cjlester41";
+                repo = "Firedecor";
+                rev = "1"; #${oldAttrs.version}";
+                fetchSubmodules = false;
+                hash = "sha256-jXQ0u62jhx6s3NyZGjdoG+r4qpCZ2RuSi4DTHrPbizA=";  
+            };
+
+            # nativeBuildInputs = oldAttrs.buildInputs ++ [
+            #     final.wdisplays
+            # ];
+
+            buildInputs = oldAttrs.buildInputs ++ [
+                final.wayfire
+                final.libxkbcommon
+                final.libGL
+                final.libinput
+                # final.xcbutilwm
+                final.libdrm
+                final.vulkan-headers
+                final.boost
             ];
 
             mesonFlags = []; 

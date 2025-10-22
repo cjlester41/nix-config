@@ -4,7 +4,7 @@
   imports = [ 
     
     ./fastfetch  
-    ./waybar.nix
+    ./waybarc.nix
     ./kitty.nix
     # ./micro.nix
     # ./rofi.nix

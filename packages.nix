@@ -17,6 +17,7 @@
     cmatrix
     lolcat
     gpu-viewer
+    wayland-scanner
 
     # utils
     # advcpmv need alternative
@@ -39,7 +40,7 @@
     networkmanagerapplet
     nix-output-monitor
     vlc
-    gsettings-desktop-schemas
+    zig
     # nvd #nix pkg diff
     # zenity # gui dialog boxes
 

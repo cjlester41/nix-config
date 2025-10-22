@@ -1,20 +1,16 @@
-{ config, hostnm, lib, private, ... }:
+{ private, ... }:
 
-let background = 
-    if hostnm == "NixOS-S7" then
-      "swaybg -i ~/Downloads/Balcony-ja.png"
-    else
-      "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/planet.glsl";
-      # "~/./glpaper/build/glpaper -F HDMI-A-1 ~/nix-config/files/test.glsl";  
-    wfplugins = import ./plugins.nix;
+let
+  wfplugins = import ./plugins.nix; ####################server or client?
+  framesync = if private.hardware == "ASRock" then true else false;
 in
-{
-  wayland.windowManager.wayfire.settings = {    
+{  
+  wayland.windowManager.wayfire.settings = {
 
     alpha = {
       min_value = 0.85;
       modifier = "<alt> <super>";
-    };
+    };      
 
     annotate = {
       clear_workspace = "<alt> <super> KEY_C";
@@ -31,52 +27,28 @@ in
       rotate_left = "<ctrl> <super> KEY_LEFT";
       rotate_right = "<ctrl> <super> KEY_RIGHT";
       rotate_up = "<ctrl> <super> KEY_UP";
-    };
+    };      
 
-    autostart = {
-      autostart0 = background; 
-      autostart6 = "sleep .5 && hyprlock";
-      # autostart7 = "python ~/nix-config/home/wayfire/pywayfire/ipc-rules-demo.py";
-      autostart1 = "kitty"; # --hold zsh -c \"fastfetch\"";
-      # autostart2 = "firefox \"https://github.com/WayfireWM/wayfire\"";
-      autostart3 = "blueman-applet";
-      autostart4 = "waybar"; # "sleep 1 && python /home/${private.username}/GLWall/pin-view.py 5 \"background\" true";
-      autostart5 = "code";      
-      autostart_wf_shell = false;
-      clipman-restore = "clipman restore";
-      clipman-store = "wl-paste -t text --watch clipman store";
-      dex = "dex -a -s /etc/xdg/autostart/:~/.config/autostart/";
-      gammastep = "gammastep";
-      gnome-keyring = "gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ssh";
-      # idle = "swayidle before-sleep swaylock";
-      # libinput-gesture = "libinput-gestures-setup start";
-      # nm = "nm-applet --indicator";
-      # notifications = "mako";
-      # outputs = "kanshi";
-      polkit-gnome = "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1";
-      portal = "/usr/libexec/xdg-desktop-portal";
-      tracker = "tracker daemon -s";
-    };
-
-    # background-view = {
-    #   command = "mpv --loop=inf";
-    #   file = "";
-    # };
+    bench = {
+      average_frames = 25;
+      position = "top_center";
+    };            
 
     core = {
-      # background_color = "#000000FF";
+      background_color = "#1A1A1AFF";
       close_top_view = "<super> KEY_Q | <alt> KEY_F4";
       exit = "<alt> <ctrl> KEY_BACKSPACE";
       focus_button_with_modifiers = false;
       focus_buttons = "BTN_LEFT | BTN_MIDDLE | BTN_RIGHT";
       focus_buttons_passthrough = true;
       max_render_time = -1;
-      plugins = wfplugins.plugins; #"wm-actions idle alpha autostart command expo move place resize switcher vswitch window-rules wrot zoom wobbly follow-focus extra-animations animate wf-info filters shortcuts-inhibit ipc-rules cube ipc pin-view simple-tile";
+      plugins = wfplugins.plugins;
       preferred_decoration_mode = "server";
       transaction_timeout = 100;
       vheight = 2;
       vwidth = 2;
       xwayland = true;
+      xwayland_startup_script = "";
     };
 
     crosshair = {
@@ -91,7 +63,7 @@ in
       cubemap_image = "/home/${private.username}/nix-config/files/cubemap.png";
       deform = 0;
       initial_animation = "350ms circle";
-      light = false;
+      light = true;
       rotate_left = "<super> KEY_LEFT";
       rotate_right = "<super> KEY_RIGHT";
       skydome_mirror = false;
@@ -99,13 +71,13 @@ in
       speed_spin_horiz = 0.03;
       speed_spin_vert = 0.03;
       speed_zoom = 0.07;
-      zoom = 0.4;
-    };    
+      zoom = 0.2;
+    };      
 
     expo = {
-      # background = "#1A1A1AFF";
+      background = "#1A1A1AFF";
       duration = "300ms circle";
-      inactive_brightness = 1.0;
+      inactive_brightness = 1;
       keyboard_interaction = true;
       offset = 5;
       select_workspace_1 = "KEY_1";
@@ -117,9 +89,9 @@ in
       select_workspace_7 = "KEY_7";
       select_workspace_8 = "KEY_8";
       select_workspace_9 = "KEY_9";
-      toggle = "<super> ";
+      toggle = "<super>";
       transition_length = 200;
-    };
+    };      
 
     extra-gestures = {
       close_fingers = 20;
@@ -133,11 +105,11 @@ in
       inactive_alpha = 0.85;
     };
 
-    filters = { };
-    
+    filters = {};
+
     fisheye = {
       radius = 450.0;
-      toggle = "<ctrl> <super> BTN_LEFT";
+      toggle = "<ctrl> <super> KEY_F";
       zoom = 7.0;
     };
 
@@ -155,15 +127,6 @@ in
       scan-height = 0;
       scan-width = 0;
       up = "<shift> <super> KEY_UP";
-    };
-
-    focus-request = {
-      auto_focus_children = true;
-      auto_focus_views = "none";
-      auto_grant_focus = false;
-      deny_focus_views = "none";
-      focus_last_demand = "<alt> <ctrl> KEY_A";
-      focus_stealing_timeout = 1000;
     };
 
     focus-steal-prevent = {
@@ -185,12 +148,12 @@ in
       constraint_area = "view";
       key_toggle_fullscreen = "<alt> <super> KEY_F";
       preserve_aspect = true;
-      transparent_behind_views = true;
+      transparent_behind_views = false;
       x_skew = 0.0;
       y_skew = 0.0;
     };
 
-    foreign-toplevel = { };
+    foreign-toplevel = {};
 
     ghost = {
       ghost_match = "";
@@ -212,7 +175,7 @@ in
       type = "crossfade";
     };
 
-    gtk-shell = { };
+    gtk-shell = {};
 
     hide-cursor = {
       hide_delay = 2000;
@@ -234,7 +197,7 @@ in
       "3fg_drag" = "default";
       click_method = "default";
       cursor_size = 24;
-      cursor_theme = "capitaine-cursors";
+      cursor_theme = "default";
       disable_touchpad_while_mouse = false;
       disable_touchpad_while_typing = false;
       drag_lock = false;
@@ -260,7 +223,7 @@ in
       touchpad_scroll_speed = 1.0;
       xkb_layout = "us";
       xkb_model = "";
-      #xkb_options = "grp:caps_toggle,grp_led:caps,ctrl:rctrl_ralt";
+      xkb_options = "";
       xkb_rules = "evdev";
       xkb_variant = "";
     };
@@ -280,11 +243,11 @@ in
       toggle = "<super> KEY_I";
     };
 
-    ipc = { };
+    ipc = {};
 
-    ipc-rules = { };
+    ipc-rules = {};
 
-    join-views = { };
+    join-views = {};
 
     keycolor = {
       color = "#000000FF";
@@ -312,17 +275,22 @@ in
       workspace_switch_after = -1;
     };
 
-    obs = { };
+    obs = {};
 
     oswitch = {
+      above_output = "";
+      below_output = "";
+      left_output = "";
       next_output = "<super> KEY_O";
       next_output_with_win = "<shift> <super> KEY_O";
       prev_output = "";
       prev_output_with_win = "";
+      right_output = "";
     };
 
     output = {
       depth = 8;
+      icc_profile = "";
       mode = "auto";
       position = "auto";
       scale = 1.0;
@@ -330,8 +298,8 @@ in
       vrr = false;
     };
 
-    pin-view = { };
-    
+    pin-view = {};
+
     place = {
       mode = "random";
     };
@@ -343,6 +311,8 @@ in
     resize = {
       activate = "<super> BTN_RIGHT";
       activate_preserve_aspect = "none";
+      min_height = 0;
+      min_width = 0;
     };
 
     scale = {
@@ -350,18 +320,17 @@ in
       bg_color = "#1A1A1AE6";
       close_on_new_view = false;
       duration = "750ms circle";
-      inactive_alpha = 0.85;
+      inactive_alpha = 0.75;
       include_minimized = false;
-      interact = false;
       middle_click_close = false;
-      minimized_alpha = 0.85;
+      minimized_alpha = 0.45;
       outer_margin = 0;
       spacing = 50;
       text_color = "#CCCCCCFF";
-      title_font_size = 9;
+      title_font_size = 16;
       title_overlay = "all";
       title_position = "center";
-      toggle = "<super> KEY_P | hotspot left-top 10x100 100";
+      toggle = "<super> KEY_P";
       toggle_all = "";
     };
 
@@ -374,7 +343,7 @@ in
       text_color = "#CCCCCCCC";
     };
 
-    session-lock = { };
+    session-lock = {};
 
     shortcuts-inhibit = {
       break_grab = "none";
@@ -399,27 +368,25 @@ in
       animation_duration = "20ms circle";
       button_move = "<super> BTN_LEFT";
       button_resize = "<super> BTN_RIGHT";
-      inner_gap_size = 2;
+      inner_gap_size = 3;
       keep_fullscreen_on_adjacent = true;
       key_focus_above = "<super> KEY_K";
       key_focus_below = "<super> KEY_J";
       key_focus_left = "<super> KEY_H";
       key_focus_right = "<super> KEY_L";
       key_toggle = "<super> KEY_SPACE";
-      outer_horiz_gap_size = 4;
-      outer_vert_gap_size = 4;
+      outer_horiz_gap_size = 6;
+      outer_vert_gap_size = 6;
       preview_base_border = "#404080CC";
       preview_base_color = "#8080FF80";
       preview_border_width = 2;
-      tile_by_default = "kitty";
+      tile_by_default = "all";
     };
 
     switcher = {
-      gesture_toggle = "edge-swipe down 3";
       next_view = "<alt> KEY_TAB";
       prev_view = "<alt> <shift> KEY_TAB";
       speed = "500ms circle";
-      touch_sensitivity = 1.0;
       view_thumbnail_rotation = 30;
       view_thumbnail_scale = 1.0;
     };
@@ -431,7 +398,7 @@ in
     };
 
     vswipe = {
-      # background = "#1A1A1AFF";
+      background = "#1A1A1AFF";
       delta_threshold = 24.0;
       duration = "180ms circle";
       enable_free_movement = true;
@@ -446,7 +413,7 @@ in
     };
 
     vswitch = {
-      # background = "#1A1A1AFF";
+      background = "#1A1A1AFF";
       binding_down = "<ctrl> <super> KEY_DOWN";
       binding_last = "";
       binding_left = "<ctrl> <super> KEY_LEFT";
@@ -470,20 +437,21 @@ in
       with_win_up = "<alt> <shift> <super> KEY_UP";
       wraparound = true;
     };
-    
-    # wayfire-shell = {
-    #   toggle_menu = "<super> ";
-    # };
 
-    wf-info = { };
+    water = {
+      activate = "<ctrl> <super> BTN_LEFT";
+    };
+
+    wayfire-shell = {
+      toggle_menu = "<super>";
+    };
 
     window-rules = {
       rule_1 = "on created then set alpha 0.85";
-      rule_2 = "on created if app_id is \"kitty\" then snap left";
-      # rule_3 = "match:app_id=\"firefox\" action:workspace=2";
-      rule_3 = "on created if title contians \"Firefox\" then set alpha 0.5"; #assign_workspace 1 0";
-      # alacritty-on-workspace-2 = "app-id = firefox & move_to_workspace=4";
-
+      # rule_2 = "on created if app_id is \"kitty\" then snap left";
+      # rule_3 = "on created if title contians \"Firefox\" then set alpha 0.5";
+      rule_4 = "on fullscreened then set alpha 1.0";
+      # rule_5 = "on unmaximized then set alpha .85";
     };
 
     winzoom = {
@@ -491,7 +459,7 @@ in
       dec_y_binding = "<ctrl> <super> KEY_UP";
       inc_x_binding = "<ctrl> <super> KEY_RIGHT";
       inc_y_binding = "<ctrl> <super> KEY_DOWN";
-      modifier = "<ctrl> <super> ";
+      modifier = "<ctrl> <super>";
       nearest_filtering = false;
       preserve_aspect = true;
       zoom_step = 0.1;
@@ -507,16 +475,28 @@ in
       toggle_sticky = "none";
     };
 
+    wobbly = {
+      friction = 3.0;
+      grid_resolution = 6;
+      spring_k = 8.0;
+    };
+
     workarounds = {
       all_dialogs_modal = true;
       app_id_mode = "stock";
+      auto_reload_config = true;
+      config_reload_delay = 20;
+      disable_primary_selection = false;
       discard_command_output = true;
       dynamic_repaint_delay = false;
       enable_input_method_v2 = false;
       enable_opaque_region_damage_optimizations = false;
       enable_so_unloading = false;
-      force_frame_sync = false;
+      focus_main_surface_instead_of_popup = false;
+      force_frame_sync = framesync;
       force_preferred_decoration_mode = false;
+      keep_last_toplevel_activated = true;
+      max_buffer_size = 16384;
       remove_output_limits = false;
       use_external_output_configuration = false;
     };
@@ -525,16 +505,17 @@ in
       background_color = "#333333B3";
       background_radius = 30.0;
       display_duration = 500;
-      font = "Fira Sans";
+      font = "sans-serif";
       margin = 0;
       position = "center";
       show_option_names = false;
+      show_option_values = false;
       text_color = "#FFFFFFFF";
     };
 
     wrot = {
-      activate = "<ctrl> <super> BTN_RIGHT";
-      activate-3d = "<shift> <super> BTN_RIGHT";
+      activate = "<shift> <super> BTN_RIGHT";
+      activate-3d = "<ctrl> <super> BTN_RIGHT";
       invert = false;
       reset = "<ctrl> <super> KEY_R";
       reset-one = "<super> KEY_R";
@@ -554,7 +535,7 @@ in
 
     zoom = {
       interpolation_method = 0;
-      modifier = "<super> ";
+      modifier = "<super>";
       smoothing_duration = "300ms circle";
       speed = 0.01;
     };

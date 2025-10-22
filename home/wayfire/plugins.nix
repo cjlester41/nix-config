@@ -14,6 +14,7 @@
     "wrot " + 
     "zoom " + 
     "wobbly " + 
+    "water " +
     "follow-focus " +  
     "focus-request " +
     "force-fullscreen " +   
@@ -29,7 +30,9 @@
     # "wayfire-plugins-extra " + 
     "window-rules " + 
     "extra-animations " + 
-    "pixdecor " +
+    # "pixdecor " +
+    "wf-info " +
+    "filters " +
     "session-lock";
             
 }
