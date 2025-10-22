@@ -1,1 +1,0 @@
-install_data('wf-info.xml', install_dir: wayfire.get_variable(pkgconfig: 'metadatadir'))

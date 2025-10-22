@@ -18,6 +18,7 @@
     lolcat
     gpu-viewer
     wayland-scanner
+    zig
 
     # utils
     # advcpmv need alternative
@@ -40,7 +41,7 @@
     networkmanagerapplet
     nix-output-monitor
     vlc
-    zig
+    
     # nvd #nix pkg diff
     # zenity # gui dialog boxes
 

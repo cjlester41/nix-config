@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<wayfire>
-	<plugin name="filters">
-		<_short>Shader Filters</_short>
-		<_long>Apply shaders via ipc.</_long>
-		<category>Effects</category>
-	</plugin>
-</wayfire>
