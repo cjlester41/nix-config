@@ -13,6 +13,7 @@ with config.lib.stylix.colors.withHashtag;
         isDefault = true;
         settings = {
           # "browser.startup.homepage" = "https://github.com";
+          "browser.startup.page" = 3;
           "browser.search.defaultenginename" = "google";
           "browser.search.order.1" = "google";
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

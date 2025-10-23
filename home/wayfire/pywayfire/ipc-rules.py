@@ -62,7 +62,7 @@ while True:
         if view["app-id"] == "nemo":
             sock.set_workspace(0, 1, view["id"])
             wpe.set_view_shader(view["id"], os.path.join(script_dir, "rounded-corners.glsl"))
-            time.sleep(1)
+            time.sleep(.4)
             break
 
 subprocess.Popen(["firefox"]) #, "--new-window", "https://wiki.nixos.org/wiki/NixOS_Wiki"])

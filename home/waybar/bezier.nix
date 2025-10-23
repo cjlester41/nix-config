@@ -17,10 +17,11 @@ with lib; {
       {
         layer = "top";
         position = "bottom";
-        modules-center = [ "hyprland/workspaces" ];
+        # modules-center = [ "hyprland/workspaces" ];
         modules-left = [
           "custom/startmenu"
-          "hyprland/window"
+          "custom/exit"
+          # "hyprland/window"
           "pulseaudio"
           "cpu"
           "memory"
@@ -29,9 +30,11 @@ with lib; {
         modules-right = [
           "custom/hyprbindings"
           "custom/notification"
-          "custom/exit"
+          # "custom/exit"
           "battery"
+          "network"
           "tray"
+          # "idle_inhibitor"
           "clock"
         ];
 
@@ -83,17 +86,18 @@ with lib; {
           format-wifi = "{icon} {signalStrength}%";
           format-disconnected = "󰤮";
           tooltip = false;
+          on-click = "sleep 0.1 && kitty -e sudo nmtui";
         };
         "tray" = {
           spacing = 12;
         };
         "pulseaudio" = {
-          format = "{icon} {volume}% {format_source}";
-          format-bluetooth = "{volume}% {icon} {format_source}";
-          format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = " {format_source}";
-          format-source = " {volume}%";
-          format-source-muted = "";
+          format = "{icon} {volume}%"; # {format_source}";
+          format-bluetooth = "{volume}% {icon}"; # {format_source}";
+          format-bluetooth-muted = " {icon}"; # {format_source}";
+          format-muted = ""; # {format_source}";
+          # format-source = " {volume}%";
+          # format-source-muted = "";
           format-icons = {
             headphone = "";
             hands-free = "";
@@ -118,7 +122,7 @@ with lib; {
           tooltip = false;
           format = "";
           # exec = "rofi -show drun";
-          on-click = "sleep 0.1 && rofi-launcher";
+          on-click = "sleep 0.1 && nwg-drawer";
         };
         "custom/hyprbindings" = {
           tooltip = false;
@@ -135,7 +139,7 @@ with lib; {
         };
         "custom/notification" = {
           tooltip = false;
-          format = "{icon} {}";
+          format = "{icon}";
           format-icons = {
             notification = "<span foreground='red'><sup></sup></span>";
             none = "";
@@ -149,7 +153,9 @@ with lib; {
           return-type = "json";
           exec-if = "which swaync-client";
           exec = "swaync-client -swb";
-          on-click = "sleep 0.1 && task-waybar";
+          # on-click = "sleep 0.1 && task-waybar";
+          on-click = "sleep 0.1 && swaync-client -t -sw";
+          on-click-right = "sleep 0.1 && swaync-client -d -sw";
           escape = true;
         };
         "battery" = {
@@ -233,7 +239,7 @@ with lib; {
         tooltip label {
           color: #${config.lib.stylix.colors.base08};
         }
-        #window, #pulseaudio, #cpu, #memory, #idle_inhibitor {
+        #window, #custom-exit, #pulseaudio, #cpu, #memory, #idle_inhibitor {
           font-weight: bold;
           margin: 4px 0px;
           margin-left: 7px;
@@ -241,34 +247,58 @@ with lib; {
           background: #${config.lib.stylix.colors.base04};
           color: #${config.lib.stylix.colors.base00};
           border-radius: 24px 10px 24px 10px;
+          border: 2px solid rgba(128, 0, 128, 0.9); 
         }
         #custom-startmenu {
           color: #${config.lib.stylix.colors.base0B};
           background: #${config.lib.stylix.colors.base02};
           font-size: 28px;
           margin: 0px;
+          margin-left: 6px;
           padding: 0px 30px 0px 15px;
-          border-radius: 0px 0px 40px 0px;
+          border-radius: 10px 10px 30px 10px;
         }
-        #custom-hyprbindings, #network, #battery,
-        #custom-notification, #tray, #custom-exit {
+        #custom-hyprbindings, #network, #tray, #battery, #custom-notification {
           font-weight: bold;
           background: #${config.lib.stylix.colors.base0F};
           color: #${config.lib.stylix.colors.base00};
           margin: 4px 0px;
           margin-right: 7px;
           border-radius: 10px 24px 10px 24px;
+          border: 2px solid rgba(128, 0, 128, 0.9); 
           padding: 0px 18px;
         }
+        
         #clock {
           font-weight: bold;
           color: #0D0E15;
           background: linear-gradient(90deg, #${config.lib.stylix.colors.base0E}, #${config.lib.stylix.colors.base0C});
           margin: 0px;
+          margin-right: 6px;
           padding: 0px 15px 0px 30px;
-          border-radius: 0px 0px 0px 40px;
+          border-radius: 10px 10px 10px 30px;
         }
       ''
     ];
   };
 }
+# #network {
+#   font-weight: bold;
+#   background: #${config.lib.stylix.colors.base0F};
+#   color: #${config.lib.stylix.colors.base00};
+#   margin: 4px 0px;
+#   margin-right: 0px;
+#   border-radius: 10px 0px 0px 24px;
+#   border: 3px solid rgba(128, 0, 128, 0.5); 
+#   padding: 0px 0px 0px 18px;
+# }
+# #tray {
+#   font-weight: bold;
+#   background: #${config.lib.stylix.colors.base0F};
+#   color: #${config.lib.stylix.colors.base00};
+#   margin: 4px 0px;
+#   margin-right: 7px;
+#   border-radius: 0px 24px 10px 0px;
+#   border: 3px solid rgba(128, 0, 128, 0.5); 
+#   padding: 0px 18px;
+# }
