@@ -34,8 +34,12 @@
   # };
   home.packages = with pkgs; [ 
 
-    (writeShellScriptBin "wayggle-bg" ''
-      ${wayggle-bg}/bin/wayggle-bg default --name box 
+    (writeShellScriptBin "start-wayggle-bg" ''
+      ${wayggle-bg}/bin/wayggle-bg default --name box & disown
+    '')
+
+    (writeShellScriptBin "start-shaderbg" ''
+      shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/roswirl.glsl & disown
     '')
 
     xdg-user-dirs

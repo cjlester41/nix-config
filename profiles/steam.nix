@@ -18,9 +18,7 @@
   environment.systemPackages = with pkgs; [
 
     steam-run 
-    protontricks   
-    sway
-    foot
+    protontricks  
     # bottles
     # lutris    
     # winetricks

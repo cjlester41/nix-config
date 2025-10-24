@@ -1,4 +1,4 @@
-{ pkgs, config, inputs,  lib, private, ... }:
+{ pkgs, config, inputs, lib, private, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -48,8 +48,7 @@
     # binutils
     # gcc
     # cmake
-    # nix-prefetch-git
-    
+    # nix-prefetch-git    
 
   ];
 

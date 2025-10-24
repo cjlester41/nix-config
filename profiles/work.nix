@@ -26,7 +26,24 @@
     # python314
     nix-prefetch-git
     shaderbg
+    steam-run
+    mangohud
+    
   ];
+
+  programs = {
+    gamescope.enable = true;
+    gamescope.capSysNice = true;
+    gamemode.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      gamescopeSession.enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true; 
+    };
+  };
 
   nixpkgs.config.packageOverrides = pkgs: {
     factorio = pkgs.factorio.override {
