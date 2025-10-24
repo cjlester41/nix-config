@@ -83,13 +83,17 @@ while True:
 sock.toggle_expo()
 
 while True:
-
     msg = sock.read_next_event()
 
     if "event" in msg:
         view = msg["view"]
-        wpe.set_view_shader(view["id"], os.path.join(script_dir, "rounded-corners.glsl"))
-           
+
+        if view["app-id"] == "gamescope":
+            sock.set_view_fullscreen(view["id"], True)
+            subprocess.run(["pkill", "-9", "-f", "wayggle-bg"])
+
+        else:            
+            wpe.set_view_shader(view["id"], os.path.join(script_dir, "rounded-corners.glsl"))
 
 # quit()
 

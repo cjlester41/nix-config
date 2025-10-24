@@ -27,7 +27,7 @@
 
       # Nixos
       cdnix = "cd ~/nixos-config && code ~/nixos-config";
-      gaytrix = "cmatrix | lolcat";
+      # gaytrix = "cmatrix | lolcat";
       # ns = "nom-shell --run zsh";
       # nd = "nom develop --command zsh";
       # nb = "nom build";

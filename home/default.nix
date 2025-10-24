@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, inputs, lib, wayggle-bg, ... }:
 
 {
   imports = [ 
@@ -32,7 +32,15 @@
   #   type = "Application";
   #   categories = [ "System" ];
   # };
-  # home.packages = with pkgs; [ qtgreet ];
+  home.packages = with pkgs; [ 
+
+    (writeShellScriptBin "wayggle-bg" ''
+      ${wayggle-bg}/bin/wayggle-bg default --name box 
+    '')
+
+    xdg-user-dirs
+
+  ];
   # ...other config, other config...
   # wayland.windowManager.sway = {
   #   enable = true;
@@ -79,7 +87,7 @@
     };
   };
 
-  home.packages = [ pkgs.xdg-user-dirs ];
+  # home.packages = [ pkgs.xdg-user-dirs ];
   
   xdg.enable = true;
   xdg.userDirs = {
