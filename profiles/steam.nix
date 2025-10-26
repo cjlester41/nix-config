@@ -31,10 +31,10 @@
     eglexternalplatform
     libGL
 
-    # appimage-run
-    # vulkan-tools
-    # ananicy-cpp
-    # ananicy-rules-cachyos 
+    appimage-run
+    vulkan-tools
+    ananicy-cpp
+    ananicy-rules-cachyos 
     
   ];
 
@@ -51,21 +51,21 @@
       localNetworkGameTransfers.openFirewall = true; 
     };
 
-    # appimage = {
-    #   enable = true;
-    #   binfmt = true;
-    #   package = pkgs.appimage-run.override {
-    #     extraPkgs = pkgs: [
-    #       pkgs.glibc
+    appimage = {
+      enable = true;
+      binfmt = true;
+      package = pkgs.appimage-run.override {
+        extraPkgs = pkgs: [
+          pkgs.glibc
     #       pkgs.libGL
     #       pkgs.mesa
     #       pkgs.libffi
     #       pkgs.vulkan-loader
     #       pkgs.xdg-utils
     #       pkgs.wayland
-    #     ];
-    #   };
-    # };   
+        ];
+      };
+    };   
   };
 
   powerManagement.cpuFreqGovernor = "performance";

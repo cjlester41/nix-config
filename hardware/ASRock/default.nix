@@ -1,7 +1,10 @@
 { config, pkgs, lib, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot = {
+    kernelPackages = pkgs.linuxPackages_cachyos;
+    plymouth.enable = true;
+  };
 
   # # nixpkgs.overlays = [
   # #   (_: _: {
@@ -45,8 +48,8 @@
   imports = [ 
     
     ./hardware-configuration.nix
-    ./nvidia-recent.nix
-    # ./filesystems.nix
+    ./nvidia-gpu.nix
+    ./filesystems.nix
 
   ];  
 }
