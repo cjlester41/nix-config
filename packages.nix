@@ -39,6 +39,7 @@
     networkmanagerapplet
     nix-output-monitor
     vlc
+    crystal-dock
     
     # nvd #nix pkg diff
     # zenity # gui dialog boxes

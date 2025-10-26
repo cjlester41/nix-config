@@ -1,5 +1,17 @@
 final: prev: {
 
+    crystal-dock = prev.crystal-dock.overrideAttrs (oldAttrs: rec {
+    	version = "v0.10.1";
+        
+        src = prev.fetchFromGitHub {
+            owner = "dangvd";
+            repo = "crystal-dock";
+            rev = "v2.15"; #"${oldAttrs.version}";
+            # fetchSubmodules = true;
+            hash = "sha256-XFq4T39El5MjaWRSnaimonjdj+HGOAydNmEOehgGWX4=";  
+        };
+    });
+
     wf-config = prev.wf-config.overrideAttrs (oldAttrs: rec {
         version = "0.10.0";
         
@@ -106,97 +118,25 @@ final: prev: {
 
             mesonFlags = []; 
         });
-        pixdecor_meson = prev.wayfirePlugins.windecor.overrideAttrs (oldAttrs: rec {
-            version = "0.10.3";
+
+        wf-shell = prev.wayfirePlugins.wf-shell.overrideAttrs (oldAttrs: rec {});
+
+        wcm = prev.wayfirePlugins.wcm.overrideAttrs (oldAttrs: rec {
+            version = "0.10.0";
                 
             src = prev.fetchFromGitHub {
-                owner = "cjlester41";
-                repo = "pixdecor";
-                rev = "12"; #${oldAttrs.version}";
+                owner = "WayfireWM";
+                repo = "wcm";
+                rev = "v0.10.0"; #${oldAttrs.version}";
                 fetchSubmodules = false;
-                hash = "sha256-tvtLvs3DTpyyjKTnnBa0JrI/XQEqaQ191+ohSbeok2k=";  
+                hash = "sha256-O4BYwb+GOMZIn3I2B/WMJ5tUZlaegvwBuyNK9l/gxvQ=";  
             };
 
-            # nativeBuildInputs = oldAttrs.buildInputs ++ [
-            #     final.wdisplays
-            # ];
-
-            buildInputs = oldAttrs.buildInputs ++ [
-                # final.wayfire
-                final.libxkbcommon
-                final.libGL
-                final.libinput
-                # final.xcbutilwm
-                final.libdrm
-                final.vulkan-headers
+            nativeBuildInputs = oldAttrs.buildInputs ++ [
+                final.wdisplays
             ];
 
             mesonFlags = []; 
         });
-
-        firedecor = prev.wayfirePlugins.windecor.overrideAttrs (oldAttrs: rec {
-            version = "0.10.3";
-                
-            src = prev.fetchFromGitHub {
-                owner = "cjlester41";
-                repo = "Firedecor";
-                rev = "1"; #${oldAttrs.version}";
-                fetchSubmodules = false;
-                hash = "sha256-jXQ0u62jhx6s3NyZGjdoG+r4qpCZ2RuSi4DTHrPbizA=";  
-            };
-
-            # nativeBuildInputs = oldAttrs.buildInputs ++ [
-            #     final.wdisplays
-            # ];
-
-            buildInputs = oldAttrs.buildInputs ++ [
-                final.wayfire
-                final.libxkbcommon
-                final.libGL
-                final.libinput
-                # final.xcbutilwm
-                final.libdrm
-                final.vulkan-headers
-                final.boost
-            ];
-
-            mesonFlags = []; 
-        });
-
-        # wf-shell = prev.wayfirePlugins.wf-shell.overrideAttrs (oldAttrs: rec {
-        #     version = "0.10.0";
-                
-        #     src = prev.fetchFromGitHub {
-        #         owner = "WayfireWM";
-        #         repo = "wf-shell";
-        #         rev = "v0.10.0"; #${oldAttrs.version}";
-        #         fetchSubmodules = false;
-        #         hash = "sha256-Lm94W5yUFyTNNs0+Q5lN39sNST6V1XF7FfU4o96vyJY=";  
-        #     };
-
-        #     nativeBuildInputs = oldAttrs.buildInputs ++ [
-        #         final.wdisplays
-        #     ];
-
-        #     mesonFlags = []; 
-        # });
-
-        # wcm = prev.wayfirePlugins.wcm.overrideAttrs (oldAttrs: rec {
-        #     version = "0.10.0";
-                
-        #     src = prev.fetchFromGitHub {
-        #         owner = "WayfireWM";
-        #         repo = "wcm";
-        #         rev = "v0.10.0"; #${oldAttrs.version}";
-        #         fetchSubmodules = false;
-        #         hash = "sha256-O4BYwb+GOMZIn3I2B/WMJ5tUZlaegvwBuyNK9l/gxvQ=";  
-        #     };
-
-        #     nativeBuildInputs = oldAttrs.buildInputs ++ [
-        #         final.wdisplays
-        #     ];
-
-        #     mesonFlags = []; 
-        # });
     };
 }

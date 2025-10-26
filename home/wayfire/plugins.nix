@@ -33,6 +33,8 @@
     # "pixdecor " +
     "wf-info " +
     "filters " +
+    "wayfire-shell " +
+    "foreign-toplevel " +
     "session-lock";
             
 }
