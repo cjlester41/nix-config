@@ -21,21 +21,21 @@ else:
 #     print(str(view["id"]) + " " + str(view["app-id"]))
 #     sock.set_view_minimized(view["id"], True)
 
-# time.sleep(3)
+time.sleep(3)
 
-# for view in views:
+for view in views:
 
-#     if view["app-id"] == "firefox":
-#         sock.set_workspace(1,0, view["id"])
-#     elif view["app-id"] == "Code":
-#         sock.set_workspace(0,0, view["id"])
-#     elif view["app-id"] == "kitty":
-#         sock.set_workspace(1,1, view["id"])
-#     elif view["app-id"] == "nemo":
-#         sock.set_workspace(0,1, view["id"])
+    if view["app-id"] == "firefox":
+        sock.set_workspace(1,0, view["id"])
+    elif view["app-id"] == "Code":
+        sock.set_workspace(0,0, view["id"])
+    elif view["app-id"] == "kitty":
+        sock.set_workspace(1,1, view["id"])
+    elif view["app-id"] == "nemo":
+        sock.set_workspace(0,1, view["id"])
 
-# time.sleep(.4)
-# sock.toggle_expo()
+time.sleep(.4)
+sock.toggle_expo()
 
 blacklisted = [
     "egl_background",

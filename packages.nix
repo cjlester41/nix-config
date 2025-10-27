@@ -35,11 +35,13 @@
     wget
     zoxide # cd tool. implemented? 
     candy-icons
+    sweet-folders
     nwg-drawer
     networkmanagerapplet
     nix-output-monitor
     vlc
     crystal-dock
+    ghostty
     
     # nvd #nix pkg diff
     # zenity # gui dialog boxes

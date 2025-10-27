@@ -17,7 +17,7 @@
       binding_screenshot = "KEY_SYSRQ | KEY_PRINT";
       binding_screenshot_interactive = "<shift> KEY_SYSRQ | <shift> KEY_PRINT | <super> <shift> KEY_P";
       binding_terminal = "<super> KEY_Z";
-      command_steam = "gamescope -h 1080 -w 1920 --force-grab-cursor --adaptive-sync --hdr-enabled --mangoapp --rt --steam -- steam -pipewire-dmabuf -tenfoot";
+      command_steam = "steam"; #"gamescope -h 1080 -w 1920 --force-grab-cursor --adaptive-sync --hdr-enabled --mangoapp --rt --steam -- steam -pipewire-dmabuf -tenfoot";
       command_nemo = "nemo";
       command_brightness_down = "brightnessctl s 5%-";
       command_brightness_up = "brightnessctl s +5%";

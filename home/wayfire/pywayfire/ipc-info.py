@@ -12,10 +12,10 @@ while True:
     
     try:
         view = msg["view"]
-        time.sleep(1)
+        # time.sleep(1)
         print(msg["event"] + ": " + view["app-id"])
     except:
-        time.sleep(1)
+        # time.sleep(1)
         print(msg["event"])
 
     # if msg["event"] == "view-mapped":

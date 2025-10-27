@@ -119,7 +119,9 @@ final: prev: {
             mesonFlags = []; 
         });
 
-        wf-shell = prev.wayfirePlugins.wf-shell.overrideAttrs (oldAttrs: rec {});
+        wf-shell = prev.wayfirePlugins.wf-shell.overrideAttrs (oldAttrs: rec {
+            # mesonFlags = [ ''icon_dir = "/run/current-system/sw/share/icons/candy-icons/apps/scalable"'' ];
+        });
 
         wcm = prev.wayfirePlugins.wcm.overrideAttrs (oldAttrs: rec {
             version = "0.10.0";

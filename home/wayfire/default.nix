@@ -1,4 +1,4 @@
-{ pkgs, private, wayggle-bg, ... }:
+{ lib, config, pkgs, private, wayggle-bg, ... }:
 
 let background = 
   if private.hardware == "sS7" then
@@ -7,13 +7,21 @@ let background =
     "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/roswirl.glsl"
   else
     "${wayggle-bg}/bin/wayggle-bg default --name box"; 
-    # "nix run github:cjlester41/wayggle-bg -- default --name box"; 
 in
 
 {  
   stylix.targets = {
     wayfire.enable = false;
   };  
+  
+  # home.file.".config/wayfire_link" = {
+  #   onChange = ''
+  #     cat ~/.ssh/wayfire.ini > ~/.ssh/wayfire
+  #     rm ~/.ssh/wayfire_link
+  #     chmod 600 ~/.ssh/wayfire
+  #   '';
+  #   force = true;
+  # }; 
 
   imports = [
     ./config.nix
@@ -32,15 +40,15 @@ in
         
       shader = background;
       startup = "python ~/nix-config/home/wayfire/pywayfire/startup.py";
-      hyprlock = "sleep 1 && hyprlock && python ~/nix-config/home/wayfire/pywayfire/hyprtest.py";
-      # firefox = "sleep .5 && firefox";
-      # code = "sleep .5 && code";
-      # kitty = "sleep .5 && kitty";
-      # nemo = "sleep .5 && nemo";
-      # btop = "sleep .5 && kitty -e btop";
+      # hyprlock = "sleep 6 && hyprlock && python ~/nix-config/home/wayfire/pywayfire/hyprtest.py";
+      # firefox = "sleep .1 && firefox";
+      # code = "sleep .2 && code";
+      # kitty = "sleep .3 && kitty";
+      # nemo = "sleep .4 && nemo";
+      # btop = "sleep .5 && ghostty -e btop";
       # blueman = "blueman-applet";
-      dock = "sleep .5 && wf-dock";
-      waybar = "sleep .5 &&  && waybar";
+      # dock = "wf-dock";
+      # waybar = "sleep .5 &&  && waybar";
       # steam = "sleep 10 && steam -silent %U";
       autostart_wf_shell = false;
       portal = "/usr/libexec/xdg-desktop-portal";
@@ -55,11 +63,14 @@ in
 
         autohide_duration = 350;
         css_path = "/home/${private.username}/nix-config/files/wf-dock.css";
-        dock_height = 64;
-        icon_height = 48;
+        dock_height = 44;
+        icon_height = 38;
         autohide = true;
         position = "bottom";
-        edge_offset = 0;
+        edge_offset = 1;
+
+        icon_mapping_Code = "/run/current-system/sw/share/icons/candy-icons/apps/scalable/vscode.svg";
+        icon_mapping_nemo = "/run/current-system/sw/share/icons/Sweet-Rainbow/Places/16/folder.svg";
 
       };
     };

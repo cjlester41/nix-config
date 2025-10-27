@@ -1,117 +1,149 @@
 from wayfire import WayfireSocket
 from wayfire.extra.wpe import WPE
-import time, subprocess, os, sys, socket
+import os, time, subprocess, socket
 
-host = socket.gethostname()
 sock = WayfireSocket()
 wpe = WPE(sock)
 sock.watch(['view-mapped'])
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-subprocess.Popen(["firefox"]) #, "--new-window", "https://wiki.nixos.org/wiki/NixOS_Wiki"])
+apps = [
+    ["ghostty", "-e", "btop"],
+    "firefox",  
+    ["firefox", "--private-window"],      
+    "kitty",
+    "nemo",
+    "code"
+]
+
 while True:
-
     msg = sock.read_next_event()
-
     if "event" in msg:
         view = msg["view"]
-
-        if view["app-id"] == "firefox":
-            # sock.set_workspace(1, 0, view["id"])
-            wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
-            sock.set_view_minimized(view["id"], True)
+        if view["app-id"] == "egl_background":
+            hyprlock = subprocess.Popen(["hyprlock"])
             break
 
-subprocess.Popen(["code"])
-while True:
-
-    msg = sock.read_next_event()
-
-    if "event" in msg:
-        view = msg["view"]
-
-        if view["app-id"] == "Code":
-            # sock.set_workspace(0, 0, view["id"])
-            wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
-            sock.set_view_minimized(view["id"], True)
-            break
-
-subprocess.Popen(["kitty", "-e", "btop"])
-while True:
-
-    msg = sock.read_next_event()
-
-    if "event" in msg:
-        view = msg["view"]        
-
-        if view["app-id"] == "kitty":
-            # sock.set_workspace(1, 1, view["id"])
-            wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
-            sock.set_view_minimized(view["id"], True)
-            break
-
-subprocess.Popen(["kitty"])
-while True:
-
-    msg = sock.read_next_event()
-
-    if "event" in msg:
-        view = msg["view"]
-
-        if view["app-id"] == "kitty":
-            # sock.set_workspace(0, 1, view["id"])
-            wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
-            sock.set_view_minimized(view["id"], True)
-            break
-
-subprocess.Popen(["nemo"])
-while True:
-
-    msg = sock.read_next_event()
-
-    if "event" in msg:
-        view = msg["view"]
-
-        if view["app-id"] == "nemo":
-            # sock.set_workspace(0, 1, view["id"])
-            wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
-            sock.set_view_minimized(view["id"], True)
-            break
-
-subprocess.Popen(["waybar"])
-time.sleep(1)
 subprocess.Popen(["wf-dock"])
+sock.read_next_event()
 
-quit(0)
+sock._option_valuesset({'animate': {'squeezimize_duration': '1ms linear'}})
 
-# sock.toggle_expo()
+for app in apps:
 
-# while True:
-#     msg = sock.read_next_event()
-#     print(msg["event"])
+    subprocess.Popen(app)
+    msg = sock.read_next_event()
 
-#     if msg["event"] == "view-mapped":
-#         view = msg["view"]
+    if "event" in msg:
+        view = msg["view"]
+        wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
+        sock.set_view_minimized(view["id"], True)
 
-#         if view["app-id"] == "gamescope":            
-#             if host == "NixOS-AOC":
-#                 subprocess.run(["pkill", "-9", "shaderbg"])
-#             else:
-#                 subprocess.run(["pkill", "-9", "wayggle-bg"])
-#             sock.set_workspace(0, 1, view["id"])
-#             time.sleep(1)
-#             sock.set_view_fullscreen(view["id"], True)
+sock._option_valuesset({'animate': {'squeezimize_duration': '4000ms linear'}})
+hyprlock.wait()
 
-#         else:            
-#             wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
+views = sock.list_views(filter_mapped_toplevel=True)
+
+for view in views:
+
+    if view["app-id"] == "firefox":
+        sock.set_workspace(1,0, view["id"])
+    elif view["app-id"] == "Code":
+        sock.set_workspace(0,0, view["id"])
+    elif view["app-id"] == "kitty":
+        sock.set_workspace(0,1, view["id"])
+    elif view["app-id"] == "nemo":
+        sock.set_workspace(0,1, view["id"])
+    elif view["app-id"] == "com.mitchellh.ghostty":
+        sock.set_workspace(1,1, view["id"])
+
+time.sleep(.34)
+sock.toggle_expo()
+
+sock._option_valuesset({'animate': {'squeezimize_duration': '400ms linear'}})
+subprocess.Popen(["waybar"])
+
+#########################################################
+
+host = socket.gethostname()
+
+if host == "NixOS-AOC":
+    start_shader = "start-shaderbg"
+    kill_shader = "shaderbg"
+else:
+    start_shader = "start-wayggle-bg"
+    kill_shader = "wayggle-bg"
+
+blacklisted = [
+    "egl_background",
+    "waybar",
+    "wf-dock"
+]
+game = "steam_app"
+running = "0"
+
+while True:
+
+    msg = sock.read_next_event()
+    # print(datetime.datetime.now())
+    # try:
+    #     view = msg["view"]
+    #     print(msg["event"] + ": " + view["app-id"])
+    # except:
+    #     print(msg["event"])
+
+    if msg["event"] == "view-mapped":
+        view = msg["view"]
+        try:
+            print(msg["event"] + ": " + view["app-id"])
+        except:
+            print(msg["event"])
+
+        if game in view["app-id"]: # and running != view["app-id"]: 
+            try:     
+                # subprocess.run(["pkill", "-9", kill_shader]) 
+                running = view["app-id"]
+                # print(running)
+                sock.set_workspace(0, 1, view["id"])   
+                time.sleep(1)
+                sock.set_view_fullscreen(view["id"], True)
+            except:
+                continue
+        
+        elif view["app-id"] == "steam":
+            try:
+                sock.set_workspace(0, 1, view["id"], )   
+                time.sleep(1)
+                sock.set_view_fullscreen(view["id"], True)
+            except:
+                continue
+
+        elif view["app-id"] not in blacklisted:            
+            wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
            
-#     elif msg["event"] == "view-unmapped":
-#         view = msg["view"]
+    elif msg["event"] == "view-unmapped":
+        view = msg["view"]
 
-#         if view["app-id"] == "gamescope":
-#             if host == "NixOS-AOC":
-#                 subprocess.run(["start-shaderbg"])
-#             else:
-#                 subprocess.run(["start-wayggle-bg"])
+        try:
+            print(msg["event"] + ": " + view["app-id"])
+        except:
+            print(msg["event"])
 
+        if game in view["app-id"]:
+            if running != view["app-id"]:
+            # views = sock.list_views(filter_mapped_toplevel=True)
+                running = view["app-id"]
+            # print(running)
+            # for view in views:
+            #     if view["app-id"] == "egl_background":
+            #         break
+        #     #     else:
+        #     time.sleep(3)
+            subprocess.run([start_shader])
+
+    elif msg["event"] == "view-geometry-changed":
+        view = msg["view"]
+
+        if "steam" in view["app-id"]:
+            sock.set_view_fullscreen(view["id"], True)
