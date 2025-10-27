@@ -25,10 +25,11 @@
 
   };
 
-  outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let       
+  outputs = { self, nixpkgs, chaotic, home-manager, private, wayggle-bg, ... }@inputs: let       
     system = "x86_64-linux";
 
   in { 
+    packages.default = wayggle-bg.packages.${system}.default;
     nixosConfigurations = {
 
       NixOS-B460 = nixpkgs.lib.nixosSystem {

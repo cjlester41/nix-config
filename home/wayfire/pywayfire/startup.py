@@ -11,7 +11,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 apps = [
     ["ghostty", "-e", "btop"],
     "firefox",  
-    ["firefox", "--private-window"],      
+    # ["firefox", "--private-window"],      
     "kitty",
     "nemo",
     "code"
@@ -21,7 +21,7 @@ while True:
     msg = sock.read_next_event()
     if "event" in msg:
         view = msg["view"]
-        if view["app-id"] == "egl_background":
+        if view["app-id"] in {"egl_background", "shaderbg"}:
             hyprlock = subprocess.Popen(["hyprlock"])
             break
 
@@ -78,7 +78,8 @@ else:
 blacklisted = [
     "egl_background",
     "waybar",
-    "wf-dock"
+    "wf-dock",
+    "shaderbg"
 ]
 game = "steam_app"
 running = "0"

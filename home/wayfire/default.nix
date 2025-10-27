@@ -7,6 +7,7 @@ let background =
     "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/roswirl.glsl"
   else
     "${wayggle-bg}/bin/wayggle-bg default --name box"; 
+    # MANGOHUD_CONFIG=fps_limit=30,no_display mangohud shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/roswirl.glsl
 in
 
 {  
@@ -67,11 +68,17 @@ in
         icon_height = 38;
         autohide = true;
         position = "bottom";
-        edge_offset = 1;
+        edge_offset = 0;
 
         icon_mapping_Code = "/run/current-system/sw/share/icons/candy-icons/apps/scalable/vscode.svg";
         icon_mapping_nemo = "/run/current-system/sw/share/icons/Sweet-Rainbow/Places/16/folder.svg";
+      };
 
+      settings.background = {
+
+        image = "/home/${private.username}/nix-config/files/";
+        fill_mode = "stretch";
+      
       };
     };
   };  

@@ -1,13 +1,12 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, private, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
 {  
-  lib.config.stylix.targets.firefox.profileNames = [ "user" ];
   programs.firefox = {
     enable = true;
     profiles = {
-      "7u6dfvp7.default" = {
+      "home/${private.username}/.mozilla/firefox/7u6dfvp7.default" = { # 7u6dfvp7.default
         id = 0;
         name = "7u6dfvp7";
         isDefault = true;
@@ -64,4 +63,6 @@ with config.lib.stylix.colors.withHashtag;
       };
     };
   };
+
+  stylix.targets.firefox.profileNames = [ "home/${private.username}/.mozilla/firefox/7u6dfvp7.default" ];
 }
