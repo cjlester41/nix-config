@@ -22,7 +22,7 @@
   
   environment.systemPackages = with pkgs; [
 
-    steam-run    
+    # steam-run    
     bottles
     lutris
     protontricks
@@ -71,8 +71,12 @@
 
   powerManagement.cpuFreqGovernor = "performance";
 
+  # services.udev.extraRules = ''
+  #   SUBSYSTEM=="usb", ATTRS{idVendor}=="3343", ATTRS{idProduct}=="0043", MODE="0664", GROUP="dialout"
+  # '';
+
   services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="3343", ATTRS{idProduct}=="0043", MODE="0664", GROUP="dialout"
+    ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="25a7", ATTRS{idProduct}=="fa34", ATTR{power/wakeup}="disabled"
   '';
   
 }

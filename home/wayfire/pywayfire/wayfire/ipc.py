@@ -318,7 +318,7 @@ class WayfireSocket:
         message["data"]["option"] = option
         return self.send_json(message)
 
-    def set_option_values(self, options):
+    def _option_valuesset(self, options):
         """
         Sets multiple internal configuration options.
 

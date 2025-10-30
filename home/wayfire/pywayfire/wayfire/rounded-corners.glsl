@@ -23,7 +23,7 @@ void main()
     m.y *= texelSize.y; // top
     m.z *= texelSize.x; // right
     m.w *= texelSize.y; // bottom
-    vec4 border_color = vec4(0.5, 0, 0.5, .1);
+    vec4 border_color = vec4(0.2, 0, 0.2, .1);
     float border_size = 2.0;
     float corner_radius = 15.0;
     float shadow_radius = 12.0;

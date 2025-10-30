@@ -1,15 +1,14 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, private, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
 {  
-  lib.config.stylix.targets.firefox.profileNames = [ "user" ];
   programs.firefox = {
     enable = true;
     profiles = {
-      "7u6dfvp7.default" = {
+      "${private.username}.default" = { # 7u6dfvp7.default
         id = 0;
-        name = "7u6dfvp7";
+        name = "${private.username}";
         isDefault = true;
         settings = {
           # "browser.startup.homepage" = "https://github.com";
@@ -59,8 +58,11 @@ with config.lib.stylix.colors.withHashtag;
         extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
           bitwarden
           ublock-origin
+          tabliss
         ];
       };
     };
   };
+
+  stylix.targets.firefox.profileNames = [ "${private.username}.default" ];
 }

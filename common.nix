@@ -2,6 +2,14 @@
 
 {
   xdg.icons.enable = true;
+  # gtk = {
+  #   iconTheme = lib.mkForce {
+  #     name = "Sweet-Rainbow";
+  #     package = pkgs.sweet-folders;
+  #     # name = "candy-icons";
+  #     # package = pkgs.candy-icons;
+  #   };
+  # };
 
   systemd.tmpfiles.rules = [
     "d '/var/cache/tuigreet' - greeter greeter - -" #0755 greetd greetd -"
@@ -84,7 +92,17 @@
     # GTK_BACKDROP_STYLING = "0"; 
     # XDG_CACHE_HOME = "/home/isolde/.cache";
     # NIXOS_OZONE_WL = "1";
+    # XDG_DATA_DIRS="/run/current-system/sw/share/icons/candy-icons/";
   };
+
+
+
+    environment.pathsToLink = [
+      "/share/icons"
+      "/share/pixmaps"
+    ];
+
+
 
   # fonts.fontconfig = {
   #   defaultFonts = {

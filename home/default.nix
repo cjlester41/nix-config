@@ -3,22 +3,23 @@
 {
   imports = [ 
     
-    ./fastfetch  
-    ./waybar/bezier.nix
-    ./kitty.nix
-    # ./micro.nix
-    # ./rofi.nix
-    ./nemo.nix
-    # ./cava.nix
-    ./firefox.nix
-    ./gtk.nix
-    ./btop.nix
-    ./vscode
-    ./swaync.nix
+    ./modules/fastfetch  
+    ./modules/waybar/bezier.nix
+    ./modules/kitty.nix
+    ./modules/ghostty.nix
+    # ./modules/micro.nix
+    # ./modules/rofi.nix
+    ./modules/nemo.nix
+    # ./modules/cava.nix
+    ./modules/firefox.nix
+    ./modules/gtk.nix
+    ./modules/btop.nix
+    ./modules/vscode
+    ./modules/swaync.nix
     ./wayfire
-    ./zsh
-    ./wlogout
-    ./swayidle.nix
+    ./modules/zsh
+    ./modules/wlogout
+    ./modules/swayidle.nix
   ];
 
   # programs.xdg.enable = true;
@@ -34,11 +35,15 @@
   # };
   home.packages = with pkgs; [ 
 
-    (writeShellScriptBin "start-wayggle-bg" ''
-      ${wayggle-bg}/bin/wayggle-bg default --name box & disown
-    '')
+    # (writeShellScriptBin "start-wayggle-bg" ''
+    #   ${wayggle-bg}/bin/wayggle-bg default --name box & disown
+    # '')
 
     (writeShellScriptBin "start-shaderbg" ''
+      MANGOHUD_CONFIG=fps_limit=24,no_display mangohud shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl & disown
+    '')
+
+    (writeShellScriptBin "start-shaderbg-lite" ''
       shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/roswirl.glsl & disown
     '')
 
@@ -76,6 +81,7 @@
     enable = true;
     iconTheme = lib.mkForce {
       name = "Sweet-Rainbow";
+      # name = "candy-icons";
       package = pkgs.sweet-folders;
       # name = "candy-icons";
       # package = pkgs.candy-icons;
@@ -116,11 +122,11 @@
   #   useGlobalPkgs = true;
   #   # extraSpecialArgs = { inherit inputs username host; };
   #   # users.${usern} = {
-  #     # imports = [./];
+  #     # imports = [./modules/];
   #       # if (host == "desktop") then
-  #         # [ ./../home/default.desktop.nix ]
+  #         # [ ./modules/../modules/home/default.desktop.nix ]
   #       # else
-  #         # [ ./../home ];
+  #         # [ ./modules/../modules/home ];
   #     home.username = "${private.username}"; 
   #     home.homeDirectory = "/home/${private.username}"; 
   #     home.stateVersion = "24.11";

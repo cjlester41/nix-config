@@ -5,18 +5,11 @@
   
     micro 
     libnotify
-    # minicom
     # caligula
-    # spotify-player
-    # vlc  
-    galculator    
-    # shaderbg
+    galculator  
     dysk
     hyprlock
     tuigreet
-    cmatrix
-    lolcat
-    gpu-viewer    
 
     # utils
     # advcpmv need alternative
@@ -35,10 +28,12 @@
     wget
     zoxide # cd tool. implemented? 
     candy-icons
+    sweet-folders
     nwg-drawer
     networkmanagerapplet
     nix-output-monitor
     vlc
+    ghostty
     shaderbg
     
     # nvd #nix pkg diff
@@ -58,6 +53,7 @@
     zsh.enable = true;
     dconf.enable = true;
     nix-ld.enable = true;
+    gdk-pixbuf.modulePackages = [ pkgs.librsvg ]; #svg icons fix?
 
     git = {
       enable = true;

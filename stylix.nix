@@ -6,27 +6,18 @@ let basecolor =
     "110011"
   else
   if config.networking.hostName == "NixOS-AOC" then
-    "000000"
+    "111111"
   else
     "110011";    
 in {
-  # lib.config.stylix.targets.firefox.profileNames = [ "user" ];
   fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-    pkgs.montserrat
-    # nerd-fonts.fira-code
-    # nerd-fonts.caskaydia-cove
-    # nerd-fonts.symbols-only
-    # twemoji-color-font
-    # noto-fonts-emoji
-    # fantasque-sans-mono
-    # maple-mono.truetype-autohint    
+    pkgs.montserrat 
   ];
   stylix = {
     enable = true;
     targets.gtk.enable = true;
-    # targets.firefox.profileNames = [ "7u6dfvp7.default" ];
     # targets.gtk.theme = "stylix-gtk";
     # image = stylixImage;
     base16Scheme = {
