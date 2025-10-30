@@ -6,9 +6,9 @@ with config.lib.stylix.colors.withHashtag;
   programs.firefox = {
     enable = true;
     profiles = {
-      "home/${private.username}/.mozilla/firefox/7u6dfvp7.default" = { # 7u6dfvp7.default
+      "${private.username}.default" = { # 7u6dfvp7.default
         id = 0;
-        name = "7u6dfvp7";
+        name = "${private.username}";
         isDefault = true;
         settings = {
           # "browser.startup.homepage" = "https://github.com";
@@ -64,5 +64,5 @@ with config.lib.stylix.colors.withHashtag;
     };
   };
 
-  stylix.targets.firefox.profileNames = [ "home/${private.username}/.mozilla/firefox/7u6dfvp7.default" ];
+  stylix.targets.firefox.profileNames = [ "${private.username}.default" ];
 }

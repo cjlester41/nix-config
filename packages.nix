@@ -34,6 +34,7 @@
     nix-output-monitor
     vlc
     ghostty
+    shaderbg
     
     # nvd #nix pkg diff
     # zenity # gui dialog boxes
@@ -52,7 +53,7 @@
     zsh.enable = true;
     dconf.enable = true;
     nix-ld.enable = true;
-    gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+    gdk-pixbuf.modulePackages = [ pkgs.librsvg ]; #svg icons fix?
 
     git = {
       enable = true;

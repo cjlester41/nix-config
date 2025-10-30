@@ -11,7 +11,7 @@ in
     backupFileExtension = "bak";
     extraSpecialArgs = {inherit inputs private hostnm;};
     users.${private.username} = { 
-      _module.args = { wayggle-bg = inputs.wayggle-bg.packages."x86_64-linux".default; };
+      # _module.args = { wayggle-bg = inputs.wayggle-bg.packages."x86_64-linux".default; };
       imports = [./home];
       home = {
         username = "${private.username}"; 

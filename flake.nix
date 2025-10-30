@@ -17,7 +17,7 @@
     };
 
     wayggle-bg = {
-      url = "github:cjlester41/wayggle-bg";
+      url = "github:comavius/wayggle-bg";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -29,7 +29,7 @@
     system = "x86_64-linux";
 
   in { 
-    packages.default = wayggle-bg.packages.${system}.default;
+    
     nixosConfigurations = {
 
       NixOS-B460 = nixpkgs.lib.nixosSystem {

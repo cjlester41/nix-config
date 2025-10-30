@@ -7,6 +7,7 @@ in
   services = {
 
     # xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
+    xserver.enable = true;
 
     printing.enable = false;
     blueman.enable = true;
