@@ -3,12 +3,13 @@
 let
   wfplugins = import ./plugins.nix; ####################server or client?
   framesync = if private.hardware == "ASRock" then true else false;
+  alpha = "0.80";
 in
 {  
   wayland.windowManager.wayfire.settings = {
 
     alpha = {
-      min_value = 0.85;
+      min_value = "${alpha}";
       modifier = "<alt> <super>";
     };      
 
@@ -380,7 +381,7 @@ in
       preview_base_border = "#404080CC";
       preview_base_color = "#8080FF80";
       preview_border_width = 2;
-      tile_by_default = "title contians \"Steam\"";
+      tile_by_default = "!(app_id is \"steam\") & !(app_id is \"Wine\")";
     };
 
     switcher = {
@@ -447,9 +448,10 @@ in
     };
 
     window-rules = {
-      rule_1 = "on created then set alpha 0.85";
-      # rule_2 = "on created if app_id is \"kitty\" then snap left";
-      # rule_3 = "on created if title contians \"Firefox\" then set alpha 0.5";
+      rule_1 = "on created then set alpha ${alpha}";
+      # rule_5 = "on created if title is \"Steam\" then set alpha 1";
+      # rule_2 = "on created if app_id is \"steam\" then maximize";
+      # rule_3 = "on created if app_id contains \"steam\" then set alpha 1";
       rule_4 = "on fullscreened then set alpha 1.0";
       # rule_5 = "on unmaximized then set alpha .85";
     };
