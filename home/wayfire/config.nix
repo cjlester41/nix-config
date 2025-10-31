@@ -380,7 +380,7 @@ in
       preview_base_border = "#404080CC";
       preview_base_color = "#8080FF80";
       preview_border_width = 2;
-      tile_by_default = "all";
+      tile_by_default = "title contians \"Steam\"";
     };
 
     switcher = {

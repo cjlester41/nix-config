@@ -14,7 +14,7 @@ def run_ipc(sock, wpe):
         start_shader = "start-shaderbg-lite"
         kill_shader = "shaderbg"
     else:
-        start_shader = "start-shaderbg" #"start-wayggle-bg"
+        start_shader = "start-shaderbg-lite" #"start-wayggle-bg"
         kill_shader = "shaderbg" #"wayggle-bg"
 
     blacklisted = [
@@ -30,24 +30,29 @@ def run_ipc(sock, wpe):
         
         try:
             view = msg["view"]
-            print(msg["event"] + ": " + view["app-id"])
+            print(str(view["id"]) + ": " + view["app-id"] + ": " + view["title"])
         except:
             print(msg["event"])
 
         if "view-mapped" in msg["event"]:
             view = msg["view"]
 
-            if "steam" in view["app-id"]: 
+            if "steam_app" in view["app-id"]:
+                sock.set_view_always_on_top(view["id"], True)
+                sock.set_view_fullscreen(view["id"], True)
+
+            elif "steam" in view["app-id"]: 
                 try:
                     sock.set_workspace(0, 1, view["id"]) 
+                    sock.set_view_fullscreen(view["id"], True)
                 except:
                     continue 
             
-                if view["app-id"] == "steam":
-                    try:
-                        sock.set_view_fullscreen(view["id"], True)
-                    except:
-                        continue
+                # if view["title"] == "Steam":
+                #     try:
+                #         sock.set_view_fullscreen(view["id"], True)
+                #     except:
+                #         continue
 
             elif view["app-id"] not in blacklisted:            
                 wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
@@ -71,8 +76,8 @@ def run_ipc(sock, wpe):
             if "steam_app" in view["app-id"] and view["fullscreen"] == True:
                 subprocess.run(["pkill", "-9", kill_shader]) 
 
-            elif view["app-id"] == "steam" and view["fullscreen"] == False:
-                sock.set_view_fullscreen(view["id"], True)
+            # elif view["title"] == "Steam" and view["fullscreen"] == False:
+            #     sock.set_view_fullscreen(view["id"], True)
 
 if __name__ == "__main__":
 
