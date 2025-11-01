@@ -4,7 +4,8 @@
     "wm-actions " + 
     # "idle " + 
     "alpha " + 
-    "command " + 
+    "command " +
+    "grid " + 
     "expo " + 
     "move " + 
     "place " + 
@@ -32,6 +33,7 @@
     # "wf-info " +
     "filters " +
     "wayfire-shell " +
+    "wsets " +
     "foreign-toplevel " +
     "session-lock";
             

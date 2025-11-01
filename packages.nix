@@ -54,6 +54,7 @@
     dconf.enable = true;
     nix-ld.enable = true;
     gdk-pixbuf.modulePackages = [ pkgs.librsvg ]; #svg icons fix?
+    # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
     git = {
       enable = true;
@@ -73,6 +74,10 @@
       flake = "/home/${private.username}/nix-config"; 
     };     
   }; 
+
+  # xdg.portal.enable = true;
+  # xdg.portal.wlr.enable = true;
+  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }
 
 
