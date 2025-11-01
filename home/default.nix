@@ -40,11 +40,11 @@
     # '')
 
     (writeShellScriptBin "start-shaderbg" ''
-      MANGOHUD_CONFIG=fps_limit=24,no_display mangohud shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl & disown
+      shaderbg -l background -f 30 HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl & disown
     '')
 
     (writeShellScriptBin "start-shaderbg-lite" ''
-      shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/roswirl.glsl & disown
+      shaderbg -l background -f 30 HDMI-A-1 ~/nix-config/files/shaders/planet.glsl & disown
     '')
 
     xdg-user-dirs

@@ -30,10 +30,10 @@ while True:
     msg = sock.read_next_event()
     if msg["event"] == "view-mapped":
         view = msg["view"]
-        if view["app-id"] in {"panel"}:
-            sock.set_workspace(1,1)
-            time.sleep(.4)
-            panel = view["id"]
+        if view["app-id"] == "panel":
+            # sock.set_workspace(1,1)
+            time.sleep(4)
+            # panel = view["id"]
             # sock.set_view_always_on_top(view["id"], True)
             break
 
@@ -90,7 +90,7 @@ sock._option_valuesset({'animate': {'open_animation': 'vortex'}})
 sock._option_valuesset({'expo': {'duration': '300ms circle'}})
 sock._option_valuesset({'vswitch': {'duration': '300ms circle'}})
 
-subprocess.Popen(["steam", "-silent", "%U"])
+# subprocess.Popen(["steam", "-silent", "%U"])
 time.sleep(3)
 subprocess.Popen(["waybar"])
 # sock.set_view_always_on_top(panel, True)

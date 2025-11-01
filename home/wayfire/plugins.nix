@@ -4,7 +4,8 @@
     "wm-actions " + 
     # "idle " + 
     "alpha " + 
-    "command " + 
+    "command " +
+    "grid " + 
     "expo " + 
     "move " + 
     "place " + 
@@ -15,25 +16,24 @@
     "zoom " + 
     "wobbly " + 
     "water " +
+    "fisheye " +
     "follow-focus " +  
     "focus-request " +
     "force-fullscreen " +   
     "animate " + 
     # "wf-info " + 
-    # "filters " + 
     "shortcuts-inhibit " +     
     "cube " + 
     "ipc " + 
     "ipc-rules " + 
     "pin-view " + 
     "simple-tile " + 
-    # "wayfire-plugins-extra " + 
-    "window-rules " + 
+    # "window-rules " + 
     "extra-animations " + 
-    # "pixdecor " +
-    "wf-info " +
+    # "wf-info " +
     "filters " +
     "wayfire-shell " +
+    "wsets " +
     "foreign-toplevel " +
     "session-lock";
             
