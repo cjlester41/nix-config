@@ -3,7 +3,7 @@
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
-    plymouth.enable = true;
+    # plymouth.enable = true;
   };
 
   # # nixpkgs.overlays = [
