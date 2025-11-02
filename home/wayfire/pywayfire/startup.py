@@ -4,7 +4,13 @@ import os, time, subprocess, ipc
 
 sock = WayfireSocket()
 wpe = WPE(sock)
+sock._option_valuesset({'animate': {'squeezimize_duration': '0ms linear'}})
+sock._option_valuesset({'animate': {'open_animation': 'none'}})
+sock._option_valuesset({'expo': {'duration': '0ms linear'}})
 sock.watch()
+time.sleep(1)
+
+
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -31,14 +37,11 @@ while True:
     if msg["event"] == "view-mapped":
         view = msg["view"]
         if view["app-id"] in {"panel"}:
-            sock.set_workspace(1,1)
-            time.sleep(.4)
-            panel = view["id"]
+            # sock.set_workspace(1,1)
+            # time.sleep(1.4)
+            # panel = view["id"]
             # sock.set_view_always_on_top(view["id"], True)
             break
-
-sock._option_valuesset({'animate': {'squeezimize_duration': '0ms linear'}})
-sock._option_valuesset({'animate': {'open_animation': 'none'}})
 
 for app in apps:
 
@@ -50,25 +53,27 @@ for app in apps:
             view = msg["view"]
             wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
             sock.set_view_alpha(view["id"], .85)
-            sock.set_view_minimized(view["id"], True)
+            # sock.set_view_minimized(view["id"], True)
             break   
 
-while True:
-    minimized = []
-    views = sock.list_views(filter_mapped_toplevel=True)
-    for view in views:
-        if view["minimized"] == "False":
-            minimized.append(False)
+# time.sleep(2)
 
-    if False not in minimized:
-        time.sleep(.1); break   
+# while True:
+#     minimized = []
+views = sock.list_views(filter_mapped_toplevel=True)
+for view in views:
+    sock.set_view_minimized(view["id"], True)
+        # if view["minimized"] == "False":
+        #     minimized.append(False)
+
+    # if False not in minimized:
+    #     time.sleep(.1); break   
 
 hyprlock.wait()
 
 sock._option_valuesset({'animate': {'squeezimize_duration': '3000ms linear'}})
-sock._option_valuesset({'animate': {'open_animation': 'vortex'}})
 sock._option_valuesset({'vswitch': {'duration': '0ms circle'}})
-sock._option_valuesset({'expo': {'duration': '0ms linear'}})
+
 
 for view in views:
 
@@ -83,7 +88,9 @@ for view in views:
     elif view["app-id"] == "com.mitchellh.ghostty":
         sock.set_workspace(1,1, view["id"])
 
-time.sleep(.05)
+    time.sleep(.1)
+
+time.sleep(.2)
 sock.toggle_expo()
 sock._option_valuesset({'animate': {'squeezimize_duration': '400ms linear'}})
 sock._option_valuesset({'animate': {'open_animation': 'vortex'}})

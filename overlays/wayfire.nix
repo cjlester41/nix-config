@@ -1,14 +1,14 @@
 final: prev: {
 
-    crystal-dock = prev.crystal-dock.overrideAttrs (oldAttrs: rec {
-    	version = "v0.10.1";
+    shaderbg = prev.shaderbg.overrideAttrs (oldAttrs: rec {
+    	version = "v0.10.5";
         
         src = prev.fetchFromGitHub {
-            owner = "dangvd";
-            repo = "crystal-dock";
-            rev = "v2.15"; #"${oldAttrs.version}";
+            owner = "cjlester41";
+            repo = "shaderbg";
+            rev = "v0.10.5"; #"${oldAttrs.version}";
             # fetchSubmodules = true;
-            hash = "sha256-XFq4T39El5MjaWRSnaimonjdj+HGOAydNmEOehgGWX4=";  
+            hash = "sha256-W766BrH5IRViSO8/sYHqIkhlanvm0t6u/vwW3V/upZQ=";  
         };
     });
 
