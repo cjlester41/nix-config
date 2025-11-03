@@ -1,5 +1,5 @@
 
-#define BRIGHTNESS 1.0
+#define BRIGHTNESS .5
 #define COLOR_BASE 1.5
 #define COLOR_SPEED 0.5
 #define RGB vec3(0.0, 1.0, 2.0)

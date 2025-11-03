@@ -1,16 +1,16 @@
 final: prev: {
 
-    shaderbg = prev.shaderbg.overrideAttrs (oldAttrs: rec {
-    	version = "v0.10.5";
+    # shaderbg = prev.shaderbg.overrideAttrs (oldAttrs: rec {
+    # 	version = "v0.10.5";
         
-        src = prev.fetchFromGitHub {
-            owner = "cjlester41";
-            repo = "shaderbg";
-            rev = "v0.10.5"; #"${oldAttrs.version}";
-            # fetchSubmodules = true;
-            hash = "sha256-W766BrH5IRViSO8/sYHqIkhlanvm0t6u/vwW3V/upZQ=";  
-        };
-    });
+    #     src = prev.fetchFromGitHub {
+    #         owner = "cjlester41";
+    #         repo = "shaderbg";
+    #         rev = "v0.10.5"; #"${oldAttrs.version}";
+    #         # fetchSubmodules = true;
+    #         hash = "sha256-W766BrH5IRViSO8/sYHqIkhlanvm0t6u/vwW3V/upZQ=";  
+    #     };
+    # });
 
     wf-config = prev.wf-config.overrideAttrs (oldAttrs: rec {
         version = "0.10.0";

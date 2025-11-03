@@ -35,9 +35,9 @@
   # };
   home.packages = with pkgs; [ 
 
-    # (writeShellScriptBin "start-wayggle-bg" ''
-    #   ${wayggle-bg}/bin/wayggle-bg default --name box & disown
-    # '')
+    (writeShellScriptBin "start-shader" ''
+      ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/sunset.glsl & disown
+    '')
 
     (writeShellScriptBin "start-shaderbg" ''
       shaderbg -l background -f 30 HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl & disown

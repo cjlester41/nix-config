@@ -9,7 +9,8 @@ let background =
     # "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/roswirl.glsl"
   else
     # "${wayggle-bg}/bin/wayggle-bg default --name box"; 
-    "start-shaderbg-lite";
+    # "start-shaderbg-lite";
+    "start-shader";
 in
 
 {  

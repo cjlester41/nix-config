@@ -14,8 +14,8 @@ def run_ipc(sock, wpe):
         start_shader = "start-shaderbg-lite"
         kill_shader = "shaderbg"
     else:
-        start_shader = "start-shaderbg-lite" #"start-wayggle-bg"
-        kill_shader = "shaderbg" #"wayggle-bg"
+        start_shader = "start-shader" #"start-wayggle-bg"
+        kill_shader = "ghostty"
 
     game_apps = ["steam", "Wine"]
     blacklist = ["waybar", "wf-dock", "shaderbg"]
@@ -48,8 +48,8 @@ def run_ipc(sock, wpe):
         elif msg["event"] == "view-fullscreen":
             view = msg["view"]
 
-            if view["app-id"] in game_apps and view["fullscreen"] == True:
-                subprocess.run(["pkill", "-9", kill_shader]) 
+            if "steam_" in view["app-id"] and view["fullscreen"] == True: ###################3
+                subprocess.run(["pkill", kill_shader]) 
 
             elif view["fullscreen"] == True:
                 sock.set_view_alpha(view["id"], 1)
@@ -62,7 +62,7 @@ def run_ipc(sock, wpe):
         elif msg["event"] == "view-unmapped":
             view = msg["view"]
 
-            if view["app-id"] in game_apps:
+            if "steam_" in view["app-id"]: # in game_apps:
                 id, running, shader = view["app-id"], [], kill_shader
                 views = sock.list_views(filter_mapped_toplevel=True)
                 for view in views:
@@ -73,6 +73,13 @@ def run_ipc(sock, wpe):
 
                 if True not in running:
                     subprocess.run([start_shader])
+                    while True:
+                        msg = sock.read_next_event()
+                        if msg["event"] == "view-mapped":
+                            view = msg["view"]
+                            if "ghostty" in view["app-id"]:
+                                wpe.pin_view(view["id"], "background", True) 
+                                break
             
             elif "Steam" in view["title"]:
                 sock._option_valuesset({'follow-focus': {'change_view': 'true'}})
