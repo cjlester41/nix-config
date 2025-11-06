@@ -20,6 +20,7 @@
     # jdk11
     # maven
     signal-desktop
+    spotify-player
     factorio
     minicom
     gimp

@@ -44,7 +44,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     p = turbulence(p);
     
     //Subtle blue and yellow gradient
-    vec3 col = 0.5*exp(0.1*p.x*vec3(-1,0,2));
+    vec3 col = 0.1*exp(0.3*p.x*vec3(-1,0,2));
     //Vary brightness
     col /= dot(cos(p*3.),sin(-p.yx*3.*.618))+2.0;
     //Exponential tonemap

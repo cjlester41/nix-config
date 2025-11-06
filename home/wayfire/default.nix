@@ -3,13 +3,7 @@
 let background = 
   if private.hardware == "sS7" then
     "swaybg -i ~/Downloads/Balcony-ja.png"
-  else if private.hardware == "AOC" then
-    "start-shaderbg-lite"
-    # "MANGOHUD_CONFIG=fps_limit=24,no_display mangohud shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl"
-    # "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/roswirl.glsl"
   else
-    # "${wayggle-bg}/bin/wayggle-bg default --name box"; 
-    # "start-shaderbg-lite";
     "start-shader";
 in
 
