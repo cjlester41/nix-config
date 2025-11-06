@@ -2,6 +2,7 @@
 {
   programs.vscode.profiles.default = {
     userSettings = {
+      "disable-hardware-acceleration" = true;
       "explorer.confirmDelete" = "false";
       "terminal.integrated.env.linux" = {
         "PYTHONDONTWRITEBYTECODE" = "1";
