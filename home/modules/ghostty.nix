@@ -15,6 +15,7 @@
 
       # only set this during testing, defaults to "true" which animates only active windows
       # custom-shader-animation = "always";
+      resize-overlay="never";
     };
   };
 }

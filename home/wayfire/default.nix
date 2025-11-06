@@ -3,7 +3,7 @@
 let background = 
   if private.hardware == "sS7" then
     "swaybg -i ~/Downloads/Balcony-ja.png"
-  else if private.hardware == "B460" then
+  else if private.hardware == "AOC" then
     "start-shaderbg-lite"
     # "MANGOHUD_CONFIG=fps_limit=24,no_display mangohud shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl"
     # "shaderbg -l 0 HDMI-A-1 ~/nix-config/files/shaders/roswirl.glsl"
@@ -74,7 +74,8 @@ in
         edge_offset = 0;
 
         icon_mapping_Code = "/run/current-system/sw/share/icons/candy-icons/apps/scalable/vscode.svg";
-        icon_mapping_nemo = "/run/current-system/sw/share/icons/Sweet-Rainbow/Places/16/folder.svg";
+        icon_mapping_foot = "/run/current-system/sw/share/icons/candy-icons/apps/scalable/btop.svg";
+        icon_mapping_nemo = "/run/current-system/sw/share/icons/Sweet-Rainbow/Places/48/folder.svg";
       };
 
       settings.background = {

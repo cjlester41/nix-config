@@ -381,7 +381,7 @@ in
       preview_base_border = "#404080CC";
       preview_base_color = "#8080FF80";
       preview_border_width = 2;
-      tile_by_default = "!(app_id is \"steam\") & !(app_id is \"Wine\")";
+      tile_by_default = "!(app_id contains \"steam\") & !(app_id contains \"ghostty\")";
     };
 
     switcher = {

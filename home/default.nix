@@ -4,8 +4,9 @@
   imports = [ 
     
     ./modules/fastfetch  
-    ./modules/waybar/bezier.nix
+    ./modules/waybar/bezier-dark.nix
     ./modules/kitty.nix
+    ./modules/foot.nix
     ./modules/ghostty.nix
     # ./modules/micro.nix
     # ./modules/rofi.nix
@@ -112,6 +113,20 @@
     # videos = "${config.home.homeDirectory}/MyVideos";
   };
 
+  # xdg.desktopEntries."btop" = {
+  #   type="Application";
+  #   # version="1.0";
+  #   name="btop++";
+  #   genericName="System Monitor";
+  #   comment="resource monitor that shows usage and stats for processor, memory, disks, network and processes";
+  #   icon="btop";
+  #   exec="foot -e btop";
+  #   terminal=false;
+  #   categories=["System" "Monitor" "ConsoleOnly"];
+  #   # keywords=["system" "process" "task"];
+  # };
+
+  
   # Ensure xdg-utils is installed for the update command to run
  
 

@@ -22,7 +22,9 @@
   
   environment.systemPackages = with pkgs; [
 
-    # steam-run    
+    # steam-run  
+    gimp  
+    spotify-player
     bottles
     lutris
     protontricks

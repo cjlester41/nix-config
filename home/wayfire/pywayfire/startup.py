@@ -20,7 +20,7 @@ apps = [
     "code",   
     "kitty",
     "nemo",    
-    ["kitty", "-e", "btop"]
+    ["foot", "-e", "btop"]
 ]
 
 while True:
@@ -65,7 +65,7 @@ for app in apps:
             sock.set_view_alpha(view["id"], .85)
             # sock.set_view_minimized(view["id"], True)
             break   
-time.sleep(.1)
+time.sleep(1) # the fix ??????????????
 
 views = sock.list_views(filter_mapped_toplevel=True)
 for view in views:
@@ -76,7 +76,7 @@ for view in views:
     # if False not in minimized:
     #     time.sleep(.1); break  
      
-time.sleep(.5)
+time.sleep(.1)
 
 sock._option_valuesset({'animate': {'squeezimize_duration': '3000ms linear'}})
 sock._option_valuesset({'vswitch': {'duration': '0ms circle'}})
@@ -93,7 +93,7 @@ for view in views:
         sock.set_workspace(0,1, view["id"])
     elif view["app-id"] == "nemo":
         sock.set_workspace(0,1, view["id"])
-    elif view["app-id"] == "kitty":
+    elif view["app-id"] == "foot":
         sock.set_workspace(1,1, view["id"])
 
 # subprocess.Popen(["waybar"])
@@ -127,6 +127,7 @@ sock._option_valuesset({'expo': {'duration': '300ms circle'}})
 sock._option_valuesset({'vswitch': {'duration': '300ms circle'}})
 
 subprocess.Popen(["steam", "-silent", "%U"])
+sock.set_workspace(0,0)
 
 # sock.set_view_always_on_top(panel, True)
 
