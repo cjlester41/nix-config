@@ -17,8 +17,8 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 
 apps = [
     "firefox", 
-    "code",   
     "kitty",
+    "code",     
     "nemo",    
     ["foot", "-e", "btop"]
 ]
@@ -65,7 +65,7 @@ for app in apps:
             sock.set_view_alpha(view["id"], .85)
             # sock.set_view_minimized(view["id"], True)
             break   
-time.sleep(1) # the fix ??????????????
+time.sleep(2) # the fix ??????????????
 
 views = sock.list_views(filter_mapped_toplevel=True)
 for view in views:
