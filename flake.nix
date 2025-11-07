@@ -21,7 +21,7 @@
 
   };
 
-  outputs = { self, nixpkgs, chaotic, home-manager, private, wayggle-bg, ... }@inputs: let       
+  outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let       
     system = "x86_64-linux";
 
   in { 
@@ -68,7 +68,7 @@
         inherit system;
         modules = [
           chaotic.nixosModules.default
-          ./profiles/steam.nix
+          ./profiles/Patrick.nix
           { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {

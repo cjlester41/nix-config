@@ -12,13 +12,9 @@
     options = [ "defaults" "nofail" ];
   };
 
-  # fileSystems."/home/${private.username}/win11" = {
-  #   device = "/dev/disk/by-uuid/2480FA7A80FA5232";
-  #   fsType = "ntfs";
-  # };
+  fileSystems."/home/${private.username}/win11" = {
+    device = "/dev/disk/by-uuid/2480FA7A80FA5232";
+    fsType = "ntfs";
+  };
 
-#   fileSystems."/home/${private.username}/hdd" = {
-#     device = "/dev/disk/by-uuid/3814E20514E1C64A";
-#     fsType = "ntfs";
-#   };
 }

@@ -1,4 +1,4 @@
-{ lib, config, pkgs, private, wayggle-bg, ... }:
+{ lib, config, pkgs, private, ... }:
 
 let background = 
   if private.hardware == "sS7" then
