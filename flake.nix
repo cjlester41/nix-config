@@ -16,10 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wayggle-bg = {
-      url = "github:comavius/wayggle-bg";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     private.url = "/home/private";
 

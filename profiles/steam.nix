@@ -19,6 +19,7 @@
 
     steam-run 
     protontricks  
+    freecad
     # bottles
     # lutris    
     # winetricks
