@@ -2,8 +2,7 @@
 {
   programs.vscode.profiles.default = {
     userSettings = {
-      "disable-hardware-acceleration" = true;
-      "explorer.confirmDelete" = "false";
+      "explorer.confirmDelete" = true;
       "terminal.integrated.env.linux" = {
         "PYTHONDONTWRITEBYTECODE" = "1";
       };
@@ -48,11 +47,6 @@
 
       # "editor.mouseWheelZoom" = true;
 
-      # C/C++
-      "clangd.arguments" = [
-        "--clang-tidy"
-        "--inlay-hints=false"
-      ];
 
       # Zig
       # "zig.initialSetupDone" = true;

@@ -4,6 +4,9 @@ import subprocess, os
 
 sock = WayfireSocket()
 wpe = WPE(sock)
+
+alpha = .8
+notile = {"FreeCAD"}
     
 def run_ipc(sock, wpe):  
 
@@ -14,8 +17,10 @@ def run_ipc(sock, wpe):
 
         msg = sock.read_next_event()
 
-        if (msg["event"] in {"view-mapped", "view-unmapped", "view-fullscreen"}) and msg["view"]["title"] != "nil":
+        # if (msg["event"] in {"view-mapped", "view-unmapped", "view-fullscreen"}) and msg["view"]["title"] != "nil":
+        try:
             print(msg["event"] + ": " + str(msg["view"]["id"]) + ": " + msg["view"]["app-id"] + ": " + msg["view"]["title"])
+        except: continue
 
         if "view-mapped" in msg["event"]:
             view = msg["view"]
@@ -37,7 +42,7 @@ def run_ipc(sock, wpe):
 
             elif view["type"] == "toplevel":            
                 wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
-                sock.set_view_alpha(view["id"], .85)        
+                sock.set_view_alpha(view["id"], alpha)        
 
         elif msg["event"] == "view-fullscreen":
 
@@ -50,7 +55,7 @@ def run_ipc(sock, wpe):
                 except: continue
 
             elif msg["view"]["fullscreen"] == False:
-                sock.set_view_alpha(view["id"], .85)
+                sock.set_view_alpha(view["id"], alpha)
                 wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
         
         elif msg["event"] == "view-unmapped" and "steam_app" in msg["view"]["app-id"]:            
@@ -58,6 +63,12 @@ def run_ipc(sock, wpe):
             if msg["view"]["fullscreen"] == True and msg["view"]["title"] not in launchers:
                 subprocess.run(["start-shader"])                            
                 sock._option_valuesset({'follow-focus': {'change_view': 'true'}})
+
+        elif msg["event"] == "view-tiled":            
+            try:
+                sock.assign_slot(view["id"], "slot_c")
+                sock.set_view_alpha(view["id"], 1)
+            except: continue
 
 if __name__ == "__main__":
 

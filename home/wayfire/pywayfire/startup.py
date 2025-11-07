@@ -7,6 +7,7 @@ wpe = WPE(sock)
 sock.watch()
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
+alpha = .8
 
 if socket.gethostname() == "NixOS-AOC":
     delay = 3
@@ -36,7 +37,7 @@ while True:
     if msg["event"] == "view-mapped":
         view = msg["view"]
         if view["app-id"] in {"panel"}:
-            sock.set_view_alpha(view["id"], .85)            
+            sock.set_view_alpha(view["id"], alpha)            
             break
 
 for app in apps:
@@ -48,7 +49,7 @@ for app in apps:
         if msg["event"] == "view-mapped":
             view = msg["view"]
             wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
-            sock.set_view_alpha(view["id"], .85)
+            sock.set_view_alpha(view["id"], alpha)
             if view["app-id"] == "Code":
                 time.sleep(.1)
             sock.set_view_minimized(view["id"], True)
@@ -84,7 +85,7 @@ while True:
     if msg["event"] == "view-mapped":
         view = msg["view"]
         if view["app-id"] == "waybar":
-            sock.set_view_alpha(view["id"], .85)
+            sock.set_view_alpha(view["id"], alpha)
             break
 
 if socket.gethostname() != "NixOS-AOC":

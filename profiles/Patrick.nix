@@ -40,7 +40,7 @@
   ];
 
   programs = {
-    gamescope.enable = true;
+    gamescope.enable = false;
     gamescope.capSysNice = true;
     gamemode.enable = true;
     steam = {
@@ -72,6 +72,7 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   environment.sessionVariables = {
+    QT_QPA_PLATFORM="xcb";
     # WLR_RENDERER="vulkan";
   #   GTK_BACKEND = "x11";
   #   __GL_THREADED_OPTIMIZATIONS=0;
