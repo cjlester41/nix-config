@@ -1,5 +1,6 @@
 { config, pkgs, inputs, lib, private, ... }:
 
+with config.lib.stylix.colors.withHashtag;
 let background = 
   if private.hardware == "AOC" then
     "roswirl.glsl"    
@@ -13,14 +14,11 @@ in
     ./modules/waybar/bezier-dark.nix
     ./modules/kitty.nix
     ./modules/foot.nix
-    ./modules/ghostty.nix
     # ./modules/micro.nix
     ./modules/rofi
     ./modules/nemo.nix
     # ./modules/cava.nix
     ./modules/firefox.nix
-    ./modules/gtk.nix
-    ./modules/git.nix
     ./modules/btop.nix
     ./modules/vscode
     ./modules/swaync.nix
@@ -54,13 +52,38 @@ in
   ];
  
   programs = {
+
     direnv = {
       enable = true;
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
 
-    zsh.enable = true; 
+    ghostty = {
+      enable = true;
+      settings = {
+        resize-overlay="never";
+      };
+    };
+
+    git = {
+      enable = true;
+      settings = {
+      user.name = private.git-name;
+      user.email = private.git-mail;
+      init.defaultBranch = "main";
+        extraConfig.pull.rebase = false;
+      };
+    };
+  };
+
+  stylix.targets = {
+    ghostty.enable = true;
+    gtk.extraCss = ''
+      headerbar,headerbar:backdrop {
+        background-image: none;
+        background-color: ${base00};
+      '';
   };
 
   gtk = {
@@ -73,6 +96,12 @@ in
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Ice";
       size = 24;
+    };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
     };
   };
   
