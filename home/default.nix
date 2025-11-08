@@ -15,7 +15,7 @@ in
     ./modules/kitty.nix
     ./modules/foot.nix
     # ./modules/micro.nix
-    ./modules/rofi
+    ./modules/rofi.nix
     ./modules/nemo.nix
     # ./modules/cava.nix
     ./modules/firefox.nix
