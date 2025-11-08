@@ -89,10 +89,6 @@
 #TODO:
 
 
-
-# test afsdddasdf
-# keybinds
-# rofi
 # add freecad !simple tile #
 # restart ipc
 # link volume keys
