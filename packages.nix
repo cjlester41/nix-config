@@ -56,16 +56,6 @@
     gdk-pixbuf.modulePackages = [ pkgs.librsvg ]; #svg icons fix?
     # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-    # git = {
-    #   enable = true;
-    #   config = {
-    #     user.name = private.git-name;
-    #     user.email = private.git-mail;
-    #     init.defaultBranch = "main";
-    #     extraConfig.pull.rebase = false;
-    #   };
-    # };
-
     nh = {
       enable = true;
       clean = {
@@ -76,7 +66,7 @@
     };     
   }; 
 
-  # xdg.portal.enable = true;
+  xdg.portal.enable = true;
   # xdg.portal.wlr.enable = true;
   # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 }
