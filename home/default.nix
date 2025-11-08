@@ -15,7 +15,7 @@ in
     ./modules/kitty.nix
     ./modules/foot.nix
     # ./modules/micro.nix
-    ./modules/rofi.nix
+    ./modules/rofi
     ./modules/nemo.nix
     # ./modules/cava.nix
     ./modules/firefox.nix
@@ -46,6 +46,11 @@ in
       pkill python
       python ~/nix-config/home/wayfire/pywayfire/ipc.py >/dev/null 2>&1 &  
     '')
+
+    (writeShellScriptBin "list-keybinds" ''
+      notify-send "keybinds" "$(cat ~/nix-config/files/bindings.txt)"  
+    '')
+    
 
     xdg-user-dirs
 

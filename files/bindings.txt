@@ -1,0 +1,19 @@
+<cmd> S = steam
+<cmd> E = files
+<cmd> W = web
+<cmd> C = code
+<cmd> D = launcher
+<cmd> Z = terminal
+<cmd> F = fullscreen
+<cmd> ESC = power/logout
+<cmd> <shift> ESC = lock
+
+<super> = toggle expo
+<cmd> <space> = tile/untile
+<super> TAB = switch window
+<super> <ctrl> (arrows) = switch view
+<super> left click = move window
+<super> right click = resize window
+<super> <ctrl> left click = water
+<super> <ctrl> right click = rotate
+<super> <ctrl> Z = reset

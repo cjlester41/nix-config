@@ -96,7 +96,7 @@
 # link volume keys
 # windows partition
 # steam windows and nix #
-# test
+# auto staging
 
 # variables for session, animations, homepage, stylix, etc
 # seperate home
@@ -104,6 +104,7 @@
 # dark cubemap
 # cava stylix
 # mouse view switching
+# xdg portal
 
 
 

@@ -93,6 +93,8 @@ if socket.gethostname() != "NixOS-AOC":
 
 time.sleep(3)
 
+subprocess.Popen(["blueman-applet"])
+
 sock._option_valuesset({'animate': {'squeezimize_duration': '400ms linear'}})
 sock._option_valuesset({'animate': {'open_animation': 'vortex'}})
 sock._option_valuesset({'expo': {'duration': '300ms circle'}})
