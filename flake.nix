@@ -94,7 +94,7 @@
 # restart ipc
 # link volume keys
 # windows partition
-# steam windows and nix
+# steam windows and nix #
 
 # variables for session, animations, homepage, stylix, etc
 # seperate home
