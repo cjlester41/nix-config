@@ -88,6 +88,8 @@
 # sudo nixos-rebuild switch --flake .#gaming --show-trace  
 #TODO:
 
+
+
 # test afsdddasdf
 # keybinds
 # rofi
