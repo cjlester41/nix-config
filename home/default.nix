@@ -76,8 +76,8 @@ in
       settings = {
         user.name = private.git-name;
         user.email = private.git-mail;
-        extraConfig.init.defaultBranch = "main";
-        extraConfig.pull.rebase = false;
+        init.defaultBranch = "main";
+        pull.rebase = false;
       };
     };
   };
