@@ -88,6 +88,7 @@
 # sudo nixos-rebuild switch --flake .#gaming --show-trace  
 #TODO:
 
+# test
 # keybinds
 # rofi
 # add freecad !simple tile #
