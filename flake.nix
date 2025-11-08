@@ -91,7 +91,6 @@
 # keybinds
 # rofi
 # add freecad !simple tile
-# test merge
 # restart ipc
 # link volume keys
 # windows partition
