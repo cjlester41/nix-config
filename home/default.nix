@@ -20,6 +20,7 @@ in
     # ./modules/cava.nix
     ./modules/firefox.nix
     ./modules/gtk.nix
+    ./modules/git.nix
     ./modules/btop.nix
     ./modules/vscode
     ./modules/swaync.nix
