@@ -20,6 +20,7 @@
     steam-run 
     protontricks  
     freecad
+    lolcat
     # bottles
     # lutris    
     # winetricks
