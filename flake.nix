@@ -95,6 +95,7 @@
 # link volume keys
 # windows partition
 # steam windows and nix #
+# test
 
 # variables for session, animations, homepage, stylix, etc
 # seperate home
