@@ -69,7 +69,7 @@
         inherit system;
         modules = [
           chaotic.nixosModules.default
-          ./profiles/Patrick.nix
+          ./profiles/PATRICK.nix
           { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {
@@ -88,11 +88,6 @@
 # sudo nixos-rebuild switch --flake .#gaming --show-trace  
 #TODO:
 
-
-
-# test afsdddasdf
-# keybinds
-# rofi
 # add freecad !simple tile #
 # restart ipc
 # link volume keys
@@ -107,6 +102,7 @@
 # cava stylix
 # mouse view switching
 # xdg portal
+# git pull.rebase
 
 
 
