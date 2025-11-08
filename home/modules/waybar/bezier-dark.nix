@@ -121,8 +121,8 @@ with lib; {
         "custom/startmenu" = {
           tooltip = false;
           format = "";
-          exec = "rofi -show drun";
-          # on-click = "sleep 0.1 && nwg-drawer";
+          # exec = "rofi -show drun";
+          on-click = "sleep 0.1 && rofi -show drun";
         };
         "custom/hyprbindings" = {
           tooltip = false;
