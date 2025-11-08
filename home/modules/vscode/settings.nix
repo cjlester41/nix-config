@@ -4,6 +4,7 @@
     userSettings = {
       "git.mergeEditor" = true;
       "merge-conflict.autoNavigateNextConflict.enabled" = true;
+      "git.rebaseWhenSync" = true;
       "explorer.confirmDelete" = true;
       "terminal.integrated.env.linux" = {
         "PYTHONDONTWRITEBYTECODE" = "1";
