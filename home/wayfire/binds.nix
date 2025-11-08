@@ -25,7 +25,7 @@
       command_clipman = "clipman pick -t wofi";
       command_editor = "code";
       command_gaming = "bash -x ~/nix-config/home/wayfire/shell/gamemode.sh";
-      command_launcher = "nwg-drawer";
+      command_launcher = "rofi -show drun";
       command_lock = "hyprlock";
       command_logout = "wlogout";
       command_media-next = "playerctl next";

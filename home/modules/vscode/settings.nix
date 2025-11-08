@@ -2,6 +2,8 @@
 {
   programs.vscode.profiles.default = {
     userSettings = {
+      "git.mergeEditor" = true;
+      "merge-conflict.autoNavigateNextConflict.enabled" = true;
       "explorer.confirmDelete" = true;
       "terminal.integrated.env.linux" = {
         "PYTHONDONTWRITEBYTECODE" = "1";

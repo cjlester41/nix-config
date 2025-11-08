@@ -1,7 +1,22 @@
 { pkgs, ... }:
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_6_16;
+  stylix.targets = {
+    plymouth.enable = false;
+  };  
+
+  boot = {
+    kernelPackages = pkgs.linuxPackages_cachyos;
+    plymouth = {
+      enable = true;
+      theme = "rings";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "rings" ];
+        })
+      ];
+    };
+  };
 
   imports = [ 
     

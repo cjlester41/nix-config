@@ -23,9 +23,10 @@
 
   outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let       
     system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
 
   in { 
-    
+    packages.${system}.default = (import ./overlays/neon/default.nix { inherit pkgs; });
     nixosConfigurations = {
 
       NixOS-B460 = nixpkgs.lib.nixosSystem {
@@ -87,31 +88,21 @@
 # sudo nixos-rebuild switch --flake .#gaming --show-trace  
 #TODO:
 
-
-# modify boot in hardware dir
-# variables for session, animations, homepage, stylix, etc
-
-# format steam dir
-# seperate home
-# nwg drawer hm
 # keybinds
+# rofi
+# add freecad !simple tile
+# test merge
+# restart ipc
+# link volume keys
+# windows partition
+# steam windows and nix
+
+# variables for session, animations, homepage, stylix, etc
+# seperate home
 # code not in path
 # dark cubemap
-# swaync?
-# fu script
-# tty fonts
-# launch floating
 # cava stylix
-# codium colors
-# mouse switching
-# fix fonts
+# mouse view switching
 
-# firefox restore
-# waybar outlines and links
-# swaync icon
-# load code first and border
-# animated borders
-# without mangohud
-# stylix firefox profile
 
 

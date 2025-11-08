@@ -6,7 +6,9 @@ wpe = WPE(sock)
 sock.watch()
 
 views = sock.list_views(filter_mapped_toplevel=True)
-print(views)
+
+for view in views:
+    print(view)
 
 for view in views:
     if view["title"] != "nil":
