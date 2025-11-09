@@ -3,8 +3,7 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    stylix.url = "github:danth/stylix";
-    # nix-gaming.url = "github:fufexan/nix-gaming";    
+    stylix.url = "github:danth/stylix";  
 
     firefox-addons = { 
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons"; 
@@ -15,18 +14,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-
-    private.url = "/home/private";
-
   };
 
-  outputs = { self, nixpkgs, chaotic, home-manager, private, ... }@inputs: let       
+  outputs = { self, nixpkgs, chaotic, home-manager, ... }@inputs: let       
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
   in { 
-    packages.${system}.default = (import ./overlays/neon/default.nix { inherit pkgs; });
     nixosConfigurations = {
 
       NixOS-B460 = nixpkgs.lib.nixosSystem {
@@ -37,7 +31,8 @@
           { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {
-          inherit inputs private;
+          inherit inputs;
+          private = import ./hardware/B460/private.nix;
         };
       };
 
@@ -49,7 +44,8 @@
           { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {
-          inherit inputs private;
+          inherit inputs;
+          private = import ./hardware/AOC/private.nix;
         };
       };
 
@@ -61,7 +57,8 @@
           { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {
-      	  inherit inputs private;
+      	  inherit inputs;
+          private = import ./hardware/sS7/private.nix;
         };
       };
 
@@ -73,7 +70,8 @@
           { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {
-          inherit inputs private;
+          inherit inputs;
+          private = import ./hardware/ASRock/private.nix;
         };
       };
     };
