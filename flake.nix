@@ -86,14 +86,8 @@
 # sudo nixos-rebuild switch --flake .#gaming --show-trace  
 #TODO:
 
-
-# add freecad !simple tile #
-# restart ipc
-# link volume keys
-# windows partition
-# steam windows and nix #
 # auto staging
-
+# restart ipc
 # variables for session, animations, homepage, stylix, etc
 # seperate home
 # code not in path
@@ -102,6 +96,7 @@
 # mouse view switching
 # xdg portal
 # git pull.rebase
+# permission for root opened from launcher
 
 
 

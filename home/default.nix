@@ -25,7 +25,7 @@ in
     ./wayfire
     ./modules/zsh
     ./modules/wlogout
-    ./modules/swayidle.nix
+    # ./modules/swayidle.nix
   ];
  
   home.packages = with pkgs; [ 

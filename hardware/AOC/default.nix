@@ -22,7 +22,7 @@
     
     ./hardware-configuration.nix
     ./intel-gpu.nix
-    # ./filesystems.nix
+    ./filesystems.nix
 
   ];
 }

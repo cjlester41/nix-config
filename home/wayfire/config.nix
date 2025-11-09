@@ -65,8 +65,8 @@ in
       deform = 0;
       initial_animation = "350ms circle";
       light = true;
-      rotate_left = "<super> KEY_LEFT";
-      rotate_right = "<super> KEY_RIGHT";
+      rotate_left = "<ctrl> <super> KEY_LEFT";
+      rotate_right = "<ctrl> <super> KEY_RIGHT";
       skydome_mirror = false;
       skydome_texture = "";
       speed_spin_horiz = 0.03;
@@ -415,11 +415,11 @@ in
 
     vswitch = {
       background = "#1A1A1AFF";
-      binding_down = "<ctrl> <super> KEY_DOWN";
+      binding_down = "<super> KEY_DOWN";
       binding_last = "";
-      binding_left = "<ctrl> <super> KEY_LEFT";
-      binding_right = "<ctrl> <super> KEY_RIGHT";
-      binding_up = "<ctrl> <super> KEY_UP";
+      binding_left = "<super> KEY_LEFT";
+      binding_right = "<super> KEY_RIGHT";
+      binding_up = "<super> KEY_UP";
       binding_win_down = "<ctrl> <shift> <super> KEY_DOWN";
       binding_win_left = "<ctrl> <shift> <super> KEY_LEFT";
       binding_win_right = "<ctrl> <shift> <super> KEY_RIGHT";

@@ -3,12 +3,12 @@
 
     command = {
       binding_steam = "<super> KEY_S";
-      binding_nemo = "<super> KEY_E";
+      binding_nemo = "<super> KEY_D";
       binding_browser = "<super> KEY_W";
       binding_clipman = "<super> KEY_H";
       binding_editor = "<super> KEY_C";
       binding_gaming = "<super> KEY_G";
-      binding_launcher = "<super> KEY_D";
+      binding_launcher = "<super> KEY_A";
       binding_lock = "<super> <shift> KEY_ESC";
       binding_logout = "<super> KEY_ESC";
       binding_media-play-pause = "KEY_PLAYPAUSE";

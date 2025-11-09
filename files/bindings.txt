@@ -1,19 +1,32 @@
-<cmd> S = steam
-<cmd> E = files
-<cmd> W = web
-<cmd> C = code
-<cmd> D = launcher
-<cmd> Z = terminal
-<cmd> F = fullscreen
-<cmd> ESC = power/logout
-<cmd> <shift> ESC = lock
+### NOTE ### do not run fu anymore, fr is
+sufficient now and will keep things cleaner
 
-<super> = toggle expo
-<cmd> <space> = tile/untile
-<super> TAB = switch window
-<super> <ctrl> (arrows) = switch view
-<super> left click = move window
-<super> right click = resize window
-<super> <ctrl> left click = water
-<super> <ctrl> right click = rotate
-<super> <ctrl> Z = reset
+navigation commands:
+
+ <ctrl> <alt> right_click = toggle 3D
+ <cmd> = toggle expo
+ <cmd> arrow_keys = switch workspace
+ <cmd> <space> = tile/untile
+ <cmd> left_click = move window
+ <cmd> right_click = resize window
+ <alt> Tab = switch active window 
+
+launch commands:
+
+ <cmd> S = steam
+ <cmd> D = directory
+ <cmd> W = web
+ <cmd> C = code
+ <cmd> A = apps
+ <cmd> Z = terminal
+ <cmd> F = fullscreen
+
+other commands:
+
+ <cmd> mouse_scroll = zoom
+ <cmd> <alt> mouse_scroll = opacity
+ <cmd> ESC = power/logout
+ <cmd> <shift> ESC = lock
+ <cmd> <ctrl> left_click = water
+ <cmd> <ctrl> right_click = rotate
+ <cmd> <ctrl> Z = reset rotation
