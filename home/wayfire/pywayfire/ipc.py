@@ -61,7 +61,7 @@ def run_ipc(sock, wpe):
         elif msg["event"] == "view-unmapped" and "steam_app" in msg["view"]["app-id"]:            
 
             if msg["view"]["fullscreen"] == True and msg["view"]["title"] not in launchers:
-                subprocess.run(["start-shader"])                            
+                subprocess.run(["restart-bg"])                            
                 sock._option_valuesset({'follow-focus': {'change_view': 'true'}})
 
         # elif msg["event"] == "view-tiled": 

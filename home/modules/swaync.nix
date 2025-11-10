@@ -176,7 +176,7 @@
         margin-right: 18px
       }
       .body {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 400;
         background: transparent;
         color: #${config.lib.stylix.colors.base05};

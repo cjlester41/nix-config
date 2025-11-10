@@ -77,7 +77,7 @@ if not dock:
             break
 
 if not background:
-    subprocess.Popen(["start-shader"])
+    subprocess.Popen(["restart-bg"])
     while True:
         msg = sock.read_next_event()
         if "ghostty" in msg["event"]["view"]["app-id"]:

@@ -34,7 +34,7 @@
     nix-output-monitor
     vlc
     ghostty
-    shaderbg
+    nmgui
     
     # nvd #nix pkg diff
     # zenity # gui dialog boxes
