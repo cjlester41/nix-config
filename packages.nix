@@ -34,8 +34,9 @@
     nix-output-monitor
     vlc
     ghostty
+    nmgui
     hyprpolkitagent
-    
+        
     # nvd #nix pkg diff
     # zenity # gui dialog boxes
 

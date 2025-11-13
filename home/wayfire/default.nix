@@ -4,7 +4,7 @@ let background =
   if private.hardware == "sS7" then
     "swaybg -i ~/Downloads/Balcony-ja.png"
   else
-    "start-shader";
+    "restart-bg";
 in
 
 {  

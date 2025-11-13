@@ -30,7 +30,8 @@ in
  
   home.packages = with pkgs; [ 
 
-    (writeShellScriptBin "start-shader" ''
+    (writeShellScriptBin "restart-bg" ''
+      pkill ghostty
       ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/${background} & disown
     '')
 

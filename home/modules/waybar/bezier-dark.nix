@@ -86,7 +86,7 @@ with lib; {
           format-wifi = "{icon} {signalStrength}%";
           format-disconnected = "󰤮";
           tooltip = false;
-          on-click = "sleep 0.1 && kitty -e sudo nmtui";
+          on-click = "sleep 0.1 && nmgui";
         };
         "tray" = {
           spacing = 12;

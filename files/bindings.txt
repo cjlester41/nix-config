@@ -1,9 +1,10 @@
-### NOTE ### do not run fu anymore, fr is
+
+☣️ NOTE ☣️ no need to run fu anymore, fr is
 sufficient now and will keep things cleaner
 
 navigation commands:
 
- <ctrl> <alt> right_click = toggle 3D
+ <ctrl> <alt> left_click = toggle 3D
  <cmd> = toggle expo
  <cmd> arrow_keys = switch workspace
  <cmd> <space> = tile/untile
@@ -30,3 +31,9 @@ other commands:
  <cmd> <ctrl> left_click = water
  <cmd> <ctrl> right_click = rotate
  <cmd> <ctrl> Z = reset rotation
+
+if background disappears:
+ 'restart-bg' + enter in terminal
+
+for border or tiling issues:
+ 'restart-ipc' + enter in terminal
