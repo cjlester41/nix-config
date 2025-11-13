@@ -48,6 +48,7 @@ in
       # dock = "wf-dock";
       # waybar = "sleep .5 &&  && waybar";
       # steam = "sleep 10 && steam -silent %U";
+      polkit = "systemctl --user start hyprpolkitagent";
       autostart_wf_shell = false;
       portal = "/usr/libexec/xdg-desktop-portal";
       # systemdActivation = "/nix/store/wm9npw769j5z8zfap6bgfka0rhd6y85c-dbus-1.14.10/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE && systemctl --user stop wayfire-session.target && systemctl --user start wayfire-session.target";

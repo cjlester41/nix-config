@@ -18,8 +18,10 @@
 #     fsType = "ntfs";
 #   };
 
-#   fileSystems."/home/${private.username}/hdd" = {
-#     device = "/dev/disk/by-uuid/3814E20514E1C64A";
-#     fsType = "ntfs";
-#   };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-label/store";
+    fsType = "ext4";
+    neededForBoot = true;
+    options = [ "noatime" ];
+  };
 }
