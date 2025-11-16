@@ -2,7 +2,7 @@
 
 let background = 
   if private.hardware == "sS7" then
-    "swaybg -i ~/Downloads/Balcony-ja.png"
+    "wf-background"
   else
     "restart-bg";
 in
@@ -11,15 +11,6 @@ in
   stylix.targets = {
     wayfire.enable = false;
   };  
-  
-  # home.file.".config/wayfire_link" = {
-  #   onChange = ''
-  #     cat ~/.ssh/wayfire.ini > ~/.ssh/wayfire
-  #     rm ~/.ssh/wayfire_link
-  #     chmod 600 ~/.ssh/wayfire
-  #   '';
-  #   force = true;
-  # }; 
 
   imports = [
     ./config.nix
@@ -28,26 +19,18 @@ in
   ];
 
   wayland.windowManager.wayfire = {
+    
     enable = true;
     plugins = with pkgs.wayfirePlugins; [
-      wayfire-plugins-extra   
-      filters
+      wayfire-plugins-extra  
       wf-shell
     ];      
+
     settings.autostart = {
         
       shader = background;
       startup = "python ~/nix-config/home/wayfire/pywayfire/startup.py";
-      # hyprlock = "sleep 6 && hyprlock && python ~/nix-config/home/wayfire/pywayfire/hyprtest.py";
-      # firefox = "sleep .1 && firefox";
-      # code = "sleep .2 && code";
-      # kitty = "sleep .3 && kitty";
-      # nemo = "sleep .4 && nemo";
-      # btop = "sleep .5 && ghostty -e btop";
-      # blueman = "blueman-applet";
-      # dock = "wf-dock";
-      # waybar = "sleep .5 &&  && waybar";
-      # steam = "sleep 10 && steam -silent %U";
+      polkit = "systemctl --user start hyprpolkitagent";
       autostart_wf_shell = false;
       portal = "/usr/libexec/xdg-desktop-portal";
       # systemdActivation = "/nix/store/wm9npw769j5z8zfap6bgfka0rhd6y85c-dbus-1.14.10/bin/dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP NIXOS_OZONE_WL XCURSOR_THEME XCURSOR_SIZE && systemctl --user stop wayfire-session.target && systemctl --user start wayfire-session.target";
@@ -74,7 +57,7 @@ in
 
       settings.background = {
 
-        image = "/home/${private.username}/nix-config/files/";
+        image = "/home/${private.username}/nix-config/files/black.jpg";
         fill_mode = "stretch";
       
       };

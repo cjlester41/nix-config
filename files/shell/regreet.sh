@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
-ln -sf ~/nix-config/home/wayfire/shell/wfregreet.ini ~/.config/wayfire &
-# sleep 1 &
-wayfire -c ~/.config/wayfire
+# target_directory = "/home/cjlester/nix-config/files/shaders"
+while true; do
+    for file in "$HOME/nix-config/files/shaders"/*; do
+        if [ -f "$file" ]; then
+        while IFS= read -r line; do
+            for (( i=0; i<${#line}; i++ )); do
+                printf "%c" "${line:i:1}"
+                sleep .001
+            done
+            printf "\n          " 
+        done < "$file"
+        fi
+    done
+done
