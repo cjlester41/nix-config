@@ -1,15 +1,19 @@
+import os, time, subprocess, ipc, socket
+
+hyprlock = subprocess.Popen(["hyprlock"]) 
+
 from wayfire import WayfireSocket
 from wayfire.extra.wpe import WPE
-import os, time, subprocess, ipc, socket
 
 sock = WayfireSocket()
 wpe = WPE(sock)
 sock.watch()
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
+hostnm = socket.gethostname()
 alpha = .8
 
-if socket.gethostname() == "NixOS-AOC":
+if hostnm == "NixOS-AOC":
     delay = 3
 else:
     delay = 2
@@ -21,7 +25,6 @@ while True:
         if "ghostty" in view["app-id"]:
             wpe.pin_view(view["id"], "background", True) 
             time.sleep(.2)
-            hyprlock = subprocess.Popen(["hyprlock"]) 
             break
 
 sock._option_valuesset({'animate': {'squeezimize_duration': '0ms linear'}})
@@ -88,12 +91,18 @@ while True:
             sock.set_view_alpha(view["id"], alpha)
             break
 
-if socket.gethostname() != "NixOS-AOC":
+if hostnm == "NixOS-AOC":
+    # sock._option_valuesset({'animate': {'close_animation': 'fade'}})
+    subprocess.run(["pkill", "ghostty"])
+    # sock._option_valuesset({'animate': {'close_animation': 'shatter'}})
+
+else:
     subprocess.Popen(["steam", "-silent", "%U"])
 
 time.sleep(3)
 
 subprocess.Popen(["blueman-applet"])
+
 
 sock._option_valuesset({'animate': {'squeezimize_duration': '400ms linear'}})
 sock._option_valuesset({'animate': {'open_animation': 'vortex'}})

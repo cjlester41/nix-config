@@ -28,7 +28,6 @@
         modules = [
           chaotic.nixosModules.default
           ./profiles/gaming.nix
-          { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {
           inherit inputs;
@@ -41,7 +40,6 @@
         modules = [
           chaotic.nixosModules.default
           ./profiles/work.nix
-          { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {
           inherit inputs;
@@ -54,7 +52,6 @@
         modules = [
           chaotic.nixosModules.default
           ./profiles/laptop.nix
-          { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {
       	  inherit inputs;
@@ -67,7 +64,6 @@
         modules = [
           chaotic.nixosModules.default
           ./profiles/PATRICK.nix
-          { nixpkgs.overlays = [ (import ./overlays/wayfire.nix) ]; }
         ];
         specialArgs = {
           inherit inputs;

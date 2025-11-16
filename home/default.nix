@@ -3,7 +3,7 @@
 with config.lib.stylix.colors.withHashtag;
 let background = 
   if private.hardware == "AOC" then
-    "roswirl.glsl"    
+    "glitchy.glsl -e btop"    
   else
     "sunset.glsl";
 in
@@ -17,6 +17,7 @@ in
     # ./modules/micro.nix
     ./modules/rofi
     ./modules/nemo.nix
+    ./modules/hyprlock.nix
     # ./modules/cava.nix
     ./modules/firefox.nix
     ./modules/btop.nix
@@ -35,22 +36,34 @@ in
       ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/${background} & disown
     '')
 
-    (writeShellScriptBin "start-shaderbg" ''
-      MANGOHUD_CONFIG=fps_limit=24,no_display mangohud shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl & disown
-    '')
+    # (writeShellScriptBin "start-shaderbg" ''
+    #   MANGOHUD_CONFIG=fps_limit=24,no_display mangohud shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl & disown
+    # '')
 
-    (writeShellScriptBin "start-shaderbg-lite" ''
-      shaderbg -l background -f 30 HDMI-A-1 ~/nix-config/files/shaders/planet.glsl & disown
-    '')
+    # (writeShellScriptBin "start-shaderbg-lite" ''
+    #   shaderbg -l background -f 30 HDMI-A-1 ~/nix-config/files/shaders/planet.glsl & disown
+    # '')
 
     (writeShellScriptBin "restart-ipc" ''
       pkill python
       python ~/nix-config/home/wayfire/pywayfire/ipc.py >/dev/null 2>&1 &  
     '')
 
-    (writeShellScriptBin "list-keybinds" ''
-      notify-send "keybinds" "$(cat ~/nix-config/files/bindings.txt)"  
-    '')
+    # (pkgs.writeShellScriptBin "startup" ''
+    #   while true; do
+    #     for file in "$HOME/nix-config/files/shaders"/*; do
+    #       if [ -f "$file" ]; then
+    #         while IFS= read -r line; do
+    #           echo "$line" | lolcat
+    #         done < "$file"
+    #       fi
+    #     done
+    #   done
+    # '')
+
+    # (writeShellScriptBin "list-keybinds" ''
+    #   notify-send "keybinds" "$(cat ~/nix-config/files/bindings.txt)"  
+    # '')
     
 
     xdg-user-dirs
@@ -114,7 +127,7 @@ in
   xdg.enable = true;
   xdg.userDirs = {
     enable = true;
-    createDirectories = true;
+    # createDirectories = true;
   };  
 }
 
