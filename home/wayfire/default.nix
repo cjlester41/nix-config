@@ -78,6 +78,48 @@ in
         fill_mode = "stretch";
       
       };
+
+      settings.panel = {
+        
+        widgets_left = "menu spacing4 launchers window-list";
+        widgets_center = "none";
+        widgets_right = "command-output tray notifications volume network battery clock";
+        minimal_height = 24;
+        autohide = false;
+        autohide_duration = 300;
+        layer = "top";
+        position = "top";
+        background_color = "gtk_headerbar";
+        launcher_firefox = "firefox.desktop";
+        launcher_terminal1 = "kitty.desktop";
+        launchers_spacing = 4;
+        launchers_size = 42;
+        clock_format = "%e %a %H:%M";
+        clock_font = "DejaVu Sans:style=Book 12";
+        battery_status = 1;
+        battery_icon_size = 32;
+        battery_icon_invert = 1;
+        battery_font = "default";
+        network_status = 1;
+        network_status_font = "DejaVu Sans:style=Book 10";
+        network_icon_invert_color = 1;
+        network_status_use_color = true;
+        menu_show_categories = false;
+        menu_list = false;
+        menu_fuzzy_search = 1;
+        menu_min_category_width = 200;
+        menu_min_content_width = 500;
+        menu_min_content_height = 500;
+        menu_logout_command = "wayland-logout";
+        volume_display_timeout = 2.5;
+        tray_smooth_scrolling_threshold = 5;
+        tray_icon_size = 32;
+        tray_menu_on_middle_click = false;
+        notifications_autohide_timeout = 2.5;
+        notifications_critical_in_dnd = true;
+        notifications_icon_size = 32;
+        commands_output_max_chars = 10;
+      };
     };
   };  
 }
