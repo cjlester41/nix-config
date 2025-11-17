@@ -42,7 +42,7 @@ in
       enable = true;
       settings.dock = {
 
-        autohide_duration = 350;
+        autohide_duration = 0;
         css_path = "/home/${private.username}/nix-config/files/wf-dock.css";
         dock_height = 44;
         icon_height = 38;

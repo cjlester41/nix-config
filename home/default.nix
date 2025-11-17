@@ -36,6 +36,11 @@ in
       ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/${background} & disown
     '')
 
+    (writeShellScriptBin "glitchy-bg" ''
+      pkill ghostty
+      ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/glitchy.glsl -e btop & disown
+    '')
+
     # (writeShellScriptBin "start-shaderbg" ''
     #   MANGOHUD_CONFIG=fps_limit=24,no_display mangohud shaderbg -l background HDMI-A-1 ~/nix-config/files/shaders/sunset.glsl & disown
     # '')

@@ -72,7 +72,7 @@ in
       speed_spin_horiz = 0.03;
       speed_spin_vert = 0.03;
       speed_zoom = 0.07;
-      zoom = 0.2;
+      zoom = 0.3;
     };      
 
     expo = {

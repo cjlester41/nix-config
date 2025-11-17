@@ -15,8 +15,8 @@
 
   networking = {
     hostName = "NixOS-B460";
-    # networkmanager.dns = "none";
-    useDHCP = false;
+    networkmanager.dns = "none";
+    # useDHCP = false;
     # dhcpcd.enable = false;
   };
   

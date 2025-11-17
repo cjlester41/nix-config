@@ -51,8 +51,9 @@ for app in apps:
 
         if msg["event"] == "view-mapped":
             view = msg["view"]
+            sock.set_view_alpha(view["id"], 0)
             wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
-            sock.set_view_alpha(view["id"], alpha)
+            
             if view["app-id"] == "Code":
                 time.sleep(.1)
             sock.set_view_minimized(view["id"], True)
@@ -67,6 +68,8 @@ hyprlock.wait()
 views = sock.list_views(filter_mapped_toplevel=True)
 
 for view in views:
+    
+    sock.set_view_alpha(view["id"], alpha)
 
     if view["app-id"] == "firefox":
         sock.set_workspace(1,0, view["id"])
