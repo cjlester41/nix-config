@@ -15,9 +15,9 @@ in
     udisks2.enable = true;
     gvfs.enable = true;
   
-    ananicy.enable = true;
-    ananicy.package = pkgs.ananicy-cpp;
-    ananicy.rulesProvider = pkgs.ananicy-rules-cachyos;
+    # ananicy.enable = true;
+    # ananicy.package = pkgs.ananicy-cpp;
+    # ananicy.rulesProvider = pkgs.ananicy-rules-cachyos;
      
     displayManager.sessionPackages = let 
       wayfire = #ln -sf ${cfg}.ini ${cfg} & wayfire -c ${cfg}

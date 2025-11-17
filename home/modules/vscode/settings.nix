@@ -7,9 +7,10 @@
         "PYTHONDONTWRITEBYTECODE" = "1";
       }; 
       "git.autofetch" = true;
-      "git.enableSmartCommit" = false;
+      "git.enableSmartCommit" = true;
       "git.confirmSync" = false;
       "git.mergeEditor" = true;
+      "files.autoSave" = "afterDelay";
       "merge-conflict.autoNavigateNextConflict.enabled" = true;
       "git.rebaseWhenSync" = false;
       "explorer.confirmDelete" = true;

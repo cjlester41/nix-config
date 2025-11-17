@@ -61,9 +61,9 @@ in
     #   done
     # '')
 
-    # (writeShellScriptBin "list-keybinds" ''
-    #   notify-send "keybinds" "$(cat ~/nix-config/files/bindings.txt)"  
-    # '')
+    (writeShellScriptBin "list-keybinds" ''
+      notify-send "keybinds" "$(cat ~/nix-config/files/bindings.txt)"  
+    '')
     
 
     xdg-user-dirs

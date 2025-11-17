@@ -15,7 +15,7 @@
 
   networking = {
     hostName = "NixOS-B460";
-    networkmanager.dns = "none";
+    # networkmanager.dns = "none";
     useDHCP = false;
     # dhcpcd.enable = false;
   };
@@ -25,53 +25,53 @@
     # steam-run  
     gimp  
     spotify-player
-    bottles
-    lutris
-    protontricks
-    winetricks
-    seatd
+    # bottles
+    # lutris
+    # protontricks
+    # winetricks
+    # seatd
     mangohud
     ntfsprogs
-    arduino-ide
+    # arduino-ide
 
-    appimage-run
-    vulkan-tools
-    ananicy-cpp
-    ananicy-rules-cachyos 
+    # appimage-run
+    # vulkan-tools
+    # ananicy-cpp
+    # ananicy-rules-cachyos 
     
   ];
 
   programs = {
-    gamescope.enable = true;
-    gamescope.capSysNice = true;
-    gamemode.enable = true;
+    # gamescope.enable = true;
+    # gamescope.capSysNice = true;
+    # gamemode.enable = true;
     steam = {
       enable = true;
       extraCompatPackages = [ pkgs.proton-ge-bin ];
-      gamescopeSession.enable = true;
+      # gamescopeSession.enable = true;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
       localNetworkGameTransfers.openFirewall = true; 
     };
 
-    appimage = {
-      enable = true;
-      binfmt = true;
-      package = pkgs.appimage-run.override {
-        extraPkgs = pkgs: [
-          pkgs.glibc
-          pkgs.libGL
-          pkgs.mesa
-          pkgs.libffi
-          pkgs.vulkan-loader
-          pkgs.xdg-utils
-          pkgs.wayland
-        ];
-      };
-    };   
+    # appimage = {
+    #   enable = true;
+    #   binfmt = true;
+    #   package = pkgs.appimage-run.override {
+    #     extraPkgs = pkgs: [
+    #       pkgs.glibc
+    #       pkgs.libGL
+    #       pkgs.mesa
+    #       pkgs.libffi
+    #       pkgs.vulkan-loader
+    #       pkgs.xdg-utils
+    #       pkgs.wayland
+    #     ];
+    #   };
+    # };   
   };
 
-  powerManagement.cpuFreqGovernor = "performance";
+  # powerManagement.cpuFreqGovernor = "performance";
 
   # services.udev.extraRules = ''
   #   SUBSYSTEM=="usb", ATTRS{idVendor}=="3343", ATTRS{idProduct}=="0043", MODE="0664", GROUP="dialout"

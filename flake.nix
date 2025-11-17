@@ -2,13 +2,13 @@
   inputs = {
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     stylix.url = "github:danth/stylix";  
 
-    firefox-addons = { 
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons"; 
-      inputs.nixpkgs.follows = "nixpkgs"; 
-    };
+    # firefox-addons = { 
+    #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons"; 
+    #   inputs.nixpkgs.follows = "nixpkgs"; 
+    # };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -16,7 +16,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, chaotic, home-manager, ... }@inputs: let       
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: let       
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
@@ -26,7 +26,6 @@
       NixOS-B460 = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          chaotic.nixosModules.default
           ./profiles/gaming.nix
         ];
         specialArgs = {
@@ -38,7 +37,6 @@
       NixOS-AOC = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          chaotic.nixosModules.default
           ./profiles/work.nix
         ];
         specialArgs = {
@@ -50,7 +48,6 @@
       NixOS-S7 = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          chaotic.nixosModules.default
           ./profiles/laptop.nix
         ];
         specialArgs = {
@@ -62,7 +59,6 @@
       NixOS-Steam = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          chaotic.nixosModules.default
           ./profiles/PATRICK.nix
         ];
         specialArgs = {

@@ -51,15 +51,15 @@ with config.lib.stylix.colors.withHashtag;
               --toolbar-bgcolor: ${base00} !important;
           }
           .tabbrowser-tab[selected="true"] .tab-background {
-              border: 1px solid teal !important;
+              border: 1px solid purple !important;
           }                              
         '';                                      
 
-        extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
-          bitwarden
-          ublock-origin
-          tabliss
-        ];
+        # extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+        #   bitwarden
+        #   ublock-origin
+        #   tabliss
+        # ];
       };
     };
   };
