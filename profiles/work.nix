@@ -25,6 +25,10 @@
     
   ];
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    live-previews = pkgs.callPackage ../home/wayfire/live-previews {};
+  };
+
   # programs = {
   #   gamescope.enable = true;
   #   gamescope.capSysNice = true;

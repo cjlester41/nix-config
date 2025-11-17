@@ -21,9 +21,10 @@ in
   wayland.windowManager.wayfire = {
     
     enable = true;
-    plugins = with pkgs.wayfirePlugins; [
-      wayfire-plugins-extra  
-      wf-shell
+    plugins = with pkgs; [
+      wayfirePlugins.wayfire-plugins-extra  
+      wayfirePlugins.wf-shell
+      live-previews
     ];      
 
     settings.autostart = {
