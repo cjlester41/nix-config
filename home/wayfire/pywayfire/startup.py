@@ -1,7 +1,4 @@
 import os, time, subprocess, ipc, socket
-
-hyprlock = subprocess.Popen(["hyprlock"]) 
-
 from wayfire import WayfireSocket
 from wayfire.extra.wpe import WPE
 
@@ -20,12 +17,10 @@ else:
 
 while True:
     msg = sock.read_next_event()
-    if msg["event"] == "view-mapped":
-        view = msg["view"]
-        if "ghostty" in view["app-id"]:
-            wpe.pin_view(view["id"], "background", True) 
-            time.sleep(.2)
-            break
+    if msg["event"] == "view-mapped" and msg["view"]["title"] == "Ghostty":
+        bgid = msg["view"]["id"]
+        wpe.pin_view(bgid, "background", True) 
+        break
 
 sock._option_valuesset({'animate': {'squeezimize_duration': '0ms linear'}})
 sock._option_valuesset({'animate': {'open_animation': 'none'}})
@@ -37,11 +32,9 @@ subprocess.Popen(["wf-dock"])
 
 while True:
     msg = sock.read_next_event()
-    if msg["event"] == "view-mapped":
-        view = msg["view"]
-        if view["app-id"] in {"panel"}:
-            sock.set_view_alpha(view["id"], alpha)            
-            break
+    if msg["event"] == "view-mapped" and msg["view"]["app-id"] in {"panel"}:
+        sock.set_view_alpha(msg["view"]["id"], alpha)            
+        break
 
 for app in apps:
     subprocess.Popen(app)
@@ -50,20 +43,26 @@ for app in apps:
         msg = sock.read_next_event()
 
         if msg["event"] == "view-mapped":
-            view = msg["view"]
-            sock.set_view_alpha(view["id"], 0)
-            wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
+            sock.set_view_alpha(msg["view"]["id"], 0)
+            wpe.set_view_shader(msg["view"]["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
             
-            if view["app-id"] == "Code":
+            if msg["view"]["app-id"] == "Code":
                 time.sleep(.1)
-            sock.set_view_minimized(view["id"], True)
+            sock.set_view_minimized(msg["view"]["id"], True)
             break   
 
 sock._option_valuesset({'animate': {'squeezimize_duration': '3000ms linear'}})
 sock._option_valuesset({'vswitch': {'duration': '0ms circle'}})
 
 time.sleep(delay) 
-hyprlock.wait()
+
+while True:
+
+    try:
+        subprocess.check_output(["pgrep", "hyprlock"])
+        time.sleep(.1)
+    except subprocess.CalledProcessError:
+        break
 
 views = sock.list_views(filter_mapped_toplevel=True)
 
@@ -88,11 +87,9 @@ sock.toggle_expo()
 subprocess.Popen(["waybar"])
 while True:
     msg = sock.read_next_event()
-    if msg["event"] == "view-mapped":
-        view = msg["view"]
-        if view["app-id"] == "waybar":
-            sock.set_view_alpha(view["id"], alpha)
-            break
+    if msg["event"] == "view-mapped" and msg["view"]["app-id"] == "waybar":
+        sock.set_view_alpha(view["id"], alpha)
+        break
 
 if hostnm == "NixOS-AOC":
     # sock._option_valuesset({'animate': {'close_animation': 'fade'}})
@@ -105,7 +102,6 @@ else:
 time.sleep(3)
 
 subprocess.Popen(["blueman-applet"])
-
 
 sock._option_valuesset({'animate': {'squeezimize_duration': '400ms linear'}})
 sock._option_valuesset({'animate': {'open_animation': 'vortex'}})

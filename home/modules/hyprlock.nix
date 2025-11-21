@@ -15,6 +15,10 @@ in
       hide_cursor = true;
     };
 
+    animations = {
+      enabled = false;
+    };
+
     background = {
       path = "";
       color = "rgba(0, 0, 0, 0.0)";
