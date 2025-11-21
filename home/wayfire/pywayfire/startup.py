@@ -10,11 +10,6 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 hostnm = socket.gethostname()
 alpha = .8
 
-if hostnm == "NixOS-AOC":
-    delay = 3
-else:
-    delay = 2
-
 while True:
     msg = sock.read_next_event()
     if msg["event"] == "view-mapped" and msg["view"]["title"] == "Ghostty":
@@ -54,8 +49,6 @@ for app in apps:
 sock._option_valuesset({'animate': {'squeezimize_duration': '3000ms linear'}})
 sock._option_valuesset({'vswitch': {'duration': '0ms circle'}})
 
-time.sleep(delay) 
-
 while True:
 
     try:
@@ -92,9 +85,10 @@ while True:
         break
 
 if hostnm == "NixOS-AOC":
-    # sock._option_valuesset({'animate': {'close_animation': 'fade'}})
+    for i in range(20):
+        sock.set_view_alpha(bgid, (1 - i * .05))
+        time.sleep(.1)
     subprocess.run(["pkill", "ghostty"])
-    # sock._option_valuesset({'animate': {'close_animation': 'shatter'}})
 
 else:
     subprocess.Popen(["steam", "-silent", "%U"])
