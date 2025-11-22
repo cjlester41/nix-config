@@ -24,7 +24,7 @@ in
     plugins = with pkgs; [
       wayfirePlugins.wayfire-plugins-extra  
       wayfirePlugins.wf-shell
-      live-previews
+      # live-previews
     ];      
 
     settings.autostart = {
