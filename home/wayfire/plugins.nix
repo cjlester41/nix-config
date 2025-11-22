@@ -35,6 +35,7 @@
     "wayfire-shell " +
     "wsets " +
     "foreign-toplevel " +
+    "live-previews " +
     "session-lock";
             
 }

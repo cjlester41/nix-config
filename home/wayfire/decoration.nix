@@ -103,6 +103,11 @@ with config.lib.stylix.colors.withHashtag;
       melt_duration = "1000ms linear";
       shatter_duration = "1000ms linear";
       vortex_duration = "1000ms linear";
+      dodge_toggle = "false";
+			dodge_duration = "350ms linear";
+      dodge_rotate = true;
+      dodge_zoom = true;
+      dodge_direction = "cardinal";
     };
   };
 }

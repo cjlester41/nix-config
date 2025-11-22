@@ -256,6 +256,10 @@ in
       threshold = 0.5;
     };
 
+    live-previews = {
+		  max_dimension = 400;
+    };
+
     mag = {
       default_height = 500;
       toggle = "<alt> <super> KEY_M";
