@@ -29,6 +29,7 @@ in
 
     settings.autostart = {
         
+      lock = "hyprlock";
       shader = background;
       startup = "python ~/nix-config/home/wayfire/pywayfire/startup.py";
       polkit = "systemctl --user start hyprpolkitagent";

@@ -67,6 +67,10 @@
     };     
   }; 
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    live-previews = pkgs.callPackage ./home/wayfire/live-previews {};
+  };
+
   # xdg.portal.enable = true;
   # xdg.portal.wlr.enable = true;
   # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
