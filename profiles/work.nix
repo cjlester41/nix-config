@@ -45,6 +45,11 @@
   #     token = "";
   #   };
   # };
+  
+  environment.variables = {
+    WAYFIRE_PLUGIN_PATH="/home/cjlester/wayfire-plugins-extra/result/lib/wayfire";
+    WAYFIRE_PLUGIN_XML_PATH="/home/cjlester/wayfire-plugins-extra/result/share/wayfire/metadata";
+  };
 
   powerManagement.cpuFreqGovernor = "performance";
 }

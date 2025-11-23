@@ -67,7 +67,7 @@ for view in views:
         sock.set_workspace(1,0, view["id"])
     elif view["app-id"] == "Code":
         sock.set_workspace(0,0, view["id"])
-    elif view["title"] == "~":
+    elif view["app-id"] == "kitty":
         sock.set_workspace(0,1, view["id"])
     elif view["app-id"] == "nemo":
         sock.set_workspace(0,1, view["id"])
