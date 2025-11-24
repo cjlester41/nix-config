@@ -31,6 +31,7 @@
       # ns = "nom-shell --run zsh";
       # nd = "nom develop --command zsh";
       # nb = "nom build";
+      nd = "nix develop";
       fr = "nh os switch /home/${private.username}/nix-config";
       fu = "nh os switch /home/${private.username}/nix-config --update";
       nix-clean = "nh clean all --keep 5";

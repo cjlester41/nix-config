@@ -54,6 +54,10 @@ in
       python ~/nix-config/home/wayfire/pywayfire/ipc.py >/dev/null 2>&1 &  
     '')
 
+    (writeShellScriptBin "expo" ''
+      python ~/nix-config/home/wayfire/pywayfire/expo.py >/dev/null 2>&1 &  
+    '')
+
     # (pkgs.writeShellScriptBin "startup" ''
     #   while true; do
     #     for file in "$HOME/nix-config/files/shaders"/*; do

@@ -46,10 +46,10 @@
   #   };
   # };
   
-  environment.variables = {
-    WAYFIRE_PLUGIN_PATH="/home/cjlester/wayfire-plugins-extra/result/lib/wayfire";
-    WAYFIRE_PLUGIN_XML_PATH="/home/cjlester/wayfire-plugins-extra/result/share/wayfire/metadata";
-  };
+  # environment.variables = {
+  #   WAYFIRE_PLUGIN_PATH="/home/cjlester/wf-idle-expo/result/lib/wayfire";
+  #   WAYFIRE_PLUGIN_XML_PATH="/home/cjlester/wf-idle-expo/result/share/wayfire/metadata";
+  # };
 
   powerManagement.cpuFreqGovernor = "performance";
 }
