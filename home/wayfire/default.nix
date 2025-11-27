@@ -24,7 +24,7 @@ in
     plugins = with pkgs; [
       wayfirePlugins.wayfire-plugins-extra  
       wayfirePlugins.wf-shell
-      # live-previews
+      idle-expo
     ];      
 
     settings.autostart = {

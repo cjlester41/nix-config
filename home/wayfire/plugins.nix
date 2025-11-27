@@ -2,7 +2,7 @@
   
   plugins = 
     "wm-actions " + 
-    # "idle " + 
+    "idle-expo " + 
     "alpha " + 
     "command " +
     "grid " + 

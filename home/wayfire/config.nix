@@ -190,7 +190,15 @@ in
       disable_initially = false;
       disable_on_fullscreen = true;
       dpms_timeout = -1;
-      screensaver_timeout = 3600;
+      screensaver_timeout = 60;
+      toggle = "none";
+    };
+
+    idle-expo = {
+      disable_initially = false;
+      disable_on_fullscreen = true;
+      dpms_timeout = -1;
+      screensaver_timeout = 60;
       toggle = "none";
     };
 

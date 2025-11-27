@@ -68,7 +68,7 @@
   }; 
 
   nixpkgs.config.packageOverrides = pkgs: {
-    live-previews = pkgs.callPackage ./home/wayfire/live-previews {};
+    idle-expo = pkgs.callPackage ./home/wayfire/idle-expo {};
   };
 
   # xdg.portal.enable = true;

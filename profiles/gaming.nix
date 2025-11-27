@@ -77,10 +77,10 @@
   #   SUBSYSTEM=="usb", ATTRS{idVendor}=="3343", ATTRS{idProduct}=="0043", MODE="0664", GROUP="dialout"
   # '';
 
-  environment.variables = {
-    WAYFIRE_PLUGIN_PATH="/home/cjlester/wayfire-plugins-extra/result/lib/wayfire";
-    WAYFIRE_PLUGIN_XML_PATH="/home/cjlester/wayfire-plugins-extra/result/share/wayfire/metadata";
-  };
+  # environment.variables = {
+  #   WAYFIRE_PLUGIN_PATH="/home/cjlester/wayfire-plugins-extra/result/lib/wayfire";
+  #   WAYFIRE_PLUGIN_XML_PATH="/home/cjlester/wayfire-plugins-extra/result/share/wayfire/metadata";
+  # };
   
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="25a7", ATTRS{idProduct}=="fa34", ATTR{power/wakeup}="disabled"
