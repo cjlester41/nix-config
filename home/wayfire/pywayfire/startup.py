@@ -8,7 +8,11 @@ sock.watch()
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 hostnm = socket.gethostname()
-alpha = .8
+
+if hostnm == "NixOS-AOC":
+    alpha = .9
+else:
+    alpha = .8
 
 while True:
     msg = sock.read_next_event()

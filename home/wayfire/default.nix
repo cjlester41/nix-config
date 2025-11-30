@@ -18,6 +18,11 @@ in
     ./decoration.nix
   ];
 
+  # home.file.".config/wcm.ini" = {
+  #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/home/wayfire/wayfire.ini";
+  #   force = true;
+  # };
+
   wayland.windowManager.wayfire = {
     
     enable = true;
@@ -25,6 +30,7 @@ in
       wayfirePlugins.wayfire-plugins-extra  
       wayfirePlugins.wf-shell
       idle-expo
+      # auto-tile
     ];      
 
     settings.autostart = {
