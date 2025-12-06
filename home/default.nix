@@ -36,6 +36,11 @@ in
       ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/${background} & disown
     '')
 
+    (writeShellScriptBin "start-bg" ''
+      pkill ghostty
+      ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/smoke.glsl & disown
+    '')
+
     (writeShellScriptBin "glitchy-bg" ''
       pkill ghostty
       ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/glitchy.glsl -e btop & disown

@@ -80,7 +80,7 @@ in
       duration = "300ms circle";
       inactive_brightness = 1;
       keyboard_interaction = true;
-      offset = 5;
+      offset = 0;
       select_workspace_1 = "KEY_1";
       select_workspace_2 = "KEY_2";
       select_workspace_3 = "KEY_3";
