@@ -29,6 +29,7 @@ in
     plugins = with pkgs; [
       wayfirePlugins.wayfire-plugins-extra  
       wayfirePlugins.wf-shell
+      wayfirePlugins.wcm
       idle-expo
       # auto-tile
     ];      
