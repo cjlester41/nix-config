@@ -1,15 +1,7 @@
-{ lib, config, pkgs, ...}: 
+{ lib, config, pkgs, vars, ...}: 
 
 #   inherit (import ../../hosts/${host}/variables.nix) stylixImage;
-let basecolor = 
-  if config.networking.hostName == "NixOS-S7" then
-    "110011"
-  else
-  if config.networking.hostName == "NixOS-AOC" then
-    "111111"
-  else
-    "110011";    
-in {
+{
   fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -21,7 +13,7 @@ in {
     # targets.gtk.theme = "stylix-gtk";
     # image = stylixImage;
     base16Scheme = {
-      base00 = basecolor; # ----
+      base00 = vars.basecolor; # ----
       base01 = "3c3836"; # ---
       base02 = "504945"; # --
       base03 = "665c54"; # -

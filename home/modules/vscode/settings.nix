@@ -6,6 +6,7 @@
         "OZONE" = "wayland";
         "PYTHONDONTWRITEBYTECODE" = "1";
       }; 
+      "terminal.integrated.suggest.enabled" = false;
       "git.autofetch" = true;
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;

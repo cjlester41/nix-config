@@ -17,11 +17,13 @@
 
   environment.systemPackages = with pkgs; [
 
-    signal-desktop
+    # signal-desktop
     spotify-player
     # factorio
     minicom
     gimp
+    shaderbg
+    cloudflared
     
   ];  
 

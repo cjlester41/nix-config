@@ -27,6 +27,7 @@
         specialArgs = {
           inherit inputs;
           private = import ./hardware/B460/private.nix;
+          vars = import ./hardware/B460/variables.nix;
         };
       };
 
@@ -38,6 +39,7 @@
         specialArgs = {
           inherit inputs;
           private = import ./hardware/AOC/private.nix;
+          vars = import ./hardware/AOC/variables.nix;
         };
       };
 
@@ -49,6 +51,7 @@
         specialArgs = {
       	  inherit inputs;
           private = import ./hardware/sS7/private.nix;
+          vars = import ./hardware/sS7/variables.nix;
         };
       };
 
@@ -60,6 +63,7 @@
         specialArgs = {
           inherit inputs;
           private = import ./hardware/ASRock/private.nix;
+          vars = import ./hardware/ASRock/variables.nix;
         };
       };
     };

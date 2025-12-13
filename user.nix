@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, private, ...}:
+{ pkgs, inputs, config, private, vars, ...}:
 
 let
   hostnm = config.networking.hostName;
@@ -9,7 +9,7 @@ in
     # useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "bak";
-    extraSpecialArgs = {inherit inputs private hostnm;};
+    extraSpecialArgs = {inherit inputs private vars hostnm;};
     users.${private.username} = { 
       # _module.args = {  };
       imports = [./home];

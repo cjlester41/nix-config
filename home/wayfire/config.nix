@@ -1,15 +1,14 @@
-{ private, ... }:
+{ private, vars, ... }:
 
 let
   wfplugins = import ./plugins.nix; ####################server or client?
   framesync = if private.hardware == "ASRock" then true else false;
-  alpha = "0.80";
 in
 {  
   wayland.windowManager.wayfire.settings = {
 
     alpha = {
-      min_value = "${alpha}";
+      min_value = vars.alpha;
       modifier = "<alt> <super>";
     };      
 
@@ -46,8 +45,8 @@ in
       plugins = wfplugins.plugins;
       preferred_decoration_mode = "server";
       transaction_timeout = 100;
-      vheight = 2;
-      vwidth = 2;
+      vheight = vars.grid;
+      vwidth = vars.grid;
       xwayland = true;
       xwayland_startup_script = "";
     };
@@ -65,8 +64,8 @@ in
       deform = 0;
       initial_animation = "350ms circle";
       light = true;
-      rotate_left = "<ctrl> <super> KEY_LEFT";
-      rotate_right = "<ctrl> <super> KEY_RIGHT";
+      rotate_left = "<super> KEY_H";
+      rotate_right = "<super> KEY_L";
       skydome_mirror = false;
       skydome_texture = "";
       speed_spin_horiz = 0.03;
@@ -427,11 +426,11 @@ in
 
     vswitch = {
       background = "#1A1A1AFF";
-      binding_down = "<super> KEY_DOWN";
+      binding_down = "<super> KEY_J";
       binding_last = "";
       binding_left = "<super> KEY_LEFT";
       binding_right = "<super> KEY_RIGHT";
-      binding_up = "<super> KEY_UP";
+      binding_up = "<super> KEY_K";
       binding_win_down = "<ctrl> <shift> <super> KEY_DOWN";
       binding_win_left = "<ctrl> <shift> <super> KEY_LEFT";
       binding_win_right = "<ctrl> <shift> <super> KEY_RIGHT";
@@ -460,7 +459,7 @@ in
     };
 
     window-rules = {
-      rule_1 = "on created then set alpha ${alpha}";
+      rule_1 = "on created then set alpha ${vars.alpha}";
       # rule_5 = "on created if title is \"Steam\" then set alpha 1";
       # rule_2 = "on created if app_id is \"steam\" then maximize";
       # rule_3 = "on created if app_id contains \"steam\" then set alpha 1";
