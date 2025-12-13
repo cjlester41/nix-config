@@ -4,7 +4,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager.url = "github:nix-community/home-manager/release-25.11";    
     stylix.url = "github:nix-community/stylix/release-25.11";  
-    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # firefox-addons = { 
     #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons"; 

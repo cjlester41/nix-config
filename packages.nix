@@ -13,6 +13,7 @@
 
     # utils
     # advcpmv need alternative
+    vim
     eza
     nmap
     blueman

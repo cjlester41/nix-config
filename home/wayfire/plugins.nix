@@ -28,6 +28,7 @@
     "ipc-rules " + 
     "pin-view " + 
     "simple-tile " + 
+    "wayfire-shadows " +
     # "window-rules " + 
     "extra-animations " + 
     # "wf-info " +

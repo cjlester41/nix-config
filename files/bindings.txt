@@ -6,7 +6,8 @@ navigation commands:
 
  <ctrl> <alt> left_click = toggle 3D
  <cmd> = toggle expo
- <cmd> arrow_keys = switch workspace
+ <cmd> H L = switch workspace left right
+ <cmd> J K = swithc workspace up down
  <cmd> <space> = tile/untile
  <cmd> left_click = move window
  <cmd> right_click = resize window
@@ -24,6 +25,7 @@ launch commands:
 
 other commands:
 
+ <cmd> Q = quit
  <cmd> mouse_scroll = zoom
  <cmd> <alt> mouse_scroll = opacity
  <cmd> ESC = power/logout

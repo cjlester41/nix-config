@@ -38,7 +38,9 @@
     # vulkan-tools
     # ananicy-cpp
     # ananicy-rules-cachyos 
-    
+    cloudflared
+    exfatprogs
+  
   ];
 
   programs = {
