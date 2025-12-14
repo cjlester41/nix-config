@@ -1,11 +1,4 @@
-{ lib, config, pkgs, private, ... }:
-
-let background = 
-  if private.hardware == "sS7" then
-    "wf-background"
-  else
-    "restart-bg";
-in
+{ lib, config, pkgs, private, vars, ... }:
 
 {  
   stylix.targets = {
@@ -18,10 +11,10 @@ in
     ./decoration.nix
   ];
 
-  # home.file.".config/wcm.ini" = {
-  #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/home/wayfire/wayfire.ini";
-  #   force = true;
-  # };
+  home.file."wayfire.ini" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/wayfire.ini";
+    force = true;
+  };
 
   wayland.windowManager.wayfire = {
     
@@ -37,7 +30,7 @@ in
     settings.autostart = {
         
       lock = "hyprlock";
-      shader = background;
+      shader = vars.background;
       startup = "python ~/nix-config/home/wayfire/pywayfire/startup.py";
       polkit = "systemctl --user start hyprpolkitagent";
       autostart_wf_shell = false;

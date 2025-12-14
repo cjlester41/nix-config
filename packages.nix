@@ -66,6 +66,32 @@
       };
       flake = "/home/${private.username}/nix-config"; 
     };     
+
+    nvf = {
+      enable = false;
+      settings.vim = {
+        vimAlias = true;
+        lsp = {
+          enable = true;
+        };
+        # vim.theme.enable = true;
+        # vim.theme.name = lib.mkForce "gruvbox";
+        # vim.theme.style = "dark";
+
+        languages = {
+          enableTreesitter = true;
+          lua.enable = true;
+          python.enable = true;
+          nix.enable = true;
+        };
+
+        statusline.lualine.enable = true;
+        telescope.enable = true;
+        autocomplete.nvim-cmp.enable = true;
+        filetree.neo-tree.enable = true;
+        minimap.minimap-vim.enable = true;
+      };
+    };
   }; 
 
   nixpkgs.config.packageOverrides = pkgs: {

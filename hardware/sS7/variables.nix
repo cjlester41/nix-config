@@ -1,6 +1,8 @@
 let 
   defaults = import ../../default-vars.nix;
   overrides = {
+
+    background = "wf-background";
     
   };
 

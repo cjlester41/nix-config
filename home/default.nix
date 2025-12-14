@@ -63,22 +63,9 @@ in
       python ~/nix-config/home/wayfire/pywayfire/expo.py >/dev/null 2>&1 &  
     '')
 
-    # (pkgs.writeShellScriptBin "startup" ''
-    #   while true; do
-    #     for file in "$HOME/nix-config/files/shaders"/*; do
-    #       if [ -f "$file" ]; then
-    #         while IFS= read -r line; do
-    #           echo "$line" | lolcat
-    #         done < "$file"
-    #       fi
-    #     done
-    #   done
-    # '')
-
     (writeShellScriptBin "list-keybinds" ''
       notify-send "keybinds" "$(cat ~/nix-config/files/bindings.txt)"  
     '')
-    
 
     xdg-user-dirs
 
@@ -90,6 +77,13 @@ in
   '';
  
   programs = {
+
+    zed-editor = {
+      enable = true;
+      extensions = [
+        "nix"
+      ];
+    };
 
     direnv = {
       enable = true;

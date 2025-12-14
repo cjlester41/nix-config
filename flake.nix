@@ -4,6 +4,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     home-manager.url = "github:nix-community/home-manager/release-25.11";    
     stylix.url = "github:nix-community/stylix/release-25.11";  
+    nvf.url = "github:notashelf/nvf";
     # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # firefox-addons = { 
@@ -12,7 +13,7 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: let       
+  outputs = { self, nixpkgs, home-manager, nvf, ... }@inputs: let       
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
@@ -23,6 +24,7 @@
         inherit system;
         modules = [
           ./profiles/gaming.nix
+          nvf.nixosModules.default
         ];
         specialArgs = {
           inherit inputs;
