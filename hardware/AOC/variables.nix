@@ -6,7 +6,9 @@ let
     bar = false;
     dock = false;
     alpha = "0.90";
-    basecolor = "111111";
+    basecolor = "110011";
+    shader = "glitchy.glsl";
+    theme = "tokyo-night-dark";
 
   };
 

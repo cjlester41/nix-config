@@ -1,12 +1,7 @@
-{ config, pkgs, inputs, lib, private, ... }:
+{ config, pkgs, inputs, lib, private, vars, ... }:
 
 with config.lib.stylix.colors.withHashtag;
-let background = 
-  if private.hardware == "AOC" then
-    "glitchy.glsl -e btop"    
-  else
-    "sunset.glsl";
-in
+
 {
   imports = [ 
     
@@ -14,18 +9,18 @@ in
     ./modules/waybar/bezier-dark.nix
     ./modules/kitty.nix
     ./modules/foot.nix
-    # ./modules/micro.nix
     ./modules/rofi
     ./modules/nemo.nix
     ./modules/hyprlock.nix
     # ./modules/cava.nix
     ./modules/firefox.nix
     ./modules/btop.nix
-    ./modules/vscode
+    # ./modules/vscode
     ./modules/swaync.nix
     ./wayfire
     ./modules/zsh
     ./modules/wlogout
+    ./modules/zed.nix
     # ./modules/swayidle.nix
   ];
  
@@ -33,7 +28,7 @@ in
 
     (writeShellScriptBin "restart-bg" ''
       pkill ghostty
-      ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/${background} & disown
+      ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/${vars.shader} & disown
     '')
 
     (writeShellScriptBin "start-bg" ''
@@ -77,13 +72,6 @@ in
   '';
  
   programs = {
-
-    zed-editor = {
-      enable = true;
-      extensions = [
-        "nix"
-      ];
-    };
 
     direnv = {
       enable = true;

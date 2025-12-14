@@ -5,4 +5,6 @@
   alpha = "0.80";
   basecolor = "110011";
   background = "restart-bg";
+  shader = "sunset.glsl";
+  theme = "gruvbox-dark-hard";
 }
