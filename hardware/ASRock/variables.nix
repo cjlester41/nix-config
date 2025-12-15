@@ -3,6 +3,8 @@ let
   overrides = {
     
     editor = "code";
+    username = "patrick";
+    git-name = "newhorizon83";
     
   };
 

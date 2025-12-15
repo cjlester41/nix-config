@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, private, ... }:
+{ config, pkgs, vars, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
@@ -6,24 +6,24 @@ with config.lib.stylix.colors.withHashtag;
   programs.firefox = {
     enable = true;
     profiles = {
-      "${private.username}.default" = { # 7u6dfvp7.default
+      "${vars.username}.default" = { # 7u6dfvp7.default
         id = 0;
-        name = "${private.username}";
+        name = "${vars.username}";
         isDefault = true;
         settings = {
           # "browser.startup.homepage" = "https://github.com";
           "browser.startup.page" = 3;
           "browser.search.defaultenginename" = "google";
           "browser.search.order.1" = "google";
-          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           "browser.display.document_color_use" = 2;
           "browser.display.background_color" = base00;
-          "browser.display.foreground_color" = "#e4ccb3ff";
+          "browser.display.foreground_color" = base0C;
+          "browser.anchor_color" = "#62a0ea";
+          "browser.visited_color" = "#c061cb";
           "widget.gtk.global-menu.enabled" = true;
           "widget.gtk.global-menu.wayland.enabled" = true;
           "widget.gtk.libadwaita-colors.enabled" = false;
-          "browser.anchor_color" = "#62a0ea";
-          "browser.visited_color" = "#c061cb";
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
         search = {
           force = true;
@@ -38,7 +38,7 @@ with config.lib.stylix.colors.withHashtag;
                   { name = "query"; value = "{searchTerms}"; }
                 ];
               }];
-              icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@np" ];
             };              
             "bing".metaData.hidden = true;
@@ -51,7 +51,7 @@ with config.lib.stylix.colors.withHashtag;
               --toolbar-bgcolor: ${base00} !important;
           }
           .tabbrowser-tab[selected="true"] .tab-background {
-              border: 1px solid purple !important;
+              border: 1px solid ${base0C} !important;
           }                              
         '';                                      
 
@@ -64,5 +64,5 @@ with config.lib.stylix.colors.withHashtag;
     };
   };
 
-  stylix.targets.firefox.profileNames = [ "${private.username}.default" ];
+  stylix.targets.firefox.profileNames = [ "${vars.username}.default" ];
 }

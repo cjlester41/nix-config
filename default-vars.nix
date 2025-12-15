@@ -1,5 +1,5 @@
 {
-  grid = 2;
+  grid = "2";
   bar = true;
   dock = true;
   alpha = "0.80";
@@ -8,4 +8,9 @@
   shader = "sunset.glsl";
   theme = "gruvbox-dark-hard";
   editor = "zeditor";
+  username = "cjlester";
+  git-name = "cjlester41";
+  git-mail = "";
+  borders = "True"; 
+  outter-gap = 6;
 }

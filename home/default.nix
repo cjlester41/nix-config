@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, private, vars, ... }:
+{ config, pkgs, lib, vars, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
@@ -6,10 +6,10 @@ with config.lib.stylix.colors.withHashtag;
   imports = [ 
     
     ./modules/fastfetch  
-    ./modules/waybar/bezier-dark.nix
+    # ./modules/waybar/bezier-dark.nix
     ./modules/kitty.nix
-    ./modules/foot.nix
-    ./modules/rofi
+    # ./modules/foot.nix
+    # ./modules/rofi
     ./modules/nemo.nix
     ./modules/hyprlock.nix
     # ./modules/cava.nix
@@ -51,7 +51,7 @@ with config.lib.stylix.colors.withHashtag;
 
     (writeShellScriptBin "restart-ipc" ''
       pkill python
-      python ~/nix-config/home/wayfire/pywayfire/ipc.py >/dev/null 2>&1 &  
+      python ~/nix-config/home/wayfire/pywayfire/ipc.py ${vars.alpha}>/dev/null 2>&1 &  
     '')
 
     (writeShellScriptBin "expo" ''
@@ -89,8 +89,8 @@ with config.lib.stylix.colors.withHashtag;
     git = {
       enable = true;
       settings = {
-        user.name = private.git-name;
-        user.email = private.git-mail;
+        user.name = vars.git-name;
+        user.email = vars.git-mail;
         init.defaultBranch = "main";
         pull.rebase = false;
       };

@@ -7,7 +7,7 @@
 // Redefine below to see the tiling...
 //#define SHOW_TILING
 
-#define COLOR .5, .25, .0 // 0.0, 0.35, 0.5
+#define COLOR .2, .2, .2 // 0.0, 0.35, 0.5
 #define TAU 6.28318530718
 #define MAX_ITER 5
 #define TIME .08 // .5

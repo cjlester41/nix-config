@@ -1,4 +1,4 @@
-{ lib, config, pkgs, private, vars, ... }:
+{ config, pkgs, private, vars, ... }:
 
 {  
   stylix.targets = {
@@ -31,7 +31,7 @@
         
       lock = "hyprlock";
       shader = vars.background;
-      startup = "python ~/nix-config/home/wayfire/pywayfire/startup.py";
+      startup = "python ~/nix-config/home/wayfire/pywayfire/startup.py ${vars.alpha} ${vars.grid} ${vars.editor} ${vars.borders} > pyout.txt 2>&1";
       polkit = "systemctl --user start hyprpolkitagent";
       autostart_wf_shell = false;
       portal = "/usr/libexec/xdg-desktop-portal";

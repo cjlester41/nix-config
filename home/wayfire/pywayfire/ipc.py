@@ -1,14 +1,14 @@
 from wayfire import WayfireSocket
 from wayfire.extra.wpe import WPE
-import subprocess, os
+import subprocess, os, sys
 
 sock = WayfireSocket()
 wpe = WPE(sock)
 
-alpha = .8
+# alpha = .8
 notile = {"FreeCAD"}
     
-def run_ipc(sock, wpe):  
+def run_ipc(sock, wpe, alpha):  
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     launchers = {"EA"}  
@@ -78,4 +78,4 @@ def run_ipc(sock, wpe):
 if __name__ == "__main__":
 
     sock.watch()
-    run_ipc(sock, wpe)
+    run_ipc(sock, wpe, alpha=sys.argv[1])

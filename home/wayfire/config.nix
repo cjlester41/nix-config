@@ -64,8 +64,8 @@ in
       deform = 0;
       initial_animation = "350ms circle";
       light = true;
-      rotate_left = "<super> KEY_H";
-      rotate_right = "<super> KEY_L";
+      rotate_left = "<super> KEY_LEFT";
+      rotate_right = "<super> KEY_RIGHT";
       skydome_mirror = false;
       skydome_texture = "";
       speed_spin_horiz = 0.03;
@@ -387,8 +387,8 @@ in
       key_focus_left = "<super> KEY_H";
       key_focus_right = "<super> KEY_L";
       key_toggle = "<super> KEY_SPACE";
-      outer_horiz_gap_size = 6;
-      outer_vert_gap_size = 6;
+      outer_horiz_gap_size = vars.outter-gap;
+      outer_vert_gap_size = vars.outter-gap;
       preview_base_border = "#404080CC";
       preview_base_color = "#8080FF80";
       preview_border_width = 2;
@@ -428,8 +428,8 @@ in
       background = "#1A1A1AFF";
       binding_down = "<super> KEY_J";
       binding_last = "";
-      binding_left = "<super> KEY_LEFT";
-      binding_right = "<super> KEY_RIGHT";
+      binding_left = "<super> KEY_H";
+      binding_right = "<super> KEY_L";
       binding_up = "<super> KEY_K";
       binding_win_down = "<ctrl> <shift> <super> KEY_DOWN";
       binding_win_left = "<ctrl> <shift> <super> KEY_LEFT";
