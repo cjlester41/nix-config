@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
   
-    micro 
+    shaderbg
     libnotify
     # caligula
     galculator  

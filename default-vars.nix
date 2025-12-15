@@ -7,4 +7,5 @@
   background = "restart-bg";
   shader = "sunset.glsl";
   theme = "gruvbox-dark-hard";
+  editor = "zeditor";
 }

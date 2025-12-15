@@ -70,10 +70,10 @@
         widgets_center = "none";
         widgets_right = "command-output tray notifications volume network battery clock";
         minimal_height = 24;
-        autohide = false;
+        autohide = true;
         autohide_duration = 300;
         layer = "top";
-        position = "top";
+        position = "bottom";
         background_color = "gtk_headerbar";
         launcher_firefox = "firefox.desktop";
         launcher_terminal1 = "kitty.desktop";

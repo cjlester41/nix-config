@@ -455,7 +455,7 @@ in
     };
 
     wayfire-shell = {
-      toggle_menu = "<super>";
+      toggle_menu = "<super> KEY_M";
     };
 
     window-rules = {
@@ -479,7 +479,7 @@ in
     };
 
     wm-actions = {
-      minimize = "<super> KEY_M";
+      minimize = "<super> KEY_X";
       send_to_back = "none";
       toggle_always_on_top = "none";
       toggle_fullscreen = "<super> KEY_F";
