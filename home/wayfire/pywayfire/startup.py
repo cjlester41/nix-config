@@ -1,4 +1,9 @@
-import os, time, subprocess, ipc, socket, sys
+import os
+import time
+import subprocess
+import ipc
+import socket
+import sys
 from wayfire import WayfireSocket
 from wayfire.extra.wpe import WPE
 
@@ -17,14 +22,13 @@ border = sys.argv[4]
 if editor == "zeditor":
     editor_id = "dev.zed.Zed"
 else:
-    editor_id = "Code"
-
+    editor_id = "code"
 
 while True:
     msg = sock.read_next_event()
     if msg["event"] == "view-mapped" and msg["view"]["title"] == "Ghostty":
         bgid = msg["view"]["id"]
-        wpe.pin_view(bgid, "background", True) 
+        wpe.pin_view(bgid, "overlay", True) 
         break
 
 sock._option_valuesset({'animate': {'squeezimize_duration': '0ms linear'}})
@@ -33,15 +37,15 @@ sock._option_valuesset({'expo': {'duration': '2000ms linear'}})
 
 apps = ["firefox", "kitty", editor, "nemo", ["kitty", "-e", "btop"]]
 if grid == 3:
-   apps.append(["kitty"]) #, "-e", "vim"]) 
+   apps.insert(2, ["kitty", "-e", "vim"]) 
    apps.remove("nemo")
    
-subprocess.Popen(["wf-panel"])
+subprocess.Popen(["wf-dock"])
 
 while True:
     msg = sock.read_next_event()
     if msg["event"] == "view-mapped" and msg["view"]["app-id"] in {"panel"}:
-        sock.set_view_alpha(msg["view"]["id"], alpha)            
+        sock.set_view_alpha(msg["view"]["id"], 0)            
         break
 
 for app in apps:
@@ -51,17 +55,28 @@ for app in apps:
         msg = sock.read_next_event()
 
         if msg["event"] == "view-mapped":
-            sock.set_view_alpha(msg["view"]["id"], 0)
+            # sock.set_view_alpha(msg["view"]["id"], 0)
             if border == "True":
                 wpe.set_view_shader(msg["view"]["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
-            print(msg["view"]["id"], msg["view"]["app-id"])
-            
-            if "Code" in msg["view"]["app-id"]:
-                time.sleep(.2)
-            if "nemo" in msg["view"]["app-id"]:
-                time.sleep(.3)
+            # print(msg["view"]["id"], msg["view"]["app-id"])
             sock.set_view_minimized(msg["view"]["id"], True)
+            
+            # if "Code" in msg["view"]["app-id"]:
+            #     time.sleep(.2)
+            # if "nemo" in msg["view"]["app-id"]:
+            #     time.sleep(.3)
+            # sock.set_view_minimized(msg["view"]["id"], True)
             break   
+
+time.sleep(.5)
+views = sock.list_views(filter_mapped_toplevel=True)
+for view in views:
+    sock.set_view_minimized(view["id"], True)
+    if border == "True":
+        wpe.set_view_shader(msg["view"]["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
+    
+wpe.pin_view(bgid, "background", True) 
+time.sleep(.5)
 
 sock._option_valuesset({'animate': {'squeezimize_duration': '3000ms linear'}})
 sock._option_valuesset({'vswitch': {'duration': '0ms circle'}})
@@ -75,7 +90,6 @@ while True:
         break
 
 views = sock.list_views(filter_mapped_toplevel=True)
-
 if grid == 2:
     for view in views:
         
@@ -92,7 +106,7 @@ if grid == 2:
         elif view["title"] == "btop":
             sock.set_workspace(1,1, view["id"]) 
 
-if grid == 3:
+if grid == 3: # add views if not already open
     e_count = 0
     b_count = 0
     t_count = 0
@@ -115,6 +129,13 @@ if grid == 3:
 time.sleep(.2)
 sock.toggle_expo()
 
+subprocess.run(["pkill", "wf-dock"])
+subprocess.Popen("wf-panel")
+while True:
+    msg = sock.read_next_event()
+    if msg["event"] == "view-mapped" and msg["view"]["app-id"] in {"panel"}:
+        sock.set_view_alpha(msg["view"]["id"], alpha)            
+        break
 # subprocess.popen(["waybar"])
 # while true:
 #     msg = sock.read_next_event()
@@ -140,4 +161,4 @@ sock._option_valuesset({'animate': {'open_animation': 'vortex'}})
 sock._option_valuesset({'expo': {'duration': '300ms circle'}})
 sock._option_valuesset({'vswitch': {'duration': '300ms circle'}})
 
-ipc.run_ipc(sock=sock, wpe=wpe, alpha=alpha)
+ipc.run_ipc(sock=sock, wpe=wpe, alpha=alpha, border=border)

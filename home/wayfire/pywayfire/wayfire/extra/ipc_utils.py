@@ -123,7 +123,7 @@ class WayfireUtils:
         :param plugins: A list of plugin names to be set.
         """
         plugins_value = " ".join(plugins)
-        self._socket.set_option_values({"core/plugins": plugins_value})
+        self._socket.set_option_values({"core/plugins": plugins_value})  # pyright: ignore[reportAttributeAccessIssue]
 
     def set_plugin(self, plugin_name: str, enabled: Optional[bool] = True) -> None:
         """

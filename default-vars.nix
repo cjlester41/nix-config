@@ -1,7 +1,6 @@
 {
   grid = "2";
-  bar = true;
-  dock = true;
+  hide-bar = false;
   alpha = "0.80";
   basecolor = "110011";
   background = "restart-bg";

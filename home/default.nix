@@ -51,7 +51,7 @@ with config.lib.stylix.colors.withHashtag;
 
     (writeShellScriptBin "restart-ipc" ''
       pkill python
-      python ~/nix-config/home/wayfire/pywayfire/ipc.py ${vars.alpha}>/dev/null 2>&1 &  
+      python ~/nix-config/home/wayfire/pywayfire/ipc.py ${vars.alpha} ${vars.borders} >/dev/null 2>&1 &  
     '')
 
     (writeShellScriptBin "expo" ''
