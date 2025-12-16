@@ -11,7 +11,7 @@
       binding_launcher = "<super> KEY_A";
       binding_lock = "<super> <shift> KEY_ESC";
       binding_logout = "<super> KEY_ESC";
-      binding_media-play-pause = "KEY_PLAYPAUSE";
+      binding_media-play-pause = "<super> KEY_P";
       binding_media-stop = "KEY_STOPCD";
       binding_mute = "KEY_MUTE";
       binding_screenshot = "KEY_SYSRQ | KEY_PRINT";

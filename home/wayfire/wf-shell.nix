@@ -1,4 +1,6 @@
-{ vars, ... }:
+{ config, vars, ... }:
+
+with config.lib.stylix.colors.withHashtag;
 
 {
   wayland.windowManager.wayfire.wf-shell = {
@@ -27,18 +29,19 @@
     };
 
     settings.panel = {
-      
-      widgets_left = "menu spacing4 launchers window-list";
-      widgets_center = "none";
+
+      css_path = "/home/${vars.username}/.config/wf-shell/css/test.css";
+      widgets_left = "menu spacing4 launchers";
+      widgets_center = "window-list";
       widgets_right = "command-output tray notifications volume network battery clock";
       minimal_height = 24;
       autohide = vars.hide-bar;
       autohide_duration = 300;
       layer = "top";
       position = "bottom";
-      background_color = "gtk_headerbar";
-      launcher_firefox = "firefox.desktop";
-      launcher_terminal1 = "kitty.desktop";
+      background_color = base00; 
+      # launcher_firefox = "firefox.desktop";
+      # launcher_terminal1 = "kitty.desktop";
       launchers_spacing = 4;
       launchers_size = 42;
       clock_format = "%e %a %H:%M";
@@ -51,6 +54,7 @@
       network_status_font = "DejaVu Sans:style=Book 10";
       network_icon_invert_color = 1;
       network_status_use_color = true;
+      menu_icon = "/run/current-system/sw/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
       menu_show_categories = false;
       menu_list = false;
       menu_fuzzy_search = 1;

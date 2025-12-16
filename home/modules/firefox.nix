@@ -17,7 +17,7 @@ with config.lib.stylix.colors.withHashtag;
           "browser.search.order.1" = "google";
           "browser.display.document_color_use" = 2;
           "browser.display.background_color" = base00;
-          "browser.display.foreground_color" = base0C;
+          "browser.display.foreground_color" = base07;
           "browser.anchor_color" = "#62a0ea";
           "browser.visited_color" = "#c061cb";
           "widget.gtk.global-menu.enabled" = true;

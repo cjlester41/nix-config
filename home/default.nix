@@ -6,7 +6,7 @@ with config.lib.stylix.colors.withHashtag;
   imports = [ 
     
     ./modules/fastfetch  
-    # ./modules/waybar/bezier-dark.nix
+    ./modules/waybar/bezier-dark.nix
     ./modules/kitty.nix
     # ./modules/foot.nix
     # ./modules/rofi

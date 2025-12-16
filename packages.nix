@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, lib, private, ... }:
+{ pkgs, vars, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -10,6 +10,7 @@
     dysk
     hyprlock
     tuigreet
+    playerctl
 
     # utils
     # advcpmv need alternative
@@ -65,7 +66,7 @@
         enable = true;
         extraArgs = "--keep-since 7d --keep 5";
       };
-      flake = "/home/${private.username}/nix-config"; 
+      flake = "/home/${vars.username}/nix-config"; 
     };     
 
     # nvf = {

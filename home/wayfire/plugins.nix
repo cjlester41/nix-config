@@ -29,6 +29,7 @@
     "pin-view " + 
     "simple-tile " + 
     "wayfire-shadows " +
+    "workspace-names " +
     # "window-rules " + 
     "extra-animations " + 
     # "wf-info " +
