@@ -13,6 +13,7 @@ let
     editor = "zeditor";
     outter-gap = "0";
     borders = "False"; 
+    hide-bar = true;
 
   };
 

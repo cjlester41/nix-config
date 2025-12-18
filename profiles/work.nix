@@ -1,9 +1,9 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, private, ... }:
+{ pkgs, inputs, vars, ... }:
 
 {
   imports = [
     inputs.stylix.nixosModules.stylix
-    ../hardware/${private.hardware}
+    ../hardware/${vars.hardware}
     ../common.nix
     ../stylix.nix
     ../packages.nix
@@ -23,6 +23,7 @@
     minicom
     gimp
     arduino-ide
+    kanata
     
   ];  
 
@@ -54,6 +55,31 @@
   services.udev.extraRules = ''
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0070", MODE:="0666"
   '';
+  
+  services.kanata = {
+    enable = true;
+    keyboards = {
+      "logi".config = ''
+        (defsrc
+          esc tab caps lmet
+        )
+        
+        (deflayer colemak
+          tab esc lmet caps
+        )
+      '';
+    };
+  };
+  
+  # services.udev.extraHwdb = ''
+  #   evdev:atkbd:*
+  #     KEYBOARD_KEY_3a=esc
+  #     KEYBOARD_KEY_01=capslock
 
+  #   evdev:input:b*v*p*:
+  #     KEYBOARD_KEY_3a=esc
+  #     KEYBOARD_KEY_01=capslock
+  # '';
+  
   powerManagement.cpuFreqGovernor = "performance";
 }

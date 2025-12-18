@@ -515,15 +515,15 @@ in
     };
 
     workspace-names = {
-      background_color = "#333333B3";
+      background_color = "#11111111";
       background_radius = 30.0;
-      display_duration = 500;
+      display_duration = 9;
       font = "sans-serif";
       margin = 0;
-      position = "center";
-      show_option_names = false;
-      show_option_values = false;
-      text_color = "#FFFFFFFF";
+      position = "bottom_center";
+      show_option_names = true;
+      show_option_values = true;
+      text_color = "#99999999";
     };
 
     wrot = {

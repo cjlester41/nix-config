@@ -70,6 +70,7 @@ with config.lib.stylix.colors.withHashtag;
       notifications_critical_in_dnd = true;
       notifications_icon_size = 32;
       commands_output_max_chars = 10;
+      edge_offset = 0;
     };
   };
 }
