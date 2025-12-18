@@ -1,6 +1,6 @@
-{ config, pkgs, private, ... }:
+{ vars, ... }:
 let 
-  is_AOC = private.hardware == "AOC";
+  is_AOC = vars.hardware == "AOC";
 in
 {  
   stylix.targets = {

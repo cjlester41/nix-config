@@ -1,30 +1,27 @@
-{ pkgs, inputs, config, private, vars, ...}:
+{ pkgs, inputs, vars, ...}:
 
-let
-  hostnm = config.networking.hostName;
-in
 {
   imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {
     # useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "bak";
-    extraSpecialArgs = {inherit inputs private vars hostnm;};
-    users.${private.username} = { 
+    extraSpecialArgs = {inherit inputs vars;};
+    users.${vars.username} = { 
       # _module.args = {  };
       imports = [./home];
       home = {
-        username = "${private.username}"; 
-        homeDirectory = "/home/${private.username}";
-        stateVersion = "25.05";
+        username = "${vars.username}"; 
+        homeDirectory = "/home/${vars.username}";
+        stateVersion = vars.state-version;
       };
     };
   };
   
-  users.mutableUsers = true;
-  users.users.${private.username} = {
+  # users.mutableUsers = true;
+  users.users.${vars.username} = {
     isNormalUser = true;
-    description = "${private.username}";
+    description = "${vars.username}";
     # linger = true;
     extraGroups = [ 
       "dialout"
@@ -38,7 +35,6 @@ in
     shell = pkgs.zsh;
     ignoreShellProgramCheck = false;
   };  
-  # nix.settings.allowed-u
 
   # users.users.testing = {
   #   isNormalUser = true;
@@ -52,7 +48,7 @@ in
   #     "video" 
   #     "libvirtd"
   #     "storage"
-  #     "dailout"
+  #     "dialout"
   #   ];
   #   shell = pkgs.zsh;
   #   ignoreShellProgramCheck = false;

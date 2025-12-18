@@ -1,8 +1,8 @@
-{ private, vars, ... }:
+{ vars, ... }:
 
 let
   wfplugins = import ./plugins.nix; ####################server or client?
-  framesync = if private.hardware == "ASRock" then true else false;
+  framesync = if vars.hardware == "ASRock" then true else false;
 in
 {  
   wayland.windowManager.wayfire.settings = {
@@ -60,7 +60,7 @@ in
       activate = "<alt> <ctrl> BTN_LEFT";
       background = "#1A1A1AFF";
       background_mode = "cubemap";
-      cubemap_image = "/home/${private.username}/nix-config/files/cubemap.png";
+      cubemap_image = "/home/${vars.username}/nix-config/files/cubemap.png";
       deform = 0;
       initial_animation = "350ms circle";
       light = true;

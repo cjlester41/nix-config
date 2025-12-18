@@ -1,15 +1,18 @@
 let 
   defaults = import ../../default-vars.nix;
   overrides = {
+    
+    hardware = "AOC";
+    state-version = "24.11";
 
-    # grid = "3";
-    bar = false;
-    dock = false;
+    grid = "3";
     alpha = "0.90";
-    basecolor = "111111";
-    shader = "glitchy.glsl";
+    basecolor = "000000";
+    shader = "glitchy.glsl -e btop & disown";
     theme = "tokyo-night-dark";
-    background = "glitchy-bg";
+    editor = "zeditor";
+    outter-gap = "0";
+    borders = "False"; 
 
   };
 
