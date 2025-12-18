@@ -130,6 +130,7 @@ time.sleep(.2)
 sock.toggle_expo()
 
 subprocess.run(["pkill", "wf-dock"])
+time.sleep(.2)
 subprocess.Popen("wf-panel")
 while True:
     msg = sock.read_next_event()

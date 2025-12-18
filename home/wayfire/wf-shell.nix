@@ -38,7 +38,7 @@ with config.lib.stylix.colors.withHashtag;
       autohide = vars.hide-bar;
       autohide_duration = 300;
       layer = "top";
-      position = "bottom";
+      position = vars.bar-pos; 
       background_color = base00; 
       # launcher_firefox = "firefox.desktop";
       # launcher_terminal1 = "kitty.desktop";

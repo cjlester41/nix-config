@@ -20,24 +20,25 @@ in
       };
     };
   };
-
+  
+  users.mutableUsers = true;
   users.users.${private.username} = {
     isNormalUser = true;
     description = "${private.username}";
     # linger = true;
     extraGroups = [ 
-      "uucp"
+      "dialout"
       "networkmanager" 
       "wheel" 
-      "audio" 
-      "gamemode" 
-      "video" 
-      "storage"      
-      "tty"
+      # "audio" 
+      # "gamemode" 
+      # "video" 
+      "storage"  
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = false;
-  };
+  };  
+  # nix.settings.allowed-u
 
   # users.users.testing = {
   #   isNormalUser = true;
@@ -57,6 +58,6 @@ in
   #   ignoreShellProgramCheck = false;
   # };
 
-  nix.settings.allowed-users = ["${private.username}"]; 
-  nix.settings.trusted-users = ["${private.username}" "root"]; #devenv?
+  # nix.settings.allowed-users = ["${private.username}"]; 
+  # nix.settings.trusted-users = ["${private.username}" "root"]; #devenv?
 }

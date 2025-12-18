@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, private, ... }:
+{ pkgs, inputs, private, ... }:
 
 {
   imports = [
@@ -32,7 +32,7 @@
     # seatd
     mangohud
     ntfsprogs
-    # arduino-ide
+    arduino-ide    
 
     # appimage-run
     # vulkan-tools
@@ -83,8 +83,14 @@
   #   WAYFIRE_PLUGIN_XML_PATH="/home/cjlester/wayfire-plugins-extra/result/share/wayfire/metadata";
   # };
   
+  # services.udev.extraRules = ''
+    # ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="25a7", ATTRS{idProduct}=="fa34", ATTR{power/wakeup}="disabled"
+  # '';
+  # services.udev.extraRules = ''
+    # KERNEL=="ttyACM0", MODE="0666"
+  # '';
   services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="25a7", ATTRS{idProduct}=="fa34", ATTR{power/wakeup}="disabled"
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0070", MODE:="0666"
   '';
   
 }

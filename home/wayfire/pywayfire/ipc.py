@@ -12,6 +12,7 @@ notile = {"FreeCAD"}
     
 def run_ipc(sock, wpe, alpha, border):  
 
+    sock._option_valuesset({'expo': {'duration': '300ms circle'}})
     script_dir = os.path.dirname(os.path.abspath(__file__))
     launchers = {"EA"}  
 

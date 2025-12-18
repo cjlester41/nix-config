@@ -1,3 +1,5 @@
+{ vars , ... }:
+
 {
   wayland.windowManager.wayfire.settings = {
 
@@ -23,7 +25,7 @@
       command_brightness_up = "brightnessctl s +5%";
       command_browser = "firefox";
       command_clipman = "clipman pick -t wofi";
-      command_editor = "zeditor";
+      command_editor = vars.editor;
       command_gaming = "bash -x ~/nix-config/home/wayfire/shell/gamemode.sh";
       command_launcher = "rofi -show drun";
       command_lock = "hyprlock";

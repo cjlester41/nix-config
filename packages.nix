@@ -38,13 +38,16 @@
     ghostty
     nmgui
     hyprpolkitagent
-    lazygit
         
     # nvd #nix pkg diff
     # zenity # gui dialog boxes
 
     #Coding Stuff
-    python3
+    lazygit
+    platformio 
+    (pkgs.python3.withPackages (ppkgs: [
+      ppkgs.pyserial
+    ]))
     # binutils
     # gcc
     # cmake

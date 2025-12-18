@@ -22,8 +22,7 @@
     # factorio
     minicom
     gimp
-    shaderbg
-    cloudflared
+    arduino-ide
     
   ];  
 
@@ -52,6 +51,9 @@
   #   WAYFIRE_PLUGIN_PATH="/home/cjlester/wf-idle-expo/result/lib/wayfire";
   #   WAYFIRE_PLUGIN_XML_PATH="/home/cjlester/wf-idle-expo/result/share/wayfire/metadata";
   # };
+  services.udev.extraRules = ''
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0070", MODE:="0666"
+  '';
 
   powerManagement.cpuFreqGovernor = "performance";
 }
