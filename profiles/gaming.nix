@@ -39,6 +39,7 @@
     # ananicy-cpp
     # ananicy-rules-cachyos 
     exfatprogs
+    kanata
   
   ];
 
@@ -92,5 +93,20 @@
   services.udev.extraRules = ''
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0070", MODE:="0666"
   '';
-  
+
+  services.kanata = {
+    enable = true;
+    keyboards = {
+      # "logi".devices = [ "/dev/input/by-id/usb-SINO_WEALTH_Gaming_KB-event-kbd" ];
+      "logi".config = ''
+        (defsrc
+          esc tab caps lmet
+        )
+        
+        (deflayer colemak
+          tab esc lmet caps
+        )
+      '';
+    };
+  };  
 }

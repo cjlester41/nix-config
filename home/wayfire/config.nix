@@ -515,15 +515,25 @@ in
     };
 
     workspace-names = {
-      background_color = "#11111111";
+      # background_color = "00000080";
       background_radius = 30.0;
-      display_duration = 9;
+      display_duration = 999;
       font = "sans-serif";
       margin = 0;
-      position = "bottom_center";
-      show_option_names = true;
+      position = "top_right";
+      show_option_names = false;
       show_option_values = true;
-      text_color = "#99999999";
+      # text_color = "#FFFFFF80";
+      HDMI-A-1_workspace_1 = "1";
+      HDMI-A-1_workspace_2 = "2";
+      HDMI-A-1_workspace_3 = "3";
+      HDMI-A-1_workspace_4 = "4";
+      HDMI-A-1_workspace_5 = "5";
+      HDMI-A-1_workspace_6 = "6";
+      HDMI-A-1_workspace_7 = "7";
+      HDMI-A-1_workspace_8 = "8";
+      HDMI-A-1_workspace_9 = "9";
+
     };
 
     wrot = {

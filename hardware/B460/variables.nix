@@ -12,7 +12,7 @@ let
     # bar-pos = "top";
     # borders = "False";
     # outter-gap = 0;
-    # editor = "zeditor";
+    editor = "zeditor";
     # basecolor = "000000";
 
   };

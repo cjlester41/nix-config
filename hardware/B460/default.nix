@@ -1,11 +1,14 @@
-{ lib, pkgs, ... }:
+{ ... }:
 
 {
   stylix.targets = {
     plymouth.enable = false;
   };  
-
+  
+  hardware.uinput.enable = true;
+  
   boot = {
+    kernelModules = [ "uinput" ];
     # kernelPackages = pkgs.linuxPackages_latest;
     # plymouth = {
     #   enable = true;

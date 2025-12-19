@@ -27,6 +27,7 @@
       "dialout"
       "networkmanager" 
       "wheel" 
+      "uinput"
       # "audio" 
       # "gamemode" 
       # "video" 

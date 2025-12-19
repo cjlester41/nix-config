@@ -31,8 +31,6 @@
     zoxide # cd tool. implemented? 
     candy-icons
     sweet-folders
-    nwg-drawer
-    networkmanagerapplet
     nix-output-monitor
     vlc
     ghostty
