@@ -2,7 +2,7 @@
   
   plugins = 
     "wm-actions " + 
-    # "idle " + 
+    "idle-expo " + 
     "alpha " + 
     "command " +
     "grid " + 
@@ -28,6 +28,8 @@
     "ipc-rules " + 
     "pin-view " + 
     "simple-tile " + 
+    "wayfire-shadows " +
+    "workspace-names " +
     # "window-rules " + 
     "extra-animations " + 
     # "wf-info " +

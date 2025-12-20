@@ -1,43 +1,41 @@
-{ pkgs, inputs, config, private, ...}:
+{ pkgs, inputs, vars, ...}:
 
-let
-  hostnm = config.networking.hostName;
-in
 {
   imports = [inputs.home-manager.nixosModules.home-manager];
   home-manager = {
     # useUserPackages = true;
     useGlobalPkgs = true;
     backupFileExtension = "bak";
-    extraSpecialArgs = {inherit inputs private hostnm;};
-    users.${private.username} = { 
+    extraSpecialArgs = {inherit inputs vars;};
+    users.${vars.username} = { 
       # _module.args = {  };
       imports = [./home];
       home = {
-        username = "${private.username}"; 
-        homeDirectory = "/home/${private.username}";
-        stateVersion = "25.05";
+        username = "${vars.username}"; 
+        homeDirectory = "/home/${vars.username}";
+        stateVersion = vars.state-version;
       };
     };
   };
-
-  users.users.${private.username} = {
+  
+  # users.mutableUsers = true;
+  users.users.${vars.username} = {
     isNormalUser = true;
-    description = "${private.username}";
+    description = "${vars.username}";
     # linger = true;
     extraGroups = [ 
-      "uucp"
+      "dialout"
       "networkmanager" 
       "wheel" 
-      "audio" 
-      "gamemode" 
-      "video" 
-      "storage"      
-      "tty"
+      "uinput"
+      # "audio" 
+      # "gamemode" 
+      # "video" 
+      "storage"  
     ];
     shell = pkgs.zsh;
     ignoreShellProgramCheck = false;
-  };
+  };  
 
   # users.users.testing = {
   #   isNormalUser = true;
@@ -51,12 +49,12 @@ in
   #     "video" 
   #     "libvirtd"
   #     "storage"
-  #     "dailout"
+  #     "dialout"
   #   ];
   #   shell = pkgs.zsh;
   #   ignoreShellProgramCheck = false;
   # };
 
-  nix.settings.allowed-users = ["${private.username}"]; 
-  nix.settings.trusted-users = ["${private.username}" "root"]; #devenv?
+  # nix.settings.allowed-users = ["${private.username}"]; 
+  # nix.settings.trusted-users = ["${private.username}" "root"]; #devenv?
 }

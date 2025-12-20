@@ -1,3 +1,5 @@
+{ vars , ... }:
+
 {
   wayland.windowManager.wayfire.settings = {
 
@@ -11,7 +13,7 @@
       binding_launcher = "<super> KEY_A";
       binding_lock = "<super> <shift> KEY_ESC";
       binding_logout = "<super> KEY_ESC";
-      binding_media-play-pause = "KEY_PLAYPAUSE";
+      binding_media-play-pause = "<super> KEY_P";
       binding_media-stop = "KEY_STOPCD";
       binding_mute = "KEY_MUTE";
       binding_screenshot = "KEY_SYSRQ | KEY_PRINT";
@@ -23,7 +25,7 @@
       command_brightness_up = "brightnessctl s +5%";
       command_browser = "firefox";
       command_clipman = "clipman pick -t wofi";
-      command_editor = "code";
+      command_editor = vars.editor;
       command_gaming = "bash -x ~/nix-config/home/wayfire/shell/gamemode.sh";
       command_launcher = "rofi -show drun";
       command_lock = "hyprlock";

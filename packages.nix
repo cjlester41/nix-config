@@ -1,18 +1,20 @@
-{ pkgs, config, inputs, lib, private, ... }:
+{ pkgs, vars, ... }:
 
 {
   environment.systemPackages = with pkgs; [
   
-    micro 
+    shaderbg
     libnotify
     # caligula
     galculator  
     dysk
     hyprlock
     tuigreet
+    playerctl
 
     # utils
     # advcpmv need alternative
+    vim
     eza
     nmap
     blueman
@@ -29,8 +31,6 @@
     zoxide # cd tool. implemented? 
     candy-icons
     sweet-folders
-    nwg-drawer
-    networkmanagerapplet
     nix-output-monitor
     vlc
     ghostty
@@ -41,7 +41,11 @@
     # zenity # gui dialog boxes
 
     #Coding Stuff
-    python3
+    lazygit
+    platformio 
+    (pkgs.python3.withPackages (ppkgs: [
+      ppkgs.pyserial
+    ]))
     # binutils
     # gcc
     # cmake
@@ -63,12 +67,38 @@
         enable = true;
         extraArgs = "--keep-since 7d --keep 5";
       };
-      flake = "/home/${private.username}/nix-config"; 
+      flake = "/home/${vars.username}/nix-config"; 
     };     
+
+    # nvf = {
+    #   enable = false;
+    #   settings.vim = {
+    #     vimAlias = true;
+    #     lsp = {
+    #       enable = true;
+    #     };
+    #     # vim.theme.enable = true;
+    #     # vim.theme.name = lib.mkForce "gruvbox";
+    #     # vim.theme.style = "dark";
+
+    #     languages = {
+    #       enableTreesitter = true;
+    #       lua.enable = true;
+    #       python.enable = true;
+    #       nix.enable = true;
+    #     };
+
+    #     statusline.lualine.enable = true;
+    #     telescope.enable = true;
+    #     autocomplete.nvim-cmp.enable = true;
+    #     filetree.neo-tree.enable = true;
+    #     minimap.minimap-vim.enable = true;
+    #   };
+    # };
   }; 
 
   nixpkgs.config.packageOverrides = pkgs: {
-    live-previews = pkgs.callPackage ./home/wayfire/live-previews {};
+    idle-expo = pkgs.callPackage ./home/wayfire/idle-expo {};
   };
 
   # xdg.portal.enable = true;

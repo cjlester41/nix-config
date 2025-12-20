@@ -5,7 +5,7 @@ sock = WayfireSocket()
 wpe = WPE(sock)
 sock.watch()
 
-views = sock.list_views(filter_mapped_toplevel=True)
+views = sock.list_views(filter_mapped_toplevel=False)
 
 for view in views:
     print(view)

@@ -6,7 +6,7 @@
   };  
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
     plymouth = {
       enable = false;
       theme = "rings";

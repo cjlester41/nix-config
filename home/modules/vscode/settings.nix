@@ -6,6 +6,7 @@
         "OZONE" = "wayland";
         "PYTHONDONTWRITEBYTECODE" = "1";
       }; 
+      "terminal.integrated.suggest.enabled" = false;
       "git.autofetch" = true;
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;
@@ -17,7 +18,7 @@
       "update.mode" = "none";
       "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
       "window.titleBarStyle" = "native"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
-
+      "platformio-ide.showEditorTitleShortcuts" = true;
       # # "window.menuBarVisibility" = "toggle";
       # # "editor.fontFamily" = "'Maple Mono', 'SymbolsNerdFont', 'monospace', monospace";
       # # "terminal.integrated.fontFamily" = "'Maple Mono', 'SymbolsNerdFont'";

@@ -2,21 +2,18 @@
   inputs = {
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    stylix.url = "github:danth/stylix";  
+    home-manager.url = "github:nix-community/home-manager";    
+    stylix.url = "github:nix-community/stylix";  
+    nvf.url = "github:notashelf/nvf";
+    # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # firefox-addons = { 
     #   url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons"; 
     #   inputs.nixpkgs.follows = "nixpkgs"; 
     # };
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: let       
+  outputs = { self, nixpkgs, home-manager, nvf, ... }@inputs: let       
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
@@ -27,10 +24,12 @@
         inherit system;
         modules = [
           ./profiles/gaming.nix
+          nvf.nixosModules.default
         ];
         specialArgs = {
           inherit inputs;
           private = import ./hardware/B460/private.nix;
+          vars = import ./hardware/B460/variables.nix;
         };
       };
 
@@ -42,6 +41,7 @@
         specialArgs = {
           inherit inputs;
           private = import ./hardware/AOC/private.nix;
+          vars = import ./hardware/AOC/variables.nix;
         };
       };
 
@@ -53,6 +53,7 @@
         specialArgs = {
       	  inherit inputs;
           private = import ./hardware/sS7/private.nix;
+          vars = import ./hardware/sS7/variables.nix;
         };
       };
 
@@ -64,6 +65,7 @@
         specialArgs = {
           inherit inputs;
           private = import ./hardware/ASRock/private.nix;
+          vars = import ./hardware/ASRock/variables.nix;
         };
       };
     };

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, private, ... }:
+{ pkgs, inputs, private, ... }:
 
 {
   imports = [
@@ -32,13 +32,15 @@
     # seatd
     mangohud
     ntfsprogs
-    # arduino-ide
+    arduino-ide    
 
     # appimage-run
     # vulkan-tools
     # ananicy-cpp
     # ananicy-rules-cachyos 
-    
+    exfatprogs
+    kanata
+  
   ];
 
   programs = {
@@ -77,13 +79,34 @@
   #   SUBSYSTEM=="usb", ATTRS{idVendor}=="3343", ATTRS{idProduct}=="0043", MODE="0664", GROUP="dialout"
   # '';
 
-  environment.variables = {
-    WAYFIRE_PLUGIN_PATH="/home/cjlester/wayfire-plugins-extra/result/lib/wayfire";
-    WAYFIRE_PLUGIN_XML_PATH="/home/cjlester/wayfire-plugins-extra/result/share/wayfire/metadata";
-  };
+  # environment.variables = {
+  #   WAYFIRE_PLUGIN_PATH="/home/cjlester/wayfire-plugins-extra/result/lib/wayfire";
+  #   WAYFIRE_PLUGIN_XML_PATH="/home/cjlester/wayfire-plugins-extra/result/share/wayfire/metadata";
+  # };
   
+  # services.udev.extraRules = ''
+    # ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="25a7", ATTRS{idProduct}=="fa34", ATTR{power/wakeup}="disabled"
+  # '';
+  # services.udev.extraRules = ''
+    # KERNEL=="ttyACM0", MODE="0666"
+  # '';
   services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="25a7", ATTRS{idProduct}=="fa34", ATTR{power/wakeup}="disabled"
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0070", MODE:="0666"
   '';
-  
+
+  services.kanata = {
+    enable = true;
+    keyboards = {
+      # "logi".devices = [ "/dev/input/by-id/usb-SINO_WEALTH_Gaming_KB-event-kbd" ];
+      "logi".config = ''
+        (defsrc
+          esc tab caps lmet
+        )
+        
+        (deflayer colemak
+          tab esc lmet caps
+        )
+      '';
+    };
+  };  
 }

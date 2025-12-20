@@ -1,15 +1,18 @@
+import os
+import subprocess
+import sys
+
 from wayfire import WayfireSocket
 from wayfire.extra.wpe import WPE
-import subprocess, os
 
 sock = WayfireSocket()
 wpe = WPE(sock)
 
-alpha = .8
 notile = {"FreeCAD"}
     
-def run_ipc(sock, wpe):  
+def run_ipc(sock, wpe, alpha, border):  
 
+    sock._option_valuesset({'expo': {'duration': '300ms circle'}})
     script_dir = os.path.dirname(os.path.abspath(__file__))
     launchers = {"EA"}  
 
@@ -20,7 +23,7 @@ def run_ipc(sock, wpe):
         # if (msg["event"] in {"view-mapped", "view-unmapped", "view-fullscreen"}) and msg["view"]["title"] != "nil":
         try:
             print(msg["event"] + ": " + str(msg["view"]["id"]) + ": " + msg["view"]["app-id"] + ": " + msg["view"]["title"])
-        except: continue
+        except: continue  # noqa: E701, E722
 
         if "view-mapped" in msg["event"]:
             view = msg["view"]
@@ -38,29 +41,32 @@ def run_ipc(sock, wpe):
                     sock._option_valuesset({'follow-focus': {'change_view': 'false'}})
                     if view["geometry"]["x"] == 0 and view["title"] not in launchers:
                         subprocess.run(["pkill", "ghostty"]) 
-                except: subprocess.run(["pkill", "ghostty"]) 
+                except: subprocess.run(["pkill", "ghostty"])  # noqa: E701, E722
 
             elif view["type"] == "toplevel":            
-                wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
+                if border == "True":
+                    wpe.set_view_shader(view["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
                 sock.set_view_alpha(view["id"], alpha)        
 
         elif msg["event"] == "view-fullscreen":
 
-            if msg["view"]["fullscreen"] == True:
+            if msg["view"]["fullscreen"]:
                 if "steam_app" in msg["view"]["app-id"] and msg["view"]["title"] not in launchers: 
                     subprocess.run(["pkill", "ghostty"]) 
                 try:
                     sock.set_view_alpha(msg["view"]["id"], 1)
-                    wpe.unset_view_shader(msg["view"]["id"])
-                except: continue
+                    if border == "True":
+                        wpe.unset_view_shader(msg["view"]["id"])
+                except: continue  # noqa: E701, E722
 
-            elif msg["view"]["fullscreen"] == False:
+            elif not msg["view"]["fullscreen"]:
                 sock.set_view_alpha(msg["view"]["id"], alpha)
-                wpe.set_view_shader(msg["view"]["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
+                if border == "True":
+                    wpe.set_view_shader(msg["view"]["id"], os.path.join(script_dir, "wayfire/rounded-corners.glsl"))
         
         elif msg["event"] == "view-unmapped" and "steam_app" in msg["view"]["app-id"]:            
 
-            if msg["view"]["fullscreen"] == True and msg["view"]["title"] not in launchers:
+            if msg["view"]["fullscreen"] and msg["view"]["title"] not in launchers:
                 subprocess.run(["restart-bg"])                            
                 sock._option_valuesset({'follow-focus': {'change_view': 'true'}})
 
@@ -78,4 +84,4 @@ def run_ipc(sock, wpe):
 if __name__ == "__main__":
 
     sock.watch()
-    run_ipc(sock, wpe)
+    run_ipc(sock, wpe, alpha=float(sys.argv[1]), border=sys.argv[2])

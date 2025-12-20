@@ -1,21 +1,15 @@
-{ config, pkgs, inputs, lib, private, ... }:
+{ config, pkgs, lib, vars, ... }:
 
 with config.lib.stylix.colors.withHashtag;
-let background = 
-  if private.hardware == "AOC" then
-    "glitchy.glsl -e btop"    
-  else
-    "sunset.glsl";
-in
+
 {
   imports = [ 
     
     ./modules/fastfetch  
     ./modules/waybar/bezier-dark.nix
     ./modules/kitty.nix
-    ./modules/foot.nix
-    # ./modules/micro.nix
-    ./modules/rofi
+    # ./modules/foot.nix
+    # ./modules/rofi
     ./modules/nemo.nix
     ./modules/hyprlock.nix
     # ./modules/cava.nix
@@ -26,6 +20,7 @@ in
     ./wayfire
     ./modules/zsh
     ./modules/wlogout
+    ./modules/zed.nix
     # ./modules/swayidle.nix
   ];
  
@@ -33,7 +28,12 @@ in
 
     (writeShellScriptBin "restart-bg" ''
       pkill ghostty
-      ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/${background} & disown
+      ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/${vars.shader} & disown
+    '')
+
+    (writeShellScriptBin "start-bg" ''
+      pkill ghostty
+      ghostty --custom-shader-animation=always --custom-shader=~/nix-config/files/shaders/smoke.glsl & disown
     '')
 
     (writeShellScriptBin "glitchy-bg" ''
@@ -51,29 +51,16 @@ in
 
     (writeShellScriptBin "restart-ipc" ''
       pkill python
-      python ~/nix-config/home/wayfire/pywayfire/ipc.py >/dev/null 2>&1 &  
+      python ~/nix-config/home/wayfire/pywayfire/ipc.py ${vars.alpha} ${vars.borders} >/dev/null 2>&1 &  
     '')
 
     (writeShellScriptBin "expo" ''
       python ~/nix-config/home/wayfire/pywayfire/expo.py >/dev/null 2>&1 &  
     '')
 
-    # (pkgs.writeShellScriptBin "startup" ''
-    #   while true; do
-    #     for file in "$HOME/nix-config/files/shaders"/*; do
-    #       if [ -f "$file" ]; then
-    #         while IFS= read -r line; do
-    #           echo "$line" | lolcat
-    #         done < "$file"
-    #       fi
-    #     done
-    #   done
-    # '')
-
     (writeShellScriptBin "list-keybinds" ''
       notify-send "keybinds" "$(cat ~/nix-config/files/bindings.txt)"  
     '')
-    
 
     xdg-user-dirs
 
@@ -102,8 +89,8 @@ in
     git = {
       enable = true;
       settings = {
-        user.name = private.git-name;
-        user.email = private.git-mail;
+        user.name = vars.git-name;
+        user.email = vars.git-mail;
         init.defaultBranch = "main";
         pull.rebase = false;
       };
