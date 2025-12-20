@@ -8,7 +8,7 @@
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest;
     plymouth = {
-      enable = true;
+      enable = false;
       theme = "rings";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
@@ -22,7 +22,7 @@
     
     ./hardware-configuration.nix
     ./amd-gpu.nix
-    ./filesystems.nix
+    # ./filesystems.nix
 
   ];
 }

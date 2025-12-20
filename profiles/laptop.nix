@@ -9,12 +9,18 @@
     ../packages.nix
     ../user.nix
     ../services.nix
-    ../boot.nix
   ];
 
   networking.hostName = "NixOS-S7";
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
+
+  boot.loader = {
+      systemd-boot.enable = lib.mkForce false;
+      grub.enable = true;
+      grub.device = "/dev/sda";
+      grub.useOSProber = true;
+  };
 
   environment.systemPackages = with pkgs; [
 
@@ -22,7 +28,7 @@
 
   ];
 
-  services.logind.lidSwitch = "sleep";
+  services.logind.settings.Login.HandleLidSwitch = "sleep";
 
   swapDevices = [{
     device = "/swapfile";

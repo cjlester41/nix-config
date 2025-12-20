@@ -2,7 +2,7 @@
 
 let background = 
   if private.hardware == "sS7" then
-    "wf-background"
+    "swaybg -i ~/nix-config/files/nix-dark.png"
   else
     "restart-bg";
 in
@@ -59,7 +59,7 @@ in
 
       settings.background = {
 
-        image = "/home/${private.username}/nix-config/files/black.jpg";
+        image = "/home/${private.username}/nix-config/files/nix-dark.png";
         fill_mode = "stretch";
       
       };
