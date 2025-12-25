@@ -55,6 +55,6 @@
   #   ignoreShellProgramCheck = false;
   # };
 
-  # nix.settings.allowed-users = ["${private.username}"]; 
-  # nix.settings.trusted-users = ["${private.username}" "root"]; #devenv?
+  # nix.settings.allowed-users = ["${vars.username}"]; 
+  # nix.settings.trusted-users = ["${vars.username}" "root"]; #devenv?
 }

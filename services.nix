@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, private, ... }:
+{ pkgs, vars, ... }:
 
 let
   cfg = "~/.config/wayfire";
@@ -49,11 +49,11 @@ in
       settings = let
         cmd = "wayfire"; in { # --config ~/nix-config/files/wayfire.ini"; in {#ln -sf ${cfg}.ini ${cfg} & sleep 2 & wayfire"; in {# -c ${cfg}"; in {
         initial_session = {
-          user = "${private.username}";
-          command = "${private.isession}";
+          user = "${vars.username}";
+          command = "wayfire";
         };
         default_session = {
-          user = "greeter"; #"${private.username}";
+          user = "greeter";
           command = "${pkgs.tuigreet}/bin/tuigreet --remember -c ${cmd}"; ########         
         };
       };

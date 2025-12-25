@@ -1,4 +1,4 @@
-{ lib, config, private, ... }:
+{ vars, ... }:
 
 {
 #   fileSystems."/home" = {
@@ -13,7 +13,7 @@
 #       options = [ "fmask=0077" "dmask=0077" ];
 #     };
 
-#   fileSystems."/home/${private.username}/win11" = {
+#   fileSystems."/home/${vars.username}/win11" = {
 #     device = "/dev/disk/by-uuid/724A76E34A76A40F";
 #     fsType = "ntfs";
 #   };

@@ -1,9 +1,9 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, private, ... }:
+{ pkgs, inputs, lib, vars, ... }:
 
 {
   imports = [
     inputs.stylix.nixosModules.stylix
-    ../hardware/${private.hardware}
+    ../hardware/${vars.hardware}
     ../common.nix
     ../stylix.nix
     ../packages.nix

@@ -1,4 +1,4 @@
-{ lib, config, private, ... }:
+{ vars, ... }:
 
 {
   fileSystems."/home" = {
@@ -7,13 +7,13 @@
     options = [ "nofail" ];
   };
 
-#   fileSystems."/home/${private.username}/steam" = {
+#   fileSystems."/home/${vars.username}/steam" = {
 #     device = "/dev/disk/by-uuid/7c63130c-adf0-48fe-94ab-cda7181379d1";
 #     fsType = "ext4";
 #     options = [ "exec" ];
 #   };
 
-#   fileSystems."/home/${private.username}/win11" = {
+#   fileSystems."/home/${vars.username}/win11" = {
 #     device = "/dev/disk/by-uuid/724A76E34A76A40F";
 #     fsType = "ntfs";
 #   };

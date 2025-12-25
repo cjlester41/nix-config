@@ -1,9 +1,9 @@
-{ pkgs, inputs, private, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
     inputs.stylix.nixosModules.stylix
-    ../hardware/${private.hardware}
+    ../hardware/${vars.hardware}
     ../common.nix
     ../stylix.nix
     ../packages.nix

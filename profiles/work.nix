@@ -43,7 +43,7 @@
 
   # nixpkgs.config.packageOverrides = pkgs: {
   #   factorio = pkgs.factorio.override {
-  #     username = private.git-name;
+  #     username = vars.git-name;
   #     token = "";
   #   };
   # };
@@ -56,16 +56,18 @@
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0070", MODE:="0666"
   '';
   
+  services.udev.packages = with pkgs; [ platformio-core.udev ];
+  
   services.kanata = {
     enable = true;
     keyboards = {
       "logi".config = ''
         (defsrc
-          esc tab caps lmet
+          esc caps
         )
         
         (deflayer colemak
-          tab esc lmet caps
+          caps esc
         )
       '';
     };

@@ -5,15 +5,15 @@ let
     hardware = "B460";
     state-version = "25.05";
     
-    # grid = "3";
-    # alpha = "0.9";
-    # # theme = "tokyo-night-dark";
-    # hide-bar = true;
+    grid = "3";
+    alpha = "0.9";
+    theme = "tokyo-night-dark";
+    hide-bar = true;
     # bar-pos = "top";
-    # borders = "False";
-    # outter-gap = 0;
+    borders = "False";
+    gap-size = 0;
     editor = "zeditor";
-    # basecolor = "000000";
+    basecolor = "000000";
 
   };
 
