@@ -19,6 +19,15 @@
       "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
       "window.titleBarStyle" = "native"; # needed otherwise vscode crashes, see https://github.com/NixOS/nixpkgs/issues/246509
       "platformio-ide.showEditorTitleShortcuts" = true;
+      "files.exclude" = {
+        "**/.git" = true;
+        "**/.lock" = true;
+        "**/target" = true;
+        "**/dist" = true;
+        "**/build" = true;
+        "**/out" = true;
+        "**/bin" = true;
+      };
       # # "window.menuBarVisibility" = "toggle";
       # # "editor.fontFamily" = "'Maple Mono', 'SymbolsNerdFont', 'monospace', monospace";
       # # "terminal.integrated.fontFamily" = "'Maple Mono', 'SymbolsNerdFont'";

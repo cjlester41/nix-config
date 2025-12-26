@@ -5,10 +5,10 @@ let
     hardware = "B460";
     state-version = "25.05";
     
-    # grid = "3";
+    grid = "3";
     # alpha = "0.9";
     # # theme = "tokyo-night-dark";
-    # hide-bar = true;
+    hide-bar = true;
     # bar-pos = "top";
     # borders = "False";
     # outter-gap = 0;

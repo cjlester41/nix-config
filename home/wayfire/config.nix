@@ -524,15 +524,15 @@ in
       show_option_names = false;
       show_option_values = true;
       # text_color = "#FFFFFF80";
-      HDMI-A-1_workspace_1 = "1";
-      HDMI-A-1_workspace_2 = "2";
-      HDMI-A-1_workspace_3 = "3";
-      HDMI-A-1_workspace_4 = "4";
-      HDMI-A-1_workspace_5 = "5";
-      HDMI-A-1_workspace_6 = "6";
-      HDMI-A-1_workspace_7 = "7";
-      HDMI-A-1_workspace_8 = "8";
-      HDMI-A-1_workspace_9 = "9";
+      HDMI-A-1_workspace_1 = "TL";
+      HDMI-A-1_workspace_2 = "TC";
+      HDMI-A-1_workspace_3 = "TR";
+      HDMI-A-1_workspace_4 = "ML";
+      HDMI-A-1_workspace_5 = "MC";
+      HDMI-A-1_workspace_6 = "MR";
+      HDMI-A-1_workspace_7 = "BL";
+      HDMI-A-1_workspace_8 = "BC";
+      HDMI-A-1_workspace_9 = "BR";
 
     };
 

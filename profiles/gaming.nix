@@ -32,7 +32,8 @@
     # seatd
     mangohud
     ntfsprogs
-    arduino-ide    
+    arduino-ide   
+    rpi-imager 
 
     # appimage-run
     # vulkan-tools
