@@ -3,6 +3,9 @@
 let
   wfplugins = import ./plugins.nix; ####################server or client?
   framesync = if vars.hardware == "ASRock" then true else false;
+  idle-expo = if vars.idle-expo then "idle-expo " else "";
+  ws-labels = if vars.grid == "3" then "workspace-names " else "";
+  wf-deform = if vars.grid == "3" then 1 else 0;
 in
 {  
   wayland.windowManager.wayfire.settings = {
@@ -35,14 +38,14 @@ in
     };            
 
     core = {
-      background_color = "#1A1A1AFF";
+      background_color = "#000000FF";
       close_top_view = "<super> KEY_Q | <alt> KEY_F4";
       exit = "<alt> <ctrl> KEY_BACKSPACE";
       focus_button_with_modifiers = false;
       focus_buttons = "BTN_LEFT | BTN_MIDDLE | BTN_RIGHT";
       focus_buttons_passthrough = true;
       max_render_time = -1;
-      plugins = wfplugins.plugins;
+      plugins = wfplugins.plugins + idle-expo + ws-labels;
       preferred_decoration_mode = "server";
       transaction_timeout = 100;
       vheight = vars.grid;
@@ -61,7 +64,7 @@ in
       background = "#1A1A1AFF";
       background_mode = "cubemap";
       cubemap_image = "/home/${vars.username}/nix-config/files/cubemap.png";
-      deform = 0;
+      deform = wf-deform;
       initial_animation = "350ms circle";
       light = true;
       rotate_left = "<super> KEY_LEFT";
@@ -380,15 +383,15 @@ in
       animation_duration = "20ms circle";
       button_move = "<super> BTN_LEFT";
       button_resize = "<super> BTN_RIGHT";
-      inner_gap_size = 3;
+      inner_gap_size = vars.gap-size;
       keep_fullscreen_on_adjacent = true;
       key_focus_above = "<super> KEY_K";
       key_focus_below = "<super> KEY_J";
       key_focus_left = "<super> KEY_H";
       key_focus_right = "<super> KEY_L";
       key_toggle = "<super> KEY_SPACE";
-      outer_horiz_gap_size = vars.outter-gap;
-      outer_vert_gap_size = vars.outter-gap;
+      outer_horiz_gap_size = vars.gap-size * 2;
+      outer_vert_gap_size = vars.gap-size * 2;
       preview_base_border = "#404080CC";
       preview_base_color = "#8080FF80";
       preview_border_width = 2;

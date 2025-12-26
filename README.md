@@ -30,15 +30,6 @@ reboot
 
 sudo nmtui
 git clone https://github.com/cjlester41/nix-config.git
-sudo su -
-cd ..
-mkdir private
-cd private
-cp ~/nix-config/files/private.nix .
-mv private.nix flake.nix
-micro flake.nix
-exit
-
 cd nix-config
 nix flake update
 cp /etc/nixos/hardware-configuration.nix hardware/ASRock
@@ -53,13 +44,10 @@ mkdir themes
 cd themes
 git clone https://github.com/peteyyz/refind-neon.git neon
 cd img
-cp os_steamos.png os_systemd.png
+cp ~/nix-config/files/nixos-dark-512.png os_systemd.png
 cd ..
 cd ..
 micro refind.conf
 # include themes/neon/theme.conf
 
 modify .mozilla/**/userChrome.css
-modify .config/nwg-drawer/drawer.css
-install kill-gamescope.sh
-modify private.isession

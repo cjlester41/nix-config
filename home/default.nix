@@ -143,8 +143,8 @@ with config.lib.stylix.colors.withHashtag;
 #           # [ ./modules/../modules/home/default.desktop.nix ]
 #         # else
 #           # [ ./modules/../modules/home ];
-#       home.username = "${private.username}"; 
-#       home.homeDirectory = "/home/${private.username}"; 
+#       home.username = "${vars.username}"; 
+#       home.homeDirectory = "/home/${vars.username}"; 
 #       home.stateVersion = "24.11";
 #       programs.home-manager.enable = true;
     
@@ -152,8 +152,8 @@ with config.lib.stylix.colors.withHashtag;
 
 #   # Home Manager needs a bit of information about you and the paths it should
 #   # manage.
-#   home.username = "${private.username}";
-#   home.homeDirectory = "/home/${private.username}";
+#   home.username = "${vars.username}";
+#   home.homeDirectory = "/home/${vars.username}";
 
 #   # This value determines the Home Manager release that your configuration is
 #   # compatible with. This helps avoid breakage when a new Home Manager release

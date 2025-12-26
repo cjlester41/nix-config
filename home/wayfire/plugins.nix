@@ -2,7 +2,7 @@
   
   plugins = 
     "wm-actions " + 
-    "idle-expo " + 
+    # "idle-expo " + 
     "alpha " + 
     "command " +
     "grid " + 
@@ -29,7 +29,7 @@
     "pin-view " + 
     "simple-tile " + 
     "wayfire-shadows " +
-    "workspace-names " +
+    # "workspace-names " +
     # "window-rules " + 
     "extra-animations " + 
     # "wf-info " +
@@ -37,7 +37,7 @@
     "wayfire-shell " +
     "wsets " +
     "foreign-toplevel " +
-    "live-previews " +
-    "session-lock";
+    # "live-previews " +
+    "session-lock ";
             
 }

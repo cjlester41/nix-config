@@ -12,5 +12,6 @@
   git-name = "cjlester41";
   git-mail = "";
   borders = "True"; 
-  outter-gap = 6;
+  gap-size = 3;
+  idle-expo = false;
 }

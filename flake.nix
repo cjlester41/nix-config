@@ -4,7 +4,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";    
     stylix.url = "github:nix-community/stylix";  
-    nvf.url = "github:notashelf/nvf";
+    # nvf.url = "github:notashelf/nvf";
     # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # firefox-addons = { 
@@ -13,9 +13,9 @@
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, nvf, ... }@inputs: let       
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: let       
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    # pkgs = nixpkgs.legacyPackages.${system};
 
   in { 
     nixosConfigurations = {
@@ -24,11 +24,9 @@
         inherit system;
         modules = [
           ./profiles/gaming.nix
-          nvf.nixosModules.default
         ];
         specialArgs = {
           inherit inputs;
-          private = import ./hardware/B460/private.nix;
           vars = import ./hardware/B460/variables.nix;
         };
       };
@@ -40,7 +38,6 @@
         ];
         specialArgs = {
           inherit inputs;
-          private = import ./hardware/AOC/private.nix;
           vars = import ./hardware/AOC/variables.nix;
         };
       };
@@ -52,7 +49,6 @@
         ];
         specialArgs = {
       	  inherit inputs;
-          private = import ./hardware/sS7/private.nix;
           vars = import ./hardware/sS7/variables.nix;
         };
       };
@@ -64,7 +60,6 @@
         ];
         specialArgs = {
           inherit inputs;
-          private = import ./hardware/ASRock/private.nix;
           vars = import ./hardware/ASRock/variables.nix;
         };
       };
