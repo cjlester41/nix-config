@@ -1,5 +1,3 @@
-{ config, pkgs, inputs, lib, chaotic, nix-gaming, ... }: 
-
 {
   xdg.icons.enable = true;
   # gtk = {
