@@ -23,8 +23,9 @@ with config.lib.stylix.colors.withHashtag;
 
     settings.background = {
 
-      image = "/home/${vars.username}/nix-config/files/black.jpg";
+      # image = "/home/${vars.username}/nix-config/files/black.jpg";
       fill_mode = "stretch";
+      background_color = "0.1 0.1 0.1 1.0";
     
     };
 

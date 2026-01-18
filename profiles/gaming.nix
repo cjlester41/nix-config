@@ -1,30 +1,9 @@
 { pkgs, inputs, vars,... }:
 
 {
-  imports = [
-    inputs.stylix.nixosModules.stylix
-    ../hardware/${vars.hardware}
-    ../common.nix
-    ../stylix.nix
-    ../packages.nix
-    ../user.nix
-    ../services.nix
-  ];
-
-  system.stateVersion = "25.05";
-
-  networking = {
-    hostName = "NixOS-B460";
-    networkmanager.dns = "none";
-    # useDHCP = false;
-    # dhcpcd.enable = false;
-  };
-  
   environment.systemPackages = with pkgs; [
 
     # steam-run  
-    gimp  
-    spotify-player
     # bottles
     # lutris
     # protontricks
@@ -32,15 +11,12 @@
     # seatd
     mangohud
     ntfsprogs
-    arduino-ide   
-    rpi-imager 
 
     # appimage-run
     # vulkan-tools
     # ananicy-cpp
     # ananicy-rules-cachyos 
     exfatprogs
-    kanata
   
   ];
 
@@ -91,23 +67,4 @@
   # services.udev.extraRules = ''
     # KERNEL=="ttyACM0", MODE="0666"
   # '';
-  services.udev.extraRules = ''
-    SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", ATTRS{idProduct}=="0070", MODE:="0666"
-  '';
-
-  services.kanata = {
-    enable = true;
-    keyboards = {
-      # "logi".devices = [ "/dev/input/by-id/usb-SINO_WEALTH_Gaming_KB-event-kbd" ];
-      "logi".config = ''
-        (defsrc
-          esc tab caps lmet
-        )
-        
-        (deflayer colemak
-          tab esc lmet caps
-        )
-      '';
-    };
-  };  
 }

@@ -4,6 +4,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";    
     stylix.url = "github:nix-community/stylix";  
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # nvf.url = "github:notashelf/nvf";
     # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
@@ -22,9 +26,7 @@
 
       NixOS-B460 = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [
-          ./profiles/gaming.nix
-        ];
+        modules = [ ./hardware/B460 ];
         specialArgs = {
           inherit inputs;
           vars = import ./hardware/B460/variables.nix;
@@ -33,9 +35,7 @@
 
       NixOS-AOC = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [
-          ./profiles/work.nix
-        ];
+        modules = [ ./hardware/AOC ];
         specialArgs = {
           inherit inputs;
           vars = import ./hardware/AOC/variables.nix;

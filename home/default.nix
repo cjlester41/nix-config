@@ -5,6 +5,7 @@ with config.lib.stylix.colors.withHashtag;
 {
   imports = [ 
     
+    ./modules/anyrun.nix
     ./modules/fastfetch  
     ./modules/waybar/bezier-dark.nix
     ./modules/kitty.nix
@@ -15,7 +16,7 @@ with config.lib.stylix.colors.withHashtag;
     # ./modules/cava.nix
     ./modules/firefox.nix
     ./modules/btop.nix
-    ./modules/vscode
+    # ./modules/vscode
     ./modules/swaync.nix
     ./wayfire
     ./modules/zsh

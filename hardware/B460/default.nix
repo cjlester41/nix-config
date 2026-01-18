@@ -1,6 +1,34 @@
-{ ... }:
+{ inputs, ... }:
 
 {
+  imports = [
+    inputs.stylix.nixosModules.stylix
+    # ${vars.hardware}
+    ../../common.nix
+    ../../stylix.nix
+    ../../packages.nix
+    ../../user.nix
+    ../../services.nix   
+   
+    ./hardware-configuration.nix
+    ./intel-gpu.nix
+    ./filesystems.nix
+
+    ../../profiles/development.nix
+    ../../profiles/remotedev.nix 
+    ../../profiles/gaming.nix 
+  ];
+  
+  networking = {
+    hostName = "NixOS-B460";
+    networkmanager.dns = "none";
+    # useDHCP = false;
+    # dhcpcd.enable = false;
+  };
+  
+  system.stateVersion = "25.05";
+  powerManagement.cpuFreqGovernor = "performance";
+  
   stylix.targets = {
     plymouth.enable = false;
   };  
@@ -20,12 +48,4 @@
     #   ];
     # };
   };
-  
-  imports = [ 
-    
-    ./hardware-configuration.nix
-    ./amd-gpu.nix
-    ./filesystems.nix
-
-  ];
 }
