@@ -4,10 +4,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";    
     stylix.url = "github:nix-community/stylix";  
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    niri-flake.url = "github:sodiboo/niri-flake";
+    # noctalia = {
+    #   url = "github:noctalia-dev/noctalia-shell";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # nvf.url = "github:notashelf/nvf";
     # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 

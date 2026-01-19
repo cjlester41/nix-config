@@ -24,7 +24,7 @@
       wayfirePlugins.wayfire-plugins-extra  
       wayfirePlugins.wf-shell
       wayfirePlugins.wcm
-      idle-expo
+      # idle-expo
       # auto-tile
     ];      
 

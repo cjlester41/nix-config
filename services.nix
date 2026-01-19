@@ -47,10 +47,10 @@ in
       enable = true;
       useTextGreeter = true;
       settings = let
-        cmd = "wayfire"; in { # --config ~/nix-config/files/wayfire.ini"; in {#ln -sf ${cfg}.ini ${cfg} & sleep 2 & wayfire"; in {# -c ${cfg}"; in {
+        cmd = "niri-session"; in { # --config ~/nix-config/files/wayfire.ini"; in {#ln -sf ${cfg}.ini ${cfg} & sleep 2 & wayfire"; in {# -c ${cfg}"; in {
         initial_session = {
           user = "${vars.username}";
-          command = "wayfire";
+          command = "niri --config ~/nix-config/home/modules/config.kdl"; #"wayfire";
         };
         default_session = {
           user = "greeter";

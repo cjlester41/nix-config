@@ -16,6 +16,7 @@ with config.lib.stylix.colors.withHashtag;
     # ./modules/cava.nix
     ./modules/firefox.nix
     ./modules/btop.nix
+    ./modules/niri.nix
     # ./modules/vscode
     ./modules/swaync.nix
     ./wayfire
