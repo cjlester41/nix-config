@@ -51,3 +51,5 @@ micro refind.conf
 # include themes/neon/theme.conf
 
 modify .mozilla/**/userChrome.css
+
+sudo nixos-rebuild switch --flake .#gaming --show-trace  

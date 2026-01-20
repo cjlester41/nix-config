@@ -22,7 +22,7 @@ while True:
         if view["title"] != "nil":
             print(msg["event"] + ": " + str(view["id"]) + ": " + view["app-id"] + ": " + view["title"])
 
-    except:
+    except:  # noqa: E722
         # print(msg["event"])
         continue
 

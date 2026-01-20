@@ -1,5 +1,5 @@
 let 
-  defaults = import ../../default-vars.nix;
+  defaults = import ../../common/variables.nix;
   overrides = {
 
     hardware = "sS7";

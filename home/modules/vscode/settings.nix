@@ -1,4 +1,5 @@
-{ lib, ... }:
+{ ... }:
+
 {
   programs.vscode.profiles.default = {
     userSettings = {

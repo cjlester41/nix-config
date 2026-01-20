@@ -1,4 +1,5 @@
 {
+  compositor = "wayfire";
   grid = "2";
   hide-bar = false;
   bar-pos = "bottom";

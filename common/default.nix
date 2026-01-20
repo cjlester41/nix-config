@@ -1,4 +1,15 @@
+{ inputs, ... }:
+
 {
+  imports = [
+    inputs.stylix.nixosModules.stylix
+   
+    ./stylix.nix
+    ./packages.nix
+    ./user.nix
+    ./services.nix   
+  ];
+  
   xdg.icons.enable = true;
   # gtk = {
   #   iconTheme = lib.mkForce {
@@ -78,6 +89,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  environment.variables = {
+    DISPLAY = ":0";
+  };
+  
   environment.sessionVariables = {
     WAYFIRE_SOCKET = "/run/user/1000/wayland-1"; #$(id -u)/wayland-1";
     # KWIN_LOW_LATENCY = "1";

@@ -5,11 +5,6 @@
     home-manager.url = "github:nix-community/home-manager";    
     stylix.url = "github:nix-community/stylix";  
     niri-flake.url = "github:sodiboo/niri-flake";
-    # noctalia = {
-    #   url = "github:noctalia-dev/noctalia-shell";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # nvf.url = "github:notashelf/nvf";
     # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # firefox-addons = { 
@@ -27,66 +22,39 @@
 
       NixOS-B460 = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./hardware/B460 ];
+        modules = [ ./hosts/B460 ];
         specialArgs = {
           inherit inputs;
-          vars = import ./hardware/B460/variables.nix;
+          vars = import ./hosts/B460/variables.nix;
         };
       };
 
       NixOS-AOC = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ ./hardware/AOC ];
+        modules = [ ./hosts/AOC ];
         specialArgs = {
           inherit inputs;
-          vars = import ./hardware/AOC/variables.nix;
+          vars = import ./hosts/AOC/variables.nix;
         };
       };
 
       NixOS-S7 = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [
-          ./profiles/laptop.nix
-        ];
+        modules = [ ./hosts/sS7 ];
         specialArgs = {
       	  inherit inputs;
-          vars = import ./hardware/sS7/variables.nix;
+          vars = import ./hosts/sS7/variables.nix;
         };
       };
 
       NixOS-Steam = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [
-          ./profiles/PATRICK.nix
-        ];
+        modules = [ ./hosts/ASRock ];
         specialArgs = {
           inherit inputs;
-          vars = import ./hardware/ASRock/variables.nix;
+          vars = import ./hosts/ASRock/variables.nix;
         };
       };
     };
   };
 }
-
-
-
-
-
-
-# sudo nixos-rebuild switch --flake .#gaming --show-trace  
-#TODO:
-
-# auto staging
-# restart ipc
-# variables for session, animations, homepage, stylix, etc
-# seperate home
-# code not in path
-# dark cubemap
-# cava stylix
-# mouse view switching
-# xdg portal
-# git pull.rebase
-# permission for root opened from launcher
-
-
-

@@ -1,22 +1,16 @@
-{ inputs, ... }:
+{ ... }:
 
 {
   imports = [
-    inputs.stylix.nixosModules.stylix
-    # ${vars.hardware}
-    ../../common.nix
-    ../../stylix.nix
-    ../../packages.nix
-    ../../user.nix
-    ../../services.nix   
-   
+    ../../common
+    
     ./hardware-configuration.nix
-    ./intel-gpu.nix
     ./filesystems.nix
 
     ../../profiles/development.nix
     ../../profiles/remotedev.nix 
     ../../profiles/gaming.nix 
+    ../../profiles/amd-gpu.nix
   ];
   
   networking = {
@@ -29,23 +23,10 @@
   system.stateVersion = "25.05";
   powerManagement.cpuFreqGovernor = "performance";
   
-  stylix.targets = {
-    plymouth.enable = false;
-  };  
-  
   hardware.uinput.enable = true;
   
   boot = {
     kernelModules = [ "uinput" ];
     # kernelPackages = pkgs.linuxPackages_latest;
-    # plymouth = {
-    #   enable = true;
-    #   theme = "rings";
-    #   themePackages = with pkgs; [
-    #     (adi1090x-plymouth-themes.override {
-    #       selected_themes = [ "rings" ];
-    #     })
-    #   ];
-    # };
   };
 }

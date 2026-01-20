@@ -1,9 +1,11 @@
-{ pkgs, inputs, vars, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
 
+    nodejs
     kanata
+    starship
     (pkgs.python3.withPackages (ppkgs: [
       ppkgs.pyserial
     ]))

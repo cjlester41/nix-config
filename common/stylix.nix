@@ -1,4 +1,4 @@
-{ lib, config, pkgs, vars, ...}: 
+{ lib, pkgs, vars, ...}: 
 
 let schemeAttr = file:
   (builtins.fromJSON (builtins.readFile (pkgs.runCommand "json" { } ''

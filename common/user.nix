@@ -9,7 +9,7 @@
     extraSpecialArgs = {inherit inputs vars;};
     users.${vars.username} = { 
       # _module.args = {  };
-      imports = [./home];
+      imports = [../home];
       home = {
         username = "${vars.username}"; 
         homeDirectory = "/home/${vars.username}";

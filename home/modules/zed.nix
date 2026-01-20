@@ -7,12 +7,15 @@ with config.lib.stylix.colors.withHashtag;
     enable = true;
     extensions = [
       "nix"
+      "kdl"
+      "glsl"
     ];
     extraPackages = [ 
       pkgs.nixd 
       pkgs.nil
     ];
     userSettings = {
+      vim_mode = true;
       autosave.after_delay.milliseconds = 1000;
       minimap.show = "auto";
       # lsp.nix.binary.path_lookup = true;

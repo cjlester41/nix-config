@@ -36,6 +36,7 @@
     ghostty
     nmgui
     hyprpolkitagent
+    xwayland-satellite
         
     # nvd #nix pkg diff
     # zenity # gui dialog boxes
