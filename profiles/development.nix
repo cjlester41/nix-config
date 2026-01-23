@@ -6,6 +6,7 @@
     nodejs
     kanata
     starship
+    caligula
     (pkgs.python3.withPackages (ppkgs: [
       ppkgs.pyserial
     ]))

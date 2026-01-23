@@ -11,11 +11,15 @@
     ./decoration.nix
     ./wf-shell.nix
   ];
-
-  home.file."wayfire.ini" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/wayfire.ini";
-    force = true;
+  
+  nixpkgs.config.packageOverrides = pkgs: {
+    idle-expo = pkgs.callPackage ./idle-expo {};
   };
+
+  # home.file."wayfire.ini" = {
+  #   source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/wayfire.ini";
+  #   force = true;
+  # };
 
   wayland.windowManager.wayfire = {
     
@@ -24,7 +28,7 @@
       wayfirePlugins.wayfire-plugins-extra  
       wayfirePlugins.wf-shell
       wayfirePlugins.wcm
-      # idle-expo
+      idle-expo
       # auto-tile
     ];      
 

@@ -117,6 +117,7 @@ with config.lib.stylix.colors.withHashtag;
       headerbar,headerbar:backdrop {
         background-image: none;
         background-color: ${base00};
+      }
       '';
   };
 

@@ -2,10 +2,10 @@
 
 {  
   boot.kernelParams = [
-    "quiet" 
+    # "quiet" 
     "systemd.show_status=false" 
     "boot.shell_on_fail" 
-    "udev.log_priority=3" 
+    "udev.log_priority=1" 
     "rd.systemd.show_status=auto" 
     "preempt=full" 
     "i915.enable_psr=1" 

@@ -1,12 +1,11 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   imports = [
-    ../../common
-    
     ./hardware-configuration.nix
     ./filesystems.nix
-
+    ../../common
+    
     ../../profiles/development.nix
     ../../profiles/remotedev.nix 
     ../../profiles/work.nix 
@@ -19,14 +18,6 @@
 
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest;
-    plymouth = {
-      enable = false;
-      theme = "rings";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
-        })
-      ];
-    };
+    kernelParams = [ "loglevel=3" ];
   };
 }

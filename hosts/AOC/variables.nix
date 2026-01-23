@@ -6,7 +6,7 @@ let
     state-version = "24.11";
 
     # grid = "3";
-    compositor = "niri";
+    # compositor = "niri";
     alpha = "0.90";
     basecolor = "000000";
     shader = "glitchy.glsl -e btop & disown";

@@ -1,25 +1,28 @@
-{ inputs, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [
-    inputs.stylix.nixosModules.stylix
-   
-    ./stylix.nix
-    ./packages.nix
-    ./user.nix
-    ./services.nix   
+  imports = [ 
+    ./packages.nix 
+    ./services.nix 
+    ./user.nix 
+    ./stylix.nix 
   ];
   
-  xdg.icons.enable = true;
-  # gtk = {
-  #   iconTheme = lib.mkForce {
-  #     name = "Sweet-Rainbow";
-  #     package = pkgs.sweet-folders;
-  #     # name = "candy-icons";
-  #     # package = pkgs.candy-icons;
-  #   };
-  # };
-
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk 
+        # xdg-desktop-portal-wlr
+      ]; 
+      config.common = {
+        # default = "*"; # = {
+        "org.freedesktop.impl.portal.FileChooser" = "gtk";
+      };
+    };
+    # icons.enable = true;
+  };
+  
   systemd.tmpfiles.rules = [
     "d '/var/cache/tuigreet' - greeter greeter - -" #0755 greetd greetd -"
   ];
@@ -89,9 +92,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.variables = {
-    DISPLAY = ":0";
-  };
+  # environment.variables = {
+  #   DISPLAY = ":0";
+  # };
   
   environment.sessionVariables = {
     WAYFIRE_SOCKET = "/run/user/1000/wayland-1"; #$(id -u)/wayland-1";
@@ -108,27 +111,14 @@
     # XDG_DATA_DIRS="/run/current-system/sw/share/icons/candy-icons/";
   };
 
-
-
-    environment.pathsToLink = [
-      "/share/icons"
-      "/share/pixmaps"
-    ];
-
-
-
-  # fonts.fontconfig = {
-  #   defaultFonts = {
-  #     monospace = ["JetBrains Mono"];      
-  #     sansSerif = ["Montserrat"];
-  #     serif = ["Montserrat"];
-  #   };
-  # };
+  environment.pathsToLink = [
+    "/share/icons"
+    "/share/pixmaps"
+  ];
   
   # nix.gc = {
   #     automatic = true;
   #     dates = "daily";
   #     options = "-d";
   #   };
-
 }

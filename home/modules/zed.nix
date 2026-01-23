@@ -9,6 +9,7 @@ with config.lib.stylix.colors.withHashtag;
       "nix"
       "kdl"
       "glsl"
+      "ini"
     ];
     extraPackages = [ 
       pkgs.nixd 

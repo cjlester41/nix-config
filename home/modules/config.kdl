@@ -273,8 +273,9 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "hyprlock"
+spawn-at-startup "sh -c 'sleep 1 && hyprlock'"
 spawn-at-startup "waybar"
+spawn-at-startup "zeditor"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -335,7 +336,7 @@ animations {
 
     // Original by Lemmy: https://github.com/ItsLemmy
     window-close {
-      duration-ms 200
+      duration-ms 400
       curve "linear"
       custom-shader r"
         vec4 fall_and_rotate(vec3 coords_geo, vec3 size_geo) {

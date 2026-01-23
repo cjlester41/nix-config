@@ -1,7 +1,8 @@
-{ pkgs, inputs, vars, ...}:
+{ pkgs, inputs, vars, ... }:
 
 {
-  imports = [inputs.home-manager.nixosModules.home-manager];
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
+  
   home-manager = {
     # useUserPackages = true;
     # useGlobalPkgs = true;
@@ -36,24 +37,6 @@
     shell = pkgs.zsh;
     ignoreShellProgramCheck = false;
   };  
-
-  # users.users.testing = {
-  #   isNormalUser = true;
-  #   description = "testing";
-  #   linger = true;
-  #   extraGroups = [ 
-  #     "networkmanager" 
-  #     "wheel" 
-  #     "audio" 
-  #     "gamemode" 
-  #     "video" 
-  #     "libvirtd"
-  #     "storage"
-  #     "dialout"
-  #   ];
-  #   shell = pkgs.zsh;
-  #   ignoreShellProgramCheck = false;
-  # };
 
   # nix.settings.allowed-users = ["${vars.username}"]; 
   # nix.settings.trusted-users = ["${vars.username}" "root"]; #devenv?
