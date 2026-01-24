@@ -5,6 +5,7 @@ let
     hardware = "sS7";
     state-version = "24.11";
     
+    compositor = "niri";
     background = "wf-background";
     
   };

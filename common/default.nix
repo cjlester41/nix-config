@@ -1,13 +1,11 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [
-    inputs.stylix.nixosModules.stylix
-   
-    ./stylix.nix
-    ./packages.nix
-    ./user.nix
-    ./services.nix   
+  imports = [ 
+    ./packages.nix 
+    ./services.nix 
+    ./user.nix 
+    ./stylix.nix 
   ];
   
   xdg.icons.enable = true;
@@ -104,7 +102,11 @@
   nixpkgs.config.allowUnfree = true;
 
   # environment.variables = {
+<<<<<<< HEAD
     # DISPLAY = ":0";
+=======
+  #   DISPLAY = ":0";
+>>>>>>> b0754206ad11f3ecc2e8fad14b0aca475a0708b5
   # };
   
   environment.sessionVariables = {
@@ -122,27 +124,14 @@
     # XDG_DATA_DIRS="/run/current-system/sw/share/icons/candy-icons/";
   };
 
-
-
-    environment.pathsToLink = [
-      "/share/icons"
-      "/share/pixmaps"
-    ];
-
-
-
-  # fonts.fontconfig = {
-  #   defaultFonts = {
-  #     monospace = ["JetBrains Mono"];      
-  #     sansSerif = ["Montserrat"];
-  #     serif = ["Montserrat"];
-  #   };
-  # };
+  environment.pathsToLink = [
+    "/share/icons"
+    "/share/pixmaps"
+  ];
   
   # nix.gc = {
   #     automatic = true;
   #     dates = "daily";
   #     options = "-d";
   #   };
-
 }

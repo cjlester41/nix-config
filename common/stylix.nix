@@ -1,4 +1,4 @@
-{ lib, pkgs, vars, ...}: 
+{ inputs, lib, pkgs, vars, ...}: 
 
 let schemeAttr = file:
   (builtins.fromJSON (builtins.readFile (pkgs.runCommand "json" { } ''
@@ -7,6 +7,8 @@ let schemeAttr = file:
 in
 
 {
+  imports = [ inputs.stylix.nixosModules.stylix ];
+  
   fonts.fontconfig.enable = true;
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

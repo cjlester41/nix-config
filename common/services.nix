@@ -1,24 +1,14 @@
-{ pkgs, vars, ... }:
+{ config, pkgs, vars, ... }:
 
-# let
-  # cfg = "~/.config/wayfire";
-# in
 {
   services = {
 
-    # xserver.gdk-pixbuf.modulePackages = [ pkgs.librsvg ];
     xserver.enable = true;
-
     printing.enable = false;
     blueman.enable = true;
-
     udisks2.enable = true;
     gvfs.enable = true;
   
-    # ananicy.enable = true;
-    # ananicy.package = pkgs.ananicy-cpp;
-    # ananicy.rulesProvider = pkgs.ananicy-rules-cachyos;
-     
     displayManager.sessionPackages = let 
       wayfire = #ln -sf ${cfg}.ini ${cfg} & wayfire -c ${cfg}
       (pkgs.writeTextDir "share/wayland-sessions/wayfire.desktop" ''
@@ -31,40 +21,35 @@
           passthru.providedSessions = [ "wayfire" ];
         });
 
-      steam = #-h 1080 -w 1920 -r 60
-      (pkgs.writeTextDir "share/wayland-sessions/steam.desktop" ''
+      niri = #-h 1080 -w 1920 -r 60
+      (pkgs.writeTextDir "share/wayland-sessions/niri.desktop" ''
         [Desktop Entry]
-        Name=Steam
-        Exec=gamescope --adaptive-sync --hdr-enabled --mangoapp --rt --steam -- steam -pipewire-dmabuf -tenfoot
+        Name=Niri
+        Exec=niri-session
         Type=Application
       '').overrideAttrs
         (_: {
-          passthru.providedSessions = [ "steam" ];
+          passthru.providedSessions = [ "niri" ];
         });
-      in [ wayfire steam ];
+      in [ wayfire niri ];
     
     greetd = { 
       enable = true;
       useTextGreeter = true;
       settings = let 
-      ini = if vars.compositor == "niri" then "niri --config ~/nix-config/home/modules/config.kdl" else "wayfire"; 
-      cmd = if vars.compositor == "niri" then "niri-session" else "wayfire"; 
+      # ini = if vars.compositor == "niri" then "niri --config ~/nix-config/home/modules/config.kdl" else "wayfire"; 
+      cmd = if vars.compositor == "niri" then "niri-session" else "dbus-run-session wayfire"; 
+      ses = "${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
         in { # --config ~/nix-config/files/wayfire.ini"; in {#ln -sf ${cfg}.ini ${cfg} & sleep 2 & wayfire"; in {# -c ${cfg}"; in {
         initial_session = {
           user = "${vars.username}";
-          command = "${ini}";
+          command = "${cmd}";
         };
         default_session = {
           user = "greeter";
-          command = "${pkgs.tuigreet}/bin/tuigreet --remember -c ${cmd}"; ########         
-        };
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";        };
       };
     };  
-
-    # logind.settings.Login = {
-    #   IdleAction = "sleep";
-    #   IdleActionSec = 10;
-    # };
 
     pipewire = {
       enable = true;
