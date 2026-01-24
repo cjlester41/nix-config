@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -11,6 +11,20 @@
   ];
   
   xdg.icons.enable = true;
+  xdg.portal = {
+    enable = true;
+    # For Wayland compositors like Hyprland/Sway
+    # niri.enable = true; # Or use your specific compositor (e.g., sway.enable = true;)
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+    # Optional: Specify GTK as the default portal for common actions
+    config = {
+      common = {
+        default = [ "gtk" ];
+      };
+    };
+  };
   # gtk = {
   #   iconTheme = lib.mkForce {
   #     name = "Sweet-Rainbow";
@@ -89,9 +103,9 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.variables = {
-    DISPLAY = ":0";
-  };
+  # environment.variables = {
+    # DISPLAY = ":0";
+  # };
   
   environment.sessionVariables = {
     WAYFIRE_SOCKET = "/run/user/1000/wayland-1"; #$(id -u)/wayland-1";

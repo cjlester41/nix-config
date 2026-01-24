@@ -1,8 +1,8 @@
 { pkgs, vars, ... }:
 
-let
-  cfg = "~/.config/wayfire";
-in
+# let
+  # cfg = "~/.config/wayfire";
+# in
 {
   services = {
 
@@ -72,5 +72,7 @@ in
       alsa.support32Bit = true;
       pulse.enable = true;
     };   
+    
+    dbus.enable = true; # Often needed for portals to work
   };
 }

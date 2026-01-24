@@ -89,7 +89,7 @@ with config.lib.stylix.colors.withHashtag;
 
     direnv = {
       enable = true;
-      enableZshIntegration = true;
+      # enableZshIntegration = true;
       nix-direnv.enable = true;
     };
 

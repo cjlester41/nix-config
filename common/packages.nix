@@ -102,9 +102,11 @@
     idle-expo = pkgs.callPackage ./home/wayfire/idle-expo {};
   };
 
-  # xdg.portal.enable = true;
-  # xdg.portal.wlr.enable = true;
-  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # xdg.portal = {
+  #   enable = true;
+  #   # wlr.enable = true;
+  #   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # };
 }
 
 

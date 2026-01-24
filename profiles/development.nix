@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
 
-    nodejs
+    android-studio
     kanata
     starship
     (pkgs.python3.withPackages (ppkgs: [
