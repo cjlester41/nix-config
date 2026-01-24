@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
 
-    android-studio
+    # android-studio
     kanata
     starship
     caligula

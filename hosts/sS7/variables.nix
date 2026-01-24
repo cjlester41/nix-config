@@ -3,7 +3,7 @@ let
   overrides = {
 
     hardware = "sS7";
-    state-version = "24.11";
+    state-version = "25.05";
     
     compositor = "niri";
     background = "wf-background";

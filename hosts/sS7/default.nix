@@ -1,28 +1,32 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
-  stylix.targets = {
-    plymouth.enable = false;
-  };  
-
-  boot = {
-    # kernelPackages = pkgs.linuxPackages_latest;
-    plymouth = {
-      enable = false;
-      theme = "rings";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
-        })
-      ];
-    };
-  };
-
-  imports = [ 
+  imports = [
+    ../../common
     
     ./hardware-configuration.nix
-    ./amd-gpu.nix
-    # ./filesystems.nix
+    ./filesystems.nix
 
+    ../../profiles/development.nix
+    ../../profiles/remotedev.nix 
+    # ../../profiles/gaming.nix 
+    ../../profiles/amd-gpu.nix
   ];
+  
+  networking = {
+    hostName = "NixOS-S7";
+    networkmanager.dns = "none";
+    # useDHCP = false;
+    # dhcpcd.enable = false;
+  };
+  
+  system.stateVersion = "25.05";
+  powerManagement.cpuFreqGovernor = "performance";
+  
+  hardware.uinput.enable = true;
+  
+  boot = {
+    kernelModules = [ "uinput" ];
+    # kernelPackages = pkgs.linuxPackages_latest;
+  };
 }
