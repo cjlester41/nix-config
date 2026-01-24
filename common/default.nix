@@ -102,11 +102,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # environment.variables = {
-<<<<<<< HEAD
-    # DISPLAY = ":0";
-=======
   #   DISPLAY = ":0";
->>>>>>> b0754206ad11f3ecc2e8fad14b0aca475a0708b5
   # };
   
   environment.sessionVariables = {
