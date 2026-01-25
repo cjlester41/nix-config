@@ -35,7 +35,7 @@ sock._option_valuesset({'animate': {'squeezimize_duration': '0ms linear'}})
 sock._option_valuesset({'animate': {'open_animation': 'none'}})
 sock._option_valuesset({'expo': {'duration': '2000ms linear'}})
 
-apps = ["firefox", "kitty", editor, "nemo", ["kitty", "-e", "btop"]]
+apps = ["firefox", "kitty", editor, "nautilus", ["kitty", "-e", "btop"]]
 if grid == 3:
    apps.insert(2, ["kitty", "-e", "vim"]) 
    apps.remove("nemo")

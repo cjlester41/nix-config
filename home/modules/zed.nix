@@ -10,6 +10,7 @@ with config.lib.stylix.colors.withHashtag;
       "kdl"
       "glsl"
       "ini"
+      "toml"
     ];
     extraPackages = [ 
       pkgs.nixd 

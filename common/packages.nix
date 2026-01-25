@@ -23,6 +23,7 @@
     gparted
     pavucontrol
     feh    
+    fzf
     wlogout    
     wget
     zoxide # cd tool. implemented? 
@@ -34,6 +35,8 @@
     nmgui
     hyprpolkitagent
     xwayland-satellite
+    nautilus
+    # niri
         
     # nvd #nix pkg diff
     # zenity # gui dialog boxes

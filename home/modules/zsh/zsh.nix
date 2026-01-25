@@ -8,23 +8,23 @@
     syntaxHighlighting.enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
 
-    plugins = [
-      {
-        # Must be before plugins that wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting
-        name = "fzf-tab";
-        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
-      }
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = lib.cleanSource ./p10k;
-        file = ".p10k.zsh"; #"share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-    ];
+    # plugins = [
+    #   {
+    #     # Must be before plugins that wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting
+    #     name = "fzf-tab";
+    #     src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
+    #   }
+    #   {
+    #     name = "powerlevel10k";
+    #     src = pkgs.zsh-powerlevel10k;
+    #     file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    #   }
+    #   {
+    #     name = "powerlevel10k-config";
+    #     src = lib.cleanSource ./p10k;
+    #     file = ".p10k.zsh"; #"share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    #   }
+    # ];
 
     completionInit = ''
       # Load Zsh modules
@@ -109,9 +109,9 @@
       # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
       # Initialization code that may require console input (password prompts, [y/n]
       # confirmations, etc.) must go above this block; everything else may go below.
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
+      # if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        # source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      # fi
 
       DISABLE_AUTO_UPDATE=true
       DISABLE_MAGIC_FUNCTIONS=true
@@ -125,8 +125,9 @@
       setopt hist_find_no_dups
       setopt hist_expire_dups_first
       setopt hist_verify
-
-      eval "$(direnv hook zsh)"
+      
+      eval "$(starship init zsh)"
+      # eval "$(direnv hook zsh)"
       # source ~/.p10k.zsh ########################## this was the fix #############################
 
       # Use fd (https://github.com/sharkdp/fd) for listing path candidates.

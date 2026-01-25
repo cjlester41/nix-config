@@ -1,4 +1,5 @@
-{ host, ... }:
+{ ... }:
+
 {
   stylix.targets = {
     kitty.enable = true;

@@ -39,7 +39,7 @@
       settings = let 
       # ini = if vars.compositor == "niri" then "niri --config ~/nix-config/home/modules/config.kdl" else "wayfire"; 
       cmd = if vars.compositor == "niri" then "niri-session" else "dbus-run-session wayfire"; 
-      ses = "${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
+      # ses = "${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
         in { # --config ~/nix-config/files/wayfire.ini"; in {#ln -sf ${cfg}.ini ${cfg} & sleep 2 & wayfire"; in {# -c ${cfg}"; in {
         initial_session = {
           user = "${vars.username}";

@@ -8,28 +8,18 @@
     ./stylix.nix 
   ];
   
-  xdg.icons.enable = true;
-  xdg.portal = {
-    enable = true;
-    # For Wayland compositors like Hyprland/Sway
-    # niri.enable = true; # Or use your specific compositor (e.g., sway.enable = true;)
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
-    # Optional: Specify GTK as the default portal for common actions
-    config = {
-      common = {
-        default = [ "gtk" ];
-      };
-    };
-  };
-  # gtk = {
-  #   iconTheme = lib.mkForce {
-  #     name = "Sweet-Rainbow";
-  #     package = pkgs.sweet-folders;
-  #     # name = "candy-icons";
-  #     # package = pkgs.candy-icons;
-  #   };
+  # xdg.icons.enable = true;
+  # xdg.portal = {
+    # enable = true;
+    # extraPortals = with pkgs; [
+      # xdg-desktop-portal-gtk
+      # xdg-desktop-portal-gnome
+    # ];
+    # config = {
+      # niri.default = [ "gtk" ];
+      # common.default = [ "*" ];
+      # common.default = [ "gtk" ];
+    # };
   # };
 
   systemd.tmpfiles.rules = [
@@ -101,25 +91,18 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # environment.variables = {
-  #   DISPLAY = ":0";
-  # };
-  
-  environment.sessionVariables = {
-    WAYFIRE_SOCKET = "/run/user/1000/wayland-1"; #$(id -u)/wayland-1";
-    # KWIN_LOW_LATENCY = "1";
-    # KWIN_TRIPLE_BUFFER = "1";
-    # KWIN_COMPOSE = "O2";
-    # KDE_NO_PRELOADING = "0";
-    # BALOO_DISABLE = "1";
-    MOZ_ENABLE_WAYLAND = "1";
-    NEWT_COLORS="root=white,black";
-    # GTK_BACKDROP_STYLING = "0"; 
-    # XDG_CACHE_HOME = "/home/isolde/.cache";
-    # NIXOS_OZONE_WL = "1";
-    # XDG_DATA_DIRS="/run/current-system/sw/share/icons/candy-icons/";
+  environment = {
+    variables = {
+      NIXOS_OZONE_WL = "1";
+      # DISPLAY = ":0";
+    };
+    sessionVariables = {
+      WAYFIRE_SOCKET = "/run/user/1000/wayland-1"; #$(id -u)/wayland-1";
+      MOZ_ENABLE_WAYLAND = "1";
+      NEWT_COLORS="root=white,black";
+    };
   };
-
+  
   environment.pathsToLink = [
     "/share/icons"
     "/share/pixmaps"

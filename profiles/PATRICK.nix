@@ -1,3 +1,11 @@
+###########################################################
+#                                                         #
+#                    NOW DEPRECATED!                      #
+#         navigate to hosts/ASRock/default.nix            #
+#             and variables.nix for config                #
+#                                                         #
+###########################################################
+
 { pkgs, inputs, vars, ... }:
 
 {
@@ -104,6 +112,15 @@
       # "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
       # "OCL_ICD_VENDORS" = "/run/opengl-driver/etc/OpenCL/vendors";
       # "__EGL_VENDOR_LIBRARY_FILENAMES=${mesa.drivers}/share/glvnd/egl_vendor.d/50_mesa.json"
+      # KWIN_LOW_LATENCY = "1";
+      # KWIN_TRIPLE_BUFFER = "1";
+      # KWIN_COMPOSE = "O2";
+      # KDE_NO_PRELOADING = "0";
+      # BALOO_DISABLE = "1";
+      # GTK_BACKDROP_STYLING = "0"; 
+      # XDG_CACHE_HOME = "/home/isolde/.cache";
+      # NIXOS_OZONE_WL = "1";
+      # XDG_DATA_DIRS="/run/current-system/sw/share/icons/candy-icons/";
     
     };
 }
