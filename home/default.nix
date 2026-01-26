@@ -1,6 +1,6 @@
 { config, pkgs, lib, vars, ... }:
 
-with config.lib.stylix.colors.withHashtag;
+# with config.lib.stylix.colors.withHashtag;
 
 {
   imports = [ 
@@ -8,19 +8,18 @@ with config.lib.stylix.colors.withHashtag;
     ./modules/anyrun.nix
     ./modules/fastfetch  
     ./modules/waybar/bezier-dark.nix
-    ./modules/kitty.nix
+    # ./modules/kitty.nix
     # ./modules/rofi
     # ./modules/nemo.nix
     ./modules/hyprlock.nix
     # ./modules/cava.nix
     ./modules/firefox.nix
-    ./modules/btop.nix
-    ./modules/niri.nix
+    # ./modules/niri.nix
     # ./modules/vscode
-    ./modules/scripts.nix
-    ./modules/swaync.nix
-    ./wayfire
-    ./modules/zsh
+    # ./modules/scripts.nix
+    # ./modules/swaync.nix
+    # ./wayfire
+    # ./modules/zsh
     ./modules/wlogout
     ./modules/zed.nix
     # ./modules/swayidle.nix
@@ -30,36 +29,40 @@ with config.lib.stylix.colors.withHashtag;
   
   programs = {
 
-    direnv = {
-      enable = true;
-      # enableZshIntegration = true;
-      nix-direnv.enable = true;
-    };
-
-    ghostty = {
-      enable = true;
-      settings.resize-overlay="never";
-    };
-
-    git = {
+    alacritty = {
       enable = true;
       settings = {
-        user.name = vars.git-name;
-        user.email = vars.git-mail;
-        init.defaultBranch = "main";
-        pull.rebase = false;
+        window.decorations = "None";
+        window.padding = { x = 10; y = 10; };
+        # font.normal.family = "JetBrainsMono Nerd Font";
       };
     };
+    btop = {
+      enable = true;
+      settings = {    
+        color_theme = "tokyo-night";
+        theme_background = false;
+      };
+    };
+    
+    # ghostty = {
+    #   enable = true;
+    #   settings.resize-overlay="never";
+    # };
+
+
   };
 
   stylix.targets = {
     # ghostty.enable = true;
+    # alacritty.enable = true;
+    btop.enable = false;
     gtk.extraCss = ''
       headerbar,headerbar:backdrop {
         background-image: none;
-        background-color: ${base00};
+        background-color: ${vars.basecolor};
       }
-      '';
+    '';
   };
 
   gtk = {

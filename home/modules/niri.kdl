@@ -239,13 +239,13 @@ window-rule {
 
 binds {
     Mod+S { spawn "steam"; }
-    Mod+D { spawn "nemo"; }
+    Mod+D { spawn "nautilus"; }
     Mod+B { spawn "firefox"; }
     // Mod+H { spawn "clipman" "pick" "-t" "wofi"; }
     Mod+Z { spawn "zeditor"; } // Assuming 'editor' variable maps here
     // Mod+G { spawn "bash" "-x" "/home/user/nix-config/home/wayfire/shell/gamemode.sh"; }
     Mod+A { spawn "anyrun"; }
-    Mod+X { spawn "kitty"; } // Common terminal, update if different
+    Mod+X { spawn "alacritty"; } // Common terminal, update if different
 
     // Session Management
     // Mod+Shift+Esc { spawn "hyprlock"; }

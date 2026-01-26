@@ -1,5 +1,5 @@
 {
-  compositor = "wayfire";
+  compositor = "niri";
   grid = "2";
   hide-bar = false;
   bar-pos = "bottom";
@@ -8,7 +8,7 @@
   background = "restart-bg";
   shader = "sunset.glsl";
   theme = "gruvbox-dark-hard";
-  editor = "code";
+  editor = "zeditor";
   username = "cjlester";
   git-name = "cjlester41";
   git-mail = "";

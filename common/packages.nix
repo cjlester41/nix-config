@@ -36,6 +36,7 @@
     hyprpolkitagent
     xwayland-satellite
     nautilus
+    # starship
     # niri
         
     # nvd #nix pkg diff
@@ -45,7 +46,38 @@
 
   programs = {
 
-    zsh.enable = true;
+    niri.enable = true;
+    git = {
+      enable = true;
+      config = {
+        user.name = vars.git-name;
+        user.email = vars.git-mail;
+        init.defaultBranch = "main";
+        pull.rebase = false;
+      };
+    };
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+    starship.enable = true;
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
+      # system.userActivationScripts.zshrc = "touch .zshrc";
+      shellInit = ''
+        zsh-newuser-install() { :; }
+        fastfetch
+        dysk
+      '';
+      shellAliases = {
+        fr = "nh os switch /home/${vars.username}/nix-config";
+        fu = "nh os switch /home/${vars.username}/nix-config --update";
+      };
+    };
     dconf.enable = true;
     nix-ld.enable = true;
     gdk-pixbuf.modulePackages = [ pkgs.librsvg ]; #svg icons fix?

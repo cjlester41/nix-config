@@ -7,7 +7,7 @@ let
     
     username = "patrick";
     git-name = "newhorizon83";
-    editor = "code";
+    editor = "zeditor";
 
   };
 
