@@ -1,15 +1,19 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+{ config, ... }:
+
+with config.lib.stylix.colors.withHashtag;
+{
+  home.file.".config/starship.toml" = { text = ''
+# $schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](#9A348E)\
-$os\
-$username\
-[](bg:#DA627D fg:#9A348E)\
+[](${base0C})\
+[ ](bg:${base0C} fg:#FFFFFF)\
+[](bg:${base0D} fg:${base0C})\
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
+[](fg:${base0D} bg:${base09})\
 $git_branch\
 $git_status\
-[](fg:#FCA17D bg:#86BBD8)\
+[](fg:${base09} bg:#86BBD8)\
 $c\
 $elixir\
 $elm\
@@ -20,14 +24,16 @@ $java\
 $julia\
 $nodejs\
 $nim\
+$nix_shell\
 $rust\
 $scala\
-[](fg:#86BBD8 bg:#06969A)\
-$docker_context\
-[](fg:#06969A bg:#33658A)\
-$time\
-[ ](fg:#33658A)\
+[ ](#86BBD8)\
 """
+# $docker_context\
+# [](fg:#06969A bg:#33658A)\
+# $time\
+# [ ](fg:#33658A)\
+# """
 
 # Disable the blank line at the start of the prompt
 # add_newline = false
@@ -47,8 +53,11 @@ disabled = false
 style = "bg:#9A348E"
 disabled = true # Disabled by default
 
+[transient_prompt]
+enabled = true
+
 [directory]
-style = "bg:#DA627D"
+style = "bg:${base0D}"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -93,12 +102,18 @@ format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#FCA17D"
+style = "bg:${base09}"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#FCA17D"
-format = '[$all_status$ahead_behind ]($style)'
+disabled = false
+format = '([$all_status$ahead_behind]($style))'
+style = "bg:${base09}"
+modified = "!''${count} "
+staged = "+''${count} "
+untracked = "?''${count} "
+deleted = "✘''${count} "
+renamed = "»''${count} "
 
 [golang]
 symbol = " "
@@ -123,6 +138,14 @@ format = '[ $symbol ($version) ]($style)'
 symbol = " "
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
+
+[nix_shell]
+impure_msg = "[impure](bold red)"
+pure_msg = "[pure](bold green)"
+unknown_msg = ""
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol ($state) ]($style)'
 
 [nodejs]
 symbol = ""
@@ -149,3 +172,6 @@ disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#33658A"
 format = '[ ♥ $time ]($style)'
+'';
+  };
+}

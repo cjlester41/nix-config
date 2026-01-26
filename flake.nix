@@ -2,9 +2,16 @@
   inputs = {
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";    
+    home-manager = {
+      url = "github:nix-community/home-manager";    
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix.url = "github:nix-community/stylix";  
     niri-flake.url = "github:sodiboo/niri-flake";
+    ironbar = {
+      url = "github:JakeStanger/ironbar";
+      inputs.nixpkgs.follows = "nixpkgs";  
+    };
     # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # firefox-addons = { 

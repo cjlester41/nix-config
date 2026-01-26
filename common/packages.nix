@@ -1,4 +1,4 @@
-{ pkgs, vars, ... }:
+{ config, pkgs, vars, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -67,12 +67,14 @@
       enableCompletion = true;
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
+      # dotDir = "${config.users.users.${vars.username}.home}/zsh";
+      # promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       # system.userActivationScripts.zshrc = "touch .zshrc";
       shellInit = ''
         zsh-newuser-install() { :; }
         fastfetch
         dysk
-      '';
+      ''; # zsh-newuser-install() { :; }
       shellAliases = {
         fr = "nh os switch /home/${vars.username}/nix-config";
         fu = "nh os switch /home/${vars.username}/nix-config --update";

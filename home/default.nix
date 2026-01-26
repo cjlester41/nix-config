@@ -7,7 +7,8 @@
     
     ./modules/anyrun.nix
     ./modules/fastfetch  
-    ./modules/waybar/bezier-dark.nix
+    ./modules/waybar.nix
+    # ./modules/ironbar.nix
     # ./modules/kitty.nix
     # ./modules/rofi
     # ./modules/nemo.nix
@@ -20,6 +21,7 @@
     # ./modules/swaync.nix
     # ./wayfire
     # ./modules/zsh
+    ./modules/starship.nix
     ./modules/wlogout
     ./modules/zed.nix
     # ./modules/swayidle.nix
@@ -34,7 +36,7 @@
       settings = {
         window.decorations = "None";
         window.padding = { x = 10; y = 10; };
-        # font.normal.family = "JetBrainsMono Nerd Font";
+        font.normal.family = "JetBrainsMono Nerd Font";
       };
     };
     btop = {
@@ -45,6 +47,7 @@
       };
     };
     
+    
     # ghostty = {
     #   enable = true;
     #   settings.resize-overlay="never";
@@ -53,6 +56,7 @@
 
   };
 
+  # home.file.".config/starship.toml".source = ./modules/starship.toml;
   stylix.targets = {
     # ghostty.enable = true;
     # alacritty.enable = true;

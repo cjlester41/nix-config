@@ -11,6 +11,7 @@ with config.lib.stylix.colors.withHashtag;
       "glsl"
       "ini"
       "toml"
+      "json"
     ];
     extraPackages = [ 
       pkgs.nixd 

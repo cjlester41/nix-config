@@ -1,9 +1,14 @@
+// output "HDMI-A-1" {
+//     // This applies the shader to the entire monitor output
+//     render-output-shader "/home/cjlester/nix-config/files/shaders/fisheye.glsl"
+// }
 overview {
    backdrop-color "#000000"
 }
 layer-rule {
     match namespace="neowall"
     match namespace="shaderbg"
+    // opacity 0.2
     place-within-backdrop true
 }
 window-rule {
