@@ -61,17 +61,17 @@
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
-    starship.enable = true;
+    # starship.enable = true;
     zsh = {
       enable = true;
-      enableCompletion = true;
-      autosuggestions.enable = true;
+      ohMyZsh.enable = true;
+      # enableCompletion = true;
+      # autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
       # dotDir = "${config.users.users.${vars.username}.home}/zsh";
-      # promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       # system.userActivationScripts.zshrc = "touch .zshrc";
       shellInit = ''
-        zsh-newuser-install() { :; }
         fastfetch
         dysk
       ''; # zsh-newuser-install() { :; }

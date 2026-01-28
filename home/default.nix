@@ -1,6 +1,4 @@
-{ config, pkgs, lib, vars, ... }:
-
-# with config.lib.stylix.colors.withHashtag;
+{ pkgs, lib, vars, ... }:
 
 {
   imports = [ 
@@ -10,8 +8,6 @@
     ./modules/waybar.nix
     # ./modules/ironbar.nix
     # ./modules/kitty.nix
-    # ./modules/rofi
-    # ./modules/nemo.nix
     ./modules/hyprlock.nix
     # ./modules/cava.nix
     ./modules/firefox.nix
@@ -20,8 +16,7 @@
     # ./modules/scripts.nix
     # ./modules/swaync.nix
     # ./wayfire
-    # ./modules/zsh
-    ./modules/starship.nix
+    # ./modules/starship.nix
     ./modules/wlogout
     ./modules/zed.nix
     # ./modules/swayidle.nix
@@ -46,20 +41,9 @@
         theme_background = false;
       };
     };
-    
-    
-    # ghostty = {
-    #   enable = true;
-    #   settings.resize-overlay="never";
-    # };
-
-
   };
 
-  # home.file.".config/starship.toml".source = ./modules/starship.toml;
   stylix.targets = {
-    # ghostty.enable = true;
-    # alacritty.enable = true;
     btop.enable = false;
     gtk.extraCss = ''
       headerbar,headerbar:backdrop {
@@ -89,10 +73,10 @@
   };
   
   # xdg.enable = true;
-  # xdg.userDirs = {
-    # enable = true;
-    # createDirectories = true;
-  # };  
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
+  };  
 }
 
 #   home-manager = {

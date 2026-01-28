@@ -5,7 +5,9 @@
 
     # android-studio
     kanata
-    starship
+    # gnumeric
+    # qgis
+    # # starship
     caligula
     (pkgs.python3.withPackages (ppkgs: [
       ppkgs.pyserial
