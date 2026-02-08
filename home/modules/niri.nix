@@ -1,12 +1,14 @@
 { inputs, pkgs, ...}: 
 
 {
+  # stylix.targets.niri.enable = false;
+  
   imports = [ inputs.niri-flake.homeModules.niri ];
-  # nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
-  # inputs.niri-flake.cache.enable = true;
+  nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
+  # niri-flake.cache.enable = false;
   programs.niri = {
-    package = pkgs.niri;
     enable = true;
+    package = pkgs.niri-unstable;
     # settings = {
       # layout.gaps = 10;
     # };

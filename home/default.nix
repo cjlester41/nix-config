@@ -11,7 +11,7 @@
     ./modules/hyprlock.nix
     # ./modules/cava.nix
     ./modules/firefox.nix
-    # ./modules/niri.nix
+    ./modules/niri.nix
     # ./modules/vscode
     # ./modules/scripts.nix
     # ./modules/swaync.nix
@@ -77,6 +77,11 @@
     enable = true;
     createDirectories = true;
   };  
+  
+  xdg.configFile."nix/nix.conf".text = ''
+    substituters = https://cache.nixos.org https://cache.nixos.org/ https://niri.cachix.org
+    trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964=
+  '';
 }
 
 #   home-manager = {

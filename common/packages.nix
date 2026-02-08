@@ -1,11 +1,10 @@
-{ config, pkgs, vars, ... }:
+{ pkgs, vars, ... }:
 
 {
   environment.systemPackages = with pkgs; [
   
     shaderbg
     libnotify
-    # galculator  
     dysk
     hyprlock
     tuigreet
@@ -37,7 +36,6 @@
     xwayland-satellite
     nautilus
     # starship
-    # niri
         
     # nvd #nix pkg diff
     # zenity # gui dialog boxes
@@ -46,7 +44,7 @@
 
   programs = {
 
-    niri.enable = true;
+    # niri.enable = true;
     git = {
       enable = true;
       config = {
@@ -78,6 +76,7 @@
       shellAliases = {
         fr = "nh os switch /home/${vars.username}/nix-config";
         fu = "nh os switch /home/${vars.username}/nix-config --update";
+        ns = "nix-shell";
       };
     };
     dconf.enable = true;

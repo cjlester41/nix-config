@@ -1,9 +1,8 @@
 { lib, config, inputs, pkgs, ... }:
 
-let
-  betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
-#   inherit (import ../../../hosts/${host}/variables.nix) clock24h;
-in
+# let
+#   betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
+# in
 
 with lib; {
   imports = [ inputs.ironbar.homeManagerModules.default ];

@@ -8,6 +8,7 @@ overview {
 layer-rule {
     match namespace="neowall"
     match namespace="shaderbg"
+    match namespace="^pandora$"
     // opacity 0.2
     place-within-backdrop true
 }
@@ -119,6 +120,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "sh -c 'sleep 1 && hyprlock'"
+spawn-at-startup "hyprlock"
 spawn-at-startup "waybar"
 spawn-at-startup "zeditor"
 spawn-at-startup "firefox"
@@ -240,6 +242,7 @@ window-rule {
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+    default-column-width { fixed 1600; }
 }
 
 binds {
@@ -393,8 +396,8 @@ binds {
     // To avoid scrolling through workspaces really fast, you can use
     // the cooldown-ms property. The bind will be rate-limited to this value.
     // You can set a cooldown on any bind, but it's most useful for the wheel.
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+WheelScrollDown      { focus-column-left; }
+    Mod+WheelScrollUp        { focus-column-right; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
@@ -405,8 +408,8 @@ binds {
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
-    Mod+Shift+WheelScrollDown      { focus-column-right; }
-    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Shift+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+Shift+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 

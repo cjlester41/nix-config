@@ -39,5 +39,5 @@
   };  
 
   # nix.settings.allowed-users = ["${vars.username}"]; 
-  # nix.settings.trusted-users = ["${vars.username}" "root"]; #devenv?
+  # nix.settings.trusted-users = ["${vars.username}"];
 }

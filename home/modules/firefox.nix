@@ -18,6 +18,7 @@ with config.lib.stylix.colors.withHashtag;
           "browser.display.document_color_use" = 2;
           "browser.display.background_color" = base00;
           "browser.display.foreground_color" = base05;
+          # "browser.display.use_system_colors" = false;
           "browser.anchor_color" = base0C;
           "browser.visited_color" = base0E;
           "widget.gtk.global-menu.enabled" = true;
