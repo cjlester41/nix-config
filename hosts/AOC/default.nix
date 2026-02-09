@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -17,7 +17,7 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   boot = {
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "loglevel=3" ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [ "acpi_enforce_resources=lax" "loglevel=3" ];
   };
 }

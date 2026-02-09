@@ -4,12 +4,12 @@
   environment.systemPackages = with pkgs; [
 
     # signal-desktop
-    spotify-player
+    # spotify-player
     # factorio
-    gimp
+    # gimp
     # niri
     # inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    hyprlax
+    # hyprlax
     
   ];  
 

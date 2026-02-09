@@ -29,8 +29,8 @@
     candy-icons
     sweet-folders
     nix-output-monitor
-    vlc
-    ghostty
+    mpv
+    # ghostty
     nmgui
     hyprpolkitagent
     xwayland-satellite

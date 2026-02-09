@@ -6,6 +6,7 @@
   imports = [ inputs.niri-flake.homeModules.niri ];
   nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
   # niri-flake.cache.enable = false;
+  # home.packages = [ pkgs.niri-unstable ];
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;

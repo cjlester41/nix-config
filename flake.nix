@@ -12,6 +12,7 @@
       url = "github:JakeStanger/ironbar";
       inputs.nixpkgs.follows = "nixpkgs";  
     };
+    # wayggle-bg.url = "github:comavius/wayggle-bg";
     # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 
     # firefox-addons = { 
@@ -25,6 +26,7 @@
     # pkgs = nixpkgs.legacyPackages.${system};
 
   in { 
+    # packages.default = inputs.wayggle-bg.packages.${system}.default;
     nixosConfigurations = {
 
       NixOS-B460 = nixpkgs.lib.nixosSystem {
