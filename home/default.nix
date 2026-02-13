@@ -1,4 +1,6 @@
-{ pkgs, lib, vars, ... }:
+{ config, pkgs, lib, vars, ... }:
+
+with config.lib.stylix.colors.withHashtag;
 
 {
   imports = [ 
@@ -48,7 +50,7 @@
     gtk.extraCss = ''
       headerbar,headerbar:backdrop {
         background-image: none;
-        background-color: ${vars.basecolor};
+        background-color: ${base00};
       }
     '';
   };
@@ -73,15 +75,24 @@
   };
   
   # xdg.enable = true;
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
-  };  
-  
-  xdg.configFile."nix/nix.conf".text = ''
-    substituters = https://cache.nixos.org https://cache.nixos.org/ https://niri.cachix.org
-    trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964=
-  '';
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+    };  
+    
+    configFile."nix/nix.conf".text = ''
+      substituters = https://cache.nixos.org https://cache.nixos.org/ https://niri.cachix.org
+      trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964=
+    '';
+    
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = ["org.pwmt.zathura.desktop"];
+      };
+    };
+  };
 }
 
 #   home-manager = {

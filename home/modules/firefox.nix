@@ -25,6 +25,8 @@ with config.lib.stylix.colors.withHashtag;
           "widget.gtk.global-menu.wayland.enabled" = true;
           "widget.gtk.libadwaita-colors.enabled" = false;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          # "network.protocol-handler.external.htp" = true;
+          # "network.protocol-handler.external.htps" = true;
         };
         search = {
           force = true;

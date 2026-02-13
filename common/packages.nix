@@ -3,43 +3,14 @@
 {
   environment.systemPackages = with pkgs; [
   
-    shaderbg
-    libnotify
-    dysk
-    hyprlock
-    tuigreet
-    playerctl
-
+    blueman candy-icons dysk eza feh file-roller fzf gparted hyprlock hyprpolkitagent libnotify 
+    mpv nautilus nix-output-monitor nmgui ntfs3g pavucontrol playerctl shaderbg sweet-folders 
+    tuigreet udiskie usbutils vim wget wlogout wlr-randr xwayland-satellite zathura zoxide      # starship
+   
     # advcpmv need alternative
-    vim
-    eza
-    blueman
-    wlr-randr    
-    usbutils
-    file-roller
-    udiskie
-    ntfs3g
-    gparted
-    pavucontrol
-    feh    
-    fzf
-    wlogout    
-    wget
-    zoxide # cd tool. implemented? 
-    candy-icons
-    sweet-folders
-    nix-output-monitor
-    mpv
-    # ghostty
-    nmgui
-    hyprpolkitagent
-    xwayland-satellite
-    nautilus
-    # starship
-        
+    # zoxide # cd tool. implemented? 
     # nvd #nix pkg diff
     # zenity # gui dialog boxes
-    
   ];
 
   programs = {
