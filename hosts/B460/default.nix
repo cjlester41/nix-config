@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -26,7 +26,7 @@
   hardware.uinput.enable = true;
   
   boot = {
-    kernelModules = [ "uinput" ];
-    # kernelPackages = pkgs.linuxPackages_latest;
+    # kernelModules = [ "uinput" ];
+    kernelPackages = pkgs.linuxPackages_testing;
   };
 }
