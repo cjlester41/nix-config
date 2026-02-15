@@ -29,6 +29,7 @@
       "networkmanager" 
       "wheel" 
       "uinput"
+      "input"
       # "audio" 
       # "gamemode" 
       # "video" 

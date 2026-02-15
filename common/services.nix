@@ -8,6 +8,7 @@
     blueman.enable = true;
     udisks2.enable = true;
     gvfs.enable = true;
+    envfs.enable = true;
   
     displayManager.sessionPackages = let 
       wayfire = #ln -sf ${cfg}.ini ${cfg} & wayfire -c ${cfg}
@@ -56,6 +57,14 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      extraConfig.pipewire."92-low-latency" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.quantum" = 64;
+          "default.clock.min-quantum" = 64;
+          "default.clock.max-quantum" = 64;
+        };
+      };
     };   
     
     dbus.enable = true; # Often needed for portals to work

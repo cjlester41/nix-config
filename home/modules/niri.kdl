@@ -9,6 +9,7 @@ layer-rule {
     match namespace="neowall"
     match namespace="shaderbg"
     match namespace="^pandora$"
+    match namespace="interactive-wallpaper"
     // opacity 0.2
     place-within-backdrop true
 }
@@ -39,7 +40,7 @@ input {
 }
 
 layout {
-    background-color "transparent"
+    background-color "#000000" //"transparent"
     gaps 6
 
     // When to center a column when changing focus, options are:
@@ -246,6 +247,7 @@ window-rule {
 }
 
 binds {
+    Mod+M { spawn "my-menu"; }
     Mod+S { spawn "steam"; }
     Mod+D { spawn "nautilus"; }
     Mod+B { spawn "firefox"; }
@@ -314,7 +316,7 @@ binds {
     // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
 
-    Mod+Q repeat=false { close-window; }
+    Mod+N repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }

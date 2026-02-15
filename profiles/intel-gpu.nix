@@ -3,12 +3,12 @@
 {  
   boot.kernelParams = [
     # "quiet" 
-    "systemd.show_status=false" 
-    "boot.shell_on_fail" 
-    "udev.log_priority=1" 
-    "rd.systemd.show_status=auto" 
-    "preempt=full" 
-    "i915.enable_psr=1" 
+    # "systemd.show_status=false" 
+    # "boot.shell_on_fail" 
+    # "udev.log_priority=1" 
+    # "rd.systemd.show_status=auto" 
+    # "preempt=full" 
+    # "i915.enable_psr=1" 
   ];
   
   hardware.graphics = {
@@ -25,7 +25,7 @@
     LIBVA_DRIVER_NAME = "iHD"; # Or "i965" for older GPUs
   };
   
-  services.xserver.videoDrivers = [ "modesetting" ];
+  # services.xserver.videoDrivers = [ "modesetting" ];
   # hardware.graphics = {
     # extraPackages = with pkgs; [
     #   intel-media-driver

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, vars, ... }:
+{ config, pkgs, lib, ... }:
 
 with config.lib.stylix.colors.withHashtag;
 
@@ -6,19 +6,18 @@ with config.lib.stylix.colors.withHashtag;
   imports = [ 
     
     ./modules/anyrun.nix
+    ./modules/my-menu.nix
     ./modules/fastfetch  
     ./modules/waybar.nix
     # ./modules/ironbar.nix
     # ./modules/kitty.nix
     ./modules/hyprlock.nix
-    # ./modules/cava.nix
     ./modules/firefox.nix
     ./modules/niri.nix
     # ./modules/vscode
     # ./modules/scripts.nix
     # ./modules/swaync.nix
     # ./wayfire
-    # ./modules/starship.nix
     ./modules/wlogout
     ./modules/zed.nix
     # ./modules/swayidle.nix
