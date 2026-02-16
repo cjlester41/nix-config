@@ -15,7 +15,7 @@ with config.lib.stylix.colors.withHashtag;
     ./modules/firefox.nix
     ./modules/niri.nix
     # ./modules/vscode
-    # ./modules/scripts.nix
+    ./modules/scripts.nix
     # ./modules/swaync.nix
     # ./wayfire
     ./modules/wlogout

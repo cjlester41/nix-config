@@ -5,6 +5,9 @@ let
     configFile = pkgs.writeText "config.yaml"
       (pkgs.lib.generators.toYAML {} {
         anchor = "center"; 
+        # style = {
+          # border_width = 2;
+        # };
         inherit menu; 
       });
   in

@@ -18,6 +18,7 @@ with config.lib.stylix.colors.withHashtag;
       pkgs.nil
     ];
     userSettings = {
+      project_panel.auto_reveal_entries = false;
       vim_mode = true;
       autosave.after_delay.milliseconds = 1000;
       minimap.show = "auto";

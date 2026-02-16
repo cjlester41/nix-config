@@ -8,13 +8,12 @@ overview {
 layer-rule {
     match namespace="neowall"
     match namespace="shaderbg"
-    match namespace="^pandora$"
-    match namespace="interactive-wallpaper"
-    // opacity 0.2
+    match namespace="wallpaper"
+    opacity 0.9
     place-within-backdrop true
 }
 window-rule {
-    opacity 0.85 
+    opacity 0.8 
     draw-border-with-background false 
 }
 input {
@@ -40,7 +39,7 @@ input {
 }
 
 layout {
-    background-color "#000000" //"transparent"
+    background-color "transparent"
     gaps 6
 
     // When to center a column when changing focus, options are:
@@ -125,6 +124,7 @@ spawn-at-startup "hyprlock"
 spawn-at-startup "waybar"
 spawn-at-startup "zeditor"
 spawn-at-startup "firefox"
+spawn-at-startup "sphere"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"

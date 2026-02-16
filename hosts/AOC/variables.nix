@@ -8,7 +8,7 @@ let
     # grid = "3";
     compositor = "niri";
     alpha = "0.90";
-    basecolor = "000000";
+    basecolor = "111111";
     shader = "glitchy.glsl -e btop & disown";
     theme = "tokyo-night-dark";
     editor = "zeditor";

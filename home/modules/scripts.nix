@@ -51,6 +51,9 @@
       notify-send "keybinds" "$(cat ~/nix-config/files/bindings.txt)"  
     '')
   
+    (writeShellScriptBin "sphere" ''
+      ~/shader-desk/run.sh start
+    '')
     # xdg-user-dirs
   
   ];
