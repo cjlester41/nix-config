@@ -12,6 +12,8 @@
       url = "github:JakeStanger/ironbar";
       inputs.nixpkgs.follows = "nixpkgs";  
     };
+    
+    shader-desk.url = "github:cjlester41/shader-desk"; # "path:/home/cjlester/shader-desk";
     # wayggle-bg.url = "github:comavius/wayggle-bg";
     # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
 

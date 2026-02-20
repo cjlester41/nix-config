@@ -29,4 +29,7 @@
       "default.clock.max-quantum" = 64;
     };
   };
+  
+  hardware.cpu.intel.updateMicrocode = true;
+  
 }

@@ -12,6 +12,8 @@ with config.lib.stylix.colors.withHashtag;
       "ini"
       "toml"
       "json"
+      "make"
+      "NeoCMake"
     ];
     extraPackages = [ 
       pkgs.nixd 

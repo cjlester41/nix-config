@@ -1,11 +1,17 @@
-{ pkgs, vars, ... }:
+{ inputs, pkgs, vars, ... }:
 
+let
+  iwp = inputs.shader-desk.packages.${pkgs.system}.default;
+in
 {
+  
   environment.systemPackages = with pkgs; [
   
     bat blueman candy-icons dysk eza feh file-roller fzf gparted hyprlock hyprpolkitagent libnotify 
     mpv nautilus nix-output-monitor nmgui ntfs3g pciutils pavucontrol playerctl shaderbg sweet-folders 
     tuigreet udiskie usbutils vim wget wlogout wlr-randr xwayland-satellite zathura zoxide      # starship
+    
+    iwp 
    
     # advcpmv need alternative
     # zoxide # cd tool. implemented? 
