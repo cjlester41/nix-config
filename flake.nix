@@ -8,10 +8,14 @@
     };
     stylix.url = "github:nix-community/stylix";  
     niri-flake.url = "github:sodiboo/niri-flake";
-    ironbar = {
-      url = "github:JakeStanger/ironbar";
-      inputs.nixpkgs.follows = "nixpkgs";  
-    };
+    # ironbar = {
+    #   url = "github:JakeStanger/ironbar";
+    #   inputs.nixpkgs.follows = "nixpkgs";  
+    # };
+    # nirinit = {
+    #   url = "github:amaanq/nirinit";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     
     shader-desk.url = "github:cjlester41/shader-desk"; # "path:/home/cjlester/shader-desk";
     # wayggle-bg.url = "github:comavius/wayggle-bg";

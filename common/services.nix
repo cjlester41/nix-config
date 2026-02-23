@@ -1,6 +1,7 @@
-{ config, pkgs, vars, ... }:
+{ inputs, config, pkgs, vars, ... }:
 
 {
+  # imports = [ inputs.nirinit.nixosModules.nirinit ];
   services = {
 
     xserver.enable = true;
@@ -9,6 +10,7 @@
     udisks2.enable = true;
     gvfs.enable = true;
     envfs.enable = true;
+    # nirinit.enable = true;
   
     displayManager.sessionPackages = let 
       wayfire = #ln -sf ${cfg}.ini ${cfg} & wayfire -c ${cfg}

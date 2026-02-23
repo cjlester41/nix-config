@@ -1,8 +1,8 @@
 { inputs, pkgs, vars, ... }:
 
-let
-  iwp = inputs.shader-desk.packages.${pkgs.system}.default;
-in
+# let
+  # iwp = inputs.shader-desk.packages.${pkgs.system}.default;
+# in
 {
   
   environment.systemPackages = with pkgs; [
@@ -11,7 +11,7 @@ in
     mpv nautilus nix-output-monitor nmgui ntfs3g pciutils pavucontrol playerctl shaderbg sweet-folders 
     tuigreet udiskie usbutils vim wget wlogout wlr-randr xwayland-satellite zathura zoxide      # starship
     
-    iwp 
+    inputs.shader-desk.packages.${pkgs.system}.default 
    
     # advcpmv need alternative
     # zoxide # cd tool. implemented? 
@@ -54,6 +54,7 @@ in
         fr = "nh os switch /home/${vars.username}/nix-config";
         fu = "nh os switch /home/${vars.username}/nix-config --update";
         ns = "nix-shell";
+        nb = "nix build";
       };
     };
     dconf.enable = true;
