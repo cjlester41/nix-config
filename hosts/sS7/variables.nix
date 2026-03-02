@@ -6,6 +6,7 @@ let
     state-version = "25.05";
     
     compositor = "niri";
+    editor = "vscode";
     background = "wf-background";
     
   };

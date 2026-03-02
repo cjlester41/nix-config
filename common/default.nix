@@ -1,5 +1,7 @@
-{ ... }:
-
+{ vars, ... }:
+let 
+  is_sS7 = vars.hardware == "sS7";
+in
 {
   imports = [ 
     ./packages.nix 
@@ -26,7 +28,14 @@
     "d '/var/cache/tuigreet' - greeter greeter - -" #0755 greetd greetd -"
   ];
   
-  boot = {    
+  boot = if is_sS7 then {
+    loader.grub = {
+      enable = true;
+      efiSupport = false; # For UEFI
+      device = "/dev/sda";  # Use "nodev" for EFI
+      useOSProber = true; # Optional: for dual-booting
+    };
+  } else {
     initrd.systemd.enable = true;
     supportedFilesystems = ["ntfs"];  
     loader = {

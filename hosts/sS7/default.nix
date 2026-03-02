@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -10,7 +10,7 @@
     ../../profiles/development.nix
     ../../profiles/remotedev.nix 
     # ../../profiles/gaming.nix 
-    ../../profiles/amd-gpu.nix
+    # ../../profiles/amd-gpu.nix
   ];
   
   networking = {
@@ -24,9 +24,18 @@
   powerManagement.cpuFreqGovernor = "performance";
   
   hardware.uinput.enable = true;
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = [ pkgs.mesa.opencl ];
+    };
+  };
   
   boot = {
     kernelModules = [ "uinput" ];
     # kernelPackages = pkgs.linuxPackages_latest;
   };
+  
+  services.xserver.videoDrivers = [ "radeon" ];
 }
