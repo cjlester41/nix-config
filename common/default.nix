@@ -8,6 +8,7 @@ in
     ./services.nix 
     ./user.nix 
     ./stylix.nix 
+    ./zshell.nix
   ];
   
   # xdg.icons.enable = true;

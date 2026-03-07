@@ -1,8 +1,5 @@
 { inputs, pkgs, vars, ... }:
 
-# let
-  # iwp = inputs.shader-desk.packages.${pkgs.system}.default;
-# in
 {
   
   environment.systemPackages = with pkgs; [
@@ -11,7 +8,7 @@
     mpv nautilus nix-output-monitor nmgui ntfs3g pciutils pavucontrol playerctl shaderbg sweet-folders 
     tuigreet udiskie usbutils vim wget wlogout wlr-randr xwayland-satellite zathura zoxide      # starship
     
-    inputs.shader-desk.packages.${pkgs.system}.default 
+    # inputs.shader-desk.packages.${pkgs.system}.default 
    
     # advcpmv need alternative
     # zoxide # cd tool. implemented? 
@@ -21,7 +18,8 @@
 
   programs = {
 
-    # niri.enable = true;
+    dconf.enable = true;
+    nix-ld.enable = true;
     git = {
       enable = true;
       config = {
@@ -36,31 +34,7 @@
       enableZshIntegration = true;
       nix-direnv.enable = true;
     };
-    # starship.enable = true;
-    zsh = {
-      enable = true;
-      ohMyZsh.enable = true;
-      # enableCompletion = true;
-      # autosuggestions.enable = true;
-      syntaxHighlighting.enable = true;
-      # dotDir = "${config.users.users.${vars.username}.home}/zsh";
-      promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      # system.userActivationScripts.zshrc = "touch .zshrc";
-      shellInit = ''
-        fastfetch
-        dysk
-      ''; # zsh-newuser-install() { :; }
-      shellAliases = {
-        fr = "nh os switch /home/${vars.username}/nix-config";
-        fu = "nh os switch /home/${vars.username}/nix-config --update";
-        ns = "nix-shell";
-        nb = "nix build";
-      };
-    };
-    dconf.enable = true;
-    nix-ld.enable = true;
     gdk-pixbuf.modulePackages = [ pkgs.librsvg ]; #svg icons fix?
-
     nh = {
       enable = true;
       flake = "/home/${vars.username}/nix-config"; 
