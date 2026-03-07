@@ -8,7 +8,7 @@
     mpv nautilus nix-output-monitor nmgui ntfs3g pciutils pavucontrol playerctl shaderbg sweet-folders 
     tuigreet udiskie usbutils vim wget wlogout wlr-randr xwayland-satellite zathura zoxide      # starship
     
-    # inputs.shader-desk.packages.${pkgs.system}.default 
+    inputs.shader-desk.packages.${pkgs.system}.default 
    
     # advcpmv need alternative
     # zoxide # cd tool. implemented? 

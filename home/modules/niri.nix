@@ -9,7 +9,7 @@
   # home.packages = [ pkgs.niri-unstable ];
   programs.niri = {
     enable = true;
-    package = pkgs.niri-unstable;
+    package = pkgs.niri-stable;
     # settings = {
       # layout.gaps = 10;
     # };
