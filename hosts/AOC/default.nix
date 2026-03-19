@@ -4,12 +4,21 @@
   imports = [
     ./hardware-configuration.nix
     ./filesystems.nix
-    ../../common
     
+    ../../common
+    # ../../modules
+    
+    ../../profiles/maximalgui.nix
     ../../profiles/development.nix
     ../../profiles/remotedev.nix 
-    ../../profiles/work.nix 
-    ../../profiles/intel-gpu.nix 
+    ../../profiles/gpu/intel.nix 
+    ../../profiles/gpu/home-manager.nix 
+  ];
+  
+  environment.systemPackages = with pkgs; [
+  
+    # signal-desktop
+  
   ];
   
   networking.hostName = "NixOS-AOC";

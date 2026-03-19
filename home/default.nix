@@ -5,93 +5,93 @@ with config.lib.stylix.colors.withHashtag;
 {
   imports = [ 
     
-    ./modules/anyrun.nix
-    ./modules/my-menu.nix
-    ./modules/fastfetch  
-    ./modules/waybar.nix
+    # ./modules/anyrun.nix
+    # ./modules/my-menu.nix
+    # ./modules/fastfetch  
+    # ./modules/waybar.nix
     # ./modules/ironbar.nix
     # ./modules/kitty.nix
-    ./modules/hyprlock.nix
+    # ./modules/hyprlock.nix
     ./modules/firefox.nix
-    ./modules/niri.nix
+    # ./modules/niri.nix
     # ./modules/vscode
-    ./modules/scripts.nix
+    # ./modules/scripts.nix
     # ./modules/swaync.nix
     # ./wayfire
-    ./modules/wlogout
+    # ./modules/wlogout
     ./modules/zed.nix
     # ./modules/swayidle.nix
   ];
  
   # home.packges = with pkgs; [];
   
-  programs = {
+#   programs = {
 
-    alacritty = {
-      enable = true;
-      settings = {
-        window.decorations = "None";
-        window.padding = { x = 10; y = 10; };
-        font.normal.family = "JetBrainsMono Nerd Font";
-      };
-    };
-    btop = {
-      enable = true;
-      settings = {    
-        color_theme = "tokyo-night";
-        theme_background = false;
-      };
-    };
-  };
+#     # alacritty = {
+#     #   enable = true;
+#     #   settings = {
+#     #     window.decorations = "None";
+#     #     window.padding = { x = 10; y = 10; };
+#     #     font.normal.family = "JetBrainsMono Nerd Font";
+#     #   };
+#     # };
+#     btop = {
+#       enable = true;
+#       settings = {    
+#         color_theme = "tokyo-night";
+#         theme_background = false;
+#       };
+#     };
+#   };
 
-  stylix.targets = {
-    btop.enable = false;
-    gtk.extraCss = ''
-      headerbar,headerbar:backdrop {
-        background-image: none;
-        background-color: ${base00};
-      }
-    '';
-  };
+#   stylix.targets = {
+#     btop.enable = false;
+#     gtk.extraCss = ''
+#       headerbar,headerbar:backdrop {
+#         background-image: none;
+#         background-color: ${base00};
+#       }
+#     '';
+#   };
 
-  gtk = {
-    enable = true;
-    iconTheme = lib.mkForce {
-      name = "Sweet-Rainbow";
-      package = pkgs.sweet-folders;
-    };
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Ice";
-      size = 24;
-    };
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-  };
+#   gtk = {
+#     enable = true;
+#     iconTheme = lib.mkForce {
+#       name = "Sweet-Rainbow";
+#       package = pkgs.sweet-folders;
+#     };
+#     cursorTheme = {
+#       package = pkgs.bibata-cursors;
+#       name = "Bibata-Modern-Ice";
+#       size = 24;
+#     };
+#     gtk3.extraConfig = {
+#       gtk-application-prefer-dark-theme = 1;
+#     };
+#     gtk4.extraConfig = {
+#       gtk-application-prefer-dark-theme = 1;
+#     };
+#   };
   
-  # xdg.enable = true;
-  xdg = {
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-    };  
+#   # xdg.enable = true;
+#   xdg = {
+#     userDirs = {
+#       enable = true;
+#       createDirectories = true;
+#     };  
     
-    configFile."nix/nix.conf".text = ''
-      substituters = https://cache.nixos.org https://cache.nixos.org/ https://niri.cachix.org
-      trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964=
-    '';
+#     # configFile."nix/nix.conf".text = ''
+#     #   substituters = https://cache.nixos.org https://cache.nixos.org/ https://niri.cachix.org
+#     #   trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964=
+#     # '';
     
-    mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "application/pdf" = ["org.pwmt.zathura.desktop"];
-      };
-    };
-  };
+#     mimeApps = {
+#       enable = true;
+#       defaultApplications = {
+#         "application/pdf" = ["org.pwmt.zathura.desktop"];
+#       };
+#     };
+#   };
 }
 
 #   home-manager = {

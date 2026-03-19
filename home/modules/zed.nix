@@ -4,7 +4,7 @@ with config.lib.stylix.colors.withHashtag;
 
 {
   programs.zed-editor = {
-    enable = true;
+    # enable = true;
     extensions = [
       "nix"
       "kdl"

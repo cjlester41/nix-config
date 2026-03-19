@@ -1,23 +1,23 @@
 { pkgs, inputs, vars, ... }:
 
 {
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+  # imports = [ inputs.home-manager.nixosModules.home-manager ];
   
-  home-manager = {
-    # useUserPackages = true;
-    # useGlobalPkgs = true;
-    backupFileExtension = "bak";
-    extraSpecialArgs = {inherit inputs vars;};
-    users.${vars.username} = { 
-      # _module.args = {  };
-      imports = [../home];
-      home = {
-        username = "${vars.username}"; 
-        homeDirectory = "/home/${vars.username}";
-        stateVersion = vars.state-version;
-      };
-    };
-  };
+  # home-manager = {
+  #   # useUserPackages = true;
+  #   # useGlobalPkgs = true;
+  #   backupFileExtension = "bak";
+  #   extraSpecialArgs = {inherit inputs vars;};
+  #   users.${vars.username} = { 
+  #     # _module.args = {  };
+  #     imports = [../home];
+  #     home = {
+  #       username = "${vars.username}"; 
+  #       homeDirectory = "/home/${vars.username}";
+  #       stateVersion = vars.state-version;
+  #     };
+  #   };
+  # };
   
   # users.mutableUsers = true;
   users.users.${vars.username} = {

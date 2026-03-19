@@ -4,12 +4,23 @@
   
   environment.systemPackages = with pkgs; [
   
-    bat blueman candy-icons dysk eza feh file-roller fzf gparted hyprlock hyprpolkitagent libnotify 
-    mpv nautilus nix-output-monitor nmgui ntfs3g pciutils pavucontrol playerctl shaderbg sweet-folders 
-    tuigreet udiskie usbutils vim wget wlogout wlr-randr xwayland-satellite zathura zoxide      # starship
+    bat blueman dysk eza file-roller fzf  hyprpolkitagent libnotify 
+     nix-output-monitor  ntfs3g pciutils pavucontrol playerctl  
+    tuigreet udiskie usbutils wget  wlr-randr  zathura zoxide      # starship
     
-    inputs.shader-desk.packages.${pkgs.system}.default 
-   
+    neovim
+    # ((vim-full.override { }).customize{
+    #   name = "vim";
+    #   vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+    #     start = [ vim-nix vim-lastplace ]; # Plugins to load
+    #   };
+    #   vimrcConfig.customRC = ''
+    #     set nocompatible
+    #     syntax on
+    #     " Add custom settings here
+    #   '';
+    # })
+    
     # advcpmv need alternative
     # zoxide # cd tool. implemented? 
     # nvd #nix pkg diff

@@ -1,19 +1,27 @@
 { pkgs, vars, ...}:
 
 {
+  environment.systemPackages = with pkgs; [ # is this necessary?
+    zsh-powerlevel10k
+    meslo-lgs-nf # Recommended font for p10k icons
+  ];
+
   programs.zsh = {
     enable = true;
-    ohMyZsh.enable = true;
-    # enableCompletion = true;
-    # autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
-    # dotDir = "${config.users.users.${vars.username}.home}/zsh";
-    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    # system.userActivationScripts.zshrc = "touch .zshrc";
+    autosuggestions.enable = true;
+    promptInit = ''
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    '';
+    ohMyZsh = {
+      enable = true;
+      # plugins = [ "git" "sudo" "zoxide" ];
+    };
     shellInit = ''
-      fastfetch
       dysk
     ''; # zsh-newuser-install() { :; }
+    # interactiveShellInit = "source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh";
     shellAliases = {
       fr = "nh os switch /home/${vars.username}/nix-config";
       fu = "nh os switch /home/${vars.username}/nix-config --update";
@@ -23,4 +31,7 @@
       nb = "nix build";
     };
   };
+  fonts.packages = with pkgs; [
+    meslo-lgs-nf
+  ];
 }

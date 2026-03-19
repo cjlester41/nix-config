@@ -7,7 +7,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:nix-community/stylix";  
-    niri-flake.url = "github:sodiboo/niri-flake";
+    niri-wip = {
+      url = github:niri-wm/niri/wip/branch;
+      flake = false;
+    };
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
+      inputs.niri-unstable.follows = "niri-wip";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    crane.url = "github:ipetkov/crane";
+    # crane.inputs.nixpkgs.follows = "nixpkgs";
     # ironbar = {
     #   url = "github:JakeStanger/ironbar";
     #   inputs.nixpkgs.follows = "nixpkgs";  

@@ -4,7 +4,7 @@ with config.lib.stylix.colors.withHashtag;
 
 {  
   programs.firefox = {
-    enable = true;
+    # enable = true;
     profiles = {
       "${vars.username}.default" = { # 7u6dfvp7.default
         id = 0;

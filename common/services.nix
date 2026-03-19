@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, vars, ... }:
+{ config, pkgs, vars, ... }:
 
 {
   # imports = [ inputs.nirinit.nixosModules.nirinit ];
