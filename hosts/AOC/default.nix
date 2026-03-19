@@ -12,7 +12,7 @@
     ../../profiles/development.nix
     ../../profiles/remotedev.nix 
     ../../profiles/gpu/intel.nix 
-    ../../profiles/gpu/home-manager.nix 
+    # ../../profiles/home-manager.nix 
   ];
   
   environment.systemPackages = with pkgs; [

@@ -12,14 +12,14 @@ with config.lib.stylix.colors.withHashtag;
     # ./modules/ironbar.nix
     # ./modules/kitty.nix
     # ./modules/hyprlock.nix
-    ./modules/firefox.nix
+    # ./modules/firefox.nix
     # ./modules/niri.nix
     # ./modules/vscode
     # ./modules/scripts.nix
     # ./modules/swaync.nix
     # ./wayfire
     # ./modules/wlogout
-    ./modules/zed.nix
+    # ./modules/zed.nix
     # ./modules/swayidle.nix
   ];
  
